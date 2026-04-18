@@ -1,0 +1,2 @@
+comparison,distance_microbiome,distance_metabolome,r,p_value,n
+microbiome_vs_metabolome,Aitchison,Euclidean,0.23720896542258368,0.001,347

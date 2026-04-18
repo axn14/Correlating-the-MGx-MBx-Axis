@@ -1,0 +1,257 @@
+Genus,UniProt_acc,Protein_name,EC,Organism,Reviewed
+acetatifactor,A0A2K4ZEE8,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Acetatifactor muris,unreviewed
+acetatifactor,A0A9D1R520,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Acetatifactor stercoripullorum,unreviewed
+acetatifactor,A0A2K4ZBX4,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Acetatifactor muris,unreviewed
+acetatifactor,A0A2K4ZFT1,Spermine/spermidine acetyltransferase (EC 2.3.1.57),2.3.1.57,Acetatifactor muris,unreviewed
+acetatifactor,A0A9D1R4H8,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Candidatus Acetatifactor stercoripullorum,unreviewed
+acetatifactor,A0A2K4ZFA0,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Acetatifactor muris,unreviewed
+acetatifactor,A0A2K4ZF82,N-carbamoyl-D-amino acid hydrolase (EC 3.5.1.77),3.5.1.77,Acetatifactor muris,unreviewed
+acetatifactor,A0A2K4ZF31,Alanine racemase (EC 5.1.1.1),5.1.1.1,Acetatifactor muris,unreviewed
+acetatifactor,A0A9D1R2K0,Alanine racemase (EC 5.1.1.1),5.1.1.1,Candidatus Acetatifactor stercoripullorum,unreviewed
+acetatifactor,A0A9D1R449,Alanine racemase (EC 5.1.1.1),5.1.1.1,Candidatus Acetatifactor stercoripullorum,unreviewed
+acetatifactor,A0A2K4ZEE0,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Acetatifactor muris,unreviewed
+acetatifactor,A0A2K4ZDD1,Spermidine synthase,,Acetatifactor muris,unreviewed
+acutalibacter,A0A9D2MUQ5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Acutalibacter pullicola,unreviewed
+acutalibacter,A0A9D2C0E1,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Acutalibacter pullistercoris,unreviewed
+acutalibacter,A0A1Z2XTD5,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Acutalibacter muris,unreviewed
+acutalibacter,A0A9D1YE52,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Candidatus Acutalibacter pullistercoris,unreviewed
+acutalibacter,A0A9D2MU19,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Candidatus Acutalibacter pullicola,unreviewed
+acutalibacter,A0A9D2MVF2,Agmatinase (EC 3.5.3.11),3.5.3.11,Candidatus Acutalibacter pullicola,unreviewed
+acutalibacter,A0A9D2BZI6,Agmatinase (EC 3.5.3.11),3.5.3.11,Candidatus Acutalibacter pullistercoris,unreviewed
+acutalibacter,A0A1Z2XQV6,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Acutalibacter muris,unreviewed
+acutalibacter,A0A9D1YE61,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Candidatus Acutalibacter pullistercoris,unreviewed
+acutalibacter,A0A9D2RY52,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Candidatus Acutalibacter ornithocaccae,unreviewed
+acutalibacter,A0A9D2RYX0,Spermidine synthase (EC 2.5.1.16),2.5.1.16,Candidatus Acutalibacter ornithocaccae,unreviewed
+akkermansia,A0A1C7PEH7,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Akkermansia glycaniphila,unreviewed
+akkermansia,A0A2N8IUE4,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Akkermansia muciniphila,unreviewed
+akkermansia,A0AAE6TBC1,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Akkermansia massiliensis,unreviewed
+akkermansia,A0A2N8HDD8,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Akkermansia muciniphila,unreviewed
+akkermansia,A0A6N2USK6,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Akkermansia muciniphila,unreviewed
+akkermansia,A0A1C7P8V6,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Akkermansia glycaniphila,unreviewed
+akkermansia,A0A2N8HFC6,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Akkermansia muciniphila,unreviewed
+akkermansia,A0ABN6QJT4,Spermidine synthase,,Akkermansia biwaensis,unreviewed
+akkermansia,A0A9D2AI68,Spermidine synthase,,Candidatus Akkermansia intestinigallinarum,unreviewed
+alistipes,A0A1H4AL53,Acetylornithine/succinyldiaminopimelate/putrescine aminotransferase,,Alistipes timonensis JC136,unreviewed
+alistipes,A0AA37KUF7,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Alistipes finegoldii,unreviewed
+alistipes,A0A4Y1WSC7,Agmatinase,,Alistipes communis,unreviewed
+alistipes,A0A5B3GS82,Carboxynorspermidine/carboxyspermidine decarboxylase (EC 4.1.1.96),4.1.1.96,Alistipes shahii,unreviewed
+alistipes,A0A9P3ZIB9,Carboxynorspermidine/carboxyspermidine decarboxylase (EC 4.1.1.96),4.1.1.96,Alistipes onderdonkii,unreviewed
+alistipes,A0A4Y1X1H2,Agmatinase,,Alistipes dispar,unreviewed
+alistipes,A0A5B3H167,Agmatinase family protein,,Alistipes onderdonkii,unreviewed
+alistipes,A0A1Y3QTA2,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Alistipes onderdonkii,unreviewed
+alistipes,G5HB16,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Alistipes indistinctus YIT 12060,unreviewed
+alistipes,A0ABR7CNE8,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Alistipes hominis,unreviewed
+alistipes,A0ABY5V190,S-adenosylmethionine decarboxylase,,Alistipes ihumii AP11,unreviewed
+allisonella,A0A1G5UXE6,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5V1P7,Putrescine transporter,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5UY70,Putrescine transporter,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5WQI1,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5UY31,Spermidine synthase,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5VEF2,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5VC16,N-carbamoylputrescine amidase,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5UVV2,Ornithine decarboxylase,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5UVK8,Ornithine decarboxylase,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5V427,Ornithine decarboxylase,,Allisonella histaminiformans,unreviewed
+allisonella,A0A1G5VDD1,S-adenosylmethionine decarboxylase,,Allisonella histaminiformans,unreviewed
+anaeroglobus,G9YGR2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Anaeroglobus geminatus F0357,unreviewed
+anaeroglobus,G9YGH7,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Anaeroglobus geminatus F0357,unreviewed
+anaeroglobus,G9YJH4,Putrescine-ornithine antiporter domain protein,,Anaeroglobus geminatus F0357,unreviewed
+anaeroglobus,G9YFN8,S-adenosylmethionine decarboxylase proenzyme,,Anaeroglobus geminatus F0357,unreviewed
+anaeroglobus,G9YHQ0,Alanine racemase (EC 5.1.1.1),5.1.1.1,Anaeroglobus geminatus F0357,unreviewed
+anaeroglobus,G9YFR2,Putative diaminopimelate decarboxylase,,Anaeroglobus geminatus F0357,unreviewed
+anaeroglobus,G9YJB6,Putative arginine 2-monooxygenase,,Anaeroglobus geminatus F0357,unreviewed
+anaerotignum,A0A136WF23,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Anaerotignum neopropionicum,unreviewed
+anaerotignum,A0A0X8VD57,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Anaerotignum propionicum DSM 1682,unreviewed
+anaerotignum,A0A401LD05,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Anaerotignum faecicola,unreviewed
+anaerotignum,A0A136WF81,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Anaerotignum neopropionicum,unreviewed
+anaerotignum,A0A136WEX3,Agmatinase (EC 3.5.3.11),3.5.3.11,Anaerotignum neopropionicum,unreviewed
+anaerotignum,A0A0X8VCP0,Agmatinase (EC 3.5.3.11),3.5.3.11,Anaerotignum propionicum DSM 1682,unreviewed
+anaerotignum,A0A136WD99,Diaminopimelate decarboxylase (EC 4.1.1.20),4.1.1.20,Anaerotignum neopropionicum,unreviewed
+anaerotignum,A0A0X8VD54,Diaminopimelate decarboxylase (EC 4.1.1.20),4.1.1.20,Anaerotignum propionicum DSM 1682,unreviewed
+anaerotignum,A0A1M6W4J0,Arginine/lysine/ornithine decarboxylase,,Anaerotignum lactatifermentans DSM 14214,unreviewed
+anaerotignum,A0A136WDT0,Mycothiol acetyltransferase (EC 2.3.1.189),2.3.1.189,Anaerotignum neopropionicum,unreviewed
+bacteroides,Q64SQ6,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Bacteroides fragilis (strain YCH46),reviewed
+bacteroides,Q5LBT4,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Bacteroides fragilis (strain ATCC 25285 / DSM 2151 / CCUG 4856 / JCM 11019 / LMG 10263 / NCTC 9343 / Onslow / VPI 2553 / EN-2),reviewed
+bacteroides,Q8A883,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Bacteroides thetaiotaomicron (strain ATCC 29148 / DSM 2079 / JCM 5827 / CCUG 10774 / NCTC 10582 / VPI-5482 / E50),reviewed
+bacteroides,A0A6I0LN63,Spermine synthase,,Bacteroides uniformis,unreviewed
+bacteroides,B7AP11,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,[Bacteroides] pectinophilus ATCC 43243,unreviewed
+bacteroides,A0AAW5F1D0,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Clostridium symbiosum (Bacteroides symbiosus),unreviewed
+bacteroides,Q64ZT8,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Bacteroides fragilis (strain YCH46),reviewed
+bacteroides,A6L012,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Phocaeicola vulgatus (strain ATCC 8482 / DSM 1447 / JCM 5826 / CCUG 4940 / NBRC 14291 / NCTC 11154) (Bacteroides vulgatus),reviewed
+bacteroides,Q5LIQ3,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Bacteroides fragilis (strain ATCC 25285 / DSM 2151 / CCUG 4856 / JCM 11019 / LMG 10263 / NCTC 9343 / Onslow / VPI 2553 / EN-2),reviewed
+bacteroides,Q8A800,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Bacteroides thetaiotaomicron (strain ATCC 29148 / DSM 2079 / JCM 5827 / CCUG 10774 / NCTC 10582 / VPI-5482 / E50),reviewed
+bacteroides,Q8A2B1,Biosynthetic arginine decarboxylase (ADC) (EC 4.1.1.19),4.1.1.19,Bacteroides thetaiotaomicron (strain ATCC 29148 / DSM 2079 / JCM 5827 / CCUG 10774 / NCTC 10582 / VPI-5482 / E50),reviewed
+bacteroides,A0AAW6AUK7,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Clostridium symbiosum (Bacteroides symbiosus),unreviewed
+blautia,A0A2Z4UCB8,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia argi,unreviewed
+blautia,A0A564W589,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia luti,unreviewed
+blautia,A0ABR7FEW2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia celeris,unreviewed
+blautia,A0A414EDW9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia obeum,unreviewed
+blautia,A0AAW4WBM2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia fusiformis,unreviewed
+blautia,A0A173ZMJ8,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia obeum,unreviewed
+blautia,A0A174MHH5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia wexlerae,unreviewed
+blautia,A0A173Y104,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Blautia wexlerae,unreviewed
+blautia,A0A173ZJZ8,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Blautia obeum,unreviewed
+blautia,A0A174EKI0,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Blautia obeum,unreviewed
+blautia,A0A1C7I8G8,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Blautia pseudococcoides,unreviewed
+blautia,A0A7G5MSH5,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Blautia producta,unreviewed
+blautia,A0A4P6M428,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Blautia producta,unreviewed
+blautia,A0A8I0A9A5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia segnis,unreviewed
+blautia,A0ABR7I2J4,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia intestinalis,unreviewed
+blautia,A0ABV1CRJ2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Blautia acetigignens,unreviewed
+cag-170,,NO HIT,,,
+cag-177,,NO HIT,,,
+cag-41,,NO HIT,,,
+cag-83,,NO HIT,,,
+clostridium,Q0SRL2,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Clostridium perfringens (strain SM101 / Type A),reviewed
+clostridium,Q0TNZ3,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Clostridium perfringens (strain ATCC 13124 / DSM 756 / JCM 1290 / NCIMB 6125 / NCTC 8237 / Type A),reviewed
+clostridium,A6M1N9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Clostridium beijerinckii (strain ATCC 51743 / NCIMB 8052) (Clostridium acetobutylicum),reviewed
+clostridium,Q8XMY8,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Clostridium perfringens (strain 13 / Type A),reviewed
+clostridium,B9E5S1,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Clostridium kluyveri (strain NBRC 12016),reviewed
+clostridium,Q891W4,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Clostridium tetani (strain Massachusetts / E88),reviewed
+clostridium,Q893K6,Formimidoylglutamase (EC 3.5.3.8) (Formiminoglutamase) (Formiminoglutamate hydrolase),3.5.3.8,Clostridium tetani (strain Massachusetts / E88),reviewed
+clostridium,A0A0B5QKC9,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Clostridium beijerinckii (Clostridium MP),unreviewed
+clostridium,A0AB74VL93,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Clostridium beijerinckii (Clostridium MP),unreviewed
+clostridium,A0A343JEK7,ornithine decarboxylase (EC 4.1.1.17),4.1.1.17,Clostridium isatidis,unreviewed
+clostridium,A0ABD4RGD0,ornithine decarboxylase (EC 4.1.1.17),4.1.1.17,Clostridium chauvoei,unreviewed
+clostridium,N9Y886,ornithine decarboxylase (EC 4.1.1.17),4.1.1.17,Clostridium thermobutyricum,unreviewed
+collinsella,A0A174MEF5,Putrescine carbamoyltransferase (EC 2.1.3.6),2.1.3.6,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1IP37,Putrescine carbamoyltransferase (EC 2.1.3.6),2.1.3.6,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1IWS7,Putrescine carbamoyltransferase (EC 2.1.3.6),2.1.3.6,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1IMK9,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1IUL1,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Collinsella aerofaciens,unreviewed
+collinsella,A0A6N9JIX5,Spermidine synthase,,Collinsella aerofaciens,unreviewed
+collinsella,A0A1Y3Y1K6,PABS domain-containing protein,,[Collinsella] massiliensis,unreviewed
+collinsella,A0A5K1JAS5,Polyamine aminopropyltransferase (EC 2.5.1.-),2.5.1.-,Collinsella intestinalis,unreviewed
+collinsella,A0A6N3CZ30,Spermidine synthase (EC 2.5.1.16),2.5.1.16,Collinsella intestinalis,unreviewed
+collinsella,A0A2D1TXR2,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1IPT9,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Collinsella aerofaciens,unreviewed
+collinsella,A0A6L8RHB9,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Collinsella aerofaciens,unreviewed
+collinsella,G1WFR2,Diaminopimelate decarboxylase,,Collinsella tanakaei YIT 12063,unreviewed
+collinsella,A0A6N2Z0W0,4-hydroxy-tetrahydrodipicolinate synthase (HTPA synthase) (EC 4.3.3.7),4.3.3.7,Collinsella aerofaciens,unreviewed
+collinsella,A0A2D1TV96,4-hydroxy-tetrahydrodipicolinate synthase (HTPA synthase) (EC 4.3.3.7),4.3.3.7,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1JDT6,Polyamine aminopropyltransferase (EC 2.5.1.104),2.5.1.104,Collinsella aerofaciens,unreviewed
+collinsella,A0A5K1IZX8,Polyamine aminopropyltransferase (EC 2.5.1.104),2.5.1.104,Collinsella aerofaciens,unreviewed
+collinsella,A0A2D1TV28,Spermidine synthase,,Collinsella aerofaciens,unreviewed
+collinsella,A0A6L8RHP6,Spermidine synthase,,Collinsella aerofaciens,unreviewed
+collinsella,A0A414NE58,Spermidine synthase,,Collinsella intestinalis,unreviewed
+dialister,A0A1B3WEI1,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Dialister pneumosintes,unreviewed
+dialister,A0A8D5A343,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Dialister hominis,unreviewed
+dialister,F2BWF5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Dialister micraerophilus DSM 19965,unreviewed
+dialister,A0A1B3WC97,ornithine decarboxylase (EC 4.1.1.17),4.1.1.17,Dialister pneumosintes,unreviewed
+dialister,C9LR32,ornithine decarboxylase (EC 4.1.1.17),4.1.1.17,Dialister invisus DSM 15470,unreviewed
+dialister,H1CXP9,ornithine decarboxylase (EC 4.1.1.17),4.1.1.17,Dialister succinatiphilus YIT 11850,unreviewed
+dysosmobacter,A0A4D7ARC6,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Dysosmobacter welbionis,unreviewed
+dysosmobacter,A0A923MGG1,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Dysosmobacter segnis,unreviewed
+dysosmobacter,A0ABS6FAN8,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Dysosmobacter acutus,unreviewed
+dysosmobacter,A0A4D7AUP1,GNAT family N-acetyltransferase,,Dysosmobacter welbionis,unreviewed
+dysosmobacter,A0A923MHN2,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Dysosmobacter segnis,unreviewed
+dysosmobacter,A0A4D7ASQ5,Alanine racemase (EC 5.1.1.1),5.1.1.1,Dysosmobacter welbionis,unreviewed
+dysosmobacter,A0A4D7AFZ0,Alanine racemase (EC 5.1.1.1),5.1.1.1,Dysosmobacter welbionis,unreviewed
+enterenecus,A0A9D1CGB5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D0YSX5,ABC transporter ATP-binding protein,,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D0YRZ0,ABC transporter substrate-binding protein,,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D1CG09,Carboxynorspermidine decarboxylase (EC 4.1.1.96),4.1.1.96,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D0YRI1,Agmatine deiminase family protein,,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D1CGY8,Agmatinase (EC 3.5.3.11),3.5.3.11,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D0YTB8,Alanine racemase (EC 5.1.1.1),5.1.1.1,Candidatus Enterenecus faecium,unreviewed
+enterenecus,A0A9D1CFP8,Diaminopimelate decarboxylase,,Candidatus Enterenecus faecium,unreviewed
+enterocloster,A0AAP9M304,Putrescine carbamoyltransferase (PTC) (PTCase) (EC 2.1.3.6) (Putrescine transcarbamoylase) (Putrescine transcarbamylase),2.1.3.6,Enterocloster clostridioformis,unreviewed
+enterocloster,A0AAW5C621,Putrescine carbamoyltransferase (PTC) (PTCase) (EC 2.1.3.6) (Putrescine transcarbamoylase) (Putrescine transcarbamylase),2.1.3.6,Enterocloster aldenensis,unreviewed
+enterocloster,A0A174JWW8,Putrescine carbamoyltransferase (PTC) (PTCase) (EC 2.1.3.6) (Putrescine transcarbamoylase) (Putrescine transcarbamylase),2.1.3.6,Enterocloster clostridioformis,unreviewed
+enterocloster,A0A414B0M9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Enterocloster bolteae,unreviewed
+enterocloster,A0A6N2W0E6,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Enterocloster bolteae,unreviewed
+enterocloster,A0A412ZFL7,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Enterocloster bolteae,unreviewed
+enterocloster,A0A9D2N2F9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Enterocloster excrementipullorum,unreviewed
+enterocloster,A0A9D2RK57,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Enterocloster faecavium,unreviewed
+enterocloster,A0A9D2PWF8,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Candidatus Enterocloster excrementigallinarum,unreviewed
+enterocloster,A0AAP9S8A3,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Enterocloster clostridioformis,unreviewed
+enterocloster,A0A174K4Y5,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Enterocloster clostridioformis,unreviewed
+enterocloster,A0A2X2TR18,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Enterocloster clostridioformis,unreviewed
+enterocloster,A0A2X2UM50,Diaminopimelate decarboxylase (Orn/DAP/Arg decarboxylase 2 (EC 4.1.1.20)),4.1.1.20,Enterocloster clostridioformis,unreviewed
+enterocloster,A0A174HI19,Orn/DAP/Arg decarboxylase 2 (EC 4.1.1.20),4.1.1.20,Enterocloster clostridioformis,unreviewed
+enterocloster,A8S4F7,Diaminopimelate decarboxylase,,Enterocloster bolteae (strain ATCC BAA-613 / DSM 15670 / CCUG 46953 / JCM 12243 / WAL 16351) (Clostridium bolteae),unreviewed
+er4,,NO HIT,,,
+faecalibacterium,A0A291T8S9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A564U5E5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A2A6ZQ43,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A174A3V0,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium hattorii,unreviewed
+faecalibacterium,A0A2A7B2T3,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A173USH2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0ABU3TZF5,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Faecalibacterium wellingii,unreviewed
+faecalibacterium,A0AB35Y0P9,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Faecalibacterium wellingii,unreviewed
+faecalibacterium,A0AA37MYP2,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Faecalibacterium gallinarum,unreviewed
+faecalibacterium,A0A291T9S9,Alanine racemase (EC 5.1.1.1),5.1.1.1,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A173S9X3,Alanine racemase (EC 5.1.1.1),5.1.1.1,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A564T414,Alanine racemase (EC 5.1.1.1),5.1.1.1,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0A2A7BE38,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium prausnitzii,unreviewed
+faecalibacterium,A0AB35Y519,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium taiwanense,unreviewed
+faecalibacterium,A0ABV1AUP5,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalibacterium tardum,unreviewed
+faecalimonas,A0A4V6NYG4,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4R3JQJ0,Spermidine/putrescine ABC transporter permease (Spermidine/putrescine transport system permease protein),,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4R3JQL3,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4R3J6M7,S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain],4.1.1.50,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4R3J7Q0,Agmatinase,,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4R3JQU7,Alanine racemase (EC 5.1.1.1),5.1.1.1,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4R3J5F5,Arginine decarboxylase (Arginine/lysine/ornithine decarboxylase),,Faecalimonas umbilicata,unreviewed
+faecalimonas,A0A4V2UQ79,Arginine decarboxylase (Arginine/lysine/ornithine decarboxylase),,Faecalimonas umbilicata,unreviewed
+fusobacterium,Q8RI39,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Fusobacterium nucleatum subsp. nucleatum (strain ATCC 25586 / DSM 15643 / BCRC 10681 / CIP 101130 / JCM 8532 / KCTC 2640 / LMG 13131 / VPI 4355),reviewed
+fusobacterium,Q8RGC8,Fe(3+) ions import ATP-binding protein FbpC (EC 7.2.2.7),7.2.2.7,Fusobacterium nucleatum subsp. nucleatum (strain ATCC 25586 / DSM 15643 / BCRC 10681 / CIP 101130 / JCM 8532 / KCTC 2640 / LMG 13131 / VPI 4355),reviewed
+fusobacterium,Q8RFN0,Formimidoylglutamase (EC 3.5.3.8) (Formiminoglutamase) (Formiminoglutamate hydrolase),3.5.3.8,Fusobacterium nucleatum subsp. nucleatum (strain ATCC 25586 / DSM 15643 / BCRC 10681 / CIP 101130 / JCM 8532 / KCTC 2640 / LMG 13131 / VPI 4355),reviewed
+fusobacterium,A0A377GVZ3,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Fusobacterium necrogenes,unreviewed
+fusobacterium,A0ABS2G142,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Fusobacterium mortiferum,unreviewed
+fusobacterium,A0A414PTY8,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Fusobacterium mortiferum,unreviewed
+fusobacterium,A0A7G9GY40,Polyamine export protein,,Fusobacterium hominis,unreviewed
+fusobacterium,A0AAX2JB69,Polyamine export protein,,Fusobacterium ulcerans,unreviewed
+fusobacterium,A0A377GWX5,Polyamine export protein,,Fusobacterium necrogenes,unreviewed
+fusobacterium,A0AAX1TRQ4,Arginine/agmatine antiporter,,Fusobacterium ulcerans,unreviewed
+fusobacterium,A0AAX3MD57,Formimidoylglutamase (EC 3.5.3.8) (Formiminoglutamase) (Formiminoglutamate hydrolase),3.5.3.8,Fusobacterium nucleatum,unreviewed
+fusobacterium,A0A377GZ90,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Fusobacterium necrogenes,unreviewed
+fusobacterium,A0A7G9GYN2,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Fusobacterium hominis,unreviewed
+fusobacterium,A0A414PWI8,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Fusobacterium mortiferum,unreviewed
+intestinimonas,A0A0S2W1X6,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Intestinimonas butyriciproducens,unreviewed
+intestinimonas,A0A2U1CD49,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Intestinimonas butyriciproducens,unreviewed
+intestinimonas,A0A9D2P1E5,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Candidatus Intestinimonas pullistercoris,unreviewed
+intestinimonas,A0A0S2W0H7,Diamine N-acetyltransferase (Spermine/spermidine acetyltransferase),,Intestinimonas butyriciproducens,unreviewed
+intestinimonas,A0A9D1Z542,GNAT family N-acetyltransferase,,Candidatus Intestinimonas merdavium,unreviewed
+intestinimonas,A0A0S2W038,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Intestinimonas butyriciproducens,unreviewed
+intestinimonas,A0A9D1Z655,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Candidatus Intestinimonas merdavium,unreviewed
+intestinimonas,A0AAW5JKM0,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Intestinimonas massiliensis (ex Afouda et al. 2020),unreviewed
+lachnospira,C4Z1Q7,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Lachnospira eligens (strain ATCC 27750 / DSM 3376 / VPI C15-48 / C15-B4) (Eubacterium eligens),reviewed
+lachnospira,A0A1G9Y666,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Lachnospira pectinoschiza,unreviewed
+lachnospira,A0A1H5WP73,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Lachnospira multipara,unreviewed
+lachnospira,A0ABV1H712,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Lachnospira intestinalis,unreviewed
+lachnospira,A0A174Z9Y2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Lachnospira eligens,unreviewed
+lachnospira,A0A174YR24,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Lachnospira eligens,unreviewed
+lachnospira,A0A1H5WP93,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Lachnospira multipara,unreviewed
+lachnospira,A0A1G9Y8C5,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Lachnospira pectinoschiza,unreviewed
+lachnospira,A0A174YZE7,Diaminopimelate decarboxylase (EC 4.1.1.20),4.1.1.20,Lachnospira eligens,unreviewed
+lachnospira,A0A1H0A9H6,Arginine/lysine/ornithine decarboxylase,,Lachnospira pectinoschiza,unreviewed
+lachnospira,A0A1H5WP86,Arginine/lysine/ornithine decarboxylase,,Lachnospira multipara,unreviewed
+lachnospira,A0ABV1GRN6,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Lachnospira intestinalis,unreviewed
+lawsonibacter,A0A8J6JDD5,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Lawsonibacter hominis,unreviewed
+lawsonibacter,A0A8J6M9R6,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Lawsonibacter hominis,unreviewed
+lawsonibacter,A0A8J6JEU1,Spermidine/putrescine import ATP-binding protein PotA (EC 7.6.2.11),7.6.2.11,Lawsonibacter faecis,unreviewed
+lawsonibacter,A0A8J6JGH2,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Lawsonibacter hominis,unreviewed
+lawsonibacter,A0A8J6JDP3,Alanine racemase (EC 5.1.1.1),5.1.1.1,Lawsonibacter hominis,unreviewed
+lawsonibacter,A0A8J6MDU3,Alanine racemase (EC 5.1.1.1),5.1.1.1,Lawsonibacter faecis,unreviewed
+ruminococcus,A0A1H7PUK2,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Ruminococcus albus,unreviewed
+ruminococcus,A0A1M7IMQ3,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Ruminococcus flavefaciens,unreviewed
+ruminococcus,A0A1H6IMQ9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Ruminococcus flavefaciens,unreviewed
+ruminococcus,A0A174Y036,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,[Ruminococcus] torques,unreviewed
+ruminococcus,A0A3E4LPT7,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,[Ruminococcus] lactaris,unreviewed
+ruminococcus,A0A414P1F9,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,[Ruminococcus] lactaris,unreviewed
+ruminococcus,A0A1I1EGR0,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Ruminococcus albus,unreviewed
+ruminococcus,A0A1K1M9S0,Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16),2.5.1.16,Ruminococcus flavefaciens,unreviewed
+ruminococcus,A0ABY5VLA4,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Ruminococcus gauvreauii,unreviewed
+ruminococcus,A0ABR7HIS0,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Ruminococcus intestinalis,unreviewed
+ruminococcus,A0ABT0NJV6,Putative agmatine deiminase (EC 3.5.3.12) (Agmatine iminohydrolase),3.5.3.12,Ruminococcus bromii,unreviewed
+ruminococcus,A0A1H6HU08,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Ruminococcus flavefaciens,unreviewed
+ruminococcus,A0A1K1LRN9,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Ruminococcus flavefaciens,unreviewed
+ruminococcus,A0A1M7H931,Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20),4.1.1.20,Ruminococcus flavefaciens,unreviewed
+tidjanibacter,A0A9D2ILB9,Agmatinase family protein,,Candidatus Tidjanibacter faecipullorum,unreviewed
+tidjanibacter,A0A9D2IKM3,Arginine decarboxylase,,Candidatus Tidjanibacter faecipullorum,unreviewed
+tidjanibacter,A0A9D2DEW3,Carboxynorspermidine/carboxyspermidine decarboxylase (EC 4.1.1.96),4.1.1.96,Candidatus Tidjanibacter faecipullorum,unreviewed
+tidjanibacter,A0A9D2IKU7,GNAT family N-acetyltransferase,,Candidatus Tidjanibacter faecipullorum,unreviewed
+tidjanibacter,A0A9D2DCY5,Alanine racemase (EC 5.1.1.1),5.1.1.1,Candidatus Tidjanibacter faecipullorum,unreviewed
+umgs856,,NO HIT,,,
+ventricola,,NO HIT,,,

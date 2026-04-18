@@ -1,0 +1,51 @@
+kegg_id,name,pathway,significant
+C07151_Metformin,C07151,Other,True
+C00423_trans-Cinnamate,C00423,Other,True
+C00122_Fumarate,C00122,Other,True
+C01042_N-Acetylaspartate,C01042,Other,False
+C01959_Taurocyamine,C01959,Other,False
+C08262_Isovalerate,C08262,Other,False
+C00024_Acetyl CoA,C00024,Other,False
+C00346_Ethanolamine phosphate,C00346,Other,False
+C01879_5-Oxoproline,C01879,Other,False
+C16741_5-Hydroxylysine,C16741,Other,False
+C08277_Sebacate,C08277,Other,False
+C01015_Hydroxyproline,C01015,Other,True
+C02037_Gly-Gly,C02037,Other,False
+_DCA,_DCA,Other,False
+C00879_Mucate,C00879,Other,False
+C01551_Allantoin,C01551,Other,False
+C00630_Isobutyryl CoA,C00630,Other,False
+C02378_6-Aminohexanoate,C02378,Other,False
+C00086_Urea,C00086,Other,False
+C01425_Glu-Glu,C01425,Other,False
+C00491_Cystine,C00491,Other,False
+C05332_Phenethylamine,C05332,Other,False
+C01118_o-Succinylhomoserine,C01118,Other,False
+C00245_Taurine,C00245,Other,False
+C02714_N-Acetylputrescine,C02714,Other,False
+C02155_Gly-Leu,C02155,Other,False
+C09815_Benzamide,C09815,Other,False
+C00191_Glucuronate,C00191,Other,False
+3-Indoxyl sulfate,3-Indoxyl sulfate,Other,False
+C01104_Trimethylamine N-oxide,C01104,Other,False
+C02230_3-Methylguanine,C02230,Other,False
+C00334_GABA,C00334,Other,False
+C00311_Isocitrate,C00311,Other,False
+C02679_Dodecanoate,C02679,Other,False
+C00003_NAD+,C00003,Other,False
+C00092_G6P,C00092,Other,False
+C00123_Leu,C00123,Amino Acid,False
+C02710_N-Acetylleucine,C02710,Other,False
+C05984_2-Hydroxybutyrate,C05984,Other,False
+C03264_2-Hydroxy-4-methylpentanoate,C03264,Other,False
+C00407_Ile,C00407,Amino Acid,False
+C00383_Malonate,C00383,Other,False
+C00186_Lactate,C00186,Other,False
+C00449_Saccharopine,C00449,Other,False
+C00255_Riboflavin,C00255,Other,False
+C00785_Urocanate,C00785,Other,False
+C11118_1-Methyl-2-pyrrolidinone,C11118,Other,False
+C17714_Heptanoate,C17714,Other,False
+C00417_cis-Aconitate,C00417,Other,False
+C00314_Pyridoxine,C00314,Other,False

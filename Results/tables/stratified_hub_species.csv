@@ -1,0 +1,226 @@
+Group,Species,N_polyamine_connections,Degree,Connected_polyamines
+Advanced_CRC,CAG-83 sp001916855,1,1,C00134_Putrescine
+Advanced_CRC,UBA1417 sp003531055,1,1,C00134_Putrescine
+Advanced_CRC,Alistipes communis,1,1,C00134_Putrescine
+Advanced_CRC,CAG-83 sp000431575,1,1,C00134_Putrescine
+Advanced_CRC,CAG-83 sp000435975,1,1,C00134_Putrescine
+Advanced_CRC,UMGS856 sp900546265,1,1,C00134_Putrescine
+Early_CRC,Sutterella wadsworthensis,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Early_CRC,Faecalibacterium sp900539885,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Early_CRC,Faecalibacterium prausnitzii_F,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Early_CRC,Onthomonas sp900758315,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Early_CRC,Klebsiella oxytoca,2,2,"C01672_Cadaverine, C00062_Arg"
+Early_CRC,UMGS856 sp900546265,2,2,"C00134_Putrescine, C00062_Arg"
+Early_CRC,Fimenecus sp000432435,1,1,C00134_Putrescine
+Early_CRC,Sutterella wadsworthensis_A,1,1,C01672_Cadaverine
+Early_CRC,ER4 sp000765235,1,1,C00134_Putrescine
+Early_CRC,Ruminococcus_E bromii_B,1,1,C00134_Putrescine
+Early_CRC,Acetatifactor sp900066565,1,1,C00134_Putrescine
+Early_CRC,Faecalibacterium prausnitzii_D,1,1,C00134_Putrescine
+Early_CRC,Bifidobacterium longum,1,1,C00315_Spermidine
+Early_CRC,Acetatifactor intestinalis,1,1,C00134_Putrescine
+Early_CRC,Gemmiger qucibialis,1,1,C00134_Putrescine
+Early_CRC,Faecalibacterium sp900539945,1,1,C00134_Putrescine
+Early_CRC,Ruminococcus_E bromii,1,1,C00134_Putrescine
+Early_CRC,Streptococcus salivarius,1,1,C00315_Spermidine
+Early_CRC,Dysosmobacter sp001916835,1,1,C00134_Putrescine
+Early_CRC,Ruminococcus_E sp003526955,1,1,C00134_Putrescine
+Early_CRC,Eisenbergiella sp900066775,1,1,C00134_Putrescine
+Early_CRC,Alistipes communis,1,1,C00134_Putrescine
+Early_CRC,CAG-83 sp000431575,1,1,C00134_Putrescine
+Early_CRC,Acetatifactor sp003447295,1,1,C00134_Putrescine
+Early_CRC,Alloprevotella sp900540885,1,1,C01672_Cadaverine
+Early_CRC,Prevotella sp000436035,1,1,C01672_Cadaverine
+Early_CRC,Ruthenibacterium lactatiformans,1,1,C00062_Arg
+Early_CRC,Klebsiella ornithinolytica,1,1,C00062_Arg
+Early_CRC,Faecalibacterium sp900765705,1,1,C00134_Putrescine
+Early_CRC,KLE1615 sp900066985,1,1,C00134_Putrescine
+Early_CRC,Bifidobacterium infantis,1,1,C00315_Spermidine
+Early_CRC,CAG-170 sp900545925,1,1,C00134_Putrescine
+Early_CRC,Ruminococcus_B sp900544395,1,1,C00134_Putrescine
+Early_CRC,Bifidobacterium dentium,1,1,C00315_Spermidine
+Early_CRC,CAG-170 sp000432135,1,1,C00134_Putrescine
+Early_CRC,Faecalibacterium prausnitzii_J,1,1,C00134_Putrescine
+Early_CRC,ER4 sp900317525,1,1,C00134_Putrescine
+Early_CRC,Enterenecus sp900549885,1,1,C00062_Arg
+Early_CRC,Acetatifactor sp900772845,1,1,C00134_Putrescine
+Early_CRC,Bifidobacterium breve,1,1,C00315_Spermidine
+Early_CRC,ER4 sp900552015,1,1,C00134_Putrescine
+Early_CRC,Scatomorpha intestinigallinarum,1,1,C00062_Arg
+Early_CRC,Intestinimonas butyriciproducens,1,1,C00134_Putrescine
+Early_CRC,Merdimorpha sp003150615,1,1,C00077_Ornithine
+Early_CRC,Allisonella histaminiformans,1,1,C01672_Cadaverine
+Early_CRC,Alistipes senegalensis,1,1,C00062_Arg
+Early_CRC,Dysosmobacter sp900542115,1,1,C00134_Putrescine
+Early_CRC,SFEL01 sp004557245,1,1,C00062_Arg
+Early_CRC,Pseudoruminococcus_A massiliensis,1,1,C00134_Putrescine
+Early_CRC,Dysosmobacter sp014297375,1,1,C00134_Putrescine
+Early_CRC,Ruminococcus_E sp003438075,1,1,C00134_Putrescine
+Early_CRC,Acetatifactor sp900771995,1,1,C00134_Putrescine
+Early_CRC,Slackia_A isoflavoniconvertens,1,1,C01672_Cadaverine
+Early_CRC,Citrobacter_B koseri,1,1,C00062_Arg
+Early_CRC,ER4 sp003522105,1,1,C00134_Putrescine
+Early_CRC,Streptococcus pasteurianus,1,1,C00134_Putrescine
+Early_CRC,Fusobacterium_A ulcerans_A,1,1,C00134_Putrescine
+Early_CRC,Ventrisoma faecale,1,1,C01672_Cadaverine
+Early_CRC,Dysosmobacter sp900544105,1,1,C00134_Putrescine
+Early_CRC,Cryptobacteroides sp000431015,1,1,C00134_Putrescine
+HS,Intestinimonas butyriciproducens,2,2,"C00134_Putrescine, C01672_Cadaverine"
+HS,UMGS856 sp900546265,2,2,"C00134_Putrescine, C01672_Cadaverine"
+HS,Prevotella sp900551275,1,1,C01672_Cadaverine
+HS,Prevotella sp015074785,1,1,C01672_Cadaverine
+HS,Prevotella copri,1,1,C01672_Cadaverine
+HS,Megamonas funiformis,1,1,C01672_Cadaverine
+HS,Prevotella copri_A,1,1,C01672_Cadaverine
+HS,Sutterella wadsworthensis,1,1,C01672_Cadaverine
+HS,Prevotella sp000434975,1,1,C01672_Cadaverine
+HS,Prevotella sp900767615,1,1,C01672_Cadaverine
+HS,Prevotella hominis,1,1,C01672_Cadaverine
+HS,Prevotella sp900313215,1,1,C01672_Cadaverine
+HS,Prevotella sp900544825,1,1,C01672_Cadaverine
+HS,Prevotella sp900551985,1,1,C01672_Cadaverine
+HS,Prevotella sp900557035,1,1,C01672_Cadaverine
+HS,Alloprevotella timonensis,1,1,C01672_Cadaverine
+HS,Prevotella sp900555035,1,1,C01672_Cadaverine
+HS,Prevotella pectinovora,1,1,C01672_Cadaverine
+HS,Prevotella sp900548535,1,1,C01672_Cadaverine
+HS,Limisoma sp000437795,1,1,C01672_Cadaverine
+HS,Prevotella sp900544495,1,1,C01672_Cadaverine
+HS,Alistipes finegoldii,1,1,C00134_Putrescine
+HS,Roseburia hominis,1,1,C01672_Cadaverine
+HS,Ruminococcus_E sp003526955,1,1,C01672_Cadaverine
+HS,Eubacterium_R sp000436835,1,1,C00750_Spermine
+HS,Prevotella sp002300055,1,1,C01672_Cadaverine
+HS,Alloprevotella sp900540885,1,1,C01672_Cadaverine
+HS,Prevotella sp000436035,1,1,C01672_Cadaverine
+HS,Ruthenibacterium lactatiformans,1,1,C00134_Putrescine
+HS,Prevotella sp900556395,1,1,C01672_Cadaverine
+HS,Ruminococcus_E sp905215855,1,1,C00062_Arg
+HS,Prevotella sp002440225,1,1,C01672_Cadaverine
+HS,Lawsonibacter asaccharolyticus,1,1,C00134_Putrescine
+HS,Prevotella sp900546575,1,1,C00750_Spermine
+HS,Prevotella sp900552515,1,1,C01672_Cadaverine
+HS,Prevotella sp000436915,1,1,C01672_Cadaverine
+HS,Desulfovibrio sp900556755,1,1,C01672_Cadaverine
+HS,Prevotella sp900771975,1,1,C01672_Cadaverine
+HS,Ligilactobacillus salivarius,1,1,C01672_Cadaverine
+HS,Allisonella histaminiformans,1,1,C01672_Cadaverine
+HS,Prevotella sp900543975,1,1,C01672_Cadaverine
+HS,Prevotella sp002405875,1,1,C01672_Cadaverine
+HS,Ruminococcus_E sp902771755,1,1,C00062_Arg
+HS,Dysosmobacter sp014297375,1,1,C00134_Putrescine
+HS,Prevotella sp002297965,1,1,C01672_Cadaverine
+HS,Dialister sp000434475,1,1,C01672_Cadaverine
+HS,Alcanivorax profundi,1,1,C01672_Cadaverine
+HS,Prevotella sp002451555,1,1,C01672_Cadaverine
+HS,Alloprevotella sp900539625,1,1,C01672_Cadaverine
+Healthy,Intestinimonas butyriciproducens,3,3,"C00134_Putrescine, C00315_Spermidine, C01672_Cadaverine"
+Healthy,SFEL01 sp004557245,3,3,"C00134_Putrescine, C01672_Cadaverine, C00062_Arg"
+Healthy,Lawsonibacter sp900066645,3,3,"C00134_Putrescine, C00315_Spermidine, C00750_Spermine"
+Healthy,Alistipes shahii,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Faecalimonas umbilicata,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,CAG-83 sp001916855,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Alistipes finegoldii,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Ruminococcus_E sp003526955,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Veillonella atypica,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Veillonella parvula_A,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Acetatifactor sp003447295,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Ruthenibacterium lactatiformans,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Escherichia coli_E,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Streptococcus vestibularis,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Faecousia sp000434635,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Escherichia albertii,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,CAG-170 sp000432135,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Streptococcus sp000187445,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,CAG-83 sp900545585,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Streptococcus parasanguinis,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Acetatifactor sp900772845,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Veillonella sp900766125,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Veillonella parvula,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Scatomorpha intestinigallinarum,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Haemophilus_D sp905214375,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Haemophilus_D sp001815355,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Eisenbergiella tayi,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Haemophilus_D sp905207935,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Veillonella sp905214495,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,CAG-83 sp000435975,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Dysosmobacter sp014297375,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Haemophilus_D sp900764435,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Ruminococcus_E sp003438075,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Haemophilus_D parainfluenzae_L,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Veillonella sp905209685,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Veillonella sp900552715,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Veillonella sp002959755,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Anaeroglobus micronuciformis,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Acetatifactor sp900771995,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Ruthenibacterium merdipullorum,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,CAG-83 sp900552475,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Haemophilus_D parainfluenzae_A,2,2,"C00134_Putrescine, C00062_Arg"
+Healthy,Streptococcus pasteurianus,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Klebsiella michiganensis,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,UMGS856 sp900546265,2,2,"C00134_Putrescine, C01672_Cadaverine"
+Healthy,Sutterella wadsworthensis,1,1,C01672_Cadaverine
+Healthy,Alistipes putredinis,1,1,C00134_Putrescine
+Healthy,Fusobacterium_A mortiferum,1,1,C01672_Cadaverine
+Healthy,Ruminococcus_B gnavus,1,1,C00134_Putrescine
+Healthy,Alistipes onderdonkii,1,1,C00134_Putrescine
+Healthy,ER4 sp000765235,1,1,C00134_Putrescine
+Healthy,Bacteroides uniformis,1,1,C00134_Putrescine
+Healthy,Acetatifactor sp900066565,1,1,C00134_Putrescine
+Healthy,Acetatifactor intestinalis,1,1,C00134_Putrescine
+Healthy,Escherichia sp002965065,1,1,C00134_Putrescine
+Healthy,Faecalimonas phoceensis,1,1,C00134_Putrescine
+Healthy,Acidaminococcus intestini,1,1,C01672_Cadaverine
+Healthy,Streptococcus salivarius,1,1,C00062_Arg
+Healthy,Odoribacter splanchnicus,1,1,C00134_Putrescine
+Healthy,Bacteroides rodentium,1,1,C00134_Putrescine
+Healthy,UBA1417 sp003531055,1,1,C00134_Putrescine
+Healthy,Escherichia fergusonii,1,1,C00134_Putrescine
+Healthy,Escherichia sp004211955,1,1,C00134_Putrescine
+Healthy,Dysosmobacter sp001916835,1,1,C00134_Putrescine
+Healthy,Faecousia sp003525905,1,1,C00134_Putrescine
+Healthy,Escherichia ruysiae,1,1,C00134_Putrescine
+Healthy,Lawsonibacter sp900066825,1,1,C00750_Spermine
+Healthy,Bacteroides xylanisolvens,1,1,C00134_Putrescine
+Healthy,Streptococcus sp001556435,1,1,C00062_Arg
+Healthy,Escherichia sp005843885,1,1,C00134_Putrescine
+Healthy,Bacteroides sp002491635,1,1,C00134_Putrescine
+Healthy,Alistipes communis,1,1,C00134_Putrescine
+Healthy,Anaerotignum lactatifermentans,1,1,C00134_Putrescine
+Healthy,CAG-83 sp000431575,1,1,C00134_Putrescine
+Healthy,Dysosmobacter welbionis,1,1,C00134_Putrescine
+Healthy,Lachnospira sp000436535,1,1,C00077_Ornithine
+Healthy,Mitsuokella multacida,1,1,C00134_Putrescine
+Healthy,Evtepia gabavorous,1,1,C00134_Putrescine
+Healthy,Lawsonibacter asaccharolyticus,1,1,C00134_Putrescine
+Healthy,Haemophilus_D parainfluenzae,1,1,C00134_Putrescine
+Healthy,Butyricimonas paravirosa,1,1,C00134_Putrescine
+Healthy,Butyricimonas virosa,1,1,C00134_Putrescine
+Healthy,CAG-170 sp900545925,1,1,C00134_Putrescine
+Healthy,Ruminococcus_B sp900544395,1,1,C00134_Putrescine
+Healthy,Faecalibacterium prausnitzii_I,1,1,C01672_Cadaverine
+Healthy,Escherichia sp001660175,1,1,C00134_Putrescine
+Healthy,Escherichia marmotae,1,1,C00134_Putrescine
+Healthy,Megamonas sp900556715,1,1,C01672_Cadaverine
+Healthy,Bacteroides sp900552405,1,1,C00134_Putrescine
+Healthy,ER4 sp900317525,1,1,C00134_Putrescine
+Healthy,Enterenecus sp900549885,1,1,C00134_Putrescine
+Healthy,Bacteroides sp905197435,1,1,C00134_Putrescine
+Healthy,Haemophilus_D sp900756875,1,1,C00134_Putrescine
+Healthy,ER4 sp900552015,1,1,C00134_Putrescine
+Healthy,Enterocloster asparagiformis,1,1,C00134_Putrescine
+Healthy,Copromonas sp900541255,1,1,C00134_Putrescine
+Healthy,Allisonella histaminiformans,1,1,C01672_Cadaverine
+Healthy,Avimicrobium caecorum,1,1,C00134_Putrescine
+Healthy,Lawsonibacter sp000177015,1,1,C00134_Putrescine
+Healthy,Alistipes senegalensis,1,1,C00134_Putrescine
+Healthy,Veillonella rogosae,1,1,C00134_Putrescine
+Healthy,Pseudoruminococcus_A massiliensis,1,1,C00134_Putrescine
+Healthy,ER4 sp900550165,1,1,C00134_Putrescine
+Healthy,Collinsella sp900544095,1,1,C00134_Putrescine
+Healthy,Negativibacillus faecipullorum,1,1,C00315_Spermidine
+Healthy,ER4 sp003522105,1,1,C00134_Putrescine
+Healthy,Onthomonas sp900758315,1,1,C01672_Cadaverine
+Healthy,Lawsonibacter sp900754605,1,1,C00134_Putrescine
+Healthy,Ventrisoma faecale,1,1,C00134_Putrescine
+Healthy,Dysosmobacter sp900544105,1,1,C00134_Putrescine

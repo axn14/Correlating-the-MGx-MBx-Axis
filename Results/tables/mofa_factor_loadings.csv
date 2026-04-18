@@ -1,0 +1,61 @@
+Factor,View,Feature,Weight,Rank,IsPolyamine
+Factor9,species,Haemophilus_D parainfluenzae,0.364,1,False
+Factor9,species,Haemophilus_D sp001815355,0.2987,2,False
+Factor9,species,Haemophilus_D sp905207935,0.2947,3,False
+Factor9,species,Haemophilus_D sp905214375,0.2911,4,False
+Factor9,species,Haemophilus_D sp900756875,0.2882,5,False
+Factor9,species,Haemophilus_D sp900764435,0.281,6,False
+Factor9,species,Haemophilus_D parainfluenzae_L,0.2793,7,False
+Factor9,species,Haemophilus_D parainfluenzae_A,0.2705,8,False
+Factor9,species,Streptococcus salivarius,0.2371,9,False
+Factor9,species,Veillonella parvula_A,0.233,10,False
+Factor9,metabolites,C00134_Putrescine,0.0328,1,False
+Factor9,metabolites,"C00986_1,3-Diaminopropane",0.0196,2,False
+Factor9,metabolites,C02721_N-Methylalanine,-0.0151,3,False
+Factor9,metabolites,C02678_Dodecanedioate,-0.0144,4,False
+Factor9,metabolites,C07044_Hydroxyurea,-0.0142,5,False
+Factor9,metabolites,C00864_Pantothenate,-0.0131,6,False
+Factor9,metabolites,C08277_Sebacate,-0.0118,7,False
+Factor9,metabolites,C02115_Alpha-Methylserine,-0.0118,8,False
+Factor9,metabolites,C03264_2-Hydroxy-4-methylpentanoate,0.0103,9,False
+Factor9,metabolites,C02656_Pimelate,-0.0102,10,False
+Factor10,species,Escherichia coli,-0.6874,1,False
+Factor10,species,Escherichia sp002965065,-0.5478,2,False
+Factor10,species,Escherichia fergusonii,-0.5183,3,False
+Factor10,species,Escherichia sp004211955,-0.5137,4,False
+Factor10,species,Escherichia ruysiae,-0.4973,5,False
+Factor10,species,Escherichia sp005843885,-0.4764,6,False
+Factor10,species,Escherichia coli_E,-0.4249,7,False
+Factor10,species,Escherichia sp001660175,-0.3889,8,False
+Factor10,species,Escherichia marmotae,-0.3882,9,False
+Factor10,species,Escherichia albertii,-0.3845,10,False
+Factor10,metabolites,Ophthalmate,-0.1294,1,False
+Factor10,metabolites,C02656_Pimelate,0.115,2,False
+Factor10,metabolites,"C00986_1,3-Diaminopropane",-0.1018,3,False
+Factor10,metabolites,C00423_trans-Cinnamate,0.1006,4,False
+Factor10,metabolites,C02678_Dodecanedioate,0.0977,5,False
+Factor10,metabolites,C06104_Adipate,0.0976,6,False
+Factor10,metabolites,C05984_2-Hydroxybutyrate,-0.0952,7,False
+Factor10,metabolites,C00429_Dihydrouracil,0.082,8,False
+Factor10,metabolites,C00642_p-Hydroxyphenylacetate,0.0817,9,False
+Factor10,metabolites,C02504_2-Isopropylmalate,0.0799,10,False
+Factor2,species,Enterobacter ludwigii,-0.05,1,False
+Factor2,species,Enterocloster aldenensis,-0.03,2,False
+Factor2,species,UMGS856 sp900546265,0.0249,3,False
+Factor2,species,Alistipes_A ihumii,0.019,4,False
+Factor2,species,Alistipes senegalensis,0.0178,5,False
+Factor2,species,Clostridium_Q symbiosum,-0.0165,6,False
+Factor2,species,Bacteroides sp900556215,-0.0161,7,False
+Factor2,species,Gemmiger sp900554145,-0.0135,8,False
+Factor2,species,Eubacterium_I ramulus_A,0.0128,9,False
+Factor2,species,Parabacteroides gordonii,-0.0126,10,False
+Factor2,metabolites,C07044_Hydroxyurea,1.7654,1,False
+Factor2,metabolites,"C11003_2,4-Dimethylaniline",1.7398,2,False
+Factor2,metabolites,C01118_o-Succinylhomoserine,1.5135,3,False
+Factor2,metabolites,C05341_beta-Ala-Lys,-1.403,4,False
+Factor2,metabolites,C00299_Uridine,-1.2593,5,False
+Factor2,metabolites,C00954_Indole-3-acetate,-1.246,6,False
+Factor2,metabolites,C01551_Allantoin,-1.1612,7,False
+Factor2,metabolites,C11118_1-Methyl-2-pyrrolidinone,-1.1599,8,False
+Factor2,metabolites,C00440_5-Methyltetrahydrofolate,1.0001,9,False
+Factor2,metabolites,C06524_Nornicotine,0.9154,10,False

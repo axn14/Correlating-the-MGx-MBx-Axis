@@ -1,0 +1,11 @@
+Species,Polyamine,Total_effect,ACME,ADE,Prop_mediated,ACME_pval,N,ACME_qval
+Faecalimonas phoceensis,Ornithine,-0.0064,0.0045,-0.0109,0.008,0.768,347,0.96
+Lachnospira sp000436535,Ornithine,-0.1891,-0.0007,-0.1884,0.0,0.996,347,0.996
+Tidjanibacter inops_A,Ornithine,0.1727,-0.0082,0.1809,-0.023,0.628,347,0.96
+Ventricola sp900542395,Ornithine,0.0487,-0.0008,0.0495,0.002,0.928,347,0.996
+Ruminococcus_B gnavus,Ornithine,-0.058,0.0059,-0.0639,-0.041,0.572,347,0.96
+Intestinimonas butyriciproducens,Putrescine,-0.0396,0.0371,-0.0767,-0.113,0.196,347,0.78
+Dysosmobacter sp014297375,Putrescine,0.2971,0.0227,0.2744,0.083,0.676,347,0.96
+Acetatifactor sp003447295,Putrescine,0.0737,0.026,0.0477,0.162,0.312,347,0.78
+Anaeroglobus micronuciformis,Putrescine,-0.1298,-0.0384,-0.0913,0.189,0.296,347,0.78
+CAG-83 sp000435975,Putrescine,-0.1018,0.0588,-0.1606,-0.241,0.188,347,0.78

@@ -1,0 +1,31 @@
+Genus,KEGG_org,KEGG_hit,Polyamine_KO_found,N_polyamine_KO,KEGG_org_name
+acetatifactor,,False,,0,
+acutalibacter,T09764,True,,0,amur; Acutalibacter muris KB18
+akkermansia,T00736,True,,0,amu; Akkermansia muciniphila ATCC BAA-835
+alistipes,T02133,True,,0,afd; Alistipes finegoldii DSM 17242
+allisonella,,False,,0,
+anaeroglobus,,False,,0,
+anaerotignum,T04574,True,K00797,1,cpro; Anaerotignum propionicum DSM 1682 (Clostridium propionicum DSM 1682)
+bacteroides,T00122,True,,0,bth; Bacteroides thetaiotaomicron VPI-5482
+blautia,T02605,True,K00626;K00797,2,rob; Blautia obeum A2-162
+cag-170,,False,,0,
+cag-177,,False,,0,
+cag-41,,False,,0,
+cag-83,,False,,0,
+clostridium,T00056,True,K00626;K00797,2,cac; Clostridium acetobutylicum ATCC 824
+collinsella,T05143,True,K00626,1,caer; Collinsella aerofaciens indica
+dialister,T04459,True,K00797;K01581,2,dpn; Dialister pneumosintes F0677
+dysosmobacter,T06030,True,K00626,1,obj; Dysosmobacter welbionis J115
+enterenecus,,False,,0,
+enterocloster,T05466,True,K00626;K00797,2,cbol; Enterocloster bolteae ATCC BAA-613
+er4,T07489,True,K00626;K00797,2,pcal; Parageobacillus caldoxylosilyticus ER4B
+faecalibacterium,T02591,True,K00626;K00797,2,fpr; Faecalibacterium prausnitzii L2-6
+faecalimonas,,False,,0,
+fusobacterium,T00077,True,K00626,1,fnu; Fusobacterium nucleatum subsp. nucleatum ATCC 25586
+intestinimonas,T04182,True,K00626,1,ibu; Intestinimonas butyriciproducens AF211
+lachnospira,T05749,True,,0,lbw; Lachnospiraceae bacterium oral taxon 500 W11650
+lawsonibacter,T07961,True,K00626;K00797,2,lasa; Lawsonibacter asaccharolyticus OA10
+ruminococcus,T01387,True,K00797,1,ral; Ruminococcus albus 7
+tidjanibacter,,False,,0,
+umgs856,,False,,0,
+ventricola,,False,,0,

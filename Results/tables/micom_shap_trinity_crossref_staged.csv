@@ -1,0 +1,849 @@
+epithet,taxon_full,mean_flux,pathway,genus_micom,genus_shap,species,mean_shap,model,metabolite,kegg_id,stage,display_species,genus_confirmed
+alactolyticus,alactolyticus,98.51660334539602,Amino Acid,alactolyticus,,,,,Isoleucine,C00407,Healthy,alactolyticus,False
+ascorbata,Kluyvera ascorbata,85.78512985886537,Amino Acid,Kluyvera,,,,,Isoleucine,C00407,Healthy,Kluyvera ascorbata,False
+cerevisiae,,,,,Megasphaera,Megasphaera cerevisiae,0.0066434317492687,SVR,Isoleucine,C00407,Healthy,Megasphaera cerevisiae,False
+coli,,,,,Escherichia,Escherichia coli,0.0059514377462402,SVR,Isoleucine,C00407,Healthy,Escherichia coli,True
+faecium,,,,,Gallimonas,Gallimonas faecium,0.0049361278920729,SVR,Isoleucine,C00407,Healthy,Gallimonas faecium,False
+jalaludinii,Mitsuokella jalaludinii,74.23115628444266,Amino Acid,Mitsuokella,,,,,Isoleucine,C00407,Healthy,Mitsuokella jalaludinii,False
+longum,,,,,Bifidobacterium,Bifidobacterium longum,0.0079343112263185,SVR,Isoleucine,C00407,Healthy,Bifidobacterium longum,True
+morganii,Morganella morganii,79.7555346186593,Amino Acid,Morganella,,,,,Isoleucine,C00407,Healthy,Morganella morganii,False
+mortiferum,,,,,Fusobacterium_A,Fusobacterium_A mortiferum,0.0138788629778918,SVR,Isoleucine,C00407,Healthy,Fusobacterium_A mortiferum,False
+ornithinolytica,,,,,Klebsiella,Klebsiella ornithinolytica,0.0130091556423128,SVR,Isoleucine,C00407,Healthy,Klebsiella ornithinolytica,True
+pilosicoli,Brachyspira pilosicoli,88.77023772855155,Amino Acid,Brachyspira,,,,,Isoleucine,C00407,Healthy,Brachyspira pilosicoli,False
+pullicaecorum,Butyricicoccus pullicaecorum,70.03057907471936,Amino Acid,Butyricicoccus,,,,,Isoleucine,C00407,Healthy,Butyricicoccus pullicaecorum,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.0121850427632336,SVR,Isoleucine,C00407,Healthy,Egerieicola pullicola,False
+rohdei,Yersinia rohdei,93.26295143283376,Amino Acid,Yersinia,,,,,Isoleucine,C00407,Healthy,Yersinia rohdei,False
+sakazakii,Cronobacter sakazakii,85.92819152907616,Amino Acid,Cronobacter,,,,,Isoleucine,C00407,Healthy,Cronobacter sakazakii,False
+scardovii,Bifidobacterium scardovii,94.9348694896327,Amino Acid,Bifidobacterium,,,,,Isoleucine,C00407,Healthy,Bifidobacterium scardovii,True
+silvisoli,,,,,Chitinophaga,Chitinophaga silvisoli,0.0062227107603198,SVR,Isoleucine,C00407,Healthy,Chitinophaga silvisoli,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0060361823267351,SVR,Isoleucine,C00407,Healthy,Fusobacterium sp000235465,False
+sp000432175,,,,,CAG-115,CAG-115 sp000432175,0.0078080823664354,SVR,Isoleucine,C00407,Healthy,CAG-115 sp000432175,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0074037705140867,SVR,Isoleucine,C00407,Healthy,Lachnospira sp000436475,False
+sp000436835,,,,,Eubacterium_R,Eubacterium_R sp000436835,0.0045671716779725,SVR,Isoleucine,C00407,Healthy,Eubacterium_R sp000436835,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.009545651320814,SVR,Isoleucine,C00407,Healthy,Leptotrichia_A sp001274535,False
+sp005843885,,,,,Escherichia,Escherichia sp005843885,0.004921900678952,SVR,Isoleucine,C00407,Healthy,Escherichia sp005843885,True
+sp013333035,,,,,CAG-793,CAG-793 sp013333035,0.0046664335039683,SVR,Isoleucine,C00407,Healthy,CAG-793 sp013333035,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0086863360208072,SVR,Isoleucine,C00407,Healthy,CCUG-7971 sp017590215,False
+sp900540255,,,,,Clostridium,Clostridium sp900540255,0.0054713358316847,SVR,Isoleucine,C00407,Healthy,Clostridium sp900540255,False
+sp900541605,,,,,Dialister,Dialister sp900541605,0.0079537428907459,SVR,Isoleucine,C00407,Healthy,Dialister sp900541605,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0089235359644648,SVR,Isoleucine,C00407,Healthy,Aphodousia sp905212345,False
+sp905213155,,,,,Acidaminococcus,Acidaminococcus sp905213155,0.0060001738519559,SVR,Isoleucine,C00407,Healthy,Acidaminococcus sp905213155,False
+thermophilus,thermophilus,77.67237428444218,Amino Acid,thermophilus,,,,,Isoleucine,C00407,Healthy,thermophilus,False
+albertii,Escherichia albertii,35.506176959498355,Other,Escherichia,,,,,Glucose-6-Phosphate,C00092,Healthy,Escherichia albertii,False
+asburiae,Enterobacter asburiae,40.98540049845697,Other,Enterobacter,,,,,Glucose-6-Phosphate,C00092,Healthy,Enterobacter asburiae,False
+butyricum,Clostridium butyricum,59.19062127172285,Other,Clostridium,,,,,Glucose-6-Phosphate,C00092,Healthy,Clostridium butyricum,False
+copri_A,,,,,Prevotella,Prevotella copri_A,0.0326544522027675,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Prevotella copri_A,False
+desulfuricans_A,,,,,Desulfovibrio,Desulfovibrio desulfuricans_A,0.0216158864956854,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Desulfovibrio desulfuricans_A,False
+fergusonii,Escherichia fergusonii,38.25977228588459,Other,Escherichia,,,,,Glucose-6-Phosphate,C00092,Healthy,Escherichia fergusonii,False
+freundii,Citrobacter freundii,97.9790313970584,Other,Citrobacter,,,,,Glucose-6-Phosphate,C00092,Healthy,Citrobacter freundii,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0277256207049428,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Alistipes_A indistinctus,False
+maltaromaticum,,,,,Carnobacterium,Carnobacterium maltaromaticum,0.016111864165001,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Carnobacterium maltaromaticum,False
+massiliensis,,,,,Megasphaera,Megasphaera massiliensis,0.0174868250440423,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Megasphaera massiliensis,False
+oxytoca,Klebsiella oxytoca,9.417772042092945,Other,Klebsiella,,,,,Glucose-6-Phosphate,C00092,Healthy,Klebsiella oxytoca,False
+provencensis,,,,,Acidaminococcus,Acidaminococcus provencensis,0.0188873449848266,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Acidaminococcus provencensis,False
+sp000186165,,,,,Neisseria,Neisseria sp000186165,0.0187696357248922,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Neisseria sp000186165,False
+sp000435795,,,,,Copromonas,Copromonas sp000435795,0.0182263941210277,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Copromonas sp000435795,False
+sp001657575,,,,,Barb7,Barb7 sp001657575,0.0203669158955762,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Barb7 sp001657575,False
+sp002438575,,,,,CAG-83,CAG-83 sp002438575,0.026718445772191,LightGBM,Glucose-6-Phosphate,C00092,Healthy,CAG-83 sp002438575,False
+sp003150615,,,,,Merdimorpha,Merdimorpha sp003150615,0.0167425527378918,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Merdimorpha sp003150615,False
+sp016292635,,,,,SFEL01,SFEL01 sp016292635,0.0186011192114546,LightGBM,Glucose-6-Phosphate,C00092,Healthy,SFEL01 sp016292635,False
+sp016292785,,,,,CAG-488,CAG-488 sp016292785,0.0137960124166413,LightGBM,Glucose-6-Phosphate,C00092,Healthy,CAG-488 sp016292785,False
+sp017460955,,,,,UBA3855,UBA3855 sp017460955,0.0156563608255737,LightGBM,Glucose-6-Phosphate,C00092,Healthy,UBA3855 sp017460955,False
+sp018065665,,,,,Sodaliphilus,Sodaliphilus sp018065665,0.0192132337151713,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Sodaliphilus sp018065665,False
+sp900548415,,,,,Porphyromonas,Porphyromonas sp900548415,0.0287782438567826,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Porphyromonas sp900548415,False
+sp900761895,,,,,HGM11417,HGM11417 sp900761895,0.0158815817022619,LightGBM,Glucose-6-Phosphate,C00092,Healthy,HGM11417 sp900761895,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0185020406043088,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Aphodousia sp905212345,False
+subflava,,,,,Neisseria,Neisseria subflava,0.0367556377236972,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Neisseria subflava,False
+veronii,Aeromonas veronii,4.888397576686397,Other,Aeromonas,,,,,Glucose-6-Phosphate,C00092,Healthy,Aeromonas veronii,False
+vulgaris_A,,,,,Cupidesulfovibrio,Cupidesulfovibrio vulgaris_A,0.016539412712742,LightGBM,Glucose-6-Phosphate,C00092,Healthy,Cupidesulfovibrio vulgaris_A,False
+aeruginosa,Pseudomonas aeruginosa,58.38887175971345,Amino Acid,Pseudomonas,,,,,Leucine,C00123,Healthy,Pseudomonas aeruginosa,False
+australis,australis,70.7789409246304,Amino Acid,australis,,,,,Leucine,C00123,Healthy,australis,False
+butyricum,Clostridium butyricum,90.31173447227587,Amino Acid,Clostridium,,,,,Leucine,C00123,Healthy,Clostridium butyricum,False
+circumdentaria,,,,,Porphyromonas,Porphyromonas circumdentaria,0.0056017468018856,SVR,Leucine,C00123,Healthy,Porphyromonas circumdentaria,False
+coahuilensis,,,,,Bacillus_T,Bacillus_T coahuilensis,0.007493699428987,SVR,Leucine,C00123,Healthy,Bacillus_T coahuilensis,False
+coli,,,,,Escherichia,Escherichia coli,0.007874449752669,SVR,Leucine,C00123,Healthy,Escherichia coli,True
+fragilis,fragilis,53.99871151784572,Amino Acid,fragilis,,,,,Leucine,C00123,Healthy,fragilis,False
+freundii,Citrobacter freundii,51.94611289833996,Amino Acid,Citrobacter,,,,,Leucine,C00123,Healthy,Citrobacter freundii,False
+hypermegale,Megamonas hypermegale,86.63049993347062,Amino Acid,Megamonas,,,,,Leucine,C00123,Healthy,Megamonas hypermegale,False
+intestinipullorum,,,,,Excrementavichristensenella,Excrementavichristensenella intestinipullorum,0.0061422169178584,SVR,Leucine,C00123,Healthy,Excrementavichristensenella intestinipullorum,False
+longum,,,,,Bifidobacterium,Bifidobacterium longum,0.0065976308614772,SVR,Leucine,C00123,Healthy,Bifidobacterium longum,False
+mortiferum,,,,,Fusobacterium_A,Fusobacterium_A mortiferum,0.0116888243580845,SVR,Leucine,C00123,Healthy,Fusobacterium_A mortiferum,False
+ornithinolytica,,,,,Klebsiella,Klebsiella ornithinolytica,0.0143087366800026,SVR,Leucine,C00123,Healthy,Klebsiella ornithinolytica,False
+paraputrificum,Clostridium paraputrificum,77.06483710767897,Amino Acid,Clostridium,,,,,Leucine,C00123,Healthy,Clostridium paraputrificum,False
+pullicaecorum,Butyricicoccus pullicaecorum,80.67367042808104,Amino Acid,Butyricicoccus,,,,,Leucine,C00123,Healthy,Butyricicoccus pullicaecorum,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.012290395849589,SVR,Leucine,C00123,Healthy,Egerieicola pullicola,False
+salivarius,,,,,Ligilactobacillus,Ligilactobacillus salivarius,0.0055635562511009,SVR,Leucine,C00123,Healthy,Ligilactobacillus salivarius,False
+sinus,Oribacterium sinus,54.438547232099026,Amino Acid,Oribacterium,,,,,Leucine,C00123,Healthy,Oribacterium sinus,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0140695680901876,SVR,Leucine,C00123,Healthy,Fusobacterium sp000235465,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.010102006134805,SVR,Leucine,C00123,Healthy,Lachnospira sp000436475,False
+sp000436535,,,,,Lachnospira,Lachnospira sp000436535,0.006690056391088,SVR,Leucine,C00123,Healthy,Lachnospira sp000436535,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0078762053235145,SVR,Leucine,C00123,Healthy,Leptotrichia_A sp001274535,False
+sp004793665,,,,,NM07-P-09,NM07-P-09 sp004793665,0.0054391724034463,SVR,Leucine,C00123,Healthy,NM07-P-09 sp004793665,False
+sp014287795,,,,,Christensenella,Christensenella sp014287795,0.0060285116145378,SVR,Leucine,C00123,Healthy,Christensenella sp014287795,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0132402142036915,SVR,Leucine,C00123,Healthy,CCUG-7971 sp017590215,False
+sp900539345,,,,,UMGS124,UMGS124 sp900539345,0.0064438965868285,SVR,Leucine,C00123,Healthy,UMGS124 sp900539345,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0095462390506801,SVR,Leucine,C00123,Healthy,Aphodousia sp905212345,False
+sp905213155,,,,,Acidaminococcus,Acidaminococcus sp905213155,0.0057018144157028,SVR,Leucine,C00123,Healthy,Acidaminococcus sp905213155,False
+spiroforme,Erysipelatoclostridium spiroforme,54.991545980902465,Amino Acid,Erysipelatoclostridium,,,,,Leucine,C00123,Healthy,Erysipelatoclostridium spiroforme,False
+adolescentis,Bifidobacterium adolescentis,46.048651462485054,Other,Bifidobacterium,,,,,GABA,C00334,Healthy,Bifidobacterium adolescentis,True
+albertii,Escherichia albertii,33.34215124209482,Other,Escherichia,,,,,GABA,C00334,Healthy,Escherichia albertii,False
+avistercoris,,,,,Alistipes,Alistipes avistercoris,0.0042892476759578,SVR,GABA,C00334,Healthy,Alistipes avistercoris,True
+bifidum,,,,,Bifidobacterium,Bifidobacterium bifidum,0.0054417716039056,SVR,GABA,C00334,Healthy,Bifidobacterium bifidum,True
+caecorum,,,,,Avimicrobium,Avimicrobium caecorum,0.010634012749668,SVR,GABA,C00334,Healthy,Avimicrobium caecorum,False
+faecium,,,,,Avispirillum,Avispirillum faecium,0.0061929431399669,SVR,GABA,C00334,Healthy,Avispirillum faecium,False
+fergusonii,Escherichia fergusonii,28.319937832842278,Other,Escherichia,,,,,GABA,C00334,Healthy,Escherichia fergusonii,False
+fragilis,fragilis,24.550460625367684,Other,fragilis,,,,,GABA,C00334,Healthy,fragilis,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0065886306173768,SVR,GABA,C00334,Healthy,Alangreenwoodia gallinarii,False
+hongkongensis,,,,,Streptobacillus,Streptobacillus hongkongensis,0.0067509905971429,SVR,GABA,C00334,Healthy,Streptobacillus hongkongensis,False
+intestinavium,,,,,Duodenibacillus,Duodenibacillus intestinavium,0.0063499929587953,SVR,GABA,C00334,Healthy,Duodenibacillus intestinavium,False
+leptum,,,,,Clostridium_A,Clostridium_A leptum,0.0108000823473011,SVR,GABA,C00334,Healthy,Clostridium_A leptum,False
+merdae,merdae,88.72541384866396,Other,merdae,,,,,GABA,C00334,Healthy,merdae,False
+nordii,Bacteroides nordii,51.15408608858391,Other,Bacteroides,,,,,GABA,C00334,Healthy,Bacteroides nordii,False
+onderdonkii,Alistipes onderdonkii,27.572585225327124,Other,Alistipes,,,,,GABA,C00334,Healthy,Alistipes onderdonkii,True
+parvula_A,,,,,Veillonella,Veillonella parvula_A,0.0154951124036779,SVR,GABA,C00334,Healthy,Veillonella parvula_A,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0123716717215274,SVR,GABA,C00334,Healthy,Lachnospira sp000436475,False
+sp002350855,,,,,UBA3839,UBA3839 sp002350855,0.0042962937254738,SVR,GABA,C00334,Healthy,UBA3839 sp002350855,False
+sp002359025,,,,,UBA3379,UBA3379 sp002359025,0.0076721950738854,SVR,GABA,C00334,Healthy,UBA3379 sp002359025,False
+sp002431975,,,,,UBA5884,UBA5884 sp002431975,0.0048977951955768,SVR,GABA,C00334,Healthy,UBA5884 sp002431975,False
+sp002438685,,,,,CAG-177,CAG-177 sp002438685,0.0040892515454902,SVR,GABA,C00334,Healthy,CAG-177 sp002438685,False
+sp003445125,,,,,UBA11540,UBA11540 sp003445125,0.0046548477878681,SVR,GABA,C00334,Healthy,UBA11540 sp003445125,False
+sp014323405,,,,,GCA-900066495,GCA-900066495 sp014323405,0.0040607165765345,SVR,GABA,C00334,Healthy,GCA-900066495 sp014323405,False
+sp017483765,,,,,UBA3839,UBA3839 sp017483765,0.0061154371328831,SVR,GABA,C00334,Healthy,UBA3839 sp017483765,False
+sp900539345,,,,,UMGS124,UMGS124 sp900539345,0.0084882893939769,SVR,GABA,C00334,Healthy,UMGS124 sp900539345,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0048746205880466,SVR,GABA,C00334,Healthy,CAG-488 sp900539465,False
+splanchnicus,Odoribacter splanchnicus,38.881872704616256,Other,Odoribacter,,,,,GABA,C00334,Healthy,Odoribacter splanchnicus,False
+thermophilus,thermophilus,85.5299512358017,Other,thermophilus,,,,,GABA,C00334,Healthy,thermophilus,False
+thetaiotaomicron,Bacteroides thetaiotaomicron,42.63943907059159,Other,Bacteroides,,,,,GABA,C00334,Healthy,Bacteroides thetaiotaomicron,False
+angulatum,Bifidobacterium angulatum,68.43750000010668,Other,Bifidobacterium,,,,,Lactate,C00186,Healthy,Bifidobacterium angulatum,False
+atypica,Veillonella atypica,65.67173379901286,Other,Veillonella,,,,,Lactate,C00186,Healthy,Veillonella atypica,False
+australis,australis,85.83837319637205,Other,australis,,,,,Lactate,C00186,Healthy,australis,False
+catenulatum,Bifidobacterium catenulatum,71.99999999990139,Other,Bifidobacterium,,,,,Lactate,C00186,Healthy,Bifidobacterium catenulatum,False
+dentium,Bifidobacterium dentium,69.32800676819487,Other,Bifidobacterium,,,,,Lactate,C00186,Healthy,Bifidobacterium dentium,False
+invisus,Dialister invisus,65.79394870054111,Other,Dialister,,,,,Lactate,C00186,Healthy,Dialister invisus,True
+lenta,,,,,Victivallis,Victivallis lenta,0.004999052911169,SVR,Lactate,C00186,Healthy,Victivallis lenta,False
+lentocellum,Cellulosilyticum lentocellum,82.12881536234241,Other,Cellulosilyticum,,,,,Lactate,C00186,Healthy,Cellulosilyticum lentocellum,False
+macacae,,,,,Streptococcus,Streptococcus macacae,0.0048601735417661,SVR,Lactate,C00186,Healthy,Streptococcus macacae,True
+oralis_BH,,,,,Streptococcus,Streptococcus oralis_BH,0.0042497199907133,SVR,Lactate,C00186,Healthy,Streptococcus oralis_BH,True
+parvirubra,,,,,Sutterella,Sutterella parvirubra,0.0035914216388567,SVR,Lactate,C00186,Healthy,Sutterella parvirubra,False
+provencensis,,,,,Acidaminococcus,Acidaminococcus provencensis,0.0040555654422322,SVR,Lactate,C00186,Healthy,Acidaminococcus provencensis,False
+salivae,Prevotella salivae,76.81199533261889,Other,Prevotella,,,,,Lactate,C00186,Healthy,Prevotella salivae,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0040808186013551,SVR,Lactate,C00186,Healthy,Lachnospira sp000436475,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0071211887431702,SVR,Lactate,C00186,Healthy,Leptotrichia_A sp001274535,False
+sp002393575,,,,,UBA3839,UBA3839 sp002393575,0.0079096206563313,SVR,Lactate,C00186,Healthy,UBA3839 sp002393575,False
+sp003506415,,,,,UBA9506,UBA9506 sp003506415,0.0053542425555223,SVR,Lactate,C00186,Healthy,UBA9506 sp003506415,False
+sp003531585,,,,,CAG-115,CAG-115 sp003531585,0.0038473149231068,SVR,Lactate,C00186,Healthy,CAG-115 sp003531585,False
+sp900539265,,,,,CAG-313,CAG-313 sp900539265,0.0044542154084088,SVR,Lactate,C00186,Healthy,CAG-313 sp900539265,False
+sp900540275,,,,,Scatavimonas,Scatavimonas sp900540275,0.0041497000996972,SVR,Lactate,C00186,Healthy,Scatavimonas sp900540275,False
+sp900543455,,,,,Dialister,Dialister sp900543455,0.0046642413374713,SVR,Lactate,C00186,Healthy,Dialister sp900543455,True
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0112786826455896,SVR,Lactate,C00186,Healthy,UMGS693 sp900544555,False
+sp900546315,,,,,Flemingibacterium,Flemingibacterium sp900546315,0.0044324941009518,SVR,Lactate,C00186,Healthy,Flemingibacterium sp900546315,False
+sp900548385,,,,,UBA1829,UBA1829 sp900548385,0.008120837474679,SVR,Lactate,C00186,Healthy,UBA1829 sp900548385,False
+sp910589555,,,,,Muribaculum,Muribaculum sp910589555,0.0041241726650922,SVR,Lactate,C00186,Healthy,Muribaculum sp910589555,False
+spG000499525,,,,,CCUG-7971,CCUG-7971 spG000499525,0.0055232110263299,SVR,Lactate,C00186,Healthy,CCUG-7971 spG000499525,False
+stercoripullorum,,,,,Collinsella,Collinsella stercoripullorum,0.0041059280218589,SVR,Lactate,C00186,Healthy,Collinsella stercoripullorum,False
+subtilis,Bacillus subtilis,82.16208596962636,Other,Bacillus,,,,,Lactate,C00186,Healthy,Bacillus subtilis,False
+vestibularis,Streptococcus vestibularis,62.46998714242386,Other,Streptococcus,,,,,Lactate,C00186,Healthy,Streptococcus vestibularis,True
+wadei,,,,,Leptotrichia,Leptotrichia wadei,0.0144709394179361,SVR,Lactate,C00186,Healthy,Leptotrichia wadei,False
+atypica,Veillonella atypica,54.41860538668071,Other,Veillonella,,,,,Fumarate,C00122,Healthy,Veillonella atypica,False
+curtum,,,,,Cryptobacterium,Cryptobacterium curtum,0.0060291032277704,SVR,Fumarate,C00122,Healthy,Cryptobacterium curtum,False
+edinburgensis,,,,,Gallispira,Gallispira edinburgensis,0.0055896850521319,SVR,Fumarate,C00122,Healthy,Gallispira edinburgensis,False
+excrementihominis,Parasutterella excrementihominis,55.835835613877414,Other,Parasutterella,,,,,Fumarate,C00122,Healthy,Parasutterella excrementihominis,False
+frederiksenii,Yersinia frederiksenii,73.94866793614177,Other,Yersinia,,,,,Fumarate,C00122,Healthy,Yersinia frederiksenii,False
+funiformis,Megamonas funiformis,65.82567990109258,Other,Megamonas,,,,,Fumarate,C00122,Healthy,Megamonas funiformis,False
+goldsteinii,Parabacteroides goldsteinii,60.69345437596511,Other,Parabacteroides,,,,,Fumarate,C00122,Healthy,Parabacteroides goldsteinii,False
+hansenii,Blautia hansenii,58.33333333333377,Other,Blautia,,,,,Fumarate,C00122,Healthy,Blautia hansenii,False
+isourolithinifaciens,,,,,Ellagibacter,Ellagibacter isourolithinifaciens,0.0064490471639442,SVR,Fumarate,C00122,Healthy,Ellagibacter isourolithinifaciens,False
+merdigallinarum,,,,,Flemingibacterium,Flemingibacterium merdigallinarum,0.0047200684842102,SVR,Fumarate,C00122,Healthy,Flemingibacterium merdigallinarum,False
+oleiciplenus,Bacteroides oleiciplenus,55.9529530410164,Other,Bacteroides,,,,,Fumarate,C00122,Healthy,Bacteroides oleiciplenus,False
+onderdonkii,,,,,Alistipes,Alistipes onderdonkii,0.0037186623966693,SVR,Fumarate,C00122,Healthy,Alistipes onderdonkii,False
+pneumoniae,,,,,Klebsiella,Klebsiella pneumoniae,0.0036431203319838,SVR,Fumarate,C00122,Healthy,Klebsiella pneumoniae,False
+quasipneumoniae,,,,,Klebsiella,Klebsiella quasipneumoniae,0.0044546393674202,SVR,Fumarate,C00122,Healthy,Klebsiella quasipneumoniae,False
+sinus,Oribacterium sinus,65.94544762398303,Other,Oribacterium,,,,,Fumarate,C00122,Healthy,Oribacterium sinus,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0046866233937131,SVR,Fumarate,C00122,Healthy,Lachnospira sp000436475,False
+sp000436535,,,,,Lachnospira,Lachnospira sp000436535,0.0044046395161027,SVR,Fumarate,C00122,Healthy,Lachnospira sp000436535,False
+sp000436835,,,,,Eubacterium_R,Eubacterium_R sp000436835,0.0045058136456549,SVR,Fumarate,C00122,Healthy,Eubacterium_R sp000436835,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0108161045154789,SVR,Fumarate,C00122,Healthy,Leptotrichia_A sp001274535,False
+sp007293315,,,,,Alkalihalobacillus_A,Alkalihalobacillus_A sp007293315,0.0111859238728598,SVR,Fumarate,C00122,Healthy,Alkalihalobacillus_A sp007293315,False
+sp013333035,,,,,CAG-793,CAG-793 sp013333035,0.0043260508073881,SVR,Fumarate,C00122,Healthy,CAG-793 sp013333035,False
+sp900539755,,,,,Alistipes_A,Alistipes_A sp900539755,0.0070096859378468,SVR,Fumarate,C00122,Healthy,Alistipes_A sp900539755,False
+sp900542265,,,,,CAG-1427,CAG-1427 sp900542265,0.0038274445381528,SVR,Fumarate,C00122,Healthy,CAG-1427 sp900542265,False
+sp900542625,,,,,Fusobacterium_B,Fusobacterium_B sp900542625,0.007698245583069,SVR,Fumarate,C00122,Healthy,Fusobacterium_B sp900542625,False
+sp900548365,,,,,Collinsella,Collinsella sp900548365,0.005379219661399,SVR,Fumarate,C00122,Healthy,Collinsella sp900548365,False
+sp900753285,,,,,UMGS1696,UMGS1696 sp900753285,0.0077704650252285,SVR,Fumarate,C00122,Healthy,UMGS1696 sp900753285,False
+sp900761765,,,,,Protoclostridium,Protoclostridium sp900761765,0.0062698867498176,SVR,Fumarate,C00122,Healthy,Protoclostridium sp900761765,False
+sp910586665,,,,,Duncaniella,Duncaniella sp910586665,0.0036649900497786,SVR,Fumarate,C00122,Healthy,Duncaniella sp910586665,False
+wadsworthensis,Sutterella wadsworthensis,46.21176655713937,Other,Sutterella,,,,,Fumarate,C00122,Healthy,Sutterella wadsworthensis,False
+wadsworthia,Bilophila wadsworthia,46.4676907434502,Other,Bilophila,,,,,Fumarate,C00122,Healthy,Bilophila wadsworthia,False
+bartlettii,Intestinibacter bartlettii,66.6666666666644,Other,Intestinibacter,,,,,Riboflavin,C00255,Healthy,Intestinibacter bartlettii,True
+butyricum,,,,,Clostridium,Clostridium butyricum,0.0471493062059194,RF,Riboflavin,C00255,Healthy,Clostridium butyricum,False
+eutactus,Coprococcus eutactus,50.0,Other,Coprococcus,,,,,Riboflavin,C00255,Healthy,Coprococcus eutactus,False
+forsythia_A,,,,,Tannerella,Tannerella forsythia_A,0.0040565063463496,RF,Riboflavin,C00255,Healthy,Tannerella forsythia_A,False
+hypermegale,Megamonas hypermegale,54.855333067207965,Other,Megamonas,,,,,Riboflavin,C00255,Healthy,Megamonas hypermegale,False
+intestinavium,,,,,Scatomorpha,Scatomorpha intestinavium,0.0052240335293315,RF,Riboflavin,C00255,Healthy,Scatomorpha intestinavium,False
+intestinihominis,,,,,Christensenella,Christensenella intestinihominis,0.0044114788058347,RF,Riboflavin,C00255,Healthy,Christensenella intestinihominis,False
+medium,Treponema medium,0.1368742763982889,Other,Treponema,,,,,Riboflavin,C00255,Healthy,Treponema medium,False
+plebeius_A,,,,,Phocaeicola,Phocaeicola plebeius_A,0.0045878960582242,RF,Riboflavin,C00255,Healthy,Phocaeicola plebeius_A,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0238521137195346,RF,Riboflavin,C00255,Healthy,Fusobacterium sp000235465,False
+sp000434475,,,,,Dialister,Dialister sp000434475,0.0064022111621318,RF,Riboflavin,C00255,Healthy,Dialister sp000434475,False
+sp000434975,,,,,Prevotella,Prevotella sp000434975,0.0044906593267446,RF,Riboflavin,C00255,Healthy,Prevotella sp000434975,False
+sp000686145,,,,,Romboutsia_D,Romboutsia_D sp000686145,0.0365324108458801,RF,Riboflavin,C00255,Healthy,Romboutsia_D sp000686145,False
+sp000799075,,,,,Cetobacterium_A,Cetobacterium_A sp000799075,0.005249245920761,RF,Riboflavin,C00255,Healthy,Cetobacterium_A sp000799075,False
+sp003458715,,,,,Holdemanella,Holdemanella sp003458715,0.0066906778041763,RF,Riboflavin,C00255,Healthy,Holdemanella sp003458715,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0484440704887447,RF,Riboflavin,C00255,Healthy,CCUG-7971 sp017590215,False
+sp900539095,,,,,Ruminococcus_D,Ruminococcus_D sp900539095,0.0073735283268839,RF,Riboflavin,C00255,Healthy,Ruminococcus_D sp900539095,False
+sp900540355,,,,,Intestinibacter,Intestinibacter sp900540355,0.0062573963689078,RF,Riboflavin,C00255,Healthy,Intestinibacter sp900540355,True
+sp900557035,,,,,Prevotella,Prevotella sp900557035,0.0052423726791613,RF,Riboflavin,C00255,Healthy,Prevotella sp900557035,False
+sp905214315,,,,,UMGS1322,UMGS1322 sp905214315,0.0106612867241064,RF,Riboflavin,C00255,Healthy,UMGS1322 sp905214315,False
+stercoris,,,,,Bacteroides,Bacteroides stercoris,0.0083665821759446,RF,Riboflavin,C00255,Healthy,Bacteroides stercoris,False
+subflava,,,,,Neisseria,Neisseria subflava,0.0048035669796686,RF,Riboflavin,C00255,Healthy,Neisseria subflava,False
+timonensis,,,,,Raoultibacter,Raoultibacter timonensis,0.0052645051864543,RF,Riboflavin,C00255,Healthy,Raoultibacter timonensis,False
+weinsteinii,,,,,Romboutsia_A,Romboutsia_A weinsteinii,0.0125898606579787,RF,Riboflavin,C00255,Healthy,Romboutsia_A weinsteinii,False
+aalborgi,,,,,Brachyspira,Brachyspira aalborgi,0.0107419889766393,SVR,Urea,C00086,Healthy,Brachyspira aalborgi,False
+amylolyticus,,,,,Lactobacillus,Lactobacillus amylolyticus,0.010829828836231,SVR,Urea,C00086,Healthy,Lactobacillus amylolyticus,False
+avistercoris,,,,,Alistipes,Alistipes avistercoris,0.0061824610695236,SVR,Urea,C00086,Healthy,Alistipes avistercoris,True
+cellulosilyticus,Bacteroides cellulosilyticus,26.25291401730213,Other,Bacteroides,,,,,Urea,C00086,Healthy,Bacteroides cellulosilyticus,False
+coli,,,,,Escherichia,Escherichia coli,0.0097642734369946,SVR,Urea,C00086,Healthy,Escherichia coli,False
+eggerthii,Bacteroides eggerthii,20.611565584623605,Other,Bacteroides,,,,,Urea,C00086,Healthy,Bacteroides eggerthii,False
+intestinigallinarum,,,,,Duodenibacillus,Duodenibacillus intestinigallinarum,0.005827430585317,SVR,Urea,C00086,Healthy,Duodenibacillus intestinigallinarum,False
+merdae,merdae,15.25592649983181,Other,merdae,,,,,Urea,C00086,Healthy,merdae,False
+ovatus,Bacteroides ovatus,10.885406384148725,Other,Bacteroides,,,,,Urea,C00086,Healthy,Bacteroides ovatus,False
+prausnitzii,Faecalibacterium prausnitzii,26.02328156697338,Other,Faecalibacterium,,,,,Urea,C00086,Healthy,Faecalibacterium prausnitzii,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.0105766654705261,SVR,Urea,C00086,Healthy,Egerieicola pullicola,False
+salyersiae,Bacteroides salyersiae,15.734280591806197,Other,Bacteroides,,,,,Urea,C00086,Healthy,Bacteroides salyersiae,False
+saudiense,,,,,Clostridium,Clostridium saudiense,0.0061962413557803,SVR,Urea,C00086,Healthy,Clostridium saudiense,False
+sp000437735,,,,,Lachnospira,Lachnospira sp000437735,0.0083053543389415,SVR,Urea,C00086,Healthy,Lachnospira sp000437735,False
+sp000758905,,,,,S5-A14a,S5-A14a sp000758905,0.0108114632342709,SVR,Urea,C00086,Healthy,S5-A14a sp000758905,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0113858399288284,SVR,Urea,C00086,Healthy,CAG-488 sp900539465,False
+sp900541465,,,,,Fusobacterium_B,Fusobacterium_B sp900541465,0.0074068358260236,SVR,Urea,C00086,Healthy,Fusobacterium_B sp900541465,False
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0087048350980499,SVR,Urea,C00086,Healthy,UMGS693 sp900544555,False
+sp900757865,,,,,Sutterella,Sutterella sp900757865,0.006828729353416,SVR,Urea,C00086,Healthy,Sutterella sp900757865,False
+sp900766045,,,,,Eubacterium_T,Eubacterium_T sp900766045,0.0102385877197254,SVR,Urea,C00086,Healthy,Eubacterium_T sp900766045,False
+sp900766315,,,,,Clostridium,Clostridium sp900766315,0.0056980861183067,SVR,Urea,C00086,Healthy,Clostridium sp900766315,False
+sp903789375,,,,,CAIFEB01,CAIFEB01 sp903789375,0.0090686991455671,SVR,Urea,C00086,Healthy,CAIFEB01 sp903789375,False
+thermophilus,thermophilus,8.674418714763465,Other,thermophilus,,,,,Urea,C00086,Healthy,thermophilus,False
+timonensis,,,,,Alloprevotella,Alloprevotella timonensis,0.0058591242919375,SVR,Urea,C00086,Healthy,Alloprevotella timonensis,False
+turicensis,,,,,Pauljensenia,Pauljensenia turicensis,0.0068662336842133,SVR,Urea,C00086,Healthy,Pauljensenia turicensis,False
+uniformis,Bacteroides uniformis,5.520855215107407,Other,Bacteroides,,,,,Urea,C00086,Healthy,Bacteroides uniformis,False
+virosa,Butyricimonas virosa,60.671677051451866,Other,Butyricimonas,,,,,Urea,C00086,Healthy,Butyricimonas virosa,False
+xylanisolvens,Bacteroides xylanisolvens,25.923318620339423,Other,Bacteroides,,,,,Urea,C00086,Healthy,Bacteroides xylanisolvens,False
+distasonis,Parabacteroides distasonis,2.2806293471287002,Other,Parabacteroides,,,,,Dodecanoate,C02679,Healthy,Parabacteroides distasonis,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0060048591602442,SVR,Dodecanoate,C02679,Healthy,Alangreenwoodia gallinarii,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0086705722247151,SVR,Dodecanoate,C02679,Healthy,Alistipes_A indistinctus,False
+merdae,merdae,23.776293223200376,Other,merdae,,,,,Dodecanoate,C02679,Healthy,merdae,False
+onderdonkii,,,,,Alistipes,Alistipes onderdonkii,0.0077231518623225,SVR,Dodecanoate,C02679,Healthy,Alistipes onderdonkii,False
+plantarum,,,,,Lactococcus_A,Lactococcus_A plantarum,0.0095399395537173,SVR,Dodecanoate,C02679,Healthy,Lactococcus_A plantarum,False
+pseudocatenulatum,,,,,Bifidobacterium,Bifidobacterium pseudocatenulatum,0.0058840809734178,SVR,Dodecanoate,C02679,Healthy,Bifidobacterium pseudocatenulatum,False
+saphenum,,,,,Eubacterium_N,Eubacterium_N saphenum,0.0058084332785341,SVR,Dodecanoate,C02679,Healthy,Eubacterium_N saphenum,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0077120042267947,SVR,Dodecanoate,C02679,Healthy,Lachnospira sp000436475,False
+sp001916775,,,,,CAG-302,CAG-302 sp001916775,0.011672137053674,SVR,Dodecanoate,C02679,Healthy,CAG-302 sp001916775,False
+sp002393575,,,,,UBA3839,UBA3839 sp002393575,0.0068557237136562,SVR,Dodecanoate,C02679,Healthy,UBA3839 sp002393575,False
+sp002440225,,,,,Prevotella,Prevotella sp002440225,0.0104431901356514,SVR,Dodecanoate,C02679,Healthy,Prevotella sp002440225,False
+sp017548065,,,,,Faecousia,Faecousia sp017548065,0.0067404447128699,SVR,Dodecanoate,C02679,Healthy,Faecousia sp017548065,False
+sp018110825,,,,,RGIG8773,RGIG8773 sp018110825,0.0094059908827708,SVR,Dodecanoate,C02679,Healthy,RGIG8773 sp018110825,False
+sp900554355,,,,,Fusobacterium_B,Fusobacterium_B sp900554355,0.0126671496957407,SVR,Dodecanoate,C02679,Healthy,Fusobacterium_B sp900554355,False
+sp900557305,,,,,UBA5026,UBA5026 sp900557305,0.0064648013151062,SVR,Dodecanoate,C02679,Healthy,UBA5026 sp900557305,False
+sp900754475,,,,,Sutterella,Sutterella sp900754475,0.0060105931102882,SVR,Dodecanoate,C02679,Healthy,Sutterella sp900754475,False
+sp905209745,,,,,Faecimonas,Faecimonas sp905209745,0.020293418104082,SVR,Dodecanoate,C02679,Healthy,Faecimonas sp905209745,False
+succinatiphilus,,,,,Dialister,Dialister succinatiphilus,0.0060143268954759,SVR,Dodecanoate,C02679,Healthy,Dialister succinatiphilus,False
+tenue,,,,,Paraclostridium,Paraclostridium tenue,0.0114529856954501,SVR,Dodecanoate,C02679,Healthy,Paraclostridium tenue,False
+variicola,,,,,Klebsiella,Klebsiella variicola,0.0097573778234828,SVR,Dodecanoate,C02679,Healthy,Klebsiella variicola,False
+faecalis,,,,,Aphodousia,Aphodousia faecalis,0.0059781926723343,RF,Pyridoxine,C00314,Healthy,Aphodousia faecalis,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0112090861929669,RF,Pyridoxine,C00314,Healthy,Alangreenwoodia gallinarii,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0107122600396446,RF,Pyridoxine,C00314,Healthy,Alistipes_A indistinctus,False
+medium,Treponema medium,0.4399234978233911,Other,Treponema,,,,,Pyridoxine,C00314,Healthy,Treponema medium,False
+merdae,merdae,12.883796663145716,Other,merdae,,,,,Pyridoxine,C00314,Healthy,merdae,False
+merdavium,,,,,Spyradocola,Spyradocola merdavium,0.0228178166316766,RF,Pyridoxine,C00314,Healthy,Spyradocola merdavium,False
+merdipullorum,,,,,Scatavimonas,Scatavimonas merdipullorum,0.0845771151504781,RF,Pyridoxine,C00314,Healthy,Scatavimonas merdipullorum,False
+putredinis,,,,,Alistipes,Alistipes putredinis,0.0038611739325512,RF,Pyridoxine,C00314,Healthy,Alistipes putredinis,False
+sp000432135,,,,,CAG-170,CAG-170 sp000432135,0.004268783039489,RF,Pyridoxine,C00314,Healthy,CAG-170 sp000432135,False
+sp000432155,,,,,CAG-274,CAG-274 sp000432155,0.0054147002138759,RF,Pyridoxine,C00314,Healthy,CAG-274 sp000432155,False
+sp000434475,,,,,Dialister,Dialister sp000434475,0.0081577606164388,RF,Pyridoxine,C00314,Healthy,Dialister sp000434475,False
+sp900539195,,,,,Ruminiclostridium_E,Ruminiclostridium_E sp900539195,0.0036180995337718,RF,Pyridoxine,C00314,Healthy,Ruminiclostridium_E sp900539195,False
+sp900544375,,,,,Fimivicinus,Fimivicinus sp900544375,0.0037083335336957,RF,Pyridoxine,C00314,Healthy,Fimivicinus sp900544375,False
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0259145831703941,RF,Pyridoxine,C00314,Healthy,UMGS693 sp900544555,False
+sp900546845,,,,,UBA1685,UBA1685 sp900546845,0.0047629558427333,RF,Pyridoxine,C00314,Healthy,UBA1685 sp900546845,False
+sp900554485,,,,,UBA10281,UBA10281 sp900554485,0.0066739960237403,RF,Pyridoxine,C00314,Healthy,UBA10281 sp900554485,False
+sp900555035,,,,,Prevotella,Prevotella sp900555035,0.0035097694645196,RF,Pyridoxine,C00314,Healthy,Prevotella sp900555035,False
+sp900557255,,,,,Prevotella,Prevotella sp900557255,0.0062228480225127,RF,Pyridoxine,C00314,Healthy,Prevotella sp900557255,False
+sp900763035,,,,,UBA5905,UBA5905 sp900763035,0.0056167156040113,RF,Pyridoxine,C00314,Healthy,UBA5905 sp900763035,False
+sp905207485,,,,,CAG-266,CAG-266 sp905207485,0.0036002355678976,RF,Pyridoxine,C00314,Healthy,CAG-266 sp905207485,False
+succinatiphilus,,,,,Dialister,Dialister succinatiphilus,0.0054490503957478,RF,Pyridoxine,C00314,Healthy,Dialister succinatiphilus,False
+tenue,,,,,Paraclostridium,Paraclostridium tenue,0.0045989518712342,RF,Pyridoxine,C00314,Healthy,Paraclostridium tenue,False
+amylolyticus,,,,,Lactobacillus,Lactobacillus amylolyticus,0.0253251442029713,LightGBM,Glucuronate,C00191,Healthy,Lactobacillus amylolyticus,False
+cellulosilyticus,Bacteroides cellulosilyticus,0.25081627703931375,Other,Bacteroides,,,,,Glucuronate,C00191,Healthy,Bacteroides cellulosilyticus,False
+flavescens_C,,,,,Neisseria,Neisseria flavescens_C,0.0350478232192139,LightGBM,Glucuronate,C00191,Healthy,Neisseria flavescens_C,False
+forsythia_A,,,,,Tannerella,Tannerella forsythia_A,0.0243784293042389,LightGBM,Glucuronate,C00191,Healthy,Tannerella forsythia_A,False
+ihumii,,,,,Alistipes_A,Alistipes_A ihumii,0.0274448558233088,LightGBM,Glucuronate,C00191,Healthy,Alistipes_A ihumii,False
+longum,longum,0.03321199011349792,Other,longum,,,,,Glucuronate,C00191,Healthy,longum,False
+medium,Treponema medium,0.0011294610000172232,Other,Treponema,,,,,Glucuronate,C00191,Healthy,Treponema medium,False
+merdae,merdae,0.04997720941968435,Other,merdae,,,,,Glucuronate,C00191,Healthy,merdae,False
+merdipullorum,,,,,Scatavimonas,Scatavimonas merdipullorum,0.0395631087355626,LightGBM,Glucuronate,C00191,Healthy,Scatavimonas merdipullorum,False
+ovatus,Bacteroides ovatus,0.11456582521680705,Other,Bacteroides,,,,,Glucuronate,C00191,Healthy,Bacteroides ovatus,False
+parauberis,,,,,Streptococcus,Streptococcus parauberis,0.0367043692912096,LightGBM,Glucuronate,C00191,Healthy,Streptococcus parauberis,False
+ramosum,,,,,Erysipelatoclostridium,Erysipelatoclostridium ramosum,0.0567879583749478,LightGBM,Glucuronate,C00191,Healthy,Erysipelatoclostridium ramosum,False
+silvanus,,,,,Meiothermus_B,Meiothermus_B silvanus,0.0548853612966704,LightGBM,Glucuronate,C00191,Healthy,Meiothermus_B silvanus,False
+sp000431015,,,,,Cryptobacteroides,Cryptobacteroides sp000431015,0.0245663503382232,LightGBM,Glucuronate,C00191,Healthy,Cryptobacteroides sp000431015,False
+sp000437595,,,,,UBA11524,UBA11524 sp000437595,0.0191551883217449,LightGBM,Glucuronate,C00191,Healthy,UBA11524 sp000437595,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0203466037586967,LightGBM,Glucuronate,C00191,Healthy,Leptotrichia_A sp001274535,False
+sp900319515,,,,,CAG-127,CAG-127 sp900319515,0.0280794912660736,LightGBM,Glucuronate,C00191,Healthy,CAG-127 sp900319515,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0280558356889028,LightGBM,Glucuronate,C00191,Healthy,CAG-488 sp900539465,False
+sp900540355,,,,,Intestinibacter,Intestinibacter sp900540355,0.0345087151753448,LightGBM,Glucuronate,C00191,Healthy,Intestinibacter sp900540355,False
+sp900757655,,,,,CAG-103,CAG-103 sp900757655,0.0465999224324809,LightGBM,Glucuronate,C00191,Healthy,CAG-103 sp900757655,False
+sp900763035,,,,,UBA5905,UBA5905 sp900763035,0.0354098777497658,LightGBM,Glucuronate,C00191,Healthy,UBA5905 sp900763035,False
+sp902766775,,,,,Ruminococcus_E,Ruminococcus_E sp902766775,0.0303247927920302,LightGBM,Glucuronate,C00191,Healthy,Ruminococcus_E sp902766775,False
+spG000499525,,,,,CCUG-7971,CCUG-7971 spG000499525,0.03178408087418,LightGBM,Glucuronate,C00191,Healthy,CCUG-7971 spG000499525,False
+thetaiotaomicron,Bacteroides thetaiotaomicron,0.08328485120800586,Other,Bacteroides,,,,,Glucuronate,C00191,Healthy,Bacteroides thetaiotaomicron,False
+turicensis,,,,,Pauljensenia,Pauljensenia turicensis,0.0289667349737437,LightGBM,Glucuronate,C00191,Healthy,Pauljensenia turicensis,False
+uniformis,Bacteroides uniformis,0.003780549910272591,Other,Bacteroides,,,,,Glucuronate,C00191,Healthy,Bacteroides uniformis,False
+wadei,,,,,Leptotrichia,Leptotrichia wadei,0.0409421836938129,LightGBM,Glucuronate,C00191,Healthy,Leptotrichia wadei,False
+albertii,Escherichia albertii,89.30000421669929,Amino Acid,Escherichia,,,,,Isoleucine,C00407,Early_CRC,Escherichia albertii,True
+ascorbata,Kluyvera ascorbata,85.41545054644479,Amino Acid,Kluyvera,,,,,Isoleucine,C00407,Early_CRC,Kluyvera ascorbata,False
+atypica,Veillonella atypica,95.98731343866856,Amino Acid,Veillonella,,,,,Isoleucine,C00407,Early_CRC,Veillonella atypica,False
+cerevisiae,,,,,Megasphaera,Megasphaera cerevisiae,0.0066434317492687,SVR,Isoleucine,C00407,Early_CRC,Megasphaera cerevisiae,True
+cloacae,Enterobacter cloacae,83.19854241566246,Amino Acid,Enterobacter,,,,,Isoleucine,C00407,Early_CRC,Enterobacter cloacae,False
+coli,,,,,Escherichia,Escherichia coli,0.0059514377462402,SVR,Isoleucine,C00407,Early_CRC,Escherichia coli,True
+constellatus,Streptococcus constellatus,98.48913192998302,Amino Acid,Streptococcus,,,,,Isoleucine,C00407,Early_CRC,Streptococcus constellatus,False
+faecium,,,,,Gallimonas,Gallimonas faecium,0.0049361278920729,SVR,Isoleucine,C00407,Early_CRC,Gallimonas faecium,False
+limosum,Eubacterium limosum,84.26614796959686,Amino Acid,Eubacterium,,,,,Isoleucine,C00407,Early_CRC,Eubacterium limosum,False
+longum,,,,,Bifidobacterium,Bifidobacterium longum,0.0079343112263185,SVR,Isoleucine,C00407,Early_CRC,Bifidobacterium longum,True
+mortiferum,,,,,Fusobacterium_A,Fusobacterium_A mortiferum,0.0138788629778918,SVR,Isoleucine,C00407,Early_CRC,Fusobacterium_A mortiferum,False
+ornithinolytica,,,,,Klebsiella,Klebsiella ornithinolytica,0.0130091556423128,SVR,Isoleucine,C00407,Early_CRC,Klebsiella ornithinolytica,True
+oxytoca,Klebsiella oxytoca,85.03478249632089,Amino Acid,Klebsiella,,,,,Isoleucine,C00407,Early_CRC,Klebsiella oxytoca,True
+pilosicoli,Brachyspira pilosicoli,86.82806174381156,Amino Acid,Brachyspira,,,,,Isoleucine,C00407,Early_CRC,Brachyspira pilosicoli,False
+pullicaecorum,Butyricicoccus pullicaecorum,94.67435185320826,Amino Acid,Butyricicoccus,,,,,Isoleucine,C00407,Early_CRC,Butyricicoccus pullicaecorum,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.0121850427632336,SVR,Isoleucine,C00407,Early_CRC,Egerieicola pullicola,False
+silvisoli,,,,,Chitinophaga,Chitinophaga silvisoli,0.0062227107603198,SVR,Isoleucine,C00407,Early_CRC,Chitinophaga silvisoli,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0060361823267351,SVR,Isoleucine,C00407,Early_CRC,Fusobacterium sp000235465,False
+sp000432175,,,,,CAG-115,CAG-115 sp000432175,0.0078080823664354,SVR,Isoleucine,C00407,Early_CRC,CAG-115 sp000432175,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0074037705140867,SVR,Isoleucine,C00407,Early_CRC,Lachnospira sp000436475,False
+sp000436835,,,,,Eubacterium_R,Eubacterium_R sp000436835,0.0045671716779725,SVR,Isoleucine,C00407,Early_CRC,Eubacterium_R sp000436835,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.009545651320814,SVR,Isoleucine,C00407,Early_CRC,Leptotrichia_A sp001274535,False
+sp005843885,,,,,Escherichia,Escherichia sp005843885,0.004921900678952,SVR,Isoleucine,C00407,Early_CRC,Escherichia sp005843885,True
+sp013333035,,,,,CAG-793,CAG-793 sp013333035,0.0046664335039683,SVR,Isoleucine,C00407,Early_CRC,CAG-793 sp013333035,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0086863360208072,SVR,Isoleucine,C00407,Early_CRC,CCUG-7971 sp017590215,False
+sp900540255,,,,,Clostridium,Clostridium sp900540255,0.0054713358316847,SVR,Isoleucine,C00407,Early_CRC,Clostridium sp900540255,False
+sp900541605,,,,,Dialister,Dialister sp900541605,0.0079537428907459,SVR,Isoleucine,C00407,Early_CRC,Dialister sp900541605,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0089235359644648,SVR,Isoleucine,C00407,Early_CRC,Aphodousia sp905212345,False
+sp905213155,,,,,Acidaminococcus,Acidaminococcus sp905213155,0.0060001738519559,SVR,Isoleucine,C00407,Early_CRC,Acidaminococcus sp905213155,False
+striatum,Corynebacterium striatum,97.66018957832702,Amino Acid,Corynebacterium,,,,,Isoleucine,C00407,Early_CRC,Corynebacterium striatum,False
+caviae,caviae,82.09955027932149,Other,caviae,,,,,Lactate,C00186,Early_CRC,caviae,False
+cylindroides,Faecalitalea cylindroides,75.81957119067495,Other,Faecalitalea,,,,,Lactate,C00186,Early_CRC,Faecalitalea cylindroides,False
+elsdenii,Megasphaera elsdenii,62.99272264853042,Other,Megasphaera,,,,,Lactate,C00186,Early_CRC,Megasphaera elsdenii,False
+filiformis,Holdemania filiformis,66.66666666666595,Other,Holdemania,,,,,Lactate,C00186,Early_CRC,Holdemania filiformis,False
+inulinivorans,Roseburia inulinivorans,63.38699900751743,Other,Roseburia,,,,,Lactate,C00186,Early_CRC,Roseburia inulinivorans,False
+kashiwanohense,Bifidobacterium kashiwanohense,92.30769230769153,Other,Bifidobacterium,,,,,Lactate,C00186,Early_CRC,Bifidobacterium kashiwanohense,False
+lenta,,,,,Victivallis,Victivallis lenta,0.004999052911169,SVR,Lactate,C00186,Early_CRC,Victivallis lenta,False
+macacae,,,,,Streptococcus,Streptococcus macacae,0.0048601735417661,SVR,Lactate,C00186,Early_CRC,Streptococcus macacae,True
+oralis_BH,,,,,Streptococcus,Streptococcus oralis_BH,0.0042497199907133,SVR,Lactate,C00186,Early_CRC,Streptococcus oralis_BH,True
+parasanguinis,Streptococcus parasanguinis,61.15770702380442,Other,Streptococcus,,,,,Lactate,C00186,Early_CRC,Streptococcus parasanguinis,True
+parvirubra,,,,,Sutterella,Sutterella parvirubra,0.0035914216388567,SVR,Lactate,C00186,Early_CRC,Sutterella parvirubra,False
+provencensis,,,,,Acidaminococcus,Acidaminococcus provencensis,0.0040555654422322,SVR,Lactate,C00186,Early_CRC,Acidaminococcus provencensis,False
+pseudocatenulatum,Bifidobacterium pseudocatenulatum,63.970643789407326,Other,Bifidobacterium,,,,,Lactate,C00186,Early_CRC,Bifidobacterium pseudocatenulatum,False
+ramosum,ramosum,88.3947012094277,Other,ramosum,,,,,Lactate,C00186,Early_CRC,ramosum,False
+scardovii,Bifidobacterium scardovii,70.71676037882101,Other,Bifidobacterium,,,,,Lactate,C00186,Early_CRC,Bifidobacterium scardovii,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0040808186013551,SVR,Lactate,C00186,Early_CRC,Lachnospira sp000436475,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0071211887431702,SVR,Lactate,C00186,Early_CRC,Leptotrichia_A sp001274535,False
+sp002393575,,,,,UBA3839,UBA3839 sp002393575,0.0079096206563313,SVR,Lactate,C00186,Early_CRC,UBA3839 sp002393575,False
+sp003506415,,,,,UBA9506,UBA9506 sp003506415,0.0053542425555223,SVR,Lactate,C00186,Early_CRC,UBA9506 sp003506415,False
+sp003531585,,,,,CAG-115,CAG-115 sp003531585,0.0038473149231068,SVR,Lactate,C00186,Early_CRC,CAG-115 sp003531585,False
+sp900539265,,,,,CAG-313,CAG-313 sp900539265,0.0044542154084088,SVR,Lactate,C00186,Early_CRC,CAG-313 sp900539265,False
+sp900540275,,,,,Scatavimonas,Scatavimonas sp900540275,0.0041497000996972,SVR,Lactate,C00186,Early_CRC,Scatavimonas sp900540275,False
+sp900543455,,,,,Dialister,Dialister sp900543455,0.0046642413374713,SVR,Lactate,C00186,Early_CRC,Dialister sp900543455,True
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0112786826455896,SVR,Lactate,C00186,Early_CRC,UMGS693 sp900544555,False
+sp900546315,,,,,Flemingibacterium,Flemingibacterium sp900546315,0.0044324941009518,SVR,Lactate,C00186,Early_CRC,Flemingibacterium sp900546315,False
+sp900548385,,,,,UBA1829,UBA1829 sp900548385,0.008120837474679,SVR,Lactate,C00186,Early_CRC,UBA1829 sp900548385,False
+sp910589555,,,,,Muribaculum,Muribaculum sp910589555,0.0041241726650922,SVR,Lactate,C00186,Early_CRC,Muribaculum sp910589555,False
+spG000499525,,,,,CCUG-7971,CCUG-7971 spG000499525,0.0055232110263299,SVR,Lactate,C00186,Early_CRC,CCUG-7971 spG000499525,False
+stercoripullorum,,,,,Collinsella,Collinsella stercoripullorum,0.0041059280218589,SVR,Lactate,C00186,Early_CRC,Collinsella stercoripullorum,True
+wadei,,,,,Leptotrichia,Leptotrichia wadei,0.0144709394179361,SVR,Lactate,C00186,Early_CRC,Leptotrichia wadei,False
+atypica,Veillonella atypica,79.96775074984345,Other,Veillonella,,,,,Fumarate,C00122,Early_CRC,Veillonella atypica,False
+colihominis,Anaerotruncus colihominis,55.44803322670863,Other,Anaerotruncus,,,,,Fumarate,C00122,Early_CRC,Anaerotruncus colihominis,False
+curtum,,,,,Cryptobacterium,Cryptobacterium curtum,0.0060291032277704,SVR,Fumarate,C00122,Early_CRC,Cryptobacterium curtum,False
+durum,Corynebacterium durum,90.69482020873727,Other,Corynebacterium,,,,,Fumarate,C00122,Early_CRC,Corynebacterium durum,False
+edinburgensis,,,,,Gallispira,Gallispira edinburgensis,0.0055896850521319,SVR,Fumarate,C00122,Early_CRC,Gallispira edinburgensis,False
+excrementihominis,Parasutterella excrementihominis,56.31281700908691,Other,Parasutterella,,,,,Fumarate,C00122,Early_CRC,Parasutterella excrementihominis,False
+formicigenerans,Dorea formicigenerans,56.96537820180995,Other,Dorea,,,,,Fumarate,C00122,Early_CRC,Dorea formicigenerans,False
+goldsteinii,Parabacteroides goldsteinii,68.59879839720911,Other,Parabacteroides,,,,,Fumarate,C00122,Early_CRC,Parabacteroides goldsteinii,False
+isourolithinifaciens,,,,,Ellagibacter,Ellagibacter isourolithinifaciens,0.0064490471639442,SVR,Fumarate,C00122,Early_CRC,Ellagibacter isourolithinifaciens,False
+merdigallinarum,,,,,Flemingibacterium,Flemingibacterium merdigallinarum,0.0047200684842102,SVR,Fumarate,C00122,Early_CRC,Flemingibacterium merdigallinarum,False
+oleiciplenus,Bacteroides oleiciplenus,68.97757971300138,Other,Bacteroides,,,,,Fumarate,C00122,Early_CRC,Bacteroides oleiciplenus,False
+onderdonkii,,,,,Alistipes,Alistipes onderdonkii,0.0037186623966693,SVR,Fumarate,C00122,Early_CRC,Alistipes onderdonkii,False
+plautii,Flavonifractor plautii,57.470026410189156,Other,Flavonifractor,,,,,Fumarate,C00122,Early_CRC,Flavonifractor plautii,False
+pneumoniae,,,,,Klebsiella,Klebsiella pneumoniae,0.0036431203319838,SVR,Fumarate,C00122,Early_CRC,Klebsiella pneumoniae,False
+quasipneumoniae,,,,,Klebsiella,Klebsiella quasipneumoniae,0.0044546393674202,SVR,Fumarate,C00122,Early_CRC,Klebsiella quasipneumoniae,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0046866233937131,SVR,Fumarate,C00122,Early_CRC,Lachnospira sp000436475,False
+sp000436535,,,,,Lachnospira,Lachnospira sp000436535,0.0044046395161027,SVR,Fumarate,C00122,Early_CRC,Lachnospira sp000436535,False
+sp000436835,,,,,Eubacterium_R,Eubacterium_R sp000436835,0.0045058136456549,SVR,Fumarate,C00122,Early_CRC,Eubacterium_R sp000436835,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0108161045154789,SVR,Fumarate,C00122,Early_CRC,Leptotrichia_A sp001274535,False
+sp007293315,,,,,Alkalihalobacillus_A,Alkalihalobacillus_A sp007293315,0.0111859238728598,SVR,Fumarate,C00122,Early_CRC,Alkalihalobacillus_A sp007293315,False
+sp013333035,,,,,CAG-793,CAG-793 sp013333035,0.0043260508073881,SVR,Fumarate,C00122,Early_CRC,CAG-793 sp013333035,False
+sp900539755,,,,,Alistipes_A,Alistipes_A sp900539755,0.0070096859378468,SVR,Fumarate,C00122,Early_CRC,Alistipes_A sp900539755,False
+sp900542265,,,,,CAG-1427,CAG-1427 sp900542265,0.0038274445381528,SVR,Fumarate,C00122,Early_CRC,CAG-1427 sp900542265,False
+sp900542625,,,,,Fusobacterium_B,Fusobacterium_B sp900542625,0.007698245583069,SVR,Fumarate,C00122,Early_CRC,Fusobacterium_B sp900542625,False
+sp900548365,,,,,Collinsella,Collinsella sp900548365,0.005379219661399,SVR,Fumarate,C00122,Early_CRC,Collinsella sp900548365,False
+sp900753285,,,,,UMGS1696,UMGS1696 sp900753285,0.0077704650252285,SVR,Fumarate,C00122,Early_CRC,UMGS1696 sp900753285,False
+sp900761765,,,,,Protoclostridium,Protoclostridium sp900761765,0.0062698867498176,SVR,Fumarate,C00122,Early_CRC,Protoclostridium sp900761765,False
+sp910586665,,,,,Duncaniella,Duncaniella sp910586665,0.0036649900497786,SVR,Fumarate,C00122,Early_CRC,Duncaniella sp910586665,False
+succinatiphilus,Dialister succinatiphilus,52.34919787787601,Other,Dialister,,,,,Fumarate,C00122,Early_CRC,Dialister succinatiphilus,False
+wadsworthia,Bilophila wadsworthia,70.53145719596621,Other,Bilophila,,,,,Fumarate,C00122,Early_CRC,Bilophila wadsworthia,False
+albertii,Escherichia albertii,21.89283532028938,Other,Escherichia,,,,,GABA,C00334,Early_CRC,Escherichia albertii,False
+avistercoris,,,,,Alistipes,Alistipes avistercoris,0.0042892476759578,SVR,GABA,C00334,Early_CRC,Alistipes avistercoris,True
+bifidum,,,,,Bifidobacterium,Bifidobacterium bifidum,0.0054417716039056,SVR,GABA,C00334,Early_CRC,Bifidobacterium bifidum,False
+caecorum,,,,,Avimicrobium,Avimicrobium caecorum,0.010634012749668,SVR,GABA,C00334,Early_CRC,Avimicrobium caecorum,False
+faecium,,,,,Avispirillum,Avispirillum faecium,0.0061929431399669,SVR,GABA,C00334,Early_CRC,Avispirillum faecium,False
+fergusonii,Escherichia fergusonii,59.32975331639756,Other,Escherichia,,,,,GABA,C00334,Early_CRC,Escherichia fergusonii,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0065886306173768,SVR,GABA,C00334,Early_CRC,Alangreenwoodia gallinarii,False
+hongkongensis,,,,,Streptobacillus,Streptobacillus hongkongensis,0.0067509905971429,SVR,GABA,C00334,Early_CRC,Streptobacillus hongkongensis,False
+intestinavium,,,,,Duodenibacillus,Duodenibacillus intestinavium,0.0063499929587953,SVR,GABA,C00334,Early_CRC,Duodenibacillus intestinavium,False
+intestinihominis,intestinihominis,1.2123837418685528,Other,intestinihominis,,,,,GABA,C00334,Early_CRC,intestinihominis,False
+leptum,,,,,Clostridium_A,Clostridium_A leptum,0.0108000823473011,SVR,GABA,C00334,Early_CRC,Clostridium_A leptum,False
+onderdonkii,Alistipes onderdonkii,50.58148320968551,Other,Alistipes,,,,,GABA,C00334,Early_CRC,Alistipes onderdonkii,True
+parvula_A,,,,,Veillonella,Veillonella parvula_A,0.0154951124036779,SVR,GABA,C00334,Early_CRC,Veillonella parvula_A,False
+salyersiae,Bacteroides salyersiae,31.079901610727603,Other,Bacteroides,,,,,GABA,C00334,Early_CRC,Bacteroides salyersiae,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0123716717215274,SVR,GABA,C00334,Early_CRC,Lachnospira sp000436475,False
+sp002350855,,,,,UBA3839,UBA3839 sp002350855,0.0042962937254738,SVR,GABA,C00334,Early_CRC,UBA3839 sp002350855,False
+sp002359025,,,,,UBA3379,UBA3379 sp002359025,0.0076721950738854,SVR,GABA,C00334,Early_CRC,UBA3379 sp002359025,False
+sp002431975,,,,,UBA5884,UBA5884 sp002431975,0.0048977951955768,SVR,GABA,C00334,Early_CRC,UBA5884 sp002431975,False
+sp002438685,,,,,CAG-177,CAG-177 sp002438685,0.0040892515454902,SVR,GABA,C00334,Early_CRC,CAG-177 sp002438685,False
+sp003445125,,,,,UBA11540,UBA11540 sp003445125,0.0046548477878681,SVR,GABA,C00334,Early_CRC,UBA11540 sp003445125,False
+sp014323405,,,,,GCA-900066495,GCA-900066495 sp014323405,0.0040607165765345,SVR,GABA,C00334,Early_CRC,GCA-900066495 sp014323405,False
+sp017483765,,,,,UBA3839,UBA3839 sp017483765,0.0061154371328831,SVR,GABA,C00334,Early_CRC,UBA3839 sp017483765,False
+sp900539345,,,,,UMGS124,UMGS124 sp900539345,0.0084882893939769,SVR,GABA,C00334,Early_CRC,UMGS124 sp900539345,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0048746205880466,SVR,GABA,C00334,Early_CRC,CAG-488 sp900539465,False
+splanchnicus,Odoribacter splanchnicus,30.662020774512143,Other,Odoribacter,,,,,GABA,C00334,Early_CRC,Odoribacter splanchnicus,False
+thermophilus,thermophilus,77.72318109781199,Other,thermophilus,,,,,GABA,C00334,Early_CRC,thermophilus,False
+thetaiotaomicron,Bacteroides thetaiotaomicron,80.88427363237363,Other,Bacteroides,,,,,GABA,C00334,Early_CRC,Bacteroides thetaiotaomicron,False
+uniformis,Bacteroides uniformis,0.6343249544349473,Other,Bacteroides,,,,,GABA,C00334,Early_CRC,Bacteroides uniformis,False
+aeruginosa,Pseudomonas aeruginosa,64.24737508910398,Amino Acid,Pseudomonas,,,,,Leucine,C00123,Early_CRC,Pseudomonas aeruginosa,False
+circumdentaria,,,,,Porphyromonas,Porphyromonas circumdentaria,0.0056017468018856,SVR,Leucine,C00123,Early_CRC,Porphyromonas circumdentaria,False
+coahuilensis,,,,,Bacillus_T,Bacillus_T coahuilensis,0.007493699428987,SVR,Leucine,C00123,Early_CRC,Bacillus_T coahuilensis,False
+coli,,,,,Escherichia,Escherichia coli,0.007874449752669,SVR,Leucine,C00123,Early_CRC,Escherichia coli,False
+eggerthii,Bacteroides eggerthii,42.96442980146996,Amino Acid,Bacteroides,,,,,Leucine,C00123,Early_CRC,Bacteroides eggerthii,False
+eutactus,Coprococcus eutactus,57.14285714285722,Amino Acid,Coprococcus,,,,,Leucine,C00123,Early_CRC,Coprococcus eutactus,False
+formicigenerans,Dorea formicigenerans,72.76278228835132,Amino Acid,Dorea,,,,,Leucine,C00123,Early_CRC,Dorea formicigenerans,False
+intestinipullorum,,,,,Excrementavichristensenella,Excrementavichristensenella intestinipullorum,0.0061422169178584,SVR,Leucine,C00123,Early_CRC,Excrementavichristensenella intestinipullorum,False
+longum,,,,,Bifidobacterium,Bifidobacterium longum,0.0065976308614772,SVR,Leucine,C00123,Early_CRC,Bifidobacterium longum,False
+mortiferum,,,,,Fusobacterium_A,Fusobacterium_A mortiferum,0.0116888243580845,SVR,Leucine,C00123,Early_CRC,Fusobacterium_A mortiferum,False
+ornithinolytica,,,,,Klebsiella,Klebsiella ornithinolytica,0.0143087366800026,SVR,Leucine,C00123,Early_CRC,Klebsiella ornithinolytica,False
+parasanguinis,Streptococcus parasanguinis,53.905741171101525,Amino Acid,Streptococcus,,,,,Leucine,C00123,Early_CRC,Streptococcus parasanguinis,False
+plautii,Flavonifractor plautii,58.32404512274974,Amino Acid,Flavonifractor,,,,,Leucine,C00123,Early_CRC,Flavonifractor plautii,False
+prausnitzii,Faecalibacterium prausnitzii,50.4351118939506,Amino Acid,Faecalibacterium,,,,,Leucine,C00123,Early_CRC,Faecalibacterium prausnitzii,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.012290395849589,SVR,Leucine,C00123,Early_CRC,Egerieicola pullicola,False
+ramosum,ramosum,47.61320394745817,Amino Acid,ramosum,,,,,Leucine,C00123,Early_CRC,ramosum,False
+saccharogumia,Erysipelatoclostridium saccharogumia,79.37192399791168,Amino Acid,Erysipelatoclostridium,,,,,Leucine,C00123,Early_CRC,Erysipelatoclostridium saccharogumia,False
+salivarius,,,,,Ligilactobacillus,Ligilactobacillus salivarius,0.0055635562511009,SVR,Leucine,C00123,Early_CRC,Ligilactobacillus salivarius,False
+sinus,Oribacterium sinus,53.486043055731514,Amino Acid,Oribacterium,,,,,Leucine,C00123,Early_CRC,Oribacterium sinus,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0140695680901876,SVR,Leucine,C00123,Early_CRC,Fusobacterium sp000235465,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.010102006134805,SVR,Leucine,C00123,Early_CRC,Lachnospira sp000436475,False
+sp000436535,,,,,Lachnospira,Lachnospira sp000436535,0.006690056391088,SVR,Leucine,C00123,Early_CRC,Lachnospira sp000436535,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0078762053235145,SVR,Leucine,C00123,Early_CRC,Leptotrichia_A sp001274535,False
+sp004793665,,,,,NM07-P-09,NM07-P-09 sp004793665,0.0054391724034463,SVR,Leucine,C00123,Early_CRC,NM07-P-09 sp004793665,False
+sp014287795,,,,,Christensenella,Christensenella sp014287795,0.0060285116145378,SVR,Leucine,C00123,Early_CRC,Christensenella sp014287795,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0132402142036915,SVR,Leucine,C00123,Early_CRC,CCUG-7971 sp017590215,False
+sp900539345,,,,,UMGS124,UMGS124 sp900539345,0.0064438965868285,SVR,Leucine,C00123,Early_CRC,UMGS124 sp900539345,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0095462390506801,SVR,Leucine,C00123,Early_CRC,Aphodousia sp905212345,False
+sp905213155,,,,,Acidaminococcus,Acidaminococcus sp905213155,0.0057018144157028,SVR,Leucine,C00123,Early_CRC,Acidaminococcus sp905213155,False
+copri_A,,,,,Prevotella,Prevotella copri_A,0.0326544522027675,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Prevotella copri_A,False
+desulfuricans_A,,,,,Desulfovibrio,Desulfovibrio desulfuricans_A,0.0216158864956854,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Desulfovibrio desulfuricans_A,False
+fergusonii,Escherichia fergusonii,25.363640607464664,Other,Escherichia,,,,,Glucose-6-Phosphate,C00092,Early_CRC,Escherichia fergusonii,False
+hydrophila,Aeromonas hydrophila,67.18146718146717,Other,Aeromonas,,,,,Glucose-6-Phosphate,C00092,Early_CRC,Aeromonas hydrophila,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0277256207049428,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Alistipes_A indistinctus,False
+maltaromaticum,,,,,Carnobacterium,Carnobacterium maltaromaticum,0.016111864165001,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Carnobacterium maltaromaticum,False
+massiliensis,,,,,Megasphaera,Megasphaera massiliensis,0.0174868250440423,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Megasphaera massiliensis,False
+oxytoca,Klebsiella oxytoca,46.4044622551895,Other,Klebsiella,,,,,Glucose-6-Phosphate,C00092,Early_CRC,Klebsiella oxytoca,False
+provencensis,,,,,Acidaminococcus,Acidaminococcus provencensis,0.0188873449848266,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Acidaminococcus provencensis,False
+sp000186165,,,,,Neisseria,Neisseria sp000186165,0.0187696357248922,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Neisseria sp000186165,False
+sp000435795,,,,,Copromonas,Copromonas sp000435795,0.0182263941210277,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Copromonas sp000435795,False
+sp001657575,,,,,Barb7,Barb7 sp001657575,0.0203669158955762,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Barb7 sp001657575,False
+sp002438575,,,,,CAG-83,CAG-83 sp002438575,0.026718445772191,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,CAG-83 sp002438575,False
+sp003150615,,,,,Merdimorpha,Merdimorpha sp003150615,0.0167425527378918,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Merdimorpha sp003150615,False
+sp016292635,,,,,SFEL01,SFEL01 sp016292635,0.0186011192114546,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,SFEL01 sp016292635,False
+sp016292785,,,,,CAG-488,CAG-488 sp016292785,0.0137960124166413,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,CAG-488 sp016292785,False
+sp017460955,,,,,UBA3855,UBA3855 sp017460955,0.0156563608255737,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,UBA3855 sp017460955,False
+sp018065665,,,,,Sodaliphilus,Sodaliphilus sp018065665,0.0192132337151713,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Sodaliphilus sp018065665,False
+sp900548415,,,,,Porphyromonas,Porphyromonas sp900548415,0.0287782438567826,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Porphyromonas sp900548415,False
+sp900761895,,,,,HGM11417,HGM11417 sp900761895,0.0158815817022619,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,HGM11417 sp900761895,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0185020406043088,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Aphodousia sp905212345,False
+subflava,,,,,Neisseria,Neisseria subflava,0.0367556377236972,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Neisseria subflava,False
+vulgaris_A,,,,,Cupidesulfovibrio,Cupidesulfovibrio vulgaris_A,0.016539412712742,LightGBM,Glucose-6-Phosphate,C00092,Early_CRC,Cupidesulfovibrio vulgaris_A,False
+butyricum,,,,,Clostridium,Clostridium butyricum,0.0471493062059194,RF,Riboflavin,C00255,Early_CRC,Clostridium butyricum,False
+eutactus,Coprococcus eutactus,50.0,Other,Coprococcus,,,,,Riboflavin,C00255,Early_CRC,Coprococcus eutactus,False
+forsythia_A,,,,,Tannerella,Tannerella forsythia_A,0.0040565063463496,RF,Riboflavin,C00255,Early_CRC,Tannerella forsythia_A,False
+hypermegale,Megamonas hypermegale,10.025290350278567,Other,Megamonas,,,,,Riboflavin,C00255,Early_CRC,Megamonas hypermegale,False
+intestinavium,,,,,Scatomorpha,Scatomorpha intestinavium,0.0052240335293315,RF,Riboflavin,C00255,Early_CRC,Scatomorpha intestinavium,False
+intestinihominis,,,,,Christensenella,Christensenella intestinihominis,0.0044114788058347,RF,Riboflavin,C00255,Early_CRC,Christensenella intestinihominis,False
+medium,Treponema medium,0.1622426064817628,Other,Treponema,,,,,Riboflavin,C00255,Early_CRC,Treponema medium,False
+plebeius_A,,,,,Phocaeicola,Phocaeicola plebeius_A,0.0045878960582242,RF,Riboflavin,C00255,Early_CRC,Phocaeicola plebeius_A,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0238521137195346,RF,Riboflavin,C00255,Early_CRC,Fusobacterium sp000235465,False
+sp000434475,,,,,Dialister,Dialister sp000434475,0.0064022111621318,RF,Riboflavin,C00255,Early_CRC,Dialister sp000434475,False
+sp000434975,,,,,Prevotella,Prevotella sp000434975,0.0044906593267446,RF,Riboflavin,C00255,Early_CRC,Prevotella sp000434975,False
+sp000686145,,,,,Romboutsia_D,Romboutsia_D sp000686145,0.0365324108458801,RF,Riboflavin,C00255,Early_CRC,Romboutsia_D sp000686145,False
+sp000799075,,,,,Cetobacterium_A,Cetobacterium_A sp000799075,0.005249245920761,RF,Riboflavin,C00255,Early_CRC,Cetobacterium_A sp000799075,False
+sp003458715,,,,,Holdemanella,Holdemanella sp003458715,0.0066906778041763,RF,Riboflavin,C00255,Early_CRC,Holdemanella sp003458715,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0484440704887447,RF,Riboflavin,C00255,Early_CRC,CCUG-7971 sp017590215,False
+sp900539095,,,,,Ruminococcus_D,Ruminococcus_D sp900539095,0.0073735283268839,RF,Riboflavin,C00255,Early_CRC,Ruminococcus_D sp900539095,False
+sp900540355,,,,,Intestinibacter,Intestinibacter sp900540355,0.0062573963689078,RF,Riboflavin,C00255,Early_CRC,Intestinibacter sp900540355,False
+sp900557035,,,,,Prevotella,Prevotella sp900557035,0.0052423726791613,RF,Riboflavin,C00255,Early_CRC,Prevotella sp900557035,False
+sp905214315,,,,,UMGS1322,UMGS1322 sp905214315,0.0106612867241064,RF,Riboflavin,C00255,Early_CRC,UMGS1322 sp905214315,False
+stercoris,,,,,Bacteroides,Bacteroides stercoris,0.0083665821759446,RF,Riboflavin,C00255,Early_CRC,Bacteroides stercoris,False
+subflava,,,,,Neisseria,Neisseria subflava,0.0048035669796686,RF,Riboflavin,C00255,Early_CRC,Neisseria subflava,False
+timonensis,,,,,Raoultibacter,Raoultibacter timonensis,0.0052645051864543,RF,Riboflavin,C00255,Early_CRC,Raoultibacter timonensis,False
+weinsteinii,,,,,Romboutsia_A,Romboutsia_A weinsteinii,0.0125898606579787,RF,Riboflavin,C00255,Early_CRC,Romboutsia_A weinsteinii,False
+aalborgi,,,,,Brachyspira,Brachyspira aalborgi,0.0107419889766393,SVR,Urea,C00086,Early_CRC,Brachyspira aalborgi,False
+amylolyticus,,,,,Lactobacillus,Lactobacillus amylolyticus,0.010829828836231,SVR,Urea,C00086,Early_CRC,Lactobacillus amylolyticus,False
+avistercoris,,,,,Alistipes,Alistipes avistercoris,0.0061824610695236,SVR,Urea,C00086,Early_CRC,Alistipes avistercoris,True
+cellulosilyticus,Bacteroides cellulosilyticus,31.137783919232202,Other,Bacteroides,,,,,Urea,C00086,Early_CRC,Bacteroides cellulosilyticus,False
+coli,,,,,Escherichia,Escherichia coli,0.0097642734369946,SVR,Urea,C00086,Early_CRC,Escherichia coli,False
+eggerthii,Bacteroides eggerthii,29.896012551888283,Other,Bacteroides,,,,,Urea,C00086,Early_CRC,Bacteroides eggerthii,False
+intestinigallinarum,,,,,Duodenibacillus,Duodenibacillus intestinigallinarum,0.005827430585317,SVR,Urea,C00086,Early_CRC,Duodenibacillus intestinigallinarum,False
+merdae,merdae,16.64049615014223,Other,merdae,,,,,Urea,C00086,Early_CRC,merdae,False
+ovatus,Bacteroides ovatus,12.649345126563189,Other,Bacteroides,,,,,Urea,C00086,Early_CRC,Bacteroides ovatus,False
+prausnitzii,Faecalibacterium prausnitzii,14.68565977262007,Other,Faecalibacterium,,,,,Urea,C00086,Early_CRC,Faecalibacterium prausnitzii,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.0105766654705261,SVR,Urea,C00086,Early_CRC,Egerieicola pullicola,False
+saudiense,,,,,Clostridium,Clostridium saudiense,0.0061962413557803,SVR,Urea,C00086,Early_CRC,Clostridium saudiense,False
+sp000437735,,,,,Lachnospira,Lachnospira sp000437735,0.0083053543389415,SVR,Urea,C00086,Early_CRC,Lachnospira sp000437735,False
+sp000758905,,,,,S5-A14a,S5-A14a sp000758905,0.0108114632342709,SVR,Urea,C00086,Early_CRC,S5-A14a sp000758905,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0113858399288284,SVR,Urea,C00086,Early_CRC,CAG-488 sp900539465,False
+sp900541465,,,,,Fusobacterium_B,Fusobacterium_B sp900541465,0.0074068358260236,SVR,Urea,C00086,Early_CRC,Fusobacterium_B sp900541465,False
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0087048350980499,SVR,Urea,C00086,Early_CRC,UMGS693 sp900544555,False
+sp900757865,,,,,Sutterella,Sutterella sp900757865,0.006828729353416,SVR,Urea,C00086,Early_CRC,Sutterella sp900757865,False
+sp900766045,,,,,Eubacterium_T,Eubacterium_T sp900766045,0.0102385877197254,SVR,Urea,C00086,Early_CRC,Eubacterium_T sp900766045,False
+sp900766315,,,,,Clostridium,Clostridium sp900766315,0.0056980861183067,SVR,Urea,C00086,Early_CRC,Clostridium sp900766315,False
+sp903789375,,,,,CAIFEB01,CAIFEB01 sp903789375,0.0090686991455671,SVR,Urea,C00086,Early_CRC,CAIFEB01 sp903789375,False
+splanchnicus,Odoribacter splanchnicus,0.025259377484622775,Other,Odoribacter,,,,,Urea,C00086,Early_CRC,Odoribacter splanchnicus,False
+stercorihominis,Anaerofustis stercorihominis,0.2802647931909607,Other,Anaerofustis,,,,,Urea,C00086,Early_CRC,Anaerofustis stercorihominis,False
+timonensis,,,,,Alloprevotella,Alloprevotella timonensis,0.0058591242919375,SVR,Urea,C00086,Early_CRC,Alloprevotella timonensis,False
+turicensis,,,,,Pauljensenia,Pauljensenia turicensis,0.0068662336842133,SVR,Urea,C00086,Early_CRC,Pauljensenia turicensis,False
+uniformis,Bacteroides uniformis,0.8334056223115051,Other,Bacteroides,,,,,Urea,C00086,Early_CRC,Bacteroides uniformis,False
+virosa,Butyricimonas virosa,0.08487911294746449,Other,Butyricimonas,,,,,Urea,C00086,Early_CRC,Butyricimonas virosa,False
+xylanisolvens,Bacteroides xylanisolvens,16.576009361673727,Other,Bacteroides,,,,,Urea,C00086,Early_CRC,Bacteroides xylanisolvens,False
+faecalis,,,,,Aphodousia,Aphodousia faecalis,0.0059781926723343,RF,Pyridoxine,C00314,Early_CRC,Aphodousia faecalis,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0112090861929669,RF,Pyridoxine,C00314,Early_CRC,Alangreenwoodia gallinarii,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0107122600396446,RF,Pyridoxine,C00314,Early_CRC,Alistipes_A indistinctus,False
+medium,Treponema medium,0.3227227439925753,Other,Treponema,,,,,Pyridoxine,C00314,Early_CRC,Treponema medium,False
+merdae,merdae,5.363741772026239,Other,merdae,,,,,Pyridoxine,C00314,Early_CRC,merdae,False
+merdavium,,,,,Spyradocola,Spyradocola merdavium,0.0228178166316766,RF,Pyridoxine,C00314,Early_CRC,Spyradocola merdavium,False
+merdipullorum,,,,,Scatavimonas,Scatavimonas merdipullorum,0.0845771151504781,RF,Pyridoxine,C00314,Early_CRC,Scatavimonas merdipullorum,False
+putredinis,,,,,Alistipes,Alistipes putredinis,0.0038611739325512,RF,Pyridoxine,C00314,Early_CRC,Alistipes putredinis,False
+sp000432135,,,,,CAG-170,CAG-170 sp000432135,0.004268783039489,RF,Pyridoxine,C00314,Early_CRC,CAG-170 sp000432135,False
+sp000432155,,,,,CAG-274,CAG-274 sp000432155,0.0054147002138759,RF,Pyridoxine,C00314,Early_CRC,CAG-274 sp000432155,False
+sp000434475,,,,,Dialister,Dialister sp000434475,0.0081577606164388,RF,Pyridoxine,C00314,Early_CRC,Dialister sp000434475,False
+sp900539195,,,,,Ruminiclostridium_E,Ruminiclostridium_E sp900539195,0.0036180995337718,RF,Pyridoxine,C00314,Early_CRC,Ruminiclostridium_E sp900539195,False
+sp900544375,,,,,Fimivicinus,Fimivicinus sp900544375,0.0037083335336957,RF,Pyridoxine,C00314,Early_CRC,Fimivicinus sp900544375,False
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0259145831703941,RF,Pyridoxine,C00314,Early_CRC,UMGS693 sp900544555,False
+sp900546845,,,,,UBA1685,UBA1685 sp900546845,0.0047629558427333,RF,Pyridoxine,C00314,Early_CRC,UBA1685 sp900546845,False
+sp900554485,,,,,UBA10281,UBA10281 sp900554485,0.0066739960237403,RF,Pyridoxine,C00314,Early_CRC,UBA10281 sp900554485,False
+sp900555035,,,,,Prevotella,Prevotella sp900555035,0.0035097694645196,RF,Pyridoxine,C00314,Early_CRC,Prevotella sp900555035,False
+sp900557255,,,,,Prevotella,Prevotella sp900557255,0.0062228480225127,RF,Pyridoxine,C00314,Early_CRC,Prevotella sp900557255,False
+sp900763035,,,,,UBA5905,UBA5905 sp900763035,0.0056167156040113,RF,Pyridoxine,C00314,Early_CRC,UBA5905 sp900763035,False
+sp905207485,,,,,CAG-266,CAG-266 sp905207485,0.0036002355678976,RF,Pyridoxine,C00314,Early_CRC,CAG-266 sp905207485,False
+succinatiphilus,,,,,Dialister,Dialister succinatiphilus,0.0054490503957478,RF,Pyridoxine,C00314,Early_CRC,Dialister succinatiphilus,False
+tenue,,,,,Paraclostridium,Paraclostridium tenue,0.0045989518712342,RF,Pyridoxine,C00314,Early_CRC,Paraclostridium tenue,False
+amylolyticus,,,,,Lactobacillus,Lactobacillus amylolyticus,0.0253251442029713,LightGBM,Glucuronate,C00191,Early_CRC,Lactobacillus amylolyticus,False
+cellulosilyticus,Bacteroides cellulosilyticus,0.08388499746001574,Other,Bacteroides,,,,,Glucuronate,C00191,Early_CRC,Bacteroides cellulosilyticus,False
+flavescens_C,,,,,Neisseria,Neisseria flavescens_C,0.0350478232192139,LightGBM,Glucuronate,C00191,Early_CRC,Neisseria flavescens_C,False
+forsythia_A,,,,,Tannerella,Tannerella forsythia_A,0.0243784293042389,LightGBM,Glucuronate,C00191,Early_CRC,Tannerella forsythia_A,False
+ihumii,,,,,Alistipes_A,Alistipes_A ihumii,0.0274448558233088,LightGBM,Glucuronate,C00191,Early_CRC,Alistipes_A ihumii,False
+longum,longum,0.05278706301591967,Other,longum,,,,,Glucuronate,C00191,Early_CRC,longum,False
+medium,Treponema medium,0.0011294610000652963,Other,Treponema,,,,,Glucuronate,C00191,Early_CRC,Treponema medium,False
+merdae,merdae,0.027067979374812978,Other,merdae,,,,,Glucuronate,C00191,Early_CRC,merdae,False
+merdipullorum,,,,,Scatavimonas,Scatavimonas merdipullorum,0.0395631087355626,LightGBM,Glucuronate,C00191,Early_CRC,Scatavimonas merdipullorum,False
+ovatus,Bacteroides ovatus,0.04310431595434435,Other,Bacteroides,,,,,Glucuronate,C00191,Early_CRC,Bacteroides ovatus,False
+parauberis,,,,,Streptococcus,Streptococcus parauberis,0.0367043692912096,LightGBM,Glucuronate,C00191,Early_CRC,Streptococcus parauberis,False
+ramosum,,,,,Erysipelatoclostridium,Erysipelatoclostridium ramosum,0.0567879583749478,LightGBM,Glucuronate,C00191,Early_CRC,Erysipelatoclostridium ramosum,False
+silvanus,,,,,Meiothermus_B,Meiothermus_B silvanus,0.0548853612966704,LightGBM,Glucuronate,C00191,Early_CRC,Meiothermus_B silvanus,False
+sp000431015,,,,,Cryptobacteroides,Cryptobacteroides sp000431015,0.0245663503382232,LightGBM,Glucuronate,C00191,Early_CRC,Cryptobacteroides sp000431015,False
+sp000437595,,,,,UBA11524,UBA11524 sp000437595,0.0191551883217449,LightGBM,Glucuronate,C00191,Early_CRC,UBA11524 sp000437595,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0203466037586967,LightGBM,Glucuronate,C00191,Early_CRC,Leptotrichia_A sp001274535,False
+sp900319515,,,,,CAG-127,CAG-127 sp900319515,0.0280794912660736,LightGBM,Glucuronate,C00191,Early_CRC,CAG-127 sp900319515,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0280558356889028,LightGBM,Glucuronate,C00191,Early_CRC,CAG-488 sp900539465,False
+sp900540355,,,,,Intestinibacter,Intestinibacter sp900540355,0.0345087151753448,LightGBM,Glucuronate,C00191,Early_CRC,Intestinibacter sp900540355,False
+sp900757655,,,,,CAG-103,CAG-103 sp900757655,0.0465999224324809,LightGBM,Glucuronate,C00191,Early_CRC,CAG-103 sp900757655,False
+sp900763035,,,,,UBA5905,UBA5905 sp900763035,0.0354098777497658,LightGBM,Glucuronate,C00191,Early_CRC,UBA5905 sp900763035,False
+sp902766775,,,,,Ruminococcus_E,Ruminococcus_E sp902766775,0.0303247927920302,LightGBM,Glucuronate,C00191,Early_CRC,Ruminococcus_E sp902766775,False
+spG000499525,,,,,CCUG-7971,CCUG-7971 spG000499525,0.03178408087418,LightGBM,Glucuronate,C00191,Early_CRC,CCUG-7971 spG000499525,False
+thetaiotaomicron,Bacteroides thetaiotaomicron,0.032388238644418234,Other,Bacteroides,,,,,Glucuronate,C00191,Early_CRC,Bacteroides thetaiotaomicron,False
+turicensis,,,,,Pauljensenia,Pauljensenia turicensis,0.0289667349737437,LightGBM,Glucuronate,C00191,Early_CRC,Pauljensenia turicensis,False
+uniformis,Bacteroides uniformis,0.003444468166424741,Other,Bacteroides,,,,,Glucuronate,C00191,Early_CRC,Bacteroides uniformis,False
+wadei,,,,,Leptotrichia,Leptotrichia wadei,0.0409421836938129,LightGBM,Glucuronate,C00191,Early_CRC,Leptotrichia wadei,False
+agalactiae,Streptococcus agalactiae,97.84814212271822,Amino Acid,Streptococcus,,,,,Isoleucine,C00407,Advanced_CRC,Streptococcus agalactiae,False
+ascorbata,Kluyvera ascorbata,89.51326992267718,Amino Acid,Kluyvera,,,,,Isoleucine,C00407,Advanced_CRC,Kluyvera ascorbata,False
+bivia,Prevotella bivia,85.59348435091265,Amino Acid,Prevotella,,,,,Isoleucine,C00407,Advanced_CRC,Prevotella bivia,False
+cerevisiae,,,,,Megasphaera,Megasphaera cerevisiae,0.0066434317492687,SVR,Isoleucine,C00407,Advanced_CRC,Megasphaera cerevisiae,True
+coli,,,,,Escherichia,Escherichia coli,0.0059514377462402,SVR,Isoleucine,C00407,Advanced_CRC,Escherichia coli,True
+constellatus,Streptococcus constellatus,85.72334692754904,Amino Acid,Streptococcus,,,,,Isoleucine,C00407,Advanced_CRC,Streptococcus constellatus,False
+cristatus,Streptococcus cristatus,94.73684210525538,Amino Acid,Streptococcus,,,,,Isoleucine,C00407,Advanced_CRC,Streptococcus cristatus,False
+desulfuricans,Desulfovibrio desulfuricans,95.39724550906014,Amino Acid,Desulfovibrio,,,,,Isoleucine,C00407,Advanced_CRC,Desulfovibrio desulfuricans,False
+enterocolitica,Yersinia enterocolitica,85.82081555565287,Amino Acid,Yersinia,,,,,Isoleucine,C00407,Advanced_CRC,Yersinia enterocolitica,False
+faecium,,,,,Gallimonas,Gallimonas faecium,0.0049361278920729,SVR,Isoleucine,C00407,Advanced_CRC,Gallimonas faecium,False
+longum,,,,,Bifidobacterium,Bifidobacterium longum,0.0079343112263185,SVR,Isoleucine,C00407,Advanced_CRC,Bifidobacterium longum,True
+mortiferum,,,,,Fusobacterium_A,Fusobacterium_A mortiferum,0.0138788629778918,SVR,Isoleucine,C00407,Advanced_CRC,Fusobacterium_A mortiferum,False
+ornithinolytica,,,,,Klebsiella,Klebsiella ornithinolytica,0.0130091556423128,SVR,Isoleucine,C00407,Advanced_CRC,Klebsiella ornithinolytica,True
+propinquum,Corynebacterium propinquum,95.13457236467488,Amino Acid,Corynebacterium,,,,,Isoleucine,C00407,Advanced_CRC,Corynebacterium propinquum,False
+pullicaecorum,Butyricicoccus pullicaecorum,82.95372902028438,Amino Acid,Butyricicoccus,,,,,Isoleucine,C00407,Advanced_CRC,Butyricicoccus pullicaecorum,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.0121850427632336,SVR,Isoleucine,C00407,Advanced_CRC,Egerieicola pullicola,False
+rohdei,Yersinia rohdei,95.3556591660226,Amino Acid,Yersinia,,,,,Isoleucine,C00407,Advanced_CRC,Yersinia rohdei,False
+silvisoli,,,,,Chitinophaga,Chitinophaga silvisoli,0.0062227107603198,SVR,Isoleucine,C00407,Advanced_CRC,Chitinophaga silvisoli,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0060361823267351,SVR,Isoleucine,C00407,Advanced_CRC,Fusobacterium sp000235465,True
+sp000432175,,,,,CAG-115,CAG-115 sp000432175,0.0078080823664354,SVR,Isoleucine,C00407,Advanced_CRC,CAG-115 sp000432175,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0074037705140867,SVR,Isoleucine,C00407,Advanced_CRC,Lachnospira sp000436475,False
+sp000436835,,,,,Eubacterium_R,Eubacterium_R sp000436835,0.0045671716779725,SVR,Isoleucine,C00407,Advanced_CRC,Eubacterium_R sp000436835,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.009545651320814,SVR,Isoleucine,C00407,Advanced_CRC,Leptotrichia_A sp001274535,False
+sp005843885,,,,,Escherichia,Escherichia sp005843885,0.004921900678952,SVR,Isoleucine,C00407,Advanced_CRC,Escherichia sp005843885,True
+sp013333035,,,,,CAG-793,CAG-793 sp013333035,0.0046664335039683,SVR,Isoleucine,C00407,Advanced_CRC,CAG-793 sp013333035,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0086863360208072,SVR,Isoleucine,C00407,Advanced_CRC,CCUG-7971 sp017590215,False
+sp900540255,,,,,Clostridium,Clostridium sp900540255,0.0054713358316847,SVR,Isoleucine,C00407,Advanced_CRC,Clostridium sp900540255,False
+sp900541605,,,,,Dialister,Dialister sp900541605,0.0079537428907459,SVR,Isoleucine,C00407,Advanced_CRC,Dialister sp900541605,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0089235359644648,SVR,Isoleucine,C00407,Advanced_CRC,Aphodousia sp905212345,False
+sp905213155,,,,,Acidaminococcus,Acidaminococcus sp905213155,0.0060001738519559,SVR,Isoleucine,C00407,Advanced_CRC,Acidaminococcus sp905213155,False
+aeruginosa,Pseudomonas aeruginosa,58.06536766032582,Amino Acid,Pseudomonas,,,,,Leucine,C00123,Advanced_CRC,Pseudomonas aeruginosa,False
+albensis,Prevotella albensis,82.53290679974037,Amino Acid,Prevotella,,,,,Leucine,C00123,Advanced_CRC,Prevotella albensis,False
+circumdentaria,,,,,Porphyromonas,Porphyromonas circumdentaria,0.0056017468018856,SVR,Leucine,C00123,Advanced_CRC,Porphyromonas circumdentaria,False
+coahuilensis,,,,,Bacillus_T,Bacillus_T coahuilensis,0.007493699428987,SVR,Leucine,C00123,Advanced_CRC,Bacillus_T coahuilensis,False
+coli,,,,,Escherichia,Escherichia coli,0.007874449752669,SVR,Leucine,C00123,Advanced_CRC,Escherichia coli,False
+dentocariosa,Rothia dentocariosa,90.86736362862688,Amino Acid,Rothia,,,,,Leucine,C00123,Advanced_CRC,Rothia dentocariosa,False
+formicigenerans,Dorea formicigenerans,57.48874646689552,Amino Acid,Dorea,,,,,Leucine,C00123,Advanced_CRC,Dorea formicigenerans,False
+formigenes,Oxalobacter formigenes,57.432432432432506,Amino Acid,Oxalobacter,,,,,Leucine,C00123,Advanced_CRC,Oxalobacter formigenes,False
+goldsteinii,Parabacteroides goldsteinii,60.13012747560638,Amino Acid,Parabacteroides,,,,,Leucine,C00123,Advanced_CRC,Parabacteroides goldsteinii,False
+hydrophila,Aeromonas hydrophila,92.37384829109068,Amino Acid,Aeromonas,,,,,Leucine,C00123,Advanced_CRC,Aeromonas hydrophila,False
+intestinipullorum,,,,,Excrementavichristensenella,Excrementavichristensenella intestinipullorum,0.0061422169178584,SVR,Leucine,C00123,Advanced_CRC,Excrementavichristensenella intestinipullorum,False
+longum,,,,,Bifidobacterium,Bifidobacterium longum,0.0065976308614772,SVR,Leucine,C00123,Advanced_CRC,Bifidobacterium longum,False
+mortiferum,,,,,Fusobacterium_A,Fusobacterium_A mortiferum,0.0116888243580845,SVR,Leucine,C00123,Advanced_CRC,Fusobacterium_A mortiferum,False
+nordii,Bacteroides nordii,77.11477224443489,Amino Acid,Bacteroides,,,,,Leucine,C00123,Advanced_CRC,Bacteroides nordii,False
+ornithinolytica,,,,,Klebsiella,Klebsiella ornithinolytica,0.0143087366800026,SVR,Leucine,C00123,Advanced_CRC,Klebsiella ornithinolytica,False
+parasanguinis,Streptococcus parasanguinis,54.28992240155484,Amino Acid,Streptococcus,,,,,Leucine,C00123,Advanced_CRC,Streptococcus parasanguinis,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.012290395849589,SVR,Leucine,C00123,Advanced_CRC,Egerieicola pullicola,False
+salivarius,,,,,Ligilactobacillus,Ligilactobacillus salivarius,0.0055635562511009,SVR,Leucine,C00123,Advanced_CRC,Ligilactobacillus salivarius,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0140695680901876,SVR,Leucine,C00123,Advanced_CRC,Fusobacterium sp000235465,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.010102006134805,SVR,Leucine,C00123,Advanced_CRC,Lachnospira sp000436475,False
+sp000436535,,,,,Lachnospira,Lachnospira sp000436535,0.006690056391088,SVR,Leucine,C00123,Advanced_CRC,Lachnospira sp000436535,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0078762053235145,SVR,Leucine,C00123,Advanced_CRC,Leptotrichia_A sp001274535,False
+sp004793665,,,,,NM07-P-09,NM07-P-09 sp004793665,0.0054391724034463,SVR,Leucine,C00123,Advanced_CRC,NM07-P-09 sp004793665,False
+sp014287795,,,,,Christensenella,Christensenella sp014287795,0.0060285116145378,SVR,Leucine,C00123,Advanced_CRC,Christensenella sp014287795,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0132402142036915,SVR,Leucine,C00123,Advanced_CRC,CCUG-7971 sp017590215,False
+sp900539345,,,,,UMGS124,UMGS124 sp900539345,0.0064438965868285,SVR,Leucine,C00123,Advanced_CRC,UMGS124 sp900539345,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0095462390506801,SVR,Leucine,C00123,Advanced_CRC,Aphodousia sp905212345,False
+sp905213155,,,,,Acidaminococcus,Acidaminococcus sp905213155,0.0057018144157028,SVR,Leucine,C00123,Advanced_CRC,Acidaminococcus sp905213155,False
+uli,Olsenella uli,82.60344930434555,Amino Acid,Olsenella,,,,,Leucine,C00123,Advanced_CRC,Olsenella uli,False
+curtum,,,,,Cryptobacterium,Cryptobacterium curtum,0.0060291032277704,SVR,Fumarate,C00122,Advanced_CRC,Cryptobacterium curtum,False
+edinburgensis,,,,,Gallispira,Gallispira edinburgensis,0.0055896850521319,SVR,Fumarate,C00122,Advanced_CRC,Gallispira edinburgensis,False
+evryensis,Cloacibacillus evryensis,75.42325638912743,Other,Cloacibacillus,,,,,Fumarate,C00122,Advanced_CRC,Cloacibacillus evryensis,False
+excrementihominis,Parasutterella excrementihominis,71.74632612535589,Other,Parasutterella,,,,,Fumarate,C00122,Advanced_CRC,Parasutterella excrementihominis,False
+goldsteinii,Parabacteroides goldsteinii,80.44077549681846,Other,Parabacteroides,,,,,Fumarate,C00122,Advanced_CRC,Parabacteroides goldsteinii,False
+hansenii,Blautia hansenii,80.44337724046679,Other,Blautia,,,,,Fumarate,C00122,Advanced_CRC,Blautia hansenii,False
+hydrophila,Aeromonas hydrophila,83.38751183888567,Other,Aeromonas,,,,,Fumarate,C00122,Advanced_CRC,Aeromonas hydrophila,False
+hypermegale,Megamonas hypermegale,79.92302879009603,Other,Megamonas,,,,,Fumarate,C00122,Advanced_CRC,Megamonas hypermegale,False
+isourolithinifaciens,,,,,Ellagibacter,Ellagibacter isourolithinifaciens,0.0064490471639442,SVR,Fumarate,C00122,Advanced_CRC,Ellagibacter isourolithinifaciens,False
+merdigallinarum,,,,,Flemingibacterium,Flemingibacterium merdigallinarum,0.0047200684842102,SVR,Fumarate,C00122,Advanced_CRC,Flemingibacterium merdigallinarum,False
+morganii,Morganella morganii,79.4384687395885,Other,Morganella,,,,,Fumarate,C00122,Advanced_CRC,Morganella morganii,False
+mucilaginosa,Rothia mucilaginosa,90.5771204960813,Other,Rothia,,,,,Fumarate,C00122,Advanced_CRC,Rothia mucilaginosa,False
+nucleatum,Fusobacterium nucleatum,88.88888888888906,Other,Fusobacterium,,,,,Fumarate,C00122,Advanced_CRC,Fusobacterium nucleatum,False
+onderdonkii,,,,,Alistipes,Alistipes onderdonkii,0.0037186623966693,SVR,Fumarate,C00122,Advanced_CRC,Alistipes onderdonkii,False
+parvula,parvula,70.1523256586791,Other,parvula,,,,,Fumarate,C00122,Advanced_CRC,parvula,False
+pneumoniae,,,,,Klebsiella,Klebsiella pneumoniae,0.0036431203319838,SVR,Fumarate,C00122,Advanced_CRC,Klebsiella pneumoniae,False
+quasipneumoniae,,,,,Klebsiella,Klebsiella quasipneumoniae,0.0044546393674202,SVR,Fumarate,C00122,Advanced_CRC,Klebsiella quasipneumoniae,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0046866233937131,SVR,Fumarate,C00122,Advanced_CRC,Lachnospira sp000436475,False
+sp000436535,,,,,Lachnospira,Lachnospira sp000436535,0.0044046395161027,SVR,Fumarate,C00122,Advanced_CRC,Lachnospira sp000436535,False
+sp000436835,,,,,Eubacterium_R,Eubacterium_R sp000436835,0.0045058136456549,SVR,Fumarate,C00122,Advanced_CRC,Eubacterium_R sp000436835,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0108161045154789,SVR,Fumarate,C00122,Advanced_CRC,Leptotrichia_A sp001274535,False
+sp007293315,,,,,Alkalihalobacillus_A,Alkalihalobacillus_A sp007293315,0.0111859238728598,SVR,Fumarate,C00122,Advanced_CRC,Alkalihalobacillus_A sp007293315,False
+sp013333035,,,,,CAG-793,CAG-793 sp013333035,0.0043260508073881,SVR,Fumarate,C00122,Advanced_CRC,CAG-793 sp013333035,False
+sp900539755,,,,,Alistipes_A,Alistipes_A sp900539755,0.0070096859378468,SVR,Fumarate,C00122,Advanced_CRC,Alistipes_A sp900539755,False
+sp900542265,,,,,CAG-1427,CAG-1427 sp900542265,0.0038274445381528,SVR,Fumarate,C00122,Advanced_CRC,CAG-1427 sp900542265,False
+sp900542625,,,,,Fusobacterium_B,Fusobacterium_B sp900542625,0.007698245583069,SVR,Fumarate,C00122,Advanced_CRC,Fusobacterium_B sp900542625,False
+sp900548365,,,,,Collinsella,Collinsella sp900548365,0.005379219661399,SVR,Fumarate,C00122,Advanced_CRC,Collinsella sp900548365,False
+sp900753285,,,,,UMGS1696,UMGS1696 sp900753285,0.0077704650252285,SVR,Fumarate,C00122,Advanced_CRC,UMGS1696 sp900753285,False
+sp900761765,,,,,Protoclostridium,Protoclostridium sp900761765,0.0062698867498176,SVR,Fumarate,C00122,Advanced_CRC,Protoclostridium sp900761765,False
+sp910586665,,,,,Duncaniella,Duncaniella sp910586665,0.0036649900497786,SVR,Fumarate,C00122,Advanced_CRC,Duncaniella sp910586665,False
+bartlettii,Intestinibacter bartlettii,73.23751015384708,Other,Intestinibacter,,,,,Lactate,C00186,Advanced_CRC,Intestinibacter bartlettii,False
+bifidum,Bifidobacterium bifidum,57.566491955665086,Other,Bifidobacterium,,,,,Lactate,C00186,Advanced_CRC,Bifidobacterium bifidum,False
+freundii,Citrobacter freundii,75.9656466230936,Other,Citrobacter,,,,,Lactate,C00186,Advanced_CRC,Citrobacter freundii,False
+haemolysans,Gemella haemolysans,85.71428571429976,Other,Gemella,,,,,Lactate,C00186,Advanced_CRC,Gemella haemolysans,False
+lenta,,,,,Victivallis,Victivallis lenta,0.004999052911169,SVR,Lactate,C00186,Advanced_CRC,Victivallis lenta,False
+longum,longum,70.9450341532073,Other,longum,,,,,Lactate,C00186,Advanced_CRC,longum,False
+macacae,,,,,Streptococcus,Streptococcus macacae,0.0048601735417661,SVR,Lactate,C00186,Advanced_CRC,Streptococcus macacae,True
+morbillorum,Gemella morbillorum,63.0555555555558,Other,Gemella,,,,,Lactate,C00186,Advanced_CRC,Gemella morbillorum,False
+oralis_BH,,,,,Streptococcus,Streptococcus oralis_BH,0.0042497199907133,SVR,Lactate,C00186,Advanced_CRC,Streptococcus oralis_BH,True
+parasanguinis,Streptococcus parasanguinis,78.26086956521851,Other,Streptococcus,,,,,Lactate,C00186,Advanced_CRC,Streptococcus parasanguinis,True
+parvirubra,,,,,Sutterella,Sutterella parvirubra,0.0035914216388567,SVR,Lactate,C00186,Advanced_CRC,Sutterella parvirubra,False
+provencensis,,,,,Acidaminococcus,Acidaminococcus provencensis,0.0040555654422322,SVR,Lactate,C00186,Advanced_CRC,Acidaminococcus provencensis,False
+salivae,Prevotella salivae,80.60646619886853,Other,Prevotella,,,,,Lactate,C00186,Advanced_CRC,Prevotella salivae,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0040808186013551,SVR,Lactate,C00186,Advanced_CRC,Lachnospira sp000436475,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0071211887431702,SVR,Lactate,C00186,Advanced_CRC,Leptotrichia_A sp001274535,False
+sp002393575,,,,,UBA3839,UBA3839 sp002393575,0.0079096206563313,SVR,Lactate,C00186,Advanced_CRC,UBA3839 sp002393575,False
+sp003506415,,,,,UBA9506,UBA9506 sp003506415,0.0053542425555223,SVR,Lactate,C00186,Advanced_CRC,UBA9506 sp003506415,False
+sp003531585,,,,,CAG-115,CAG-115 sp003531585,0.0038473149231068,SVR,Lactate,C00186,Advanced_CRC,CAG-115 sp003531585,False
+sp900539265,,,,,CAG-313,CAG-313 sp900539265,0.0044542154084088,SVR,Lactate,C00186,Advanced_CRC,CAG-313 sp900539265,False
+sp900540275,,,,,Scatavimonas,Scatavimonas sp900540275,0.0041497000996972,SVR,Lactate,C00186,Advanced_CRC,Scatavimonas sp900540275,False
+sp900543455,,,,,Dialister,Dialister sp900543455,0.0046642413374713,SVR,Lactate,C00186,Advanced_CRC,Dialister sp900543455,True
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0112786826455896,SVR,Lactate,C00186,Advanced_CRC,UMGS693 sp900544555,False
+sp900546315,,,,,Flemingibacterium,Flemingibacterium sp900546315,0.0044324941009518,SVR,Lactate,C00186,Advanced_CRC,Flemingibacterium sp900546315,False
+sp900548385,,,,,UBA1829,UBA1829 sp900548385,0.008120837474679,SVR,Lactate,C00186,Advanced_CRC,UBA1829 sp900548385,False
+sp910589555,,,,,Muribaculum,Muribaculum sp910589555,0.0041241726650922,SVR,Lactate,C00186,Advanced_CRC,Muribaculum sp910589555,False
+spG000499525,,,,,CCUG-7971,CCUG-7971 spG000499525,0.0055232110263299,SVR,Lactate,C00186,Advanced_CRC,CCUG-7971 spG000499525,False
+stercoripullorum,,,,,Collinsella,Collinsella stercoripullorum,0.0041059280218589,SVR,Lactate,C00186,Advanced_CRC,Collinsella stercoripullorum,False
+subtilis,Bacillus subtilis,75.81162167639849,Other,Bacillus,,,,,Lactate,C00186,Advanced_CRC,Bacillus subtilis,False
+wadei,,,,,Leptotrichia,Leptotrichia wadei,0.0144709394179361,SVR,Lactate,C00186,Advanced_CRC,Leptotrichia wadei,False
+xylanisolvens,Bacteroides xylanisolvens,59.549531493543945,Other,Bacteroides,,,,,Lactate,C00186,Advanced_CRC,Bacteroides xylanisolvens,False
+albertii,Escherichia albertii,37.92023830026806,Other,Escherichia,,,,,GABA,C00334,Advanced_CRC,Escherichia albertii,False
+avistercoris,,,,,Alistipes,Alistipes avistercoris,0.0042892476759578,SVR,GABA,C00334,Advanced_CRC,Alistipes avistercoris,True
+bifidum,,,,,Bifidobacterium,Bifidobacterium bifidum,0.0054417716039056,SVR,GABA,C00334,Advanced_CRC,Bifidobacterium bifidum,False
+caecorum,,,,,Avimicrobium,Avimicrobium caecorum,0.010634012749668,SVR,GABA,C00334,Advanced_CRC,Avimicrobium caecorum,False
+faecium,,,,,Avispirillum,Avispirillum faecium,0.0061929431399669,SVR,GABA,C00334,Advanced_CRC,Avispirillum faecium,False
+fergusonii,Escherichia fergusonii,43.36853269177835,Other,Escherichia,,,,,GABA,C00334,Advanced_CRC,Escherichia fergusonii,False
+freundii,Citrobacter freundii,2.1602615822534306,Other,Citrobacter,,,,,GABA,C00334,Advanced_CRC,Citrobacter freundii,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0065886306173768,SVR,GABA,C00334,Advanced_CRC,Alangreenwoodia gallinarii,False
+guamensis,Trabulsiella guamensis,69.73293768545994,Other,Trabulsiella,,,,,GABA,C00334,Advanced_CRC,Trabulsiella guamensis,False
+hongkongensis,,,,,Streptobacillus,Streptobacillus hongkongensis,0.0067509905971429,SVR,GABA,C00334,Advanced_CRC,Streptobacillus hongkongensis,False
+intestinavium,,,,,Duodenibacillus,Duodenibacillus intestinavium,0.0063499929587953,SVR,GABA,C00334,Advanced_CRC,Duodenibacillus intestinavium,False
+intestinihominis,intestinihominis,11.89108214818033,Other,intestinihominis,,,,,GABA,C00334,Advanced_CRC,intestinihominis,False
+leptum,,,,,Clostridium_A,Clostridium_A leptum,0.0108000823473011,SVR,GABA,C00334,Advanced_CRC,Clostridium_A leptum,False
+medium,Treponema medium,0.11573565372479871,Other,Treponema,,,,,GABA,C00334,Advanced_CRC,Treponema medium,False
+onderdonkii,Alistipes onderdonkii,46.96202997817171,Other,Alistipes,,,,,GABA,C00334,Advanced_CRC,Alistipes onderdonkii,True
+ovatus,Bacteroides ovatus,61.980949600194116,Other,Bacteroides,,,,,GABA,C00334,Advanced_CRC,Bacteroides ovatus,False
+parvula_A,,,,,Veillonella,Veillonella parvula_A,0.0154951124036779,SVR,GABA,C00334,Advanced_CRC,Veillonella parvula_A,False
+sp000436475,,,,,Lachnospira,Lachnospira sp000436475,0.0123716717215274,SVR,GABA,C00334,Advanced_CRC,Lachnospira sp000436475,False
+sp002350855,,,,,UBA3839,UBA3839 sp002350855,0.0042962937254738,SVR,GABA,C00334,Advanced_CRC,UBA3839 sp002350855,False
+sp002359025,,,,,UBA3379,UBA3379 sp002359025,0.0076721950738854,SVR,GABA,C00334,Advanced_CRC,UBA3379 sp002359025,False
+sp002431975,,,,,UBA5884,UBA5884 sp002431975,0.0048977951955768,SVR,GABA,C00334,Advanced_CRC,UBA5884 sp002431975,False
+sp002438685,,,,,CAG-177,CAG-177 sp002438685,0.0040892515454902,SVR,GABA,C00334,Advanced_CRC,CAG-177 sp002438685,False
+sp003445125,,,,,UBA11540,UBA11540 sp003445125,0.0046548477878681,SVR,GABA,C00334,Advanced_CRC,UBA11540 sp003445125,False
+sp014323405,,,,,GCA-900066495,GCA-900066495 sp014323405,0.0040607165765345,SVR,GABA,C00334,Advanced_CRC,GCA-900066495 sp014323405,False
+sp017483765,,,,,UBA3839,UBA3839 sp017483765,0.0061154371328831,SVR,GABA,C00334,Advanced_CRC,UBA3839 sp017483765,False
+sp900539345,,,,,UMGS124,UMGS124 sp900539345,0.0084882893939769,SVR,GABA,C00334,Advanced_CRC,UMGS124 sp900539345,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0048746205880466,SVR,GABA,C00334,Advanced_CRC,CAG-488 sp900539465,False
+splanchnicus,Odoribacter splanchnicus,34.51828010824812,Other,Odoribacter,,,,,GABA,C00334,Advanced_CRC,Odoribacter splanchnicus,False
+thermophilus,thermophilus,85.17116345947085,Other,thermophilus,,,,,GABA,C00334,Advanced_CRC,thermophilus,False
+bartlettii,Intestinibacter bartlettii,35.5808918328032,Other,Intestinibacter,,,,,Riboflavin,C00255,Advanced_CRC,Intestinibacter bartlettii,True
+butyricum,,,,,Clostridium,Clostridium butyricum,0.0471493062059194,RF,Riboflavin,C00255,Advanced_CRC,Clostridium butyricum,False
+eutactus,Coprococcus eutactus,50.0,Other,Coprococcus,,,,,Riboflavin,C00255,Advanced_CRC,Coprococcus eutactus,False
+forsythia_A,,,,,Tannerella,Tannerella forsythia_A,0.0040565063463496,RF,Riboflavin,C00255,Advanced_CRC,Tannerella forsythia_A,False
+hansenii,Blautia hansenii,35.71428571428569,Other,Blautia,,,,,Riboflavin,C00255,Advanced_CRC,Blautia hansenii,False
+hypermegale,Megamonas hypermegale,17.543878870807607,Other,Megamonas,,,,,Riboflavin,C00255,Advanced_CRC,Megamonas hypermegale,False
+intestinavium,,,,,Scatomorpha,Scatomorpha intestinavium,0.0052240335293315,RF,Riboflavin,C00255,Advanced_CRC,Scatomorpha intestinavium,False
+intestinihominis,,,,,Christensenella,Christensenella intestinihominis,0.0044114788058347,RF,Riboflavin,C00255,Advanced_CRC,Christensenella intestinihominis,False
+medium,Treponema medium,0.1599913737752452,Other,Treponema,,,,,Riboflavin,C00255,Advanced_CRC,Treponema medium,False
+plebeius_A,,,,,Phocaeicola,Phocaeicola plebeius_A,0.0045878960582242,RF,Riboflavin,C00255,Advanced_CRC,Phocaeicola plebeius_A,False
+prausnitzii,Faecalibacterium prausnitzii,73.75787398902843,Other,Faecalibacterium,,,,,Riboflavin,C00255,Advanced_CRC,Faecalibacterium prausnitzii,False
+sp000235465,,,,,Fusobacterium,Fusobacterium sp000235465,0.0238521137195346,RF,Riboflavin,C00255,Advanced_CRC,Fusobacterium sp000235465,False
+sp000434475,,,,,Dialister,Dialister sp000434475,0.0064022111621318,RF,Riboflavin,C00255,Advanced_CRC,Dialister sp000434475,False
+sp000434975,,,,,Prevotella,Prevotella sp000434975,0.0044906593267446,RF,Riboflavin,C00255,Advanced_CRC,Prevotella sp000434975,False
+sp000686145,,,,,Romboutsia_D,Romboutsia_D sp000686145,0.0365324108458801,RF,Riboflavin,C00255,Advanced_CRC,Romboutsia_D sp000686145,False
+sp000799075,,,,,Cetobacterium_A,Cetobacterium_A sp000799075,0.005249245920761,RF,Riboflavin,C00255,Advanced_CRC,Cetobacterium_A sp000799075,False
+sp003458715,,,,,Holdemanella,Holdemanella sp003458715,0.0066906778041763,RF,Riboflavin,C00255,Advanced_CRC,Holdemanella sp003458715,False
+sp017590215,,,,,CCUG-7971,CCUG-7971 sp017590215,0.0484440704887447,RF,Riboflavin,C00255,Advanced_CRC,CCUG-7971 sp017590215,False
+sp900539095,,,,,Ruminococcus_D,Ruminococcus_D sp900539095,0.0073735283268839,RF,Riboflavin,C00255,Advanced_CRC,Ruminococcus_D sp900539095,False
+sp900540355,,,,,Intestinibacter,Intestinibacter sp900540355,0.0062573963689078,RF,Riboflavin,C00255,Advanced_CRC,Intestinibacter sp900540355,True
+sp900557035,,,,,Prevotella,Prevotella sp900557035,0.0052423726791613,RF,Riboflavin,C00255,Advanced_CRC,Prevotella sp900557035,False
+sp905214315,,,,,UMGS1322,UMGS1322 sp905214315,0.0106612867241064,RF,Riboflavin,C00255,Advanced_CRC,UMGS1322 sp905214315,False
+stercoris,,,,,Bacteroides,Bacteroides stercoris,0.0083665821759446,RF,Riboflavin,C00255,Advanced_CRC,Bacteroides stercoris,False
+subflava,,,,,Neisseria,Neisseria subflava,0.0048035669796686,RF,Riboflavin,C00255,Advanced_CRC,Neisseria subflava,False
+timonensis,,,,,Raoultibacter,Raoultibacter timonensis,0.0052645051864543,RF,Riboflavin,C00255,Advanced_CRC,Raoultibacter timonensis,False
+weinsteinii,,,,,Romboutsia_A,Romboutsia_A weinsteinii,0.0125898606579787,RF,Riboflavin,C00255,Advanced_CRC,Romboutsia_A weinsteinii,False
+aalborgi,,,,,Brachyspira,Brachyspira aalborgi,0.0107419889766393,SVR,Urea,C00086,Advanced_CRC,Brachyspira aalborgi,False
+amylolyticus,,,,,Lactobacillus,Lactobacillus amylolyticus,0.010829828836231,SVR,Urea,C00086,Advanced_CRC,Lactobacillus amylolyticus,False
+avistercoris,,,,,Alistipes,Alistipes avistercoris,0.0061824610695236,SVR,Urea,C00086,Advanced_CRC,Alistipes avistercoris,True
+cellulosilyticus,Bacteroides cellulosilyticus,19.642760976361618,Other,Bacteroides,,,,,Urea,C00086,Advanced_CRC,Bacteroides cellulosilyticus,False
+coli,,,,,Escherichia,Escherichia coli,0.0097642734369946,SVR,Urea,C00086,Advanced_CRC,Escherichia coli,False
+eggerthii,Bacteroides eggerthii,9.34904291486922,Other,Bacteroides,,,,,Urea,C00086,Advanced_CRC,Bacteroides eggerthii,False
+hypermegale,Megamonas hypermegale,35.38622970798563,Other,Megamonas,,,,,Urea,C00086,Advanced_CRC,Megamonas hypermegale,False
+intestinigallinarum,,,,,Duodenibacillus,Duodenibacillus intestinigallinarum,0.005827430585317,SVR,Urea,C00086,Advanced_CRC,Duodenibacillus intestinigallinarum,False
+merdae,merdae,73.09448505145534,Other,merdae,,,,,Urea,C00086,Advanced_CRC,merdae,False
+ovatus,Bacteroides ovatus,9.751770442548398,Other,Bacteroides,,,,,Urea,C00086,Advanced_CRC,Bacteroides ovatus,False
+oxytoca,Klebsiella oxytoca,0.16927156138024313,Other,Klebsiella,,,,,Urea,C00086,Advanced_CRC,Klebsiella oxytoca,False
+prausnitzii,Faecalibacterium prausnitzii,23.965055593995046,Other,Faecalibacterium,,,,,Urea,C00086,Advanced_CRC,Faecalibacterium prausnitzii,False
+pullicola,,,,,Egerieicola,Egerieicola pullicola,0.0105766654705261,SVR,Urea,C00086,Advanced_CRC,Egerieicola pullicola,False
+saudiense,,,,,Clostridium,Clostridium saudiense,0.0061962413557803,SVR,Urea,C00086,Advanced_CRC,Clostridium saudiense,False
+sp000437735,,,,,Lachnospira,Lachnospira sp000437735,0.0083053543389415,SVR,Urea,C00086,Advanced_CRC,Lachnospira sp000437735,False
+sp000758905,,,,,S5-A14a,S5-A14a sp000758905,0.0108114632342709,SVR,Urea,C00086,Advanced_CRC,S5-A14a sp000758905,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0113858399288284,SVR,Urea,C00086,Advanced_CRC,CAG-488 sp900539465,False
+sp900541465,,,,,Fusobacterium_B,Fusobacterium_B sp900541465,0.0074068358260236,SVR,Urea,C00086,Advanced_CRC,Fusobacterium_B sp900541465,False
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0087048350980499,SVR,Urea,C00086,Advanced_CRC,UMGS693 sp900544555,False
+sp900757865,,,,,Sutterella,Sutterella sp900757865,0.006828729353416,SVR,Urea,C00086,Advanced_CRC,Sutterella sp900757865,False
+sp900766045,,,,,Eubacterium_T,Eubacterium_T sp900766045,0.0102385877197254,SVR,Urea,C00086,Advanced_CRC,Eubacterium_T sp900766045,False
+sp900766315,,,,,Clostridium,Clostridium sp900766315,0.0056980861183067,SVR,Urea,C00086,Advanced_CRC,Clostridium sp900766315,False
+sp903789375,,,,,CAIFEB01,CAIFEB01 sp903789375,0.0090686991455671,SVR,Urea,C00086,Advanced_CRC,CAIFEB01 sp903789375,False
+timonensis,,,,,Alloprevotella,Alloprevotella timonensis,0.0058591242919375,SVR,Urea,C00086,Advanced_CRC,Alloprevotella timonensis,False
+turicensis,,,,,Pauljensenia,Pauljensenia turicensis,0.0068662336842133,SVR,Urea,C00086,Advanced_CRC,Pauljensenia turicensis,False
+uniformis,Bacteroides uniformis,4.351563177511065,Other,Bacteroides,,,,,Urea,C00086,Advanced_CRC,Bacteroides uniformis,False
+virosa,Butyricimonas virosa,43.52854034265956,Other,Butyricimonas,,,,,Urea,C00086,Advanced_CRC,Butyricimonas virosa,False
+xylanisolvens,Bacteroides xylanisolvens,28.04406577344989,Other,Bacteroides,,,,,Urea,C00086,Advanced_CRC,Bacteroides xylanisolvens,False
+albertii,Escherichia albertii,65.1443844995342,Other,Escherichia,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Escherichia albertii,False
+asburiae,Enterobacter asburiae,27.262524971734354,Other,Enterobacter,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Enterobacter asburiae,False
+cloacae,Enterobacter cloacae,30.391839657924006,Other,Enterobacter,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Enterobacter cloacae,False
+copri_A,,,,,Prevotella,Prevotella copri_A,0.0326544522027675,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Prevotella copri_A,False
+desulfuricans_A,,,,,Desulfovibrio,Desulfovibrio desulfuricans_A,0.0216158864956854,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Desulfovibrio desulfuricans_A,False
+fergusonii,Escherichia fergusonii,31.679832672071075,Other,Escherichia,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Escherichia fergusonii,False
+freundii,Citrobacter freundii,24.25778212974919,Other,Citrobacter,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Citrobacter freundii,False
+hormaechei,Enterobacter hormaechei,38.305777447519965,Other,Enterobacter,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Enterobacter hormaechei,False
+hydrophila,Aeromonas hydrophila,43.73076408403587,Other,Aeromonas,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Aeromonas hydrophila,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0277256207049428,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Alistipes_A indistinctus,False
+maltaromaticum,,,,,Carnobacterium,Carnobacterium maltaromaticum,0.016111864165001,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Carnobacterium maltaromaticum,False
+massiliensis,,,,,Megasphaera,Megasphaera massiliensis,0.0174868250440423,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Megasphaera massiliensis,False
+media,Aeromonas media,26.79456906729633,Other,Aeromonas,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Aeromonas media,False
+oxytoca,Klebsiella oxytoca,43.42542410393152,Other,Klebsiella,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Klebsiella oxytoca,False
+provencensis,,,,,Acidaminococcus,Acidaminococcus provencensis,0.0188873449848266,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Acidaminococcus provencensis,False
+sp000186165,,,,,Neisseria,Neisseria sp000186165,0.0187696357248922,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Neisseria sp000186165,False
+sp000435795,,,,,Copromonas,Copromonas sp000435795,0.0182263941210277,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Copromonas sp000435795,False
+sp001657575,,,,,Barb7,Barb7 sp001657575,0.0203669158955762,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Barb7 sp001657575,False
+sp002438575,,,,,CAG-83,CAG-83 sp002438575,0.026718445772191,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,CAG-83 sp002438575,False
+sp003150615,,,,,Merdimorpha,Merdimorpha sp003150615,0.0167425527378918,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Merdimorpha sp003150615,False
+sp016292635,,,,,SFEL01,SFEL01 sp016292635,0.0186011192114546,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,SFEL01 sp016292635,False
+sp016292785,,,,,CAG-488,CAG-488 sp016292785,0.0137960124166413,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,CAG-488 sp016292785,False
+sp017460955,,,,,UBA3855,UBA3855 sp017460955,0.0156563608255737,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,UBA3855 sp017460955,False
+sp018065665,,,,,Sodaliphilus,Sodaliphilus sp018065665,0.0192132337151713,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Sodaliphilus sp018065665,False
+sp900548415,,,,,Porphyromonas,Porphyromonas sp900548415,0.0287782438567826,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Porphyromonas sp900548415,False
+sp900761895,,,,,HGM11417,HGM11417 sp900761895,0.0158815817022619,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,HGM11417 sp900761895,False
+sp905212345,,,,,Aphodousia,Aphodousia sp905212345,0.0185020406043088,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Aphodousia sp905212345,False
+subflava,,,,,Neisseria,Neisseria subflava,0.0367556377236972,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Neisseria subflava,False
+veronii,Aeromonas veronii,26.000678670677683,Other,Aeromonas,,,,,Glucose-6-Phosphate,C00092,Advanced_CRC,Aeromonas veronii,False
+vulgaris_A,,,,,Cupidesulfovibrio,Cupidesulfovibrio vulgaris_A,0.016539412712742,LightGBM,Glucose-6-Phosphate,C00092,Advanced_CRC,Cupidesulfovibrio vulgaris_A,False
+faecalis,,,,,Aphodousia,Aphodousia faecalis,0.0059781926723343,RF,Pyridoxine,C00314,Advanced_CRC,Aphodousia faecalis,False
+gallinarii,,,,,Alangreenwoodia,Alangreenwoodia gallinarii,0.0112090861929669,RF,Pyridoxine,C00314,Advanced_CRC,Alangreenwoodia gallinarii,False
+indistinctus,,,,,Alistipes_A,Alistipes_A indistinctus,0.0107122600396446,RF,Pyridoxine,C00314,Advanced_CRC,Alistipes_A indistinctus,False
+medium,Treponema medium,0.43659108629966986,Other,Treponema,,,,,Pyridoxine,C00314,Advanced_CRC,Treponema medium,False
+merdae,merdae,15.454843500209021,Other,merdae,,,,,Pyridoxine,C00314,Advanced_CRC,merdae,False
+merdavium,,,,,Spyradocola,Spyradocola merdavium,0.0228178166316766,RF,Pyridoxine,C00314,Advanced_CRC,Spyradocola merdavium,False
+merdipullorum,,,,,Scatavimonas,Scatavimonas merdipullorum,0.0845771151504781,RF,Pyridoxine,C00314,Advanced_CRC,Scatavimonas merdipullorum,False
+putredinis,,,,,Alistipes,Alistipes putredinis,0.0038611739325512,RF,Pyridoxine,C00314,Advanced_CRC,Alistipes putredinis,False
+sp000432135,,,,,CAG-170,CAG-170 sp000432135,0.004268783039489,RF,Pyridoxine,C00314,Advanced_CRC,CAG-170 sp000432135,False
+sp000432155,,,,,CAG-274,CAG-274 sp000432155,0.0054147002138759,RF,Pyridoxine,C00314,Advanced_CRC,CAG-274 sp000432155,False
+sp000434475,,,,,Dialister,Dialister sp000434475,0.0081577606164388,RF,Pyridoxine,C00314,Advanced_CRC,Dialister sp000434475,False
+sp900539195,,,,,Ruminiclostridium_E,Ruminiclostridium_E sp900539195,0.0036180995337718,RF,Pyridoxine,C00314,Advanced_CRC,Ruminiclostridium_E sp900539195,False
+sp900544375,,,,,Fimivicinus,Fimivicinus sp900544375,0.0037083335336957,RF,Pyridoxine,C00314,Advanced_CRC,Fimivicinus sp900544375,False
+sp900544555,,,,,UMGS693,UMGS693 sp900544555,0.0259145831703941,RF,Pyridoxine,C00314,Advanced_CRC,UMGS693 sp900544555,False
+sp900546845,,,,,UBA1685,UBA1685 sp900546845,0.0047629558427333,RF,Pyridoxine,C00314,Advanced_CRC,UBA1685 sp900546845,False
+sp900554485,,,,,UBA10281,UBA10281 sp900554485,0.0066739960237403,RF,Pyridoxine,C00314,Advanced_CRC,UBA10281 sp900554485,False
+sp900555035,,,,,Prevotella,Prevotella sp900555035,0.0035097694645196,RF,Pyridoxine,C00314,Advanced_CRC,Prevotella sp900555035,False
+sp900557255,,,,,Prevotella,Prevotella sp900557255,0.0062228480225127,RF,Pyridoxine,C00314,Advanced_CRC,Prevotella sp900557255,False
+sp900763035,,,,,UBA5905,UBA5905 sp900763035,0.0056167156040113,RF,Pyridoxine,C00314,Advanced_CRC,UBA5905 sp900763035,False
+sp905207485,,,,,CAG-266,CAG-266 sp905207485,0.0036002355678976,RF,Pyridoxine,C00314,Advanced_CRC,CAG-266 sp905207485,False
+succinatiphilus,,,,,Dialister,Dialister succinatiphilus,0.0054490503957478,RF,Pyridoxine,C00314,Advanced_CRC,Dialister succinatiphilus,False
+tenue,,,,,Paraclostridium,Paraclostridium tenue,0.0045989518712342,RF,Pyridoxine,C00314,Advanced_CRC,Paraclostridium tenue,False
+adolescentis,Bifidobacterium adolescentis,0.08317298491271745,Other,Bifidobacterium,,,,,Glucuronate,C00191,Advanced_CRC,Bifidobacterium adolescentis,False
+amylolyticus,,,,,Lactobacillus,Lactobacillus amylolyticus,0.0253251442029713,LightGBM,Glucuronate,C00191,Advanced_CRC,Lactobacillus amylolyticus,False
+cellulosilyticus,Bacteroides cellulosilyticus,0.23242061794708516,Other,Bacteroides,,,,,Glucuronate,C00191,Advanced_CRC,Bacteroides cellulosilyticus,False
+flavescens_C,,,,,Neisseria,Neisseria flavescens_C,0.0350478232192139,LightGBM,Glucuronate,C00191,Advanced_CRC,Neisseria flavescens_C,False
+forsythia_A,,,,,Tannerella,Tannerella forsythia_A,0.0243784293042389,LightGBM,Glucuronate,C00191,Advanced_CRC,Tannerella forsythia_A,False
+ihumii,,,,,Alistipes_A,Alistipes_A ihumii,0.0274448558233088,LightGBM,Glucuronate,C00191,Advanced_CRC,Alistipes_A ihumii,False
+longum,longum,0.10479501919896536,Other,longum,,,,,Glucuronate,C00191,Advanced_CRC,longum,False
+merdae,merdae,0.012453303408221927,Other,merdae,,,,,Glucuronate,C00191,Advanced_CRC,merdae,False
+merdipullorum,,,,,Scatavimonas,Scatavimonas merdipullorum,0.0395631087355626,LightGBM,Glucuronate,C00191,Advanced_CRC,Scatavimonas merdipullorum,False
+ovatus,Bacteroides ovatus,0.04472635702056008,Other,Bacteroides,,,,,Glucuronate,C00191,Advanced_CRC,Bacteroides ovatus,False
+parauberis,,,,,Streptococcus,Streptococcus parauberis,0.0367043692912096,LightGBM,Glucuronate,C00191,Advanced_CRC,Streptococcus parauberis,False
+ramosum,,,,,Erysipelatoclostridium,Erysipelatoclostridium ramosum,0.0567879583749478,LightGBM,Glucuronate,C00191,Advanced_CRC,Erysipelatoclostridium ramosum,False
+silvanus,,,,,Meiothermus_B,Meiothermus_B silvanus,0.0548853612966704,LightGBM,Glucuronate,C00191,Advanced_CRC,Meiothermus_B silvanus,False
+sp000431015,,,,,Cryptobacteroides,Cryptobacteroides sp000431015,0.0245663503382232,LightGBM,Glucuronate,C00191,Advanced_CRC,Cryptobacteroides sp000431015,False
+sp000437595,,,,,UBA11524,UBA11524 sp000437595,0.0191551883217449,LightGBM,Glucuronate,C00191,Advanced_CRC,UBA11524 sp000437595,False
+sp001274535,,,,,Leptotrichia_A,Leptotrichia_A sp001274535,0.0203466037586967,LightGBM,Glucuronate,C00191,Advanced_CRC,Leptotrichia_A sp001274535,False
+sp900319515,,,,,CAG-127,CAG-127 sp900319515,0.0280794912660736,LightGBM,Glucuronate,C00191,Advanced_CRC,CAG-127 sp900319515,False
+sp900539465,,,,,CAG-488,CAG-488 sp900539465,0.0280558356889028,LightGBM,Glucuronate,C00191,Advanced_CRC,CAG-488 sp900539465,False
+sp900540355,,,,,Intestinibacter,Intestinibacter sp900540355,0.0345087151753448,LightGBM,Glucuronate,C00191,Advanced_CRC,Intestinibacter sp900540355,False
+sp900757655,,,,,CAG-103,CAG-103 sp900757655,0.0465999224324809,LightGBM,Glucuronate,C00191,Advanced_CRC,CAG-103 sp900757655,False
+sp900763035,,,,,UBA5905,UBA5905 sp900763035,0.0354098777497658,LightGBM,Glucuronate,C00191,Advanced_CRC,UBA5905 sp900763035,False
+sp902766775,,,,,Ruminococcus_E,Ruminococcus_E sp902766775,0.0303247927920302,LightGBM,Glucuronate,C00191,Advanced_CRC,Ruminococcus_E sp902766775,False
+spG000499525,,,,,CCUG-7971,CCUG-7971 spG000499525,0.03178408087418,LightGBM,Glucuronate,C00191,Advanced_CRC,CCUG-7971 spG000499525,False
+thetaiotaomicron,Bacteroides thetaiotaomicron,0.05224726346835347,Other,Bacteroides,,,,,Glucuronate,C00191,Advanced_CRC,Bacteroides thetaiotaomicron,False
+turicensis,,,,,Pauljensenia,Pauljensenia turicensis,0.0289667349737437,LightGBM,Glucuronate,C00191,Advanced_CRC,Pauljensenia turicensis,False
+uniformis,Bacteroides uniformis,0.0038748137621551345,Other,Bacteroides,,,,,Glucuronate,C00191,Advanced_CRC,Bacteroides uniformis,False
+wadei,,,,,Leptotrichia,Leptotrichia wadei,0.0409421836938129,LightGBM,Glucuronate,C00191,Advanced_CRC,Leptotrichia wadei,False

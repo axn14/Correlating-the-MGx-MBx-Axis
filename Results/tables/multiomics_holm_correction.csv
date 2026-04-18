@@ -1,0 +1,16 @@
+Test,p,q_holm,significant
+MOFA_Factor9_KW,0.0019,0.0285,True
+R5_oral_invasion,0.0025785893141996807,0.0361,True
+MOFA_Factor10_KW,0.0306,0.3978,False
+MOFA_Factor2_KW,0.0756,0.9072,False
+MOFA_Factor4_KW,0.139,1.0,False
+R4_Factor5_stage,0.37468621475563224,1.0,False
+MOFA_Factor5_KW,0.3942,1.0,False
+R7_Putrescine_stage,0.4913262399096653,1.0,False
+MOFA_Factor8_KW,0.7232,1.0,False
+R7_Ornithine_stage,0.9088203290015446,1.0,False
+R7_Spermidine_stage,0.9928810103624324,1.0,False
+MOFA_Factor1_KW,0.9995,1.0,False
+MOFA_Factor7_KW,0.9997,1.0,False
+MOFA_Factor3_KW,0.9999,1.0,False
+MOFA_Factor6_KW,0.9999,1.0,False

@@ -1,0 +1,262 @@
+met_name,met_base,taxon,pathway,mean_flux,std_flux,n_samples,taxon_full,da_early,da_adv
+Deoxycytidine,dcyt,onderdonkii,Other,97.39394566786865,,1,Alistipes onderdonkii,True,False
+Formate,for,prausnitzii,Other,95.72518664622002,,1,Faecalibacterium prausnitzii,True,False
+Formate,for,intestini,Other,94.84803078230544,,1,Murimonas intestini,True,False
+Water,h2o,intestini,Other,93.47495822120436,,1,Murimonas intestini,True,False
+Glycine,gly,bifidum,Amino Acid,89.82802961592529,2.4584619224411624,6,Bifidobacterium bifidum,False,True
+Propionate,ppa,prausnitzii,SCFA,87.70922946872948,,1,Faecalibacterium prausnitzii,True,False
+Ornithine,orn,faecis,Polyamine,83.90279141703496,23.782490712491256,102,Blautia_A faecis,False,True
+Uridine,uri,faecis,Other,82.92425042626657,27.693476963887424,47,Blautia_A faecis,False,True
+Indole,indole,hadrus,Other,78.7400211114086,32.227575252472114,10,Anaerostipes hadrus,False,True
+Guanine,gua,faecis,Other,77.5591278854757,32.98506771050566,47,Blautia_A faecis,False,True
+2obut,2obut,faecis,Other,76.36498748135318,,1,Blautia_A faecis,False,True
+Alanine,ala_L,intestini,Amino Acid,75.94577620642144,31.424805751264415,7,Murimonas intestini,True,False
+Indole,indole,onderdonkii,Other,75.81777451651696,35.21761257280895,34,Alistipes onderdonkii,True,False
+Ethanol,etoh,bifidum,Other,72.88544904029575,12.340173067441226,2,Bifidobacterium bifidum,False,True
+Threonine,thr_L,bifidum,Amino Acid,70.59448777357805,,1,Bifidobacterium bifidum,False,True
+Phenylalanine,phe_L,bifidum,Other,70.38029219034732,30.819811158678124,14,Bifidobacterium bifidum,False,True
+Uridine,uri,onderdonkii,Other,69.98736221983425,36.10742007998623,41,Alistipes onderdonkii,True,False
+Glutamine,gln_L,bifidum,Amino Acid,69.92228443730924,25.26411069439639,11,Bifidobacterium bifidum,False,True
+Phosphate,pi,onderdonkii,Other,69.76735151870088,29.011852477384874,92,Alistipes onderdonkii,True,False
+Valine,val_L,wadsworthia,Other,68.71027817533452,32.84936752561621,3,Bilophila wadsworthia,False,True
+Riboflavin,ribflv,prausnitzii,Other,68.61476106835,13.40583693564787,2,Faecalibacterium prausnitzii,True,False
+Adenosine,adn,onderdonkii,Other,68.5867962429236,35.81465905543991,40,Alistipes onderdonkii,True,False
+Hydrogen Sulfide,h2s,bifidum,Other,68.33340910039107,32.06975105095689,11,Bifidobacterium bifidum,False,True
+Glycine,gly,prausnitzii,Amino Acid,66.43946796303298,23.281864363396586,11,Faecalibacterium prausnitzii,True,False
+Phosphate,pi,intestinihominis,Other,65.4843008926903,36.27584739420215,31,Barnesiella intestinihominis,True,False
+Nicotinamide,ncam,faecis,Other,65.03014773118166,,1,Blautia_A faecis,False,True
+D-Lactate,lac_D,prausnitzii,Other,64.82817309167041,25.997042177246193,13,Faecalibacterium prausnitzii,True,False
+D-Lactate,lac_D,intestini,Other,63.82014213348297,36.09693705851219,5,Murimonas intestini,True,False
+Threonine,thr_L,inulinivorans,Amino Acid,63.23450332977269,,1,Roseburia inulinivorans,True,False
+Butyrate,but,intestini,SCFA,62.57597206986759,39.78425826931709,5,Murimonas intestini,True,False
+Alanine,ala_L,onderdonkii,Amino Acid,61.83491111524146,30.32807970579923,18,Alistipes onderdonkii,True,False
+Succinate,succ,wadsworthia,Other,61.15598104486162,26.349602218361298,19,Bilophila wadsworthia,False,True
+Asparagine,asn_L,prausnitzii,Other,61.064180572013086,45.76982218902261,2,Faecalibacterium prausnitzii,True,False
+Guanosine,gsn,onderdonkii,Other,60.97417346578671,37.37229436416055,15,Alistipes onderdonkii,True,False
+Guanosine,gsn,faecis,Other,60.666197770398334,33.61307330401279,17,Blautia_A faecis,False,True
+Acetate,ac,faecis,SCFA,60.53315179556063,27.827631056174127,34,Blautia_A faecis,False,True
+Glutathione (reduced),gthrd,prausnitzii,Other,60.23956542349103,30.079675385936987,4,Faecalibacterium prausnitzii,True,False
+Uridine,uri,intestinihominis,Other,59.96858684278811,35.04192650684995,8,Barnesiella intestinihominis,True,False
+Water,h2o,onderdonkii,Other,59.661101575443844,28.17229963667693,16,Alistipes onderdonkii,True,False
+Glutamine,gln_L,onderdonkii,Amino Acid,59.29431351336545,32.09875837738662,57,Alistipes onderdonkii,True,False
+Ammonium,nh4,hadrus,Other,58.79470211044945,28.724032079573345,50,Anaerostipes hadrus,False,True
+Alanine,ala_L,faecis,Amino Acid,58.083636607884,18.858702112235946,11,Blautia_A faecis,False,True
+Proton,h,faecis,Other,57.950332405344696,31.102906006428764,11,Blautia_A faecis,False,True
+Xanthine,xan,bifidum,Other,57.70025374915647,12.892349593775524,3,Bifidobacterium bifidum,False,True
+Deoxyadenosine,dad_2,onderdonkii,Other,57.689015132102206,41.11995142224677,56,Alistipes onderdonkii,True,False
+Lactate,lac_L,bifidum,Other,57.566491955665086,38.94980544858962,2,Bifidobacterium bifidum,False,True
+Formate,for,bifidum,Other,57.27468177626374,33.50875109207272,3,Bifidobacterium bifidum,False,True
+Fumarate,fum,wadsworthia,Other,57.259940915440254,37.22447505005537,10,Bilophila wadsworthia,False,True
+Threonine,thr_L,wadsworthia,Amino Acid,57.14285714285177,,1,Bilophila wadsworthia,False,True
+Glutamine,gln_L,faecis,Amino Acid,56.64249590711985,32.960182823712934,42,Blautia_A faecis,False,True
+Aspartate,asp_L,faecis,Amino Acid,56.37919181885769,26.886248753294538,21,Blautia_A faecis,False,True
+Acetaldehyde,acald,bifidum,Other,56.32531938994318,0.36789323553514985,2,Bifidobacterium bifidum,False,True
+Lactate,lac_L,hadrus,Other,56.250614410876345,23.631360288006203,10,Anaerostipes hadrus,False,True
+Ammonium,nh4,intestinihominis,Other,56.08313225817532,33.806506723529026,13,Barnesiella intestinihominis,True,False
+Succinate,succ,intestinihominis,Other,55.561407546018586,38.938169196330996,30,Barnesiella intestinihominis,True,False
+CO2,co2,inulinivorans,Other,55.328084954081945,30.653347309302422,43,Roseburia inulinivorans,True,False
+Lysine,lys_L,intestinihominis,Amino Acid,54.858041196713536,48.258594253884915,6,Barnesiella intestinihominis,True,False
+Ammonium,nh4,intestini,Other,54.617888119224936,32.621994137850606,4,Murimonas intestini,True,False
+Valine,val_L,bifidum,Other,54.09922418796399,33.53172307616289,12,Bifidobacterium bifidum,False,True
+Glutamate,glu_L,inulinivorans,Amino Acid,54.096896716147626,,1,Roseburia inulinivorans,True,False
+Lactate,lac_L,wadsworthia,Other,54.09677304667128,24.54659109213516,22,Bilophila wadsworthia,False,True
+Proline,pro_L,bifidum,Amino Acid,54.05701249672403,28.077988707796994,4,Bifidobacterium bifidum,False,True
+Uracil,ura,prausnitzii,Other,52.950169831760256,28.49206354008887,21,Faecalibacterium prausnitzii,True,False
+Fructose,fru,prausnitzii,Other,52.779743307606765,27.067320357504094,30,Faecalibacterium prausnitzii,True,False
+Arginine,arg_L,faecis,Polyamine,52.6898248091065,31.461947865445985,25,Blautia_A faecis,False,True
+Tetrahydrofolate,thf,bifidum,Other,52.13524540615239,45.44609988356838,2,Bifidobacterium bifidum,False,True
+Ammonium,nh4,faecis,Other,52.048341770029296,31.605492367186553,32,Blautia_A faecis,False,True
+Fumarate,fum,prausnitzii,Other,51.51732190789429,36.78023976281094,9,Faecalibacterium prausnitzii,True,False
+Acetate,ac,intestini,SCFA,51.48519576577288,0.8316029252138397,8,Murimonas intestini,True,False
+Alpha-Ketoglutarate,akg,onderdonkii,Other,51.40171098094617,37.5538392343245,32,Alistipes onderdonkii,True,False
+Water,h2o,prausnitzii,Other,51.23018973508213,21.07364844753678,5,Faecalibacterium prausnitzii,True,False
+Valine,val_L,intestini,Other,51.13740577193869,9.525272137889138,2,Murimonas intestini,True,False
+Succinate,succ,faecis,Other,51.13428881352279,25.443999160566317,35,Blautia_A faecis,False,True
+Aspartate,asp_L,wadsworthia,Amino Acid,50.43771807001892,24.41899320599372,13,Bilophila wadsworthia,False,True
+Aspartate,asp_L,onderdonkii,Amino Acid,50.08257892541251,29.269006812263285,34,Alistipes onderdonkii,True,False
+D-Lactate,lac_D,onderdonkii,Other,49.97670448503553,31.36867668101095,17,Alistipes onderdonkii,True,False
+Acetate,ac,hadrus,SCFA,49.894212920386096,30.610753194233745,16,Anaerostipes hadrus,False,True
+Tryptophan,trp_L,hadrus,Indole / Tryptophan,49.77548673348952,,1,Anaerostipes hadrus,False,True
+Aspartate,asp_L,prausnitzii,Amino Acid,49.724802893493546,31.03687917783372,26,Faecalibacterium prausnitzii,True,False
+Ammonium,nh4,bifidum,Other,49.58816120268307,23.516071851207478,4,Bifidobacterium bifidum,False,True
+Ammonium,nh4,prausnitzii,Other,49.342402815253266,24.950097780987548,23,Faecalibacterium prausnitzii,True,False
+D-Lactate,lac_D,hadrus,Other,49.142321578224816,27.033106050715087,21,Anaerostipes hadrus,False,True
+Aspartate,asp_L,inulinivorans,Amino Acid,48.701963667137285,32.03511011015758,37,Roseburia inulinivorans,True,False
+Ethanol,etoh,intestini,Other,48.64339105073393,17.85768005735083,9,Murimonas intestini,True,False
+Asparagine,asn_L,inulinivorans,Other,48.53239122237776,20.931347734531283,5,Roseburia inulinivorans,True,False
+Aspartate,asp_L,hadrus,Amino Acid,48.50356496581696,29.98856457577814,18,Anaerostipes hadrus,False,True
+Cholate,cholate,hadrus,Bile Acid,48.12687954738268,20.18768370390941,7,Anaerostipes hadrus,False,True
+Water,h2o,faecis,Other,48.04350722016842,30.114113144023456,15,Blautia_A faecis,False,True
+Water,h2o,wadsworthia,Other,47.81128716584756,27.560765871566723,25,Bilophila wadsworthia,False,True
+CO2,co2,bifidum,Other,47.746877816783105,27.995123132609162,9,Bifidobacterium bifidum,False,True
+Water,h2o,intestinihominis,Other,47.71816107915473,23.298696202406884,27,Barnesiella intestinihominis,True,False
+Glycine,gly,intestini,Amino Acid,47.54499451796466,37.70218588554588,8,Murimonas intestini,True,False
+Alanine,ala_L,wadsworthia,Amino Acid,47.49129425060867,20.18047378268728,19,Bilophila wadsworthia,False,True
+Acetaldehyde,acald,intestini,Other,47.289470527531456,20.21226676512767,4,Murimonas intestini,True,False
+Proline,pro_L,wadsworthia,Amino Acid,47.00417033330925,29.48218606880216,31,Bilophila wadsworthia,False,True
+GABA,4abut,onderdonkii,Other,46.96202997817171,41.8377756537711,2,Alistipes onderdonkii,True,False
+Lysine,lys_L,bifidum,Amino Acid,46.73876408731933,39.26751513151824,11,Bifidobacterium bifidum,False,True
+Lactate,lac_L,inulinivorans,Other,46.7057868117917,29.401519924745806,26,Roseburia inulinivorans,True,False
+Butyrate,but,hadrus,SCFA,46.689256881861304,26.34497305465248,21,Anaerostipes hadrus,False,True
+Adenine,ade,faecis,Other,46.11362902621868,31.020515008891454,15,Blautia_A faecis,False,True
+Proton,h,onderdonkii,Other,45.88947527419769,29.69999857627479,10,Alistipes onderdonkii,True,False
+Proton,h,prausnitzii,Other,45.70251121940484,37.391652595565155,3,Faecalibacterium prausnitzii,True,False
+Deoxyadenosine,dad_2,faecis,Other,45.01829350399659,30.215881226959905,13,Blautia_A faecis,False,True
+Glycerol-3-Phosphate,glyc3p,intestinihominis,Other,44.894728657401735,35.34187234046315,11,Barnesiella intestinihominis,True,False
+Acetaldehyde,acald,prausnitzii,Other,44.88984173887913,27.49953859996167,13,Faecalibacterium prausnitzii,True,False
+Lysine,lys_L,faecis,Amino Acid,44.846685447969314,29.477708471725713,6,Blautia_A faecis,False,True
+N-Acetylglucosamine,acgam,prausnitzii,Other,44.78146330376501,15.36845625500406,2,Faecalibacterium prausnitzii,True,False
+Lysine,lys_L,inulinivorans,Amino Acid,44.69321318419327,33.1123909452272,12,Roseburia inulinivorans,True,False
+Glycine,gly,inulinivorans,Amino Acid,44.563001868725735,7.689076495845242,2,Roseburia inulinivorans,True,False
+CO2,co2,faecis,Other,44.53073076511648,30.58221085558267,23,Blautia_A faecis,False,True
+Asparagine,asn_L,hadrus,Other,44.44444444444438,,1,Anaerostipes hadrus,False,True
+Glutamate,glu_L,hadrus,Amino Acid,44.44444444444437,,1,Anaerostipes hadrus,False,True
+Formate,for,onderdonkii,Other,44.15879649097297,37.24355173803592,14,Alistipes onderdonkii,True,False
+Ethanol,etoh,prausnitzii,Other,44.04469289394029,8.329129525311817,4,Faecalibacterium prausnitzii,True,False
+Ethanol,etoh,inulinivorans,Other,43.74303253270106,25.834815345222836,39,Roseburia inulinivorans,True,False
+Serine,ser_L,hadrus,Other,43.60513800970387,24.067962917950755,8,Anaerostipes hadrus,False,True
+Water,h2o,hadrus,Other,43.52282616138272,31.554821387715236,14,Anaerostipes hadrus,False,True
+Valine,val_L,faecis,Other,43.26157335009857,29.132231057879547,9,Blautia_A faecis,False,True
+Proton,h,wadsworthia,Other,43.198746570623534,20.586658252535795,5,Bilophila wadsworthia,False,True
+Proton,h,intestinihominis,Other,42.969736958514765,28.603520574867208,14,Barnesiella intestinihominis,True,False
+CO2,co2,wadsworthia,Other,42.7435573350464,28.46891535957573,43,Bilophila wadsworthia,False,True
+Valine,val_L,prausnitzii,Other,42.68459576022991,32.22177923103491,17,Faecalibacterium prausnitzii,True,False
+Ammonium,nh4,wadsworthia,Other,42.21274726994293,21.36322672781315,12,Bilophila wadsworthia,False,True
+12dhchol,12dhchol,prausnitzii,Other,42.11884129895439,25.644540495386696,43,Faecalibacterium prausnitzii,True,False
+Acetaldehyde,acald,onderdonkii,Other,42.07100160037702,28.927357861130233,20,Alistipes onderdonkii,True,False
+D-Lactate,lac_D,faecis,Other,42.009874032086785,30.547673247895183,17,Blautia_A faecis,False,True
+Acetate,ac,inulinivorans,SCFA,41.864446087577065,32.27186206980735,10,Roseburia inulinivorans,True,False
+Deoxyadenosine,dad_2,bifidum,Other,41.63811290110742,22.311503154582542,4,Bifidobacterium bifidum,False,True
+Proton,h,hadrus,Other,40.74334836708504,27.34862949729894,48,Anaerostipes hadrus,False,True
+Acetate,ac,onderdonkii,SCFA,40.32649920915306,30.119447140562123,12,Alistipes onderdonkii,True,False
+Serine,ser_L,inulinivorans,Other,40.31925268747822,9.084187611687332,4,Roseburia inulinivorans,True,False
+CO2,co2,hadrus,Other,40.15167204887929,20.8527064015213,30,Anaerostipes hadrus,False,True
+Deoxyguanosine,dgsn,bifidum,Other,39.233951674527376,38.59609044824383,5,Bifidobacterium bifidum,False,True
+CO2,co2,onderdonkii,Other,38.88280406249559,29.28011003677336,22,Alistipes onderdonkii,True,False
+Malate,mal_L,intestini,Other,38.868075920254526,33.27802781842439,5,Murimonas intestini,True,False
+Serine,ser_L,prausnitzii,Other,38.64276194598969,32.47656313693993,9,Faecalibacterium prausnitzii,True,False
+Succinate,succ,hadrus,Other,38.63955936612267,21.453691428479008,23,Anaerostipes hadrus,False,True
+Fumarate,fum,intestini,Other,38.58998146629714,32.96724405564951,3,Murimonas intestini,True,False
+3mop,3mop,prausnitzii,Other,38.50240291957041,34.95346026621271,46,Faecalibacterium prausnitzii,True,False
+Acetate,ac,prausnitzii,SCFA,38.49412630307984,30.3977249963035,5,Faecalibacterium prausnitzii,True,False
+CO2,co2,prausnitzii,Other,38.41002337119978,23.63805475009808,12,Faecalibacterium prausnitzii,True,False
+Butyrate,but,prausnitzii,SCFA,37.80219746312657,5.498283847770819,2,Faecalibacterium prausnitzii,True,False
+Glutamine,gln_L,prausnitzii,Amino Acid,37.66667960758476,31.15373877279955,15,Faecalibacterium prausnitzii,True,False
+Cysteine,cys_L,prausnitzii,Other,37.601992663875,24.300096053991812,56,Faecalibacterium prausnitzii,True,False
+Tetradecanoate,ttdca,wadsworthia,Other,37.56729054429456,35.48159429270069,3,Bilophila wadsworthia,False,True
+Leucine,leu_L,prausnitzii,Amino Acid,37.51838811275156,24.910996736362236,34,Faecalibacterium prausnitzii,True,False
+Glucose,glc_D,prausnitzii,Other,37.511090617426255,23.12092856883595,22,Faecalibacterium prausnitzii,True,False
+Ammonium,nh4,onderdonkii,Other,37.47012869428767,32.89447237862917,6,Alistipes onderdonkii,True,False
+Acetaldehyde,acald,faecis,Other,36.72181011587329,24.992505126770705,9,Blautia_A faecis,False,True
+Butyrate,but,inulinivorans,SCFA,36.491293515352226,22.996464901506467,20,Roseburia inulinivorans,True,False
+Proton,h,intestini,Other,36.306391665055884,18.095365469014823,3,Murimonas intestini,True,False
+Glutamate,glu_L,prausnitzii,Amino Acid,36.18273254417856,27.259245540265006,10,Faecalibacterium prausnitzii,True,False
+D-Lactate,lac_D,inulinivorans,Other,36.10167813355119,25.868818604497164,19,Roseburia inulinivorans,True,False
+Isoleucine,ile_L,prausnitzii,Amino Acid,36.0844446821786,35.72955994424138,45,Faecalibacterium prausnitzii,True,False
+Acetaldehyde,acald,inulinivorans,Other,35.85393218215291,25.8872463331458,45,Roseburia inulinivorans,True,False
+Phenylalanine,phe_L,wadsworthia,Other,35.819025426380854,26.881635435068233,14,Bilophila wadsworthia,False,True
+12dhchol,12dhchol,hadrus,Other,34.40933822577687,22.693680183599103,18,Anaerostipes hadrus,False,True
+Histidine,his_L,bifidum,Other,33.83711613729296,24.49191295329978,7,Bifidobacterium bifidum,False,True
+Threonine,thr_L,prausnitzii,Amino Acid,33.66534303067442,24.90190842619805,60,Faecalibacterium prausnitzii,True,False
+Water,h2o,inulinivorans,Other,33.584295907713084,30.11375069941615,36,Roseburia inulinivorans,True,False
+Valine,val_L,onderdonkii,Other,33.4290979256817,31.26368633607639,11,Alistipes onderdonkii,True,False
+Ammonium,nh4,inulinivorans,Other,33.210150237860745,18.460496750966698,11,Roseburia inulinivorans,True,False
+12ppd_S,12ppd_S,bifidum,Other,32.920637906130416,29.101120204410094,3,Bifidobacterium bifidum,False,True
+Glycerol-3-Phosphate,glyc3p,onderdonkii,Other,32.58964333623823,44.04594108595927,4,Alistipes onderdonkii,True,False
+Proline,pro_L,intestini,Amino Acid,32.46228595104156,,1,Murimonas intestini,True,False
+Deoxycytidine,dcyt,prausnitzii,Other,31.763732952986544,28.089200682816692,10,Faecalibacterium prausnitzii,True,False
+Acetate,ac,wadsworthia,SCFA,31.724339689272558,26.726444676448402,6,Bilophila wadsworthia,False,True
+Hydrogen Sulfide,h2s,prausnitzii,Other,31.598433505260914,31.45245751483556,6,Faecalibacterium prausnitzii,True,False
+Cysteine,cys_L,hadrus,Other,31.54669518351762,22.84944959022451,17,Anaerostipes hadrus,False,True
+Valine,val_L,hadrus,Other,31.492154815468957,23.479569517515863,49,Anaerostipes hadrus,False,True
+Adenosine,adn,faecis,Other,31.444364541882905,25.513126338336825,6,Blautia_A faecis,False,True
+Proton,h,inulinivorans,Other,31.439193779388305,29.585042115339217,19,Roseburia inulinivorans,True,False
+D-Arabinose,arab_D,bifidum,Other,31.020491229507897,12.563721423935396,2,Bifidobacterium bifidum,False,True
+Proline,pro_L,faecis,Amino Acid,30.650245586675712,17.781573888715997,2,Blautia_A faecis,False,True
+Aspartate,asp_L,bifidum,Amino Acid,30.446608523285818,,1,Bifidobacterium bifidum,False,True
+Propionate,ppa,faecis,SCFA,30.366867599643143,,1,Blautia_A faecis,False,True
+Glycine,gly,hadrus,Amino Acid,30.034929641724236,23.05820535822303,18,Anaerostipes hadrus,False,True
+Phosphate,pi,wadsworthia,Other,29.86907948435222,25.866221093457266,14,Bilophila wadsworthia,False,True
+Glutamate,glu_L,wadsworthia,Amino Acid,29.447617053665454,32.899323219699944,6,Bilophila wadsworthia,False,True
+Nicotinate,nac,faecis,Other,28.759734971150074,21.223804364478525,9,Blautia_A faecis,False,True
+Cysteine,cys_L,intestini,Other,28.67344266652208,25.090863904280805,7,Murimonas intestini,True,False
+Glycine,gly,wadsworthia,Amino Acid,27.5843836698383,28.519065649428082,13,Bilophila wadsworthia,False,True
+12ppd_S,12ppd_S,faecis,Other,26.920990337745927,19.78445194632178,31,Blautia_A faecis,False,True
+Proton,h,bifidum,Other,26.749983674365193,29.85927492905853,5,Bifidobacterium bifidum,False,True
+rbflvrd,rbflvrd,prausnitzii,Other,26.724465295151276,24.87459226251797,9,Faecalibacterium prausnitzii,True,False
+Hydrogen Sulfide,h2s,hadrus,Other,26.321989728680688,,1,Anaerostipes hadrus,False,True
+Glutamate,glu_L,bifidum,Amino Acid,26.280191430739,28.58034873685843,7,Bifidobacterium bifidum,False,True
+Serine,ser_L,faecis,Other,25.780817094505014,25.084704177736388,9,Blautia_A faecis,False,True
+Histidine,his_L,inulinivorans,Other,25.3397732121233,34.87482717461153,2,Roseburia inulinivorans,True,False
+Glycerol,glyc,onderdonkii,Other,25.187160176713082,30.676938922981993,38,Alistipes onderdonkii,True,False
+Serine,ser_L,intestinihominis,Other,25.132210591967986,17.309402012600415,15,Barnesiella intestinihominis,True,False
+strch2,strch2,prausnitzii,Other,24.355219327697544,21.45498690415122,28,Faecalibacterium prausnitzii,True,False
+Glycerol,glyc,bifidum,Other,24.113412526351155,37.88837481257792,12,Bifidobacterium bifidum,False,True
+Cholate,cholate,prausnitzii,Bile Acid,23.878771507246856,27.81639308005232,7,Faecalibacterium prausnitzii,True,False
+Asparagine,asn_L,bifidum,Other,23.57431602237841,,1,Bifidobacterium bifidum,False,True
+Leucine,leu_L,wadsworthia,Amino Acid,22.94985305552862,7.894786361780226,3,Bilophila wadsworthia,False,True
+Serine,ser_L,onderdonkii,Other,22.776081855486108,13.097455382543323,14,Alistipes onderdonkii,True,False
+12ppd_S,12ppd_S,inulinivorans,Other,22.748413672607295,26.698592928952284,9,Roseburia inulinivorans,True,False
+Formate,for,wadsworthia,Other,21.584130445546645,29.825153081342883,5,Bilophila wadsworthia,False,True
+Glycerol,glyc,hadrus,Other,21.302915258961193,31.386537346534872,20,Anaerostipes hadrus,False,True
+Lysine,lys_L,prausnitzii,Amino Acid,21.283309613850488,25.611240990853897,50,Faecalibacterium prausnitzii,True,False
+Hypoxanthine,hxan,prausnitzii,Other,20.226384408374237,15.992149265077385,56,Faecalibacterium prausnitzii,True,False
+strch2,strch2,inulinivorans,Other,20.214262974685727,12.413562921356574,17,Roseburia inulinivorans,True,False
+Trimethylamine,tma,wadsworthia,Other,20.12082422004398,25.321653449399065,9,Bilophila wadsworthia,False,True
+Urea,urea,prausnitzii,Other,19.950480580956903,28.326815890021088,7,Faecalibacterium prausnitzii,True,False
+Serine,ser_L,wadsworthia,Other,19.5396731483198,18.785981638047943,3,Bilophila wadsworthia,False,True
+Hydrogen,h2,faecis,Other,19.15946664872475,19.706288734064387,7,Blautia_A faecis,False,True
+Succinate,succ,onderdonkii,Other,18.544763007645354,22.861929530912573,70,Alistipes onderdonkii,True,False
+Isoleucine,ile_L,wadsworthia,Amino Acid,18.18851389597512,,1,Bilophila wadsworthia,False,True
+CO2,co2,intestinihominis,Other,18.109590450314084,14.5035433780514,13,Barnesiella intestinihominis,True,False
+Galactose,gal,prausnitzii,Other,17.9804363982124,25.59843507343653,28,Faecalibacterium prausnitzii,True,False
+tmao,tmao,wadsworthia,Other,17.8818367062801,21.202413266359475,7,Bilophila wadsworthia,False,True
+Hydrogen,h2,inulinivorans,Other,17.740969886425663,12.685576386974091,2,Roseburia inulinivorans,True,False
+Pyruvate,pyr,wadsworthia,Other,17.560984444397924,18.948278485955637,10,Bilophila wadsworthia,False,True
+Cysteine,cys_L,wadsworthia,Other,17.228260817959654,18.605743112999864,12,Bilophila wadsworthia,False,True
+Phenylalanine,phe_L,intestinihominis,Other,16.293512395421022,16.11626045989756,9,Barnesiella intestinihominis,True,False
+Maltose,malt,prausnitzii,Other,16.16825984605488,21.906566394593597,9,Faecalibacterium prausnitzii,True,False
+Deoxycytidine,dcyt,faecis,Other,16.104648435992356,22.711931542384438,3,Blautia_A faecis,False,True
+ppi,ppi,bifidum,Other,15.77668704907627,7.668298565947278,4,Bifidobacterium bifidum,False,True
+Isoleucine,ile_L,bifidum,Amino Acid,15.708388161198634,,1,Bifidobacterium bifidum,False,True
+26dap_M,26dap_M,intestinihominis,Other,15.606470022717263,12.366229419675378,4,Barnesiella intestinihominis,True,False
+Lcystin,Lcystin,prausnitzii,Other,14.099560113113682,10.75155728148982,6,Faecalibacterium prausnitzii,True,False
+Formate,for,faecis,Other,13.817559193129073,29.871219915974674,113,Blautia_A faecis,False,True
+Glucose,glc_D,inulinivorans,Other,13.402052106991562,18.82366547923337,24,Roseburia inulinivorans,True,False
+Acetate,ac,intestinihominis,SCFA,12.616966331041922,17.49006303900216,32,Barnesiella intestinihominis,True,False
+GABA,4abut,intestinihominis,Other,11.89108214818033,,1,Barnesiella intestinihominis,True,False
+Arginine,arg_L,wadsworthia,Polyamine,10.649632487534348,7.945716784654808,7,Bilophila wadsworthia,False,True
+Propionate,ppa,inulinivorans,SCFA,10.510475484496906,3.8465072100745754,2,Roseburia inulinivorans,True,False
+Galactose,gal,intestinihominis,Other,9.565842663274683,6.212637252986375,2,Barnesiella intestinihominis,True,False
+Glycerol,glyc,prausnitzii,Other,9.54857406264594,20.858448800714935,49,Faecalibacterium prausnitzii,True,False
+Nicotinate,nac,intestini,Other,7.829623668292446,5.105492353127317,18,Murimonas intestini,True,False
+Water,h2o,bifidum,Other,7.0095479190386705,,1,Bifidobacterium bifidum,False,True
+2obut,2obut,bifidum,Other,7.006859206188546,26.042343650260563,14,Bifidobacterium bifidum,False,True
+Cytidine,cytd,bifidum,Other,6.795984897556463,3.1840081850643385,16,Bifidobacterium bifidum,False,True
+N-Acetylglucosamine,acgam,intestinihominis,Other,6.716362413602717,,1,Barnesiella intestinihominis,True,False
+Glucose,glc_D,bifidum,Other,6.498133956923648,5.307076301547917,3,Bifidobacterium bifidum,False,True
+Fructose,fru,inulinivorans,Other,6.000515942266038,7.550833194841469,8,Roseburia inulinivorans,True,False
+Histidine,his_L,hadrus,Other,4.615384615384301,,1,Anaerostipes hadrus,False,True
+Thymidine,thymd,faecis,Other,3.903463407144239,,1,Blautia_A faecis,False,True
+Histidine,his_L,prausnitzii,Other,3.3794679511583325,4.311931102821422,5,Faecalibacterium prausnitzii,True,False
+Ornithine,orn,intestini,Polyamine,3.114815588044055,1.9359911413236328,3,Murimonas intestini,True,False
+mqn8,mqn8,faecis,Other,2.195060982324177,1.1122442738971885,8,Blautia_A faecis,False,True
+Maltose,malt,inulinivorans,Other,2.1152246568574022,1.2358075640994284,16,Roseburia inulinivorans,True,False
+Galacturonate,galur,prausnitzii,Other,1.9826942700368475,2.0284682087455272,9,Faecalibacterium prausnitzii,True,False
+Inosine,ins,onderdonkii,Other,1.2913617495474328,0.8530080812192531,24,Alistipes onderdonkii,True,False
+gcald,gcald,bifidum,Other,1.199711199566317,4.844736233818557,17,Bifidobacterium bifidum,False,True
+Inosine,ins,faecis,Other,1.0918421280683401,0.8772308403598259,26,Blautia_A faecis,False,True
+CO2,co2,intestini,Other,1.0819890436229087,1.09794979222027,2,Murimonas intestini,True,False
+meoh,meoh,prausnitzii,Other,0.9913471350184238,1.0142341043727636,9,Faecalibacterium prausnitzii,True,False
+malttr,malttr,inulinivorans,Other,0.95890662111918,2.7298230176544336,67,Roseburia inulinivorans,True,False
+Tyrosine,tyr_L,inulinivorans,Other,0.6795464242466018,,1,Roseburia inulinivorans,True,False
+Glycerol,glyc,faecis,Other,0.6038678823185573,0.27566605800065386,26,Blautia_A faecis,False,True
+gcald,gcald,hadrus,Other,0.28982127227167603,0.2681300684834056,34,Anaerostipes hadrus,False,True
+Formate,for,hadrus,Other,0.2520408748148751,0.20101037714086487,31,Anaerostipes hadrus,False,True
+gcald,gcald,faecis,Other,0.2226446740846908,0.11969495834094145,126,Blautia_A faecis,False,True
+Glycerol,glyc,intestinihominis,Other,0.16370132042156094,0.1486377442602963,31,Barnesiella intestinihominis,True,False
+Adenosine,adn,intestinihominis,Other,0.1275531612517626,0.19011343685371096,28,Barnesiella intestinihominis,True,False
+Succinate,succ,intestini,Other,0.09025252199485367,0.058851303768430605,18,Murimonas intestini,True,False
+Succinate,succ,bifidum,Other,0.024424059627402555,,1,Bifidobacterium bifidum,False,True
+Oxygen,o2,intestini,Other,0.015042086999142286,0.00980855062807177,18,Murimonas intestini,True,False
+Oxygen,o2,bifidum,Other,0.0123465747696052,0.005728784695883986,16,Bifidobacterium bifidum,False,True

@@ -1,0 +1,118 @@
+species,genus,target,metabolite_name,gutsmash_class,shap_importance,pathway
+Aphodousia sp900553105,Aphodousia,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.15989562161884763,Other
+Scatavimonas merdipullorum,Scatavimonas,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.08457711515047812,Other
+Erysipelatoclostridium ramosum,Erysipelatoclostridium,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.056787958374947815,Other
+Pauljensenia turicensis,Pauljensenia,C01104_Trimethylamine N-oxide,Trimethylamine N-oxide,TMAO_Choline,0.05567078964701949,Other
+Meiothermus_B silvanus,Meiothermus,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.054885361296670473,Other
+Pauljensenia turicensis,Pauljensenia,3-Indoxyl sulfate,3-Indoxyl sulfate,Indole,0.05320020151181086,Other
+CCUG-7971 sp017590215,CCUG-7971,C00255_Riboflavin,Riboflavin,Vitamin_Riboflavin,0.04844407048874475,Other
+Clostridium butyricum,Clostridium,C00255_Riboflavin,Riboflavin,Vitamin_Riboflavin,0.0471493062059194,Other
+CAG-103 sp900757655,CAG-103,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.04659992243248097,Other
+Leptotrichia wadei,Leptotrichia,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.04094218369381295,Other
+Scatavimonas merdipullorum,Scatavimonas,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.03956310873556269,Other
+Streptococcus parauberis,Streptococcus,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.03670436929120968,Other
+UBA5905 sp900763035,UBA5905,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.03540987774976584,Other
+Intestinibacter sp900540355,Intestinibacter,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.034508715175344894,Other
+Aphodousia sp905212345,Aphodousia,C01551_Allantoin,Allantoin,Purine_Catabolism,0.02936887915387942,Other
+Pauljensenia turicensis,Pauljensenia,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.028966734973743774,Other
+UBA5905 sp900763035,UBA5905,C02714_N-Acetylputrescine,N-Acetylputrescine,Putrescine,0.028351045398479293,Other
+Alangreenwoodia gallinarii,Alangreenwoodia,C02714_N-Acetylputrescine,N-Acetylputrescine,Putrescine,0.027742917505288133,Other
+UMGS693 sp900544555,UMGS693,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.025914583170394172,Other
+Lactobacillus amylolyticus,Lactobacillus,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.02532514420297133,Other
+Fusobacterium sp000235465,Fusobacterium,C00255_Riboflavin,Riboflavin,Vitamin_Riboflavin,0.02385211371953469,Other
+Spyradocola merdavium,Spyradocola,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.02281781663167669,Other
+Avispirillum faecium,Avispirillum,3-Indoxyl sulfate,3-Indoxyl sulfate,Indole,0.022657010684879558,Other
+Pauljensenia turicensis,Pauljensenia,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.022244352518327088,Other
+Leptotrichia_A sp001274535,Leptotrichia,C00191_Glucuronate,Glucuronate,GlucuronideBioT,0.02034660375869677,Other
+Sediminibacterium sp902168225,Sediminibacterium,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.019408606053780197,Other
+Lactobacillus amylolyticus,Lactobacillus,3-Indoxyl sulfate,3-Indoxyl sulfate,Indole,0.01898583225847474,Other
+UBA1685 sp900546845,UBA1685,C02714_N-Acetylputrescine,N-Acetylputrescine,Putrescine,0.018807280503301466,Other
+Veillonella atypica,Veillonella,3-Indoxyl sulfate,3-Indoxyl sulfate,Indole,0.018426698598386082,Other
+UBA1829 sp900548385,UBA1829,C08262_Isovalerate,Isovalerate,BranchedChainAA,0.01738423143284916,Other
+CAG-170 sp000432135,CAG-170,C17714_Heptanoate,Heptanoate,MCFA,0.01658273783011895,Other
+UBA1829 sp900548385,UBA1829,C01551_Allantoin,Allantoin,Purine_Catabolism,0.015486329995262303,Other
+UMGS687 sp900545735,UMGS687,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.015467407220517882,Other
+UMGS902 sp003343845,UMGS902,3-Indoxyl sulfate,3-Indoxyl sulfate,Indole,0.01484663915087605,Other
+UBA5905 sp900763035,UBA5905,C00245_Taurine,Taurine,BileAcid_BSH,0.014765697171452739,Other
+Leptotrichia wadei,Leptotrichia,C00186_Lactate,Lactate,SCFA_Lactate,0.01447093941793617,Other
+Bilophila wadsworthia,Bilophila,C01551_Allantoin,Allantoin,Purine_Catabolism,0.014465039288079306,Other
+Klebsiella ornithinolytica,Klebsiella,C00123_Leu,Leu,BranchedChainAA,0.014308736680002692,Amino Acid
+UBA3818 sp904397845,UBA3818,C00245_Taurine,Taurine,BileAcid_BSH,0.013253987335085751,Other
+CCUG-7971 sp017590215,CCUG-7971,C00123_Leu,Leu,BranchedChainAA,0.01324021420369156,Amino Acid
+Klebsiella ornithinolytica,Klebsiella,C00407_Ile,Ile,BranchedChainAA,0.013009155642312831,Amino Acid
+Cupidesulfovibrio vulgaris_A,Cupidesulfovibrio,C01551_Allantoin,Allantoin,Purine_Catabolism,0.01253518245230407,Other
+Egerieicola pullicola,Egerieicola,C00123_Leu,Leu,BranchedChainAA,0.01229039584958903,Amino Acid
+Egerieicola pullicola,Egerieicola,C00407_Ile,Ile,BranchedChainAA,0.012185042763233664,Amino Acid
+Acutalibacter sp910580045,Acutalibacter,C05332_Phenethylamine,Phenethylamine,PhenylamineFerm,0.011764828564995949,Other
+Veillonella atypica,Veillonella,C00245_Taurine,Taurine,BileAcid_BSH,0.011379895931146362,Other
+UMGS693 sp900544555,UMGS693,C00186_Lactate,Lactate,SCFA_Lactate,0.011278682645589688,Other
+Alangreenwoodia gallinarii,Alangreenwoodia,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.01120908619296694,Other
+Lachnospira sp000436475,Lachnospira,C01551_Allantoin,Allantoin,Purine_Catabolism,0.010995432909751121,Other
+Alistipes avistercoris,Alistipes,C01104_Trimethylamine N-oxide,Trimethylamine N-oxide,TMAO_Choline,0.010950974750186318,Other
+Egerieicola pullicola,Egerieicola,C03264_2-Hydroxy-4-methylpentanoate,2-Hydroxy-4-methylpentanoate,BranchedChainAA,0.010919613394347057,Other
+Lactobacillus amylolyticus,Lactobacillus,C00086_Urea,Urea,Urea,0.010829828836231084,Other
+Brachyspira aalborgi,Brachyspira,C00086_Urea,Urea,Urea,0.010741988976639326,Other
+Alistipes_A indistinctus,Alistipes,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.010712260039644669,Other
+Egerieicola pullicola,Egerieicola,C00086_Urea,Urea,Urea,0.010576665470526133,Other
+Streptococcus parauberis,Streptococcus,C08262_Isovalerate,Isovalerate,BranchedChainAA,0.010538892324719601,Other
+Klebsiella ornithinolytica,Klebsiella,C00630_Isobutyryl CoA,Isobutyryl CoA,BranchedChainAA,0.010534732745023832,Other
+Alistipes shahii,Alistipes,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.010427602226194337,Other
+UBA1685 sp900546845,UBA1685,C05332_Phenethylamine,Phenethylamine,PhenylamineFerm,0.010070931453553367,Other
+Escherichia coli,Escherichia,C00086_Urea,Urea,Urea,0.009764273436994647,Other
+CCUG-7971 sp017590215,CCUG-7971,C05332_Phenethylamine,Phenethylamine,PhenylamineFerm,0.009739078619414011,Other
+Avispirillum faecium,Avispirillum,C02714_N-Acetylputrescine,N-Acetylputrescine,Putrescine,0.00968267860790063,Other
+Alistipes shahii,Alistipes,C08262_Isovalerate,Isovalerate,BranchedChainAA,0.009643721257948911,Other
+Aphodousia sp905212345,Aphodousia,C00123_Leu,Leu,BranchedChainAA,0.009546239050680104,Amino Acid
+Leptotrichia_A sp001274535,Leptotrichia,C00407_Ile,Ile,BranchedChainAA,0.009545651320814084,Amino Acid
+Aphodousia sp905212345,Aphodousia,C00407_Ile,Ile,BranchedChainAA,0.008923535964464897,Amino Acid
+UMGS693 sp900544555,UMGS693,C00245_Taurine,Taurine,BileAcid_BSH,0.008845589399749132,Other
+Pauljensenia turicensis,Pauljensenia,C01551_Allantoin,Allantoin,Purine_Catabolism,0.008828445234102377,Other
+UMGS693 sp900544555,UMGS693,C00086_Urea,Urea,Urea,0.008704835098049967,Other
+CCUG-7971 sp017590215,CCUG-7971,C00407_Ile,Ile,BranchedChainAA,0.008686336020807279,Amino Acid
+Alistipes_A indistinctus,Alistipes,C02679_Dodecanoate,Dodecanoate,MCFA,0.008670572224715149,Other
+CAG-83 sp000435555,CAG-83,C17714_Heptanoate,Heptanoate,MCFA,0.008498554388425285,Other
+Leptotrichia wadei,Leptotrichia,C03264_2-Hydroxy-4-methylpentanoate,2-Hydroxy-4-methylpentanoate,BranchedChainAA,0.008433535081786944,Other
+Lachnospira sp000436475,Lachnospira,C02714_N-Acetylputrescine,N-Acetylputrescine,Putrescine,0.008352913854487444,Other
+UBA5905 sp900763035,UBA5905,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.008210775939592022,Other
+UBA1829 sp900548385,UBA1829,C00186_Lactate,Lactate,SCFA_Lactate,0.008120837474679036,Other
+Alistipes shahii,Alistipes,C03264_2-Hydroxy-4-methylpentanoate,2-Hydroxy-4-methylpentanoate,BranchedChainAA,0.007994859658189656,Other
+Bifidobacterium longum,Bifidobacterium,C00407_Ile,Ile,BranchedChainAA,0.007934311226318512,Amino Acid
+Scatavimonas merdipullorum,Scatavimonas,C00245_Taurine,Taurine,BileAcid_BSH,0.007889836634181692,Other
+Leptotrichia_A sp001274535,Leptotrichia,C00123_Leu,Leu,BranchedChainAA,0.00787620532351455,Amino Acid
+Escherichia coli,Escherichia,C00123_Leu,Leu,BranchedChainAA,0.007874449752669089,Amino Acid
+Scatavimonas merdipullorum,Scatavimonas,C01551_Allantoin,Allantoin,Purine_Catabolism,0.007793324766489304,Other
+Alistipes onderdonkii,Alistipes,C02679_Dodecanoate,Dodecanoate,MCFA,0.007723151862322573,Other
+Lachnospira sp000436475,Lachnospira,C02679_Dodecanoate,Dodecanoate,MCFA,0.007712004226794719,Other
+Klebsiella ornithinolytica,Klebsiella,C08262_Isovalerate,Isovalerate,BranchedChainAA,0.007684959343999247,Other
+Alistipes onderdonkii,Alistipes,_DCA,DCA,Secondary_BA,0.007682797185158361,Other
+Avispirillum faecium,Avispirillum,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.0075749358397550984,Other
+Erysipelatoclostridium ramosum,Erysipelatoclostridium,C00630_Isobutyryl CoA,Isobutyryl CoA,BranchedChainAA,0.0073059120789688015,Other
+Bilophila wadsworthia,Bilophila,C08262_Isovalerate,Isovalerate,BranchedChainAA,0.007238633366835938,Other
+Leptotrichia_A sp001274535,Leptotrichia,C00186_Lactate,Lactate,SCFA_Lactate,0.007121188743170277,Other
+Pauljensenia turicensis,Pauljensenia,C00086_Urea,Urea,Urea,0.006866233684213344,Other
+UBA1829 sp900548385,UBA1829,C00423_trans-Cinnamate,trans-Cinnamate,PhenylamineFerm,0.0067205669149596504,Other
+Aphodousia sp900553105,Aphodousia,C08262_Isovalerate,Isovalerate,BranchedChainAA,0.0066350452168774665,Other
+Bifidobacterium longum,Bifidobacterium,C00123_Leu,Leu,BranchedChainAA,0.0065976308614772595,Amino Acid
+Alangreenwoodia gallinarii,Alangreenwoodia,C00334_GABA,GABA,GABA,0.006588630617376872,Other
+Escherichia coli,Escherichia,C05332_Phenethylamine,Phenethylamine,PhenylamineFerm,0.0065233594593458255,Other
+Fusobacterium sp000235465,Fusobacterium,C00245_Taurine,Taurine,BileAcid_BSH,0.006357642527009843,Other
+Alangreenwoodia gallinarii,Alangreenwoodia,C17714_Heptanoate,Heptanoate,MCFA,0.006324957457454885,Other
+Intestinibacter sp900540355,Intestinibacter,C00255_Riboflavin,Riboflavin,Vitamin_Riboflavin,0.006257396368907887,Other
+Clostridium saudiense,Clostridium,C00086_Urea,Urea,Urea,0.006196241355780393,Other
+Avispirillum faecium,Avispirillum,C00334_GABA,GABA,GABA,0.006192943139966952,Other
+Alangreenwoodia gallinarii,Alangreenwoodia,C02679_Dodecanoate,Dodecanoate,MCFA,0.006004859160244232,Other
+UBA5905 sp900763035,UBA5905,C17714_Heptanoate,Heptanoate,MCFA,0.005954877300379731,Other
+Escherichia coli,Escherichia,C00407_Ile,Ile,BranchedChainAA,0.005951437746240212,Amino Acid
+Veillonella parvula_A,Veillonella,_DCA,DCA,Secondary_BA,0.005930395185369494,Other
+Fusobacterium_A ulcerans_A,Fusobacterium,C01104_Trimethylamine N-oxide,Trimethylamine N-oxide,TMAO_Choline,0.005755686625185651,Other
+Aphodousia sp905212345,Aphodousia,C03264_2-Hydroxy-4-methylpentanoate,2-Hydroxy-4-methylpentanoate,BranchedChainAA,0.005712158809618954,Other
+Alistipes avistercoris,Alistipes,C17714_Heptanoate,Heptanoate,MCFA,0.005625328198997854,Other
+UBA5905 sp900763035,UBA5905,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.0056167156040113474,Other
+Spyradocola merdavium,Spyradocola,C17714_Heptanoate,Heptanoate,MCFA,0.0055360981624326365,Other
+Intestinibacter sp900540355,Intestinibacter,C00630_Isobutyryl CoA,Isobutyryl CoA,BranchedChainAA,0.005422933565909853,Other
+Neisseria subflava,Neisseria,C00255_Riboflavin,Riboflavin,Vitamin_Riboflavin,0.004803566979668601,Other
+UBA1685 sp900546845,UBA1685,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.0047629558427333876,Other
+Klebsiella ornithinolytica,Klebsiella,_DCA,DCA,Secondary_BA,0.004651707689507214,Other
+Avispirillum faecium,Avispirillum,_DCA,DCA,Secondary_BA,0.004618292300751156,Other
+CAG-170 sp000432135,CAG-170,C00314_Pyridoxine,Pyridoxine,Vitamin_B6,0.004268783039489091,Other
+Lachnospira sp000436475,Lachnospira,C00186_Lactate,Lactate,SCFA_Lactate,0.004080818601355195,Other

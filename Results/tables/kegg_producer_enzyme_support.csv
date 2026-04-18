@@ -1,0 +1,13 @@
+Species,Genus,n_key_KOs,KOs_present,Module_Ornithine_from_Glu,Module_Agmatine_to_Putrescine,Module_Putrescine_to_Spermidine_Spermine
+Prevotella sp900543975,prevotellasp900543975,5,K00797;K01478;K01581;K01611;K01760,False,True,True
+Klebsiella ornithinolytica,klebsiellaornithinolytica,5,K00797;K01478;K01581;K01611;K01760,False,True,True
+Ruminococcus_B gnavus,ruminococcus,1,K00797,False,True,False
+CAG-83 sp001916855,cag-83sp001916855,0,,False,False,False
+UMGS856 sp900546265,umgs856sp900546265,0,,False,False,False
+Acetatifactor intestinalis,acetatifactorintestinalis,0,,False,False,False
+Acetatifactor sp900066565,acetatifactorsp900066565,0,,False,False,False
+Dysosmobacter sp014297375,dysosmobactersp014297375,0,,False,False,False
+Acetatifactor sp900772845,acetatifactorsp900772845,0,,False,False,False
+Acetatifactor sp900771995,acetatifactorsp900771995,0,,False,False,False
+Allisonella histaminiformans,allisonellahistaminiformans,0,,False,False,False
+Alloprevotella sp900539625,alloprevotellasp900539625,0,,False,False,False

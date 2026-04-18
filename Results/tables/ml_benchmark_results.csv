@@ -1,0 +1,46 @@
+Metabolite,Metabolite_Name,Direction,IsPolyamine,Classifier,Mean_AUC,Std_AUC,IsBestModel,N_pos,N_neg
+"C01026_N,N-Dimethylglycine","C01026_N,N-Dimethylglycine",Elevated,False,RandomForest,0.6325,0.1045,False,174,173
+"C01026_N,N-Dimethylglycine","C01026_N,N-Dimethylglycine",Elevated,False,SVM,0.6455,0.1106,True,174,173
+"C01026_N,N-Dimethylglycine","C01026_N,N-Dimethylglycine",Elevated,False,ElasticNet,0.5976,0.0885,False,174,173
+"C01026_N,N-Dimethylglycine","C01026_N,N-Dimethylglycine",Elevated,False,XGBoost,0.615,0.1041,False,174,173
+"C01026_N,N-Dimethylglycine","C01026_N,N-Dimethylglycine",Elevated,False,LightGBM,0.6258,0.0982,False,174,173
+C01425_Glu-Glu,C01425_Glu-Glu,Elevated,False,RandomForest,0.6058,0.0867,False,174,173
+C01425_Glu-Glu,C01425_Glu-Glu,Elevated,False,SVM,0.6137,0.09,True,174,173
+C01425_Glu-Glu,C01425_Glu-Glu,Elevated,False,ElasticNet,0.5949,0.0962,False,174,173
+C01425_Glu-Glu,C01425_Glu-Glu,Elevated,False,XGBoost,0.5559,0.0903,False,174,173
+C01425_Glu-Glu,C01425_Glu-Glu,Elevated,False,LightGBM,0.5441,0.0948,False,174,173
+C00864_Pantothenate,C00864_Pantothenate,Elevated,False,RandomForest,0.5603,0.0987,False,174,173
+C00864_Pantothenate,C00864_Pantothenate,Elevated,False,SVM,0.5959,0.0923,True,174,173
+C00864_Pantothenate,C00864_Pantothenate,Elevated,False,ElasticNet,0.5906,0.1,False,174,173
+C00864_Pantothenate,C00864_Pantothenate,Elevated,False,XGBoost,0.5442,0.0926,False,174,173
+C00864_Pantothenate,C00864_Pantothenate,Elevated,False,LightGBM,0.5349,0.0942,False,174,173
+C00093_Glycerophosphate,C00093_Glycerophosphate,Elevated,False,RandomForest,0.5468,0.1018,False,174,173
+C00093_Glycerophosphate,C00093_Glycerophosphate,Elevated,False,SVM,0.5491,0.1015,True,174,173
+C00093_Glycerophosphate,C00093_Glycerophosphate,Elevated,False,ElasticNet,0.5139,0.0922,False,174,173
+C00093_Glycerophosphate,C00093_Glycerophosphate,Elevated,False,XGBoost,0.534,0.0919,False,174,173
+C00093_Glycerophosphate,C00093_Glycerophosphate,Elevated,False,LightGBM,0.5204,0.0897,False,174,173
+C04501_N-Acetylglucosamine 1-phosphate,C04501_N-Acetylglucosamine 1-p,Elevated,False,RandomForest,0.6613,0.0872,False,174,173
+C04501_N-Acetylglucosamine 1-phosphate,C04501_N-Acetylglucosamine 1-p,Elevated,False,SVM,0.6673,0.0871,True,174,173
+C04501_N-Acetylglucosamine 1-phosphate,C04501_N-Acetylglucosamine 1-p,Elevated,False,ElasticNet,0.6321,0.0845,False,174,173
+C04501_N-Acetylglucosamine 1-phosphate,C04501_N-Acetylglucosamine 1-p,Elevated,False,XGBoost,0.6333,0.0926,False,174,173
+C04501_N-Acetylglucosamine 1-phosphate,C04501_N-Acetylglucosamine 1-p,Elevated,False,LightGBM,0.648,0.0857,False,174,173
+C01046_N-Methylglutamate,C01046_N-Methylglutamate,Depleted,False,RandomForest,0.7505,0.0821,False,174,173
+C01046_N-Methylglutamate,C01046_N-Methylglutamate,Depleted,False,SVM,0.7636,0.079,True,174,173
+C01046_N-Methylglutamate,C01046_N-Methylglutamate,Depleted,False,ElasticNet,0.7388,0.0804,False,174,173
+C01046_N-Methylglutamate,C01046_N-Methylglutamate,Depleted,False,XGBoost,0.7479,0.08,False,174,173
+C01046_N-Methylglutamate,C01046_N-Methylglutamate,Depleted,False,LightGBM,0.7419,0.0815,False,174,173
+C00630_Isobutyryl CoA,C00630_Isobutyryl CoA,Depleted,False,RandomForest,0.7002,0.0826,False,174,173
+C00630_Isobutyryl CoA,C00630_Isobutyryl CoA,Depleted,False,SVM,0.712,0.0798,True,174,173
+C00630_Isobutyryl CoA,C00630_Isobutyryl CoA,Depleted,False,ElasticNet,0.7001,0.076,False,174,173
+C00630_Isobutyryl CoA,C00630_Isobutyryl CoA,Depleted,False,XGBoost,0.6766,0.0868,False,174,173
+C00630_Isobutyryl CoA,C00630_Isobutyryl CoA,Depleted,False,LightGBM,0.6788,0.0833,False,174,173
+C00003_NAD+,C00003_NAD+,Depleted,False,RandomForest,0.6471,0.0839,False,174,173
+C00003_NAD+,C00003_NAD+,Depleted,False,SVM,0.6845,0.0848,True,174,173
+C00003_NAD+,C00003_NAD+,Depleted,False,ElasticNet,0.6303,0.0822,False,174,173
+C00003_NAD+,C00003_NAD+,Depleted,False,XGBoost,0.5989,0.0755,False,174,173
+C00003_NAD+,C00003_NAD+,Depleted,False,LightGBM,0.6044,0.0835,False,174,173
+C02115_Alpha-Methylserine,C02115_Alpha-Methylserine,Depleted,False,RandomForest,0.6128,0.0863,False,174,173
+C02115_Alpha-Methylserine,C02115_Alpha-Methylserine,Depleted,False,SVM,0.6191,0.0839,True,174,173
+C02115_Alpha-Methylserine,C02115_Alpha-Methylserine,Depleted,False,ElasticNet,0.5548,0.085,False,174,173
+C02115_Alpha-Methylserine,C02115_Alpha-Methylserine,Depleted,False,XGBoost,0.5975,0.0815,False,174,173
+C02115_Alpha-Methylserine,C02115_Alpha-Methylserine,Depleted,False,LightGBM,0.5966,0.085,False,174,173

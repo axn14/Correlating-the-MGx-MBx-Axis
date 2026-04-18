@@ -1,0 +1,21 @@
+Species,Display_name,Mean_SHAP,Rank,CI_lower,CI_upper,Rank_stable,StabSel_freq,StabSel_stable
+Intestinimonas butyriciproducens,Intestinimonas butyriciproducens,0.01001502990942051,1,1.0,16.0,False,1.0,True
+Dysosmobacter sp014297375,Dysosmobacter sp014297375,0.00945248261571328,2,1.0,19.0,False,1.0,True
+Acetatifactor sp003447295,Acetatifactor sp003447295,0.008980097597251218,3,1.0,20.0,False,1.0,True
+Anaeroglobus micronuciformis,Anaeroglobus micronuciformis,0.00861216430152892,4,1.0,20.0,False,1.0,True
+CAG-83 sp000435975,CAG-83 sp000435975,0.00819353896610055,5,1.0,20.0,False,1.0,True
+CAG-83 sp001916855,CAG-83 sp001916855,0.007175411429109249,6,1.0,19.0,False,1.0,True
+Alistipes communis,Alistipes communis,0.006986463078367402,7,1.0,20.0,False,1.0,True
+Enterenecus sp900549885,Enterenecus sp900549885,0.0066262094552878925,8,2.0,20.0,False,1.0,True
+Lawsonibacter asaccharolyticus,Lawsonibacter asaccharolyticus,0.006338193144215528,9,1.0,19.0,False,1.0,True
+UMGS856 sp900546265,UMGS856 sp900546265,0.0062799297094035455,10,1.0,18.524999999999977,False,1.0,True
+CAG-170 sp000432135,CAG-170 sp000432135,0.006263027355271449,11,1.0,20.0,False,1.0,True
+Acetatifactor intestinalis,Acetatifactor intestinalis,0.006177708451727481,12,1.0,19.0,False,1.0,True
+ER4 sp003522105,ER4 sp003522105,0.005658826400907813,13,2.0,20.0,False,1.0,True
+CAG-170 sp900545925,CAG-170 sp900545925,0.005516120577588771,14,2.0,20.0,False,1.0,True
+Allisonella histaminiformans,Allisonella histaminiformans,0.005379855629910081,15,2.0,20.0,False,1.0,True
+Acetatifactor sp900772845,Acetatifactor sp900772845,0.005351526575227848,16,1.0,20.0,False,1.0,True
+Lawsonibacter sp900066645,Lawsonibacter sp900066645,0.0053476840931724655,17,4.0,20.0,False,1.0,True
+Clostridium_A leptum,Clostridium A leptum,0.005334187963730738,18,1.0,20.0,False,1.0,True
+Dysosmobacter sp001916835,Dysosmobacter sp001916835,0.005327658515526064,19,4.0,20.0,False,1.0,True
+Acetatifactor sp900771995,Acetatifactor sp900771995,0.005158995205296365,20,2.0,20.0,False,1.0,True

@@ -1,0 +1,13 @@
+Species,n_polyamine_edges,Polyamines,Total_Degree,Mean_Abs_Rho,Max_Abs_Rho
+Ruminococcus_B gnavus,2,Ornithine; Putrescine,20,0.325,0.329
+CAG-83 sp001916855,2,Putrescine; Cadaverine,13,0.445,0.5
+Acetatifactor intestinalis,2,Putrescine; Cadaverine,9,0.341,0.37
+UMGS856 sp900546265,2,Putrescine; Cadaverine,9,0.404,0.469
+Dysosmobacter sp014297375,2,Putrescine; Cadaverine,7,0.403,0.493
+Klebsiella ornithinolytica,2,Putrescine; Cadaverine,7,0.322,0.327
+Acetatifactor sp900066565,2,Putrescine; Cadaverine,5,0.309,0.311
+Acetatifactor sp900772845,2,Putrescine; Cadaverine,5,0.335,0.341
+Acetatifactor sp900771995,2,Putrescine; Cadaverine,4,0.322,0.322
+Allisonella histaminiformans,2,Putrescine; Cadaverine,3,0.436,0.504
+Alloprevotella sp900539625,2,Putrescine; Cadaverine,3,0.326,0.341
+Prevotella sp900543975,2,Putrescine; Cadaverine,3,0.31,0.315

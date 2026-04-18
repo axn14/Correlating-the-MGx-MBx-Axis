@@ -1,0 +1,23 @@
+Metabolite,Short_name,Best_clf,Best_AUC,Best_AUC_std,Worst_AUC,AUC_range,Direction,CRC_stage,is_polyamine,Difficulty
+C00134_Putrescine,Putrescine,SVM,0.822,0.067,0.743,0.078,↑ Elevated,Early,True,predictable
+C01046_N-Methylglutamate,N-Methylglutamate,XGBoost,0.781,0.071,0.636,0.145,↓ Depleted,Early,False,predictable
+C00364_dTMP,dTMP,RandomForest,0.755,0.075,0.682,0.073,↓ Depleted,Early,False,predictable
+C04501_N-Acetylglucosamine 1-phosphate,N-Acetylglucosamine 1-phosphate,SVM,0.747,0.09,0.655,0.092,↑ Elevated,Advanced,False,moderate
+C00785_Urocanate,Urocanate,RandomForest,0.744,0.08,0.69,0.054,↑ Elevated,Both,False,moderate
+C00581_Guanidinoacetate,Guanidinoacetate,SVM,0.711,0.086,0.618,0.094,↑ Elevated,Early,False,moderate
+C00388_Histamine,Histamine,RandomForest,0.704,0.078,0.609,0.095,↓ Depleted,Advanced,False,moderate
+C05135_4-(beta-Acetylaminoethyl)imidazole,4-(beta-Acetylaminoethyl)imidazole,XGBoost,0.699,0.082,0.578,0.121,↓ Depleted,Advanced,False,moderate
+C05607_3-Phenyllactate,3-Phenyllactate,RandomForest,0.688,0.075,0.594,0.094,↑ Elevated,Early,False,moderate
+C00122_Fumarate,Fumarate,RandomForest,0.668,0.099,0.597,0.071,↑ Elevated,Advanced,False,moderate
+C02155_Gly-Leu,Gly-Leu,XGBoost,0.651,0.079,0.526,0.125,↑ Elevated,Advanced,False,moderate
+"C00628_2,5-Dihydroxybenzoate","2,5-Dihydroxybenzoate",ElasticNet,0.637,0.089,0.557,0.08,↓ Depleted,Early,False,moderate
+C00077_Ornithine,Ornithine,SVM,0.633,0.077,0.586,0.047,↑ Elevated,Both,True,moderate
+C00357_N-Acetylglucosamine 6-phosphate,N-Acetylglucosamine 6-phosphate,RandomForest,0.627,0.088,0.574,0.054,↑ Elevated,Early,False,moderate
+C00042_Succinate,Succinate,SVM,0.626,0.085,0.572,0.055,↑ Elevated,Early,False,moderate
+C01425_Glu-Glu,Glu-Glu,SVM,0.615,0.088,0.594,0.021,↑ Elevated,Advanced,False,moderate
+C00191_Glucuronate,Glucuronate,RandomForest,0.597,0.08,0.509,0.088,↑ Elevated,Advanced,False,low signal
+C00186_Lactate,Lactate,LightGBM,0.596,0.085,0.501,0.095,↑ Elevated,Early,False,low signal
+C05584_4-Hydroxy-3-methoxymandelate,4-Hydroxy-3-methoxymandelate,SVM,0.595,0.088,0.489,0.106,↓ Depleted,Early,False,low signal
+2-Hydroxyoctanoate,2-Hydroxyoctanoate,RandomForest,0.575,0.093,0.528,0.047,↓ Depleted,Early,False,low signal
+C00093_Glycerophosphate,Glycerophosphate,RandomForest,0.544,0.096,0.472,0.072,↑ Elevated,Advanced,False,low signal
+C00255_Riboflavin,Riboflavin,LightGBM,0.532,0.092,0.48,0.052,↓ Depleted,Early,False,low signal

@@ -1,0 +1,142 @@
+target,species,shap_importance,kegg_id,gutsmash_class,scope,metabolite_name,genus,pathway,match_level,gutsmash_positive
+3-Indoxyl sulfate,Avispirillum faecium,0.022657010684879558,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Avispirillum,Other,novel,False
+3-Indoxyl sulfate,Clostridium disporicum,0.02659062680105043,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Clostridium,Other,genus,True
+3-Indoxyl sulfate,Clostridium saudiense,0.03269228065091934,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Clostridium,Other,genus,True
+3-Indoxyl sulfate,Clostridium_A leptum,0.021867397175161823,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Clostridium,Other,genus,True
+3-Indoxyl sulfate,Escherichia coli,0.01727190397041528,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Escherichia,Other,species,True
+3-Indoxyl sulfate,Fusobacterium_A ulcerans_A,0.05520848760408665,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Fusobacterium,Other,genus,True
+3-Indoxyl sulfate,Lactobacillus amylolyticus,0.01898583225847474,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Lactobacillus,Other,novel,False
+3-Indoxyl sulfate,Pauljensenia turicensis,0.05320020151181086,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Pauljensenia,Other,novel,False
+3-Indoxyl sulfate,UMGS902 sp003343845,0.01484663915087605,,Indole,gutsmash_relevant,3-Indoxyl sulfate,UMGS902,Other,novel,False
+3-Indoxyl sulfate,Veillonella atypica,0.018426698598386082,,Indole,gutsmash_relevant,3-Indoxyl sulfate,Veillonella,Other,novel,False
+C00086_Urea,Alistipes avistercoris,0.0061824610695236926,C00086,Urea,gutsmash_relevant,Urea,Alistipes,Other,genus,True
+C00086_Urea,Brachyspira aalborgi,0.010741988976639326,C00086,Urea,gutsmash_relevant,Urea,Brachyspira,Other,novel,False
+C00086_Urea,Clostridium saudiense,0.006196241355780393,C00086,Urea,gutsmash_relevant,Urea,Clostridium,Other,novel,False
+C00086_Urea,Egerieicola pullicola,0.010576665470526133,C00086,Urea,gutsmash_relevant,Urea,Egerieicola,Other,novel,False
+C00086_Urea,Escherichia coli,0.009764273436994647,C00086,Urea,gutsmash_relevant,Urea,Escherichia,Other,novel,False
+C00086_Urea,Lactobacillus amylolyticus,0.010829828836231084,C00086,Urea,gutsmash_relevant,Urea,Lactobacillus,Other,novel,False
+C00086_Urea,Pauljensenia turicensis,0.006866233684213344,C00086,Urea,gutsmash_relevant,Urea,Pauljensenia,Other,novel,False
+C00086_Urea,UMGS693 sp900544555,0.008704835098049967,C00086,Urea,gutsmash_relevant,Urea,UMGS693,Other,novel,False
+C00123_Leu,Aphodousia sp905212345,0.009546239050680104,C00123,BranchedChainAA,gutsmash_relevant,Leu,Aphodousia,Amino Acid,novel,False
+C00123_Leu,Bifidobacterium longum,0.0065976308614772595,C00123,BranchedChainAA,gutsmash_relevant,Leu,Bifidobacterium,Amino Acid,novel,False
+C00123_Leu,CCUG-7971 sp017590215,0.01324021420369156,C00123,BranchedChainAA,gutsmash_relevant,Leu,CCUG-7971,Amino Acid,novel,False
+C00123_Leu,Egerieicola pullicola,0.01229039584958903,C00123,BranchedChainAA,gutsmash_relevant,Leu,Egerieicola,Amino Acid,novel,False
+C00123_Leu,Escherichia coli,0.007874449752669089,C00123,BranchedChainAA,gutsmash_relevant,Leu,Escherichia,Amino Acid,novel,False
+C00123_Leu,Fusobacterium sp000235465,0.014069568090187617,C00123,BranchedChainAA,gutsmash_relevant,Leu,Fusobacterium,Amino Acid,genus,True
+C00123_Leu,Klebsiella ornithinolytica,0.014308736680002692,C00123,BranchedChainAA,gutsmash_relevant,Leu,Klebsiella,Amino Acid,novel,False
+C00123_Leu,Lachnospira sp000436475,0.010102006134805006,C00123,BranchedChainAA,gutsmash_relevant,Leu,Lachnospira,Amino Acid,genus,True
+C00123_Leu,Leptotrichia_A sp001274535,0.00787620532351455,C00123,BranchedChainAA,gutsmash_relevant,Leu,Leptotrichia,Amino Acid,novel,False
+C00186_Lactate,Lachnospira sp000436475,0.004080818601355195,C00186,SCFA_Lactate,gutsmash_relevant,Lactate,Lachnospira,Other,novel,False
+C00186_Lactate,Leptotrichia wadei,0.01447093941793617,C00186,SCFA_Lactate,gutsmash_relevant,Lactate,Leptotrichia,Other,novel,False
+C00186_Lactate,Leptotrichia_A sp001274535,0.007121188743170277,C00186,SCFA_Lactate,gutsmash_relevant,Lactate,Leptotrichia,Other,novel,False
+C00186_Lactate,UBA1829 sp900548385,0.008120837474679036,C00186,SCFA_Lactate,gutsmash_relevant,Lactate,UBA1829,Other,novel,False
+C00186_Lactate,UMGS693 sp900544555,0.011278682645589688,C00186,SCFA_Lactate,gutsmash_relevant,Lactate,UMGS693,Other,novel,False
+C00191_Glucuronate,CAG-103 sp900757655,0.04659992243248097,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,CAG-103,Other,novel,False
+C00191_Glucuronate,Erysipelatoclostridium ramosum,0.056787958374947815,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Erysipelatoclostridium,Other,novel,False
+C00191_Glucuronate,Intestinibacter sp900540355,0.034508715175344894,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Intestinibacter,Other,novel,False
+C00191_Glucuronate,Lactobacillus amylolyticus,0.02532514420297133,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Lactobacillus,Other,novel,False
+C00191_Glucuronate,Leptotrichia wadei,0.04094218369381295,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Leptotrichia,Other,novel,False
+C00191_Glucuronate,Leptotrichia_A sp001274535,0.02034660375869677,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Leptotrichia,Other,novel,False
+C00191_Glucuronate,Meiothermus_B silvanus,0.054885361296670473,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Meiothermus,Other,novel,False
+C00191_Glucuronate,Pauljensenia turicensis,0.028966734973743774,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Pauljensenia,Other,novel,False
+C00191_Glucuronate,Scatavimonas merdipullorum,0.03956310873556269,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Scatavimonas,Other,novel,False
+C00191_Glucuronate,Streptococcus parauberis,0.03670436929120968,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,Streptococcus,Other,novel,False
+C00191_Glucuronate,UBA5905 sp900763035,0.03540987774976584,C00191,GlucuronideBioT,gutsmash_relevant,Glucuronate,UBA5905,Other,novel,False
+C00245_Taurine,Alistipes shahii,0.024825136188155423,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,Alistipes,Other,genus,True
+C00245_Taurine,Bilophila wadsworthia,0.11035088352838002,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,Bilophila,Other,species,True
+C00245_Taurine,Clostridium_A leptum,0.023538199466418788,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,Clostridium,Other,genus,True
+C00245_Taurine,Fusobacterium sp000235465,0.006357642527009843,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,Fusobacterium,Other,novel,False
+C00245_Taurine,Scatavimonas merdipullorum,0.007889836634181692,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,Scatavimonas,Other,novel,False
+C00245_Taurine,UBA3818 sp904397845,0.013253987335085751,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,UBA3818,Other,novel,False
+C00245_Taurine,UBA5905 sp900763035,0.014765697171452739,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,UBA5905,Other,novel,False
+C00245_Taurine,UMGS693 sp900544555,0.008845589399749132,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,UMGS693,Other,novel,False
+C00245_Taurine,Veillonella atypica,0.011379895931146362,C00245,BileAcid_BSH,gutsmash_relevant,Taurine,Veillonella,Other,novel,False
+C00255_Riboflavin,CCUG-7971 sp017590215,0.04844407048874475,C00255,Vitamin_Riboflavin,gutsmash_relevant,Riboflavin,CCUG-7971,Other,novel,False
+C00255_Riboflavin,Clostridium butyricum,0.0471493062059194,C00255,Vitamin_Riboflavin,gutsmash_relevant,Riboflavin,Clostridium,Other,novel,False
+C00255_Riboflavin,Fusobacterium sp000235465,0.02385211371953469,C00255,Vitamin_Riboflavin,gutsmash_relevant,Riboflavin,Fusobacterium,Other,novel,False
+C00255_Riboflavin,Intestinibacter sp900540355,0.006257396368907887,C00255,Vitamin_Riboflavin,gutsmash_relevant,Riboflavin,Intestinibacter,Other,novel,False
+C00255_Riboflavin,Neisseria subflava,0.004803566979668601,C00255,Vitamin_Riboflavin,gutsmash_relevant,Riboflavin,Neisseria,Other,novel,False
+C00314_Pyridoxine,Alangreenwoodia gallinarii,0.01120908619296694,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,Alangreenwoodia,Other,novel,False
+C00314_Pyridoxine,Alistipes_A indistinctus,0.010712260039644669,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,Alistipes,Other,novel,False
+C00314_Pyridoxine,CAG-170 sp000432135,0.004268783039489091,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,CAG-170,Other,novel,False
+C00314_Pyridoxine,Scatavimonas merdipullorum,0.08457711515047812,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,Scatavimonas,Other,novel,False
+C00314_Pyridoxine,Spyradocola merdavium,0.02281781663167669,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,Spyradocola,Other,novel,False
+C00314_Pyridoxine,UBA1685 sp900546845,0.0047629558427333876,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,UBA1685,Other,novel,False
+C00314_Pyridoxine,UBA5905 sp900763035,0.0056167156040113474,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,UBA5905,Other,novel,False
+C00314_Pyridoxine,UMGS693 sp900544555,0.025914583170394172,C00314,Vitamin_B6,gutsmash_relevant,Pyridoxine,UMGS693,Other,novel,False
+C00334_GABA,Alangreenwoodia gallinarii,0.006588630617376872,C00334,GABA,gutsmash_relevant,GABA,Alangreenwoodia,Other,novel,False
+C00334_GABA,Alistipes avistercoris,0.004289247675957854,C00334,GABA,gutsmash_relevant,GABA,Alistipes,Other,species,True
+C00334_GABA,Avispirillum faecium,0.006192943139966952,C00334,GABA,gutsmash_relevant,GABA,Avispirillum,Other,novel,False
+C00334_GABA,Clostridium_A leptum,0.010800082347301123,C00334,GABA,gutsmash_relevant,GABA,Clostridium,Other,genus,True
+C00334_GABA,Lachnospira sp000436475,0.012371671721527446,C00334,GABA,gutsmash_relevant,GABA,Lachnospira,Other,genus,True
+C00334_GABA,Veillonella parvula_A,0.015495112403677947,C00334,GABA,gutsmash_relevant,GABA,Veillonella,Other,species,True
+C00407_Ile,Aphodousia sp905212345,0.008923535964464897,C00407,BranchedChainAA,gutsmash_relevant,Ile,Aphodousia,Amino Acid,novel,False
+C00407_Ile,Bifidobacterium longum,0.007934311226318512,C00407,BranchedChainAA,gutsmash_relevant,Ile,Bifidobacterium,Amino Acid,novel,False
+C00407_Ile,CCUG-7971 sp017590215,0.008686336020807279,C00407,BranchedChainAA,gutsmash_relevant,Ile,CCUG-7971,Amino Acid,novel,False
+C00407_Ile,Egerieicola pullicola,0.012185042763233664,C00407,BranchedChainAA,gutsmash_relevant,Ile,Egerieicola,Amino Acid,novel,False
+C00407_Ile,Escherichia coli,0.005951437746240212,C00407,BranchedChainAA,gutsmash_relevant,Ile,Escherichia,Amino Acid,novel,False
+C00407_Ile,Fusobacterium sp000235465,0.006036182326735111,C00407,BranchedChainAA,gutsmash_relevant,Ile,Fusobacterium,Amino Acid,genus,True
+C00407_Ile,Klebsiella ornithinolytica,0.013009155642312831,C00407,BranchedChainAA,gutsmash_relevant,Ile,Klebsiella,Amino Acid,novel,False
+C00407_Ile,Lachnospira sp000436475,0.007403770514086726,C00407,BranchedChainAA,gutsmash_relevant,Ile,Lachnospira,Amino Acid,genus,True
+C00407_Ile,Leptotrichia_A sp001274535,0.009545651320814084,C00407,BranchedChainAA,gutsmash_relevant,Ile,Leptotrichia,Amino Acid,novel,False
+C00423_trans-Cinnamate,Alistipes shahii,0.010427602226194337,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,Alistipes,Other,novel,False
+C00423_trans-Cinnamate,Aphodousia sp900553105,0.15989562161884763,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,Aphodousia,Other,novel,False
+C00423_trans-Cinnamate,Avispirillum faecium,0.0075749358397550984,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,Avispirillum,Other,novel,False
+C00423_trans-Cinnamate,Pauljensenia turicensis,0.022244352518327088,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,Pauljensenia,Other,novel,False
+C00423_trans-Cinnamate,Sediminibacterium sp902168225,0.019408606053780197,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,Sediminibacterium,Other,novel,False
+C00423_trans-Cinnamate,UBA1829 sp900548385,0.0067205669149596504,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,UBA1829,Other,novel,False
+C00423_trans-Cinnamate,UBA5905 sp900763035,0.008210775939592022,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,UBA5905,Other,novel,False
+C00423_trans-Cinnamate,UMGS687 sp900545735,0.015467407220517882,C00423,PhenylamineFerm,gutsmash_relevant,trans-Cinnamate,UMGS687,Other,novel,False
+C00630_Isobutyryl CoA,Erysipelatoclostridium ramosum,0.0073059120789688015,C00630,BranchedChainAA,gutsmash_relevant,Isobutyryl CoA,Erysipelatoclostridium,Other,novel,False
+C00630_Isobutyryl CoA,Intestinibacter sp900540355,0.005422933565909853,C00630,BranchedChainAA,gutsmash_relevant,Isobutyryl CoA,Intestinibacter,Other,novel,False
+C00630_Isobutyryl CoA,Klebsiella ornithinolytica,0.010534732745023832,C00630,BranchedChainAA,gutsmash_relevant,Isobutyryl CoA,Klebsiella,Other,novel,False
+C01104_Trimethylamine N-oxide,Alistipes avistercoris,0.010950974750186318,C01104,TMAO_Choline,gutsmash_relevant,Trimethylamine N-oxide,Alistipes,Other,novel,False
+C01104_Trimethylamine N-oxide,Clostridium disporicum,0.017003384129174712,C01104,TMAO_Choline,gutsmash_relevant,Trimethylamine N-oxide,Clostridium,Other,genus,True
+C01104_Trimethylamine N-oxide,Clostridium saudiense,0.005030999828319066,C01104,TMAO_Choline,gutsmash_relevant,Trimethylamine N-oxide,Clostridium,Other,genus,True
+C01104_Trimethylamine N-oxide,Fusobacterium_A ulcerans_A,0.005755686625185651,C01104,TMAO_Choline,gutsmash_relevant,Trimethylamine N-oxide,Fusobacterium,Other,novel,False
+C01104_Trimethylamine N-oxide,Pauljensenia turicensis,0.05567078964701949,C01104,TMAO_Choline,gutsmash_relevant,Trimethylamine N-oxide,Pauljensenia,Other,novel,False
+C01551_Allantoin,Aphodousia sp905212345,0.02936887915387942,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,Aphodousia,Other,novel,False
+C01551_Allantoin,Bilophila wadsworthia,0.014465039288079306,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,Bilophila,Other,novel,False
+C01551_Allantoin,Cupidesulfovibrio vulgaris_A,0.01253518245230407,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,Cupidesulfovibrio,Other,novel,False
+C01551_Allantoin,Lachnospira sp000436475,0.010995432909751121,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,Lachnospira,Other,novel,False
+C01551_Allantoin,Pauljensenia turicensis,0.008828445234102377,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,Pauljensenia,Other,novel,False
+C01551_Allantoin,Scatavimonas merdipullorum,0.007793324766489304,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,Scatavimonas,Other,novel,False
+C01551_Allantoin,UBA1829 sp900548385,0.015486329995262303,C01551,Purine_Catabolism,gutsmash_relevant,Allantoin,UBA1829,Other,novel,False
+C02679_Dodecanoate,Alangreenwoodia gallinarii,0.006004859160244232,C02679,MCFA,gutsmash_relevant,Dodecanoate,Alangreenwoodia,Other,novel,False
+C02679_Dodecanoate,Alistipes onderdonkii,0.007723151862322573,C02679,MCFA,gutsmash_relevant,Dodecanoate,Alistipes,Other,novel,False
+C02679_Dodecanoate,Alistipes_A indistinctus,0.008670572224715149,C02679,MCFA,gutsmash_relevant,Dodecanoate,Alistipes,Other,novel,False
+C02679_Dodecanoate,Lachnospira sp000436475,0.007712004226794719,C02679,MCFA,gutsmash_relevant,Dodecanoate,Lachnospira,Other,novel,False
+C02714_N-Acetylputrescine,Alangreenwoodia gallinarii,0.027742917505288133,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,Alangreenwoodia,Other,novel,False
+C02714_N-Acetylputrescine,Avispirillum faecium,0.00968267860790063,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,Avispirillum,Other,novel,False
+C02714_N-Acetylputrescine,Clostridium_A leptum,0.011438400760676542,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,Clostridium,Other,genus,True
+C02714_N-Acetylputrescine,Lachnospira sp000436475,0.008352913854487444,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,Lachnospira,Other,novel,False
+C02714_N-Acetylputrescine,UBA1685 sp900546845,0.018807280503301466,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,UBA1685,Other,novel,False
+C02714_N-Acetylputrescine,UBA5905 sp900763035,0.028351045398479293,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,UBA5905,Other,novel,False
+C02714_N-Acetylputrescine,Veillonella atypica,0.010628696694073247,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,Veillonella,Other,genus,True
+C02714_N-Acetylputrescine,Veillonella parvula_A,0.015524600445390977,C02714,Putrescine,gutsmash_relevant,N-Acetylputrescine,Veillonella,Other,genus,True
+C03264_2-Hydroxy-4-methylpentanoate,Alistipes shahii,0.007994859658189656,C03264,BranchedChainAA,gutsmash_relevant,2-Hydroxy-4-methylpentanoate,Alistipes,Other,novel,False
+C03264_2-Hydroxy-4-methylpentanoate,Aphodousia sp905212345,0.005712158809618954,C03264,BranchedChainAA,gutsmash_relevant,2-Hydroxy-4-methylpentanoate,Aphodousia,Other,novel,False
+C03264_2-Hydroxy-4-methylpentanoate,Clostridium_A leptum,0.015344378969821517,C03264,BranchedChainAA,gutsmash_relevant,2-Hydroxy-4-methylpentanoate,Clostridium,Other,genus,True
+C03264_2-Hydroxy-4-methylpentanoate,Egerieicola pullicola,0.010919613394347057,C03264,BranchedChainAA,gutsmash_relevant,2-Hydroxy-4-methylpentanoate,Egerieicola,Other,novel,False
+C03264_2-Hydroxy-4-methylpentanoate,Leptotrichia wadei,0.008433535081786944,C03264,BranchedChainAA,gutsmash_relevant,2-Hydroxy-4-methylpentanoate,Leptotrichia,Other,novel,False
+C05332_Phenethylamine,Acutalibacter sp910580045,0.011764828564995949,C05332,PhenylamineFerm,gutsmash_relevant,Phenethylamine,Acutalibacter,Other,novel,False
+C05332_Phenethylamine,CCUG-7971 sp017590215,0.009739078619414011,C05332,PhenylamineFerm,gutsmash_relevant,Phenethylamine,CCUG-7971,Other,novel,False
+C05332_Phenethylamine,Escherichia coli,0.0065233594593458255,C05332,PhenylamineFerm,gutsmash_relevant,Phenethylamine,Escherichia,Other,novel,False
+C05332_Phenethylamine,UBA1685 sp900546845,0.010070931453553367,C05332,PhenylamineFerm,gutsmash_relevant,Phenethylamine,UBA1685,Other,novel,False
+C08262_Isovalerate,Alistipes shahii,0.009643721257948911,C08262,BranchedChainAA,gutsmash_relevant,Isovalerate,Alistipes,Other,novel,False
+C08262_Isovalerate,Aphodousia sp900553105,0.0066350452168774665,C08262,BranchedChainAA,gutsmash_relevant,Isovalerate,Aphodousia,Other,novel,False
+C08262_Isovalerate,Bilophila wadsworthia,0.007238633366835938,C08262,BranchedChainAA,gutsmash_relevant,Isovalerate,Bilophila,Other,novel,False
+C08262_Isovalerate,Klebsiella ornithinolytica,0.007684959343999247,C08262,BranchedChainAA,gutsmash_relevant,Isovalerate,Klebsiella,Other,novel,False
+C08262_Isovalerate,Streptococcus parauberis,0.010538892324719601,C08262,BranchedChainAA,gutsmash_relevant,Isovalerate,Streptococcus,Other,novel,False
+C08262_Isovalerate,UBA1829 sp900548385,0.01738423143284916,C08262,BranchedChainAA,gutsmash_relevant,Isovalerate,UBA1829,Other,novel,False
+C17714_Heptanoate,Alangreenwoodia gallinarii,0.006324957457454885,C17714,MCFA,gutsmash_relevant,Heptanoate,Alangreenwoodia,Other,novel,False
+C17714_Heptanoate,Alistipes avistercoris,0.005625328198997854,C17714,MCFA,gutsmash_relevant,Heptanoate,Alistipes,Other,novel,False
+C17714_Heptanoate,CAG-170 sp000432135,0.01658273783011895,C17714,MCFA,gutsmash_relevant,Heptanoate,CAG-170,Other,novel,False
+C17714_Heptanoate,CAG-83 sp000435555,0.008498554388425285,C17714,MCFA,gutsmash_relevant,Heptanoate,CAG-83,Other,novel,False
+C17714_Heptanoate,Spyradocola merdavium,0.0055360981624326365,C17714,MCFA,gutsmash_relevant,Heptanoate,Spyradocola,Other,novel,False
+C17714_Heptanoate,UBA5905 sp900763035,0.005954877300379731,C17714,MCFA,gutsmash_relevant,Heptanoate,UBA5905,Other,novel,False
+_DCA,Alistipes onderdonkii,0.007682797185158361,,Secondary_BA,gutsmash_relevant,DCA,Alistipes,Other,novel,False
+_DCA,Avispirillum faecium,0.004618292300751156,,Secondary_BA,gutsmash_relevant,DCA,Avispirillum,Other,novel,False
+_DCA,Bilophila wadsworthia,0.006352331898724176,,Secondary_BA,gutsmash_relevant,DCA,Bilophila,Other,species,True
+_DCA,Klebsiella ornithinolytica,0.004651707689507214,,Secondary_BA,gutsmash_relevant,DCA,Klebsiella,Other,novel,False
+_DCA,Veillonella parvula_A,0.005930395185369494,,Secondary_BA,gutsmash_relevant,DCA,Veillonella,Other,novel,False

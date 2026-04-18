@@ -1,0 +1,17 @@
+Feature,Factor,Weight,Reactome_ID,Reactome_Pathway
+C00191_Glucuronate,Factor5,0.6271,R-HSA-5661977,Steroid hormone biosynthesis (glucuronate conjugation)
+C00491_Cystine,Factor5,0.5517,R-HSA-1614517,Sulfur amino acid metabolism
+C00086_Urea,Factor5,0.5468,R-HSA-70635,Urea cycle
+C00366_Urate,Factor5,0.5168,R-HSA-74217,Purine catabolism
+C05122_Taurocholate,Factor5,0.5017,N/A,Not mapped
+C07044_Hydroxyurea,Factor5,0.4465,R-HSA-70635,Urea cycle
+C05984_2-Hydroxybutyrate,Factor5,0.4315,N/A,Not mapped
+C00122_Fumarate,Factor5,0.4293,N/A,Not mapped
+C06103_6-Hydroxyhexanoate,Factor3,-0.2922,R-HSA-204005,Omega-oxidation of fatty acids
+C06104_Adipate,Factor3,-0.2661,R-HSA-77289,Mitochondrial fatty acid beta-oxidation (VLCFA)
+C08277_Sebacate,Factor3,-0.2344,R-HSA-77289,Mitochondrial fatty acid beta-oxidation (VLCFA)
+C02656_Pimelate,Factor3,-0.2214,R-HSA-77289,Mitochondrial fatty acid beta-oxidation (VLCFA)
+C00568_p-Aminobenzoate,Factor3,-0.2168,N/A,Not mapped
+C01585_Hexanoate,Factor3,-0.2026,N/A,Not mapped
+C02678_Dodecanedioate,Factor3,-0.2023,N/A,Not mapped
+C17714_Heptanoate,Factor3,-0.2012,N/A,Not mapped

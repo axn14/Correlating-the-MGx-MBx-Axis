@@ -1,0 +1,21 @@
+Species,PA_count,Mean_rank,Mean_SHAP,Polyamines,Species_short
+Faecalimonas phoceensis,1,1.0,0.006901939509618968,Ornithine,Faecalimonas phoceensis
+Intestinimonas butyriciproducens,1,1.0,0.01001502990942051,Putrescine,Intestinimonas butyriciproducens
+Dysosmobacter sp014297375,1,2.0,0.00945248261571328,Putrescine,Dysosmobacter sp014297375
+Lachnospira sp000436535,1,2.0,0.006858549733611281,Ornithine,Lachnospira sp000436535
+Acetatifactor sp003447295,1,3.0,0.008980097597251218,Putrescine,Acetatifactor sp003447295
+Tidjanibacter inops_A,1,3.0,0.004346420465789369,Ornithine,Tidjanibacter inops A
+Anaeroglobus micronuciformis,1,4.0,0.00861216430152892,Putrescine,Anaeroglobus micronuciformis
+Ventricola sp900542395,1,4.0,0.004062046813524986,Ornithine,Ventricola sp900542395
+CAG-83 sp000435975,1,5.0,0.00819353896610055,Putrescine,CAG-83 sp000435975
+Ruminococcus_B gnavus,1,5.0,0.004050730042793771,Ornithine,Ruminococcus B gnavus
+Anaerotignum faecicola,1,6.0,0.004021200456301985,Ornithine,Anaerotignum faecicola
+CAG-83 sp001916855,1,6.0,0.007175411429109249,Putrescine,CAG-83 sp001916855
+Alistipes communis,1,7.0,0.006986463078367402,Putrescine,Alistipes communis
+Faecalibacterium sp900539945,1,7.0,0.004012330481749084,Ornithine,Faecalibacterium sp900539945
+Enterenecus sp900549885,1,8.0,0.0066262094552878925,Putrescine,Enterenecus sp900549885
+Fusobacterium_A necrogenes,1,8.0,0.0038561916292082503,Ornithine,Fusobacterium A necrogenes
+CAG-177 sp003514385,1,9.0,0.0037139836432585438,Ornithine,CAG-177 sp003514385
+Lawsonibacter asaccharolyticus,1,9.0,0.006338193144215528,Putrescine,Lawsonibacter asaccharolyticus
+Acutalibacter stercoravium,1,10.0,0.003327876140899953,Ornithine,Acutalibacter stercoravium
+UMGS856 sp900546265,1,10.0,0.0062799297094035455,Putrescine,UMGS856 sp900546265

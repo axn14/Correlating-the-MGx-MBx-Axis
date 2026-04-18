@@ -1,0 +1,135 @@
+genus,gutsmash_class,metabolite_name,tier,n_general,n_in_vitro,n_in_vivo,n_clinical,shap_importance,match_level,gutsmash_positive
+Avispirillum,Indole,3-Indoxyl sulfate,0,0,0,0,0,0.022657010684879558,novel,False
+Clostridium,Indole,3-Indoxyl sulfate,4,2,0,0,2,0.03269228065091934,genus,True
+Escherichia,Indole,3-Indoxyl sulfate,1,1,0,0,0,0.01727190397041528,species,True
+Fusobacterium,Indole,3-Indoxyl sulfate,0,0,0,0,0,0.05520848760408665,genus,True
+Lactobacillus,Indole,3-Indoxyl sulfate,1,2,0,0,0,0.01898583225847474,novel,False
+Pauljensenia,Indole,3-Indoxyl sulfate,0,0,0,0,0,0.05320020151181086,novel,False
+UMGS902,Indole,3-Indoxyl sulfate,0,0,0,0,0,0.01484663915087605,novel,False
+Veillonella,Indole,3-Indoxyl sulfate,0,0,0,0,0,0.018426698598386082,novel,False
+Alistipes,Urea,Urea,4,11,1,3,1,0.0061824610695236926,genus,True
+Brachyspira,Urea,Urea,2,0,1,0,0,0.010741988976639326,novel,False
+Clostridium,Urea,Urea,4,34,28,9,13,0.006196241355780393,novel,False
+Egerieicola,Urea,Urea,0,0,0,0,0,0.010576665470526133,novel,False
+Escherichia,Urea,Urea,4,53,370,241,41,0.009764273436994647,novel,False
+Lactobacillus,Urea,Urea,4,114,88,66,11,0.010829828836231084,novel,False
+Pauljensenia,Urea,Urea,0,0,0,0,0,0.006866233684213344,novel,False
+UMGS693,Urea,Urea,0,0,0,0,0,0.008704835098049967,novel,False
+Aphodousia,BranchedChainAA,Leu,0,0,0,0,0,0.009546239050680104,novel,False
+Bifidobacterium,BranchedChainAA,Leu,4,6,3,2,2,0.007934311226318512,novel,False
+CCUG-7971,BranchedChainAA,Leu,0,0,0,0,0,0.01324021420369156,novel,False
+Egerieicola,BranchedChainAA,Leu,0,0,0,0,0,0.01229039584958903,novel,False
+Escherichia,BranchedChainAA,Leu,4,13,204,170,19,0.007874449752669089,novel,False
+Fusobacterium,BranchedChainAA,Leu,2,1,2,0,0,0.014069568090187617,genus,True
+Klebsiella,BranchedChainAA,Leu,4,0,8,5,2,0.014308736680002692,novel,False
+Lachnospira,BranchedChainAA,Leu,0,0,0,0,0,0.010102006134805006,genus,True
+Leptotrichia,BranchedChainAA,Leu,0,0,0,0,0,0.009545651320814084,novel,False
+Lachnospira,SCFA_Lactate,Lactate,4,6,6,0,1,0.004080818601355195,novel,False
+Leptotrichia,SCFA_Lactate,Lactate,3,1,3,1,0,0.01447093941793617,novel,False
+UBA1829,SCFA_Lactate,Lactate,0,0,0,0,0,0.008120837474679036,novel,False
+UMGS693,SCFA_Lactate,Lactate,0,0,0,0,0,0.011278682645589688,novel,False
+CAG-103,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.04659992243248097,novel,False
+Erysipelatoclostridium,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.056787958374947815,novel,False
+Intestinibacter,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.034508715175344894,novel,False
+Lactobacillus,GlucuronideBioT,Glucuronate,3,11,2,1,0,0.02532514420297133,novel,False
+Leptotrichia,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.04094218369381295,novel,False
+Meiothermus,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.054885361296670473,novel,False
+Pauljensenia,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.028966734973743774,novel,False
+Scatavimonas,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.03956310873556269,novel,False
+Streptococcus,GlucuronideBioT,Glucuronate,2,2,2,0,0,0.03670436929120968,novel,False
+UBA5905,GlucuronideBioT,Glucuronate,0,0,0,0,0,0.03540987774976584,novel,False
+Alistipes,BileAcid_BSH,Taurine,4,15,1,3,1,0.024825136188155423,genus,True
+Bilophila,BileAcid_BSH,Taurine,4,27,5,6,4,0.11035088352838002,species,True
+Clostridium,BileAcid_BSH,Taurine,4,36,7,6,4,0.023538199466418788,genus,True
+Fusobacterium,BileAcid_BSH,Taurine,3,1,0,1,0,0.006357642527009843,novel,False
+Scatavimonas,BileAcid_BSH,Taurine,0,0,0,0,0,0.007889836634181692,novel,False
+UBA3818,BileAcid_BSH,Taurine,0,0,0,0,0,0.013253987335085751,novel,False
+UBA5905,BileAcid_BSH,Taurine,0,0,0,0,0,0.014765697171452739,novel,False
+UMGS693,BileAcid_BSH,Taurine,0,0,0,0,0,0.008845589399749132,novel,False
+Veillonella,BileAcid_BSH,Taurine,4,4,0,2,1,0.011379895931146362,novel,False
+CCUG-7971,Vitamin_Riboflavin,Riboflavin,0,0,0,0,0,0.04844407048874475,novel,False
+Clostridium,Vitamin_Riboflavin,Riboflavin,3,8,18,2,0,0.0471493062059194,novel,False
+Fusobacterium,Vitamin_Riboflavin,Riboflavin,4,2,0,1,2,0.02385211371953469,novel,False
+Intestinibacter,Vitamin_Riboflavin,Riboflavin,0,0,0,0,0,0.006257396368907887,novel,False
+Neisseria,Vitamin_Riboflavin,Riboflavin,0,0,0,0,0,0.004803566979668601,novel,False
+Alangreenwoodia,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.01120908619296694,novel,False
+Alistipes,Vitamin_B6,Pyridoxine,1,1,0,0,0,0.010712260039644669,novel,False
+CAG-170,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.004268783039489091,novel,False
+Scatavimonas,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.08457711515047812,novel,False
+Spyradocola,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.02281781663167669,novel,False
+UBA1685,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.0047629558427333876,novel,False
+UBA5905,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.0056167156040113474,novel,False
+UMGS693,Vitamin_B6,Pyridoxine,0,0,0,0,0,0.025914583170394172,novel,False
+Alangreenwoodia,GABA,GABA,0,0,0,0,0,0.006588630617376872,novel,False
+Alistipes,GABA,GABA,4,24,2,2,1,0.004289247675957854,species,True
+Avispirillum,GABA,GABA,0,0,0,0,0,0.006192943139966952,novel,False
+Clostridium,GABA,GABA,4,25,3,4,3,0.010800082347301123,genus,True
+Lachnospira,GABA,GABA,2,3,2,0,0,0.012371671721527446,genus,True
+Veillonella,GABA,GABA,4,2,0,0,2,0.015495112403677947,species,True
+Aphodousia,BranchedChainAA,Ile,0,0,0,0,0,0.009546239050680104,novel,False
+Bifidobacterium,BranchedChainAA,Ile,4,6,1,1,1,0.007934311226318512,novel,False
+CCUG-7971,BranchedChainAA,Ile,0,0,0,0,0,0.01324021420369156,novel,False
+Egerieicola,BranchedChainAA,Ile,0,0,0,0,0,0.01229039584958903,novel,False
+Escherichia,BranchedChainAA,Ile,4,3,99,89,9,0.007874449752669089,novel,False
+Fusobacterium,BranchedChainAA,Ile,1,1,0,0,0,0.014069568090187617,genus,True
+Klebsiella,BranchedChainAA,Ile,4,0,7,2,5,0.014308736680002692,novel,False
+Lachnospira,BranchedChainAA,Ile,0,0,0,0,0,0.010102006134805006,genus,True
+Leptotrichia,BranchedChainAA,Ile,0,0,0,0,0,0.009545651320814084,novel,False
+Alistipes,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.010427602226194337,novel,False
+Aphodousia,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.15989562161884763,novel,False
+Avispirillum,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.0075749358397550984,novel,False
+Pauljensenia,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.022244352518327088,novel,False
+Sediminibacterium,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.019408606053780197,novel,False
+UBA1829,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.0067205669149596504,novel,False
+UBA5905,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.008210775939592022,novel,False
+UMGS687,PhenylamineFerm,trans-Cinnamate,0,0,0,0,0,0.015467407220517882,novel,False
+Erysipelatoclostridium,BranchedChainAA,Isobutyryl CoA,0,0,0,0,0,0.0073059120789688015,novel,False
+Intestinibacter,BranchedChainAA,Isobutyryl CoA,0,0,0,0,0,0.005422933565909853,novel,False
+Klebsiella,BranchedChainAA,Isobutyryl CoA,0,0,0,0,0,0.014308736680002692,novel,False
+Alistipes,TMAO_Choline,Trimethylamine N-oxide,4,12,0,3,1,0.010950974750186318,novel,False
+Clostridium,TMAO_Choline,Trimethylamine N-oxide,4,28,4,8,2,0.017003384129174712,genus,True
+Fusobacterium,TMAO_Choline,Trimethylamine N-oxide,4,12,2,2,5,0.005755686625185651,novel,False
+Pauljensenia,TMAO_Choline,Trimethylamine N-oxide,0,0,0,0,0,0.05567078964701949,novel,False
+Aphodousia,Purine_Catabolism,Allantoin,0,0,0,0,0,0.02936887915387942,novel,False
+Bilophila,Purine_Catabolism,Allantoin,0,0,0,0,0,0.014465039288079306,novel,False
+Cupidesulfovibrio,Purine_Catabolism,Allantoin,0,0,0,0,0,0.01253518245230407,novel,False
+Lachnospira,Purine_Catabolism,Allantoin,1,1,0,0,0,0.010995432909751121,novel,False
+Pauljensenia,Purine_Catabolism,Allantoin,0,0,0,0,0,0.008828445234102377,novel,False
+Scatavimonas,Purine_Catabolism,Allantoin,0,0,0,0,0,0.007793324766489304,novel,False
+UBA1829,Purine_Catabolism,Allantoin,0,0,0,0,0,0.015486329995262303,novel,False
+Alangreenwoodia,MCFA,Dodecanoate,0,0,0,0,0,0.006324957457454885,novel,False
+Alistipes,MCFA,Dodecanoate,0,0,0,0,0,0.008670572224715149,novel,False
+Lachnospira,MCFA,Dodecanoate,0,0,0,0,0,0.007712004226794719,novel,False
+Alangreenwoodia,Putrescine,N-Acetylputrescine,0,0,0,0,0,0.027742917505288133,novel,False
+Avispirillum,Putrescine,N-Acetylputrescine,0,0,0,0,0,0.00968267860790063,novel,False
+Clostridium,Putrescine,N-Acetylputrescine,0,0,0,0,0,0.011438400760676542,genus,True
+Lachnospira,Putrescine,N-Acetylputrescine,0,0,0,0,0,0.008352913854487444,novel,False
+UBA1685,Putrescine,N-Acetylputrescine,0,0,0,0,0,0.018807280503301466,novel,False
+UBA5905,Putrescine,N-Acetylputrescine,0,0,0,0,0,0.028351045398479293,novel,False
+Veillonella,Putrescine,N-Acetylputrescine,4,0,0,0,1,0.015524600445390977,genus,True
+Alistipes,BranchedChainAA,2-Hydroxy-4-methylpentanoate,0,0,0,0,0,0.009643721257948911,novel,False
+Aphodousia,BranchedChainAA,2-Hydroxy-4-methylpentanoate,0,0,0,0,0,0.009546239050680104,novel,False
+Clostridium,BranchedChainAA,2-Hydroxy-4-methylpentanoate,0,0,0,0,0,0.015344378969821517,genus,True
+Egerieicola,BranchedChainAA,2-Hydroxy-4-methylpentanoate,0,0,0,0,0,0.01229039584958903,novel,False
+Leptotrichia,BranchedChainAA,2-Hydroxy-4-methylpentanoate,0,0,0,0,0,0.009545651320814084,novel,False
+Acutalibacter,PhenylamineFerm,Phenethylamine,0,0,0,0,0,0.011764828564995949,novel,False
+CCUG-7971,PhenylamineFerm,Phenethylamine,0,0,0,0,0,0.009739078619414011,novel,False
+Escherichia,PhenylamineFerm,Phenethylamine,3,0,3,1,0,0.0065233594593458255,novel,False
+UBA1685,PhenylamineFerm,Phenethylamine,0,0,0,0,0,0.010070931453553367,novel,False
+Alistipes,BranchedChainAA,Isovalerate,4,7,2,1,1,0.009643721257948911,novel,False
+Aphodousia,BranchedChainAA,Isovalerate,0,0,0,0,0,0.009546239050680104,novel,False
+Bilophila,BranchedChainAA,Isovalerate,1,1,0,0,0,0.007238633366835938,novel,False
+Klebsiella,BranchedChainAA,Isovalerate,4,1,1,0,1,0.014308736680002692,novel,False
+Streptococcus,BranchedChainAA,Isovalerate,3,6,7,1,0,0.010538892324719601,novel,False
+UBA1829,BranchedChainAA,Isovalerate,0,0,0,0,0,0.01738423143284916,novel,False
+Alangreenwoodia,MCFA,Heptanoate,0,0,0,0,0,0.006324957457454885,novel,False
+Alistipes,MCFA,Heptanoate,0,0,0,0,0,0.008670572224715149,novel,False
+CAG-170,MCFA,Heptanoate,0,0,0,0,0,0.01658273783011895,novel,False
+CAG-83,MCFA,Heptanoate,0,0,0,0,0,0.008498554388425285,novel,False
+Spyradocola,MCFA,Heptanoate,0,0,0,0,0,0.0055360981624326365,novel,False
+UBA5905,MCFA,Heptanoate,0,0,0,0,0,0.005954877300379731,novel,False
+Alistipes,Secondary_BA,DCA,3,5,1,1,0,0.007682797185158361,novel,False
+Avispirillum,Secondary_BA,DCA,0,0,0,0,0,0.004618292300751156,novel,False
+Bilophila,Secondary_BA,DCA,4,8,2,3,2,0.006352331898724176,species,True
+Klebsiella,Secondary_BA,DCA,4,6,1,2,4,0.004651707689507214,novel,False
+Veillonella,Secondary_BA,DCA,4,5,0,0,1,0.005930395185369494,novel,False

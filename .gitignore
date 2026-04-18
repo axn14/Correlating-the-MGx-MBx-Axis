@@ -1,6 +1,14 @@
-# Results and intermediate data (large, reproducible from code)
-Results/
+# Raw data (not tracked)
 Data/
+
+# Results: track only figures/ and tables/ — exclude large binaries and intermediates
+Results/intermediate/
+Results/gutsmash_runs/
+Results/slurm_scripts/
+Results/mimosa2/
+Results/LabMeet_23022026/
+Results/*.pptx
+Results/*.pkl
 
 # Python cache
 __pycache__/

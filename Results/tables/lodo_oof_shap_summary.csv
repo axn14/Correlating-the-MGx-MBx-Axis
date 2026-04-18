@@ -1,0 +1,1501 @@
+target,model,cv_strategy,rank,feature,mean_abs_shap_oof
+C07151_Metformin,XGBoost,10-fold,1,Prevotella stercorea,0.028759263455867767
+C07151_Metformin,XGBoost,10-fold,2,Veillonella parvula_A,0.026211589574813843
+C07151_Metformin,XGBoost,10-fold,3,UMGS687 sp900545735,0.02511456422507763
+C07151_Metformin,XGBoost,10-fold,4,Catenibacterium sp900764565,0.020796945318579674
+C07151_Metformin,XGBoost,10-fold,5,Lachnospira rogosae_A,0.020344732329249382
+C07151_Metformin,XGBoost,10-fold,6,CCUG-7971 spG000499525,0.019776059314608574
+C07151_Metformin,XGBoost,10-fold,7,Faecalibacterium prausnitzii_G,0.01789943128824234
+C07151_Metformin,XGBoost,10-fold,8,Mitsuokella multacida,0.01786058209836483
+C07151_Metformin,XGBoost,10-fold,9,Fimisoma sp900754795,0.01621188595890999
+C07151_Metformin,XGBoost,10-fold,10,Acutalibacter sp910580045,0.014446637593209743
+C07151_Metformin,LightGBM,10-fold,1,Prevotella stercorea,0.050766211589019845
+C07151_Metformin,LightGBM,10-fold,2,BMI,0.049378343817978065
+C07151_Metformin,LightGBM,10-fold,3,Desulfovibrio sp905214305,0.03755689124729515
+C07151_Metformin,LightGBM,10-fold,4,Acutalibacter sp910580045,0.03478648917769321
+C07151_Metformin,LightGBM,10-fold,5,Ruminiclostridium_E siraeum,0.03414109391332519
+C07151_Metformin,LightGBM,10-fold,6,Pseudoscardovia suis,0.030790463852362136
+C07151_Metformin,LightGBM,10-fold,7,Porphyromonas endodontalis,0.030630603692466934
+C07151_Metformin,LightGBM,10-fold,8,CCUG-7971 spG000499525,0.029715545767011284
+C07151_Metformin,LightGBM,10-fold,9,Enterosoma sp900763245,0.02278031914221307
+C07151_Metformin,LightGBM,10-fold,10,S5-A14a sp000758905,0.02165983622666479
+C07151_Metformin,RF,10-fold,1,Mitsuokella multacida,0.018028300931772687
+C07151_Metformin,RF,10-fold,2,Fimisoma sp900754795,0.014900669756227298
+C07151_Metformin,RF,10-fold,3,Mitsuokella jalaludinii,0.014289530096678998
+C07151_Metformin,RF,10-fold,4,Acutalibacter sp910580045,0.01077195685008824
+C07151_Metformin,RF,10-fold,5,Alistipes onderdonkii,0.01033289801903897
+C07151_Metformin,RF,10-fold,6,Alloprevotella timonensis,0.01016209826888175
+C07151_Metformin,RF,10-fold,7,Caecibacter sp003467125,0.009390130561688565
+C07151_Metformin,RF,10-fold,8,UMGS687 sp900545735,0.008806233089024213
+C07151_Metformin,RF,10-fold,9,Veillonella parvula_A,0.008638312159385457
+C07151_Metformin,RF,10-fold,10,Collinsella tanakaei,0.008614414532882952
+C00423_trans-Cinnamate,XGBoost,10-fold,1,Aphodousia sp900553105,0.12398917973041534
+C00423_trans-Cinnamate,XGBoost,10-fold,2,Barb7 sp001657575,0.029271669685840607
+C00423_trans-Cinnamate,XGBoost,10-fold,3,Sediminibacterium sp902168225,0.027406439185142517
+C00423_trans-Cinnamate,XGBoost,10-fold,4,UBA5884 sp002431975,0.026611750945448875
+C00423_trans-Cinnamate,XGBoost,10-fold,5,Pauljensenia turicensis,0.025336163118481636
+C00423_trans-Cinnamate,XGBoost,10-fold,6,Streptococcus sp003686955,0.01859857514500618
+C00423_trans-Cinnamate,XGBoost,10-fold,7,Klebsiella pneumoniae,0.018586764112114906
+C00423_trans-Cinnamate,XGBoost,10-fold,8,Faecimonas sp900554315,0.0183392520993948
+C00423_trans-Cinnamate,XGBoost,10-fold,9,Eubacterium_N saphenum,0.01716829091310501
+C00423_trans-Cinnamate,XGBoost,10-fold,10,Avispirillum faecium,0.01601164974272251
+C00423_trans-Cinnamate,LightGBM,10-fold,1,Aphodousia sp900553105,0.12877666420823866
+C00423_trans-Cinnamate,LightGBM,10-fold,2,Sediminibacterium sp902168225,0.030904537799419186
+C00423_trans-Cinnamate,LightGBM,10-fold,3,Pauljensenia turicensis,0.030659739751676043
+C00423_trans-Cinnamate,LightGBM,10-fold,4,Barb7 sp001657575,0.026961930954667816
+C00423_trans-Cinnamate,LightGBM,10-fold,5,Klebsiella pneumoniae,0.02483900571916109
+C00423_trans-Cinnamate,LightGBM,10-fold,6,UBA5884 sp002431975,0.024573587875850213
+C00423_trans-Cinnamate,LightGBM,10-fold,7,Faecimonas sp900554315,0.0245631140660334
+C00423_trans-Cinnamate,LightGBM,10-fold,8,Eubacterium_N saphenum,0.023388198874064285
+C00423_trans-Cinnamate,LightGBM,10-fold,9,Megasphaera elsdenii,0.023112452254460913
+C00423_trans-Cinnamate,LightGBM,10-fold,10,Avispirillum faecium,0.01851004536430304
+C00423_trans-Cinnamate,RF,10-fold,1,Aphodousia sp900553105,0.13872624894830696
+C00423_trans-Cinnamate,RF,10-fold,2,Sediminibacterium sp902168225,0.023723383358162764
+C00423_trans-Cinnamate,RF,10-fold,3,Pauljensenia turicensis,0.01462897737206537
+C00423_trans-Cinnamate,RF,10-fold,4,Avispirillum faecium,0.011079301075489899
+C00423_trans-Cinnamate,RF,10-fold,5,UBA5884 sp002431975,0.010842356326756222
+C00423_trans-Cinnamate,RF,10-fold,6,UBA1829 sp900548385,0.010652637118037309
+C00423_trans-Cinnamate,RF,10-fold,7,UMGS687 sp900545735,0.010574345313542101
+C00423_trans-Cinnamate,RF,10-fold,8,Alistipes shahii,0.010343611808030367
+C00423_trans-Cinnamate,RF,10-fold,9,Barb7 sp001657575,0.009608328877484607
+C00423_trans-Cinnamate,RF,10-fold,10,Streptococcus sp003686955,0.009358445142334098
+C00122_Fumarate,XGBoost,10-fold,1,Leptotrichia_A sp001274535,0.028265027329325676
+C00122_Fumarate,XGBoost,10-fold,2,Streptococcus sp003686955,0.020263683050870895
+C00122_Fumarate,XGBoost,10-fold,3,UMGS1696 sp900753285,0.01991727575659752
+C00122_Fumarate,XGBoost,10-fold,4,CAG-793 sp013333035,0.01870374195277691
+C00122_Fumarate,XGBoost,10-fold,5,Alkalihalobacillus_A sp007293315,0.017194245010614395
+C00122_Fumarate,XGBoost,10-fold,6,Gallispira edinburgensis,0.01699761301279068
+C00122_Fumarate,XGBoost,10-fold,7,Collinsella sp900548365,0.016789380460977554
+C00122_Fumarate,XGBoost,10-fold,8,Alistipes_A sp900539755,0.01478797197341919
+C00122_Fumarate,XGBoost,10-fold,9,CAG-1427 sp900539675,0.013413926586508751
+C00122_Fumarate,XGBoost,10-fold,10,ER4 sp000765235,0.01337568461894989
+C00122_Fumarate,LightGBM,10-fold,1,Leptotrichia_A sp001274535,0.03259357124904417
+C00122_Fumarate,LightGBM,10-fold,2,Flemingibacterium merdigallinarum,0.025120070523471785
+C00122_Fumarate,LightGBM,10-fold,3,UMGS1696 sp900753285,0.023325842208407267
+C00122_Fumarate,LightGBM,10-fold,4,Collinsella sp900548365,0.022186976814862494
+C00122_Fumarate,LightGBM,10-fold,5,Alkalihalobacillus_A sp007293315,0.020219024401034142
+C00122_Fumarate,LightGBM,10-fold,6,Lachnospira sp000436475,0.01924568081282662
+C00122_Fumarate,LightGBM,10-fold,7,Alistipes_A sp900539755,0.019158978319264823
+C00122_Fumarate,LightGBM,10-fold,8,CAG-793 sp013333035,0.018508488490813987
+C00122_Fumarate,LightGBM,10-fold,9,Streptococcus sp003686955,0.015580620093448138
+C00122_Fumarate,LightGBM,10-fold,10,Streptococcus parauberis,0.01537032705324574
+C00122_Fumarate,RF,10-fold,1,Leptotrichia_A sp001274535,0.01751137090467348
+C00122_Fumarate,RF,10-fold,2,Streptococcus sp003686955,0.014294371151352141
+C00122_Fumarate,RF,10-fold,3,UMGS1696 sp900753285,0.010395959933341173
+C00122_Fumarate,RF,10-fold,4,Clostridium sp900766315,0.010267282617821968
+C00122_Fumarate,RF,10-fold,5,Fusobacterium_B sp900542625,0.009501463867143426
+C00122_Fumarate,RF,10-fold,6,Alistipes onderdonkii,0.009361626914216374
+C00122_Fumarate,RF,10-fold,7,ER4 sp000765235,0.008267567114898589
+C00122_Fumarate,RF,10-fold,8,Streptococcus parauberis,0.008114165152503038
+C00122_Fumarate,RF,10-fold,9,Alkalihalobacillus_A sp007293315,0.007027072658017815
+C00122_Fumarate,RF,10-fold,10,CAG-1427 sp900539675,0.006402383781047826
+C01042_N-Acetylaspartate,XGBoost,10-fold,1,CCUG-7971 sp017590215,0.0377194918692112
+C01042_N-Acetylaspartate,XGBoost,10-fold,2,Bifidobacterium pseudocatenulatum,0.03477565199136734
+C01042_N-Acetylaspartate,XGBoost,10-fold,3,Streptococcus sp003686955,0.034208208322525024
+C01042_N-Acetylaspartate,XGBoost,10-fold,4,Scatavimonas sp900540275,0.03094189427793026
+C01042_N-Acetylaspartate,XGBoost,10-fold,5,Alistipes putredinis,0.02897137776017189
+C01042_N-Acetylaspartate,XGBoost,10-fold,6,Leptotrichia wadei,0.027218449860811234
+C01042_N-Acetylaspartate,XGBoost,10-fold,7,Alistipes onderdonkii,0.022887593135237694
+C01042_N-Acetylaspartate,XGBoost,10-fold,8,Veillonella atypica,0.020538875833153725
+C01042_N-Acetylaspartate,XGBoost,10-fold,9,Finegoldia sp900766215,0.019398972392082214
+C01042_N-Acetylaspartate,XGBoost,10-fold,10,Bifidobacterium adolescentis,0.016685236245393753
+C01042_N-Acetylaspartate,LightGBM,10-fold,1,Alistipes putredinis,0.04521042411434593
+C01042_N-Acetylaspartate,LightGBM,10-fold,2,CCUG-7971 sp017590215,0.04205868301766643
+C01042_N-Acetylaspartate,LightGBM,10-fold,3,Bifidobacterium pseudocatenulatum,0.035484372238836034
+C01042_N-Acetylaspartate,LightGBM,10-fold,4,Streptococcus sp003686955,0.03001774581558143
+C01042_N-Acetylaspartate,LightGBM,10-fold,5,Scatavimonas sp900540275,0.029138443981015453
+C01042_N-Acetylaspartate,LightGBM,10-fold,6,Leptotrichia wadei,0.025511668167010844
+C01042_N-Acetylaspartate,LightGBM,10-fold,7,Alistipes onderdonkii,0.022889908027620046
+C01042_N-Acetylaspartate,LightGBM,10-fold,8,Finegoldia sp900766215,0.020927440395759334
+C01042_N-Acetylaspartate,LightGBM,10-fold,9,Alcohol,0.02048199200434057
+C01042_N-Acetylaspartate,LightGBM,10-fold,10,Veillonella atypica,0.019755119595316555
+C01042_N-Acetylaspartate,RF,10-fold,1,Alistipes putredinis,0.03144059936836001
+C01042_N-Acetylaspartate,RF,10-fold,2,Scatavimonas sp900540275,0.02879149845033859
+C01042_N-Acetylaspartate,RF,10-fold,3,Alistipes onderdonkii,0.021421362338219868
+C01042_N-Acetylaspartate,RF,10-fold,4,CCUG-7971 sp017590215,0.020245489880825307
+C01042_N-Acetylaspartate,RF,10-fold,5,Bifidobacterium pseudocatenulatum,0.01252721052192775
+C01042_N-Acetylaspartate,RF,10-fold,6,UMGS902 sp900761025,0.01230821933491924
+C01042_N-Acetylaspartate,RF,10-fold,7,Leptotrichia wadei,0.012193721342236369
+C01042_N-Acetylaspartate,RF,10-fold,8,Veillonella atypica,0.011572477163816496
+C01042_N-Acetylaspartate,RF,10-fold,9,Avimicrobium caecorum,0.01148991960368343
+C01042_N-Acetylaspartate,RF,10-fold,10,Streptococcus sp003686955,0.009537900804899276
+C01959_Taurocyamine,XGBoost,10-fold,1,Bifidobacterium longum,0.02708437480032444
+C01959_Taurocyamine,XGBoost,10-fold,2,Duncaniella sp910577345,0.027006419375538826
+C01959_Taurocyamine,XGBoost,10-fold,3,Faecalibacterium prausnitzii_G,0.02658158540725708
+C01959_Taurocyamine,XGBoost,10-fold,4,CAG-177 sp003538135,0.025559013709425926
+C01959_Taurocyamine,XGBoost,10-fold,5,Romboutsia_A weinsteinii,0.023921873420476913
+C01959_Taurocyamine,XGBoost,10-fold,6,HGM11417 sp900761895,0.020451724529266357
+C01959_Taurocyamine,XGBoost,10-fold,7,Holdemanella sp003458715,0.01598326861858368
+C01959_Taurocyamine,XGBoost,10-fold,8,Leptotrichia_A sp001274535,0.014719284139573574
+C01959_Taurocyamine,XGBoost,10-fold,9,Neisseria flavescens_C,0.01301016565412283
+C01959_Taurocyamine,XGBoost,10-fold,10,Faecalibacillus intestinalis,0.012458221055567265
+C01959_Taurocyamine,LightGBM,10-fold,1,Faecalibacterium prausnitzii_G,0.04279620968127565
+C01959_Taurocyamine,LightGBM,10-fold,2,Bifidobacterium longum,0.03332477626841227
+C01959_Taurocyamine,LightGBM,10-fold,3,Duncaniella sp910577345,0.03203126366614077
+C01959_Taurocyamine,LightGBM,10-fold,4,CAG-177 sp003538135,0.02711148170348722
+C01959_Taurocyamine,LightGBM,10-fold,5,Clostridium saudiense,0.023415801841989072
+C01959_Taurocyamine,LightGBM,10-fold,6,Holdemanella biformis,0.02006053980228155
+C01959_Taurocyamine,LightGBM,10-fold,7,Faecalibacillus intestinalis,0.01944495914989993
+C01959_Taurocyamine,LightGBM,10-fold,8,UBA737 sp902762875,0.018480320349871352
+C01959_Taurocyamine,LightGBM,10-fold,9,Actinomyces israelii,0.017632343448601095
+C01959_Taurocyamine,LightGBM,10-fold,10,Romboutsia_A weinsteinii,0.017243397431334205
+C01959_Taurocyamine,RF,10-fold,1,Prevotella sp900550035,0.017041429614135847
+C01959_Taurocyamine,RF,10-fold,2,UBA11524 sp000437595,0.009149509670234259
+C01959_Taurocyamine,RF,10-fold,3,Faecousia sp017548065,0.009038944761594078
+C01959_Taurocyamine,RF,10-fold,4,Akkermansia muciniphila,0.00811373225042039
+C01959_Taurocyamine,RF,10-fold,5,51-20 sp001917175,0.007915132333587635
+C01959_Taurocyamine,RF,10-fold,6,Alistipes shahii,0.00782105317200365
+C01959_Taurocyamine,RF,10-fold,7,Eubacterium_F sp003491505,0.007400631339003203
+C01959_Taurocyamine,RF,10-fold,8,Bifidobacterium longum,0.007088020292240926
+C01959_Taurocyamine,RF,10-fold,9,UBA737 sp902762875,0.007069931718985234
+C01959_Taurocyamine,RF,10-fold,10,Clostridium saudiense,0.0070525742930133035
+C08262_Isovalerate,XGBoost,10-fold,1,ER4 sp000765235,0.03992318734526634
+C08262_Isovalerate,XGBoost,10-fold,2,Flemingibacterium merdigallinarum,0.03830098733305931
+C08262_Isovalerate,XGBoost,10-fold,3,UBA1829 sp900548385,0.033330198377370834
+C08262_Isovalerate,XGBoost,10-fold,4,Collinsella sp900555555,0.03266008943319321
+C08262_Isovalerate,XGBoost,10-fold,5,CAG-873 sp910578035,0.03147893399000168
+C08262_Isovalerate,XGBoost,10-fold,6,CAG-103 sp900317855,0.02873607911169529
+C08262_Isovalerate,XGBoost,10-fold,7,Alistipes shahii,0.026903875172138214
+C08262_Isovalerate,XGBoost,10-fold,8,Acetatifactor sp003447295,0.0227657537907362
+C08262_Isovalerate,XGBoost,10-fold,9,Aphodousia sp900553105,0.022734099999070168
+C08262_Isovalerate,XGBoost,10-fold,10,Klebsiella ornithinolytica,0.020824439823627472
+C08262_Isovalerate,LightGBM,10-fold,1,UBA1829 sp900548385,0.06483938943908964
+C08262_Isovalerate,LightGBM,10-fold,2,Klebsiella ornithinolytica,0.051713933712165414
+C08262_Isovalerate,LightGBM,10-fold,3,Collinsella sp900555555,0.04643491958903945
+C08262_Isovalerate,LightGBM,10-fold,4,ER4 sp000765235,0.042216470001090925
+C08262_Isovalerate,LightGBM,10-fold,5,Aphodousia sp900553105,0.04213467838436711
+C08262_Isovalerate,LightGBM,10-fold,6,Aveggerthella excrementigallinarum,0.03899138958266818
+C08262_Isovalerate,LightGBM,10-fold,7,Desulfovibrio sp905214305,0.03845929707347175
+C08262_Isovalerate,LightGBM,10-fold,8,CAG-103 sp900317855,0.03680911592026751
+C08262_Isovalerate,LightGBM,10-fold,9,UMGS687 sp900545735,0.03215999180495468
+C08262_Isovalerate,LightGBM,10-fold,10,Flemingibacterium merdigallinarum,0.030851584070446556
+C08262_Isovalerate,RF,10-fold,1,ER4 sp000765235,0.027853947439626527
+C08262_Isovalerate,RF,10-fold,2,ER4 sp900552015,0.018328328551911025
+C08262_Isovalerate,RF,10-fold,3,Alistipes shahii,0.017597878296599347
+C08262_Isovalerate,RF,10-fold,4,CAG-103 sp900317855,0.01674841648446967
+C08262_Isovalerate,RF,10-fold,5,Clostridium_A leptum,0.015866304059241394
+C08262_Isovalerate,RF,10-fold,6,Aphodovivens excrementavium,0.014827701366187907
+C08262_Isovalerate,RF,10-fold,7,CAG-873 sp910578035,0.013362235860674806
+C08262_Isovalerate,RF,10-fold,8,Collinsella sp900555555,0.012515667939869517
+C08262_Isovalerate,RF,10-fold,9,Avispirillum faecium,0.01159459026389536
+C08262_Isovalerate,RF,10-fold,10,Flemingibacterium merdigallinarum,0.011156741547222786
+C00024_Acetyl CoA,XGBoost,10-fold,1,Erysipelatoclostridium ramosum,0.04989660903811455
+C00024_Acetyl CoA,XGBoost,10-fold,2,Duodenibacillus intestinigallinarum,0.03205667436122894
+C00024_Acetyl CoA,XGBoost,10-fold,3,Gender_Male,0.031191004440188408
+C00024_Acetyl CoA,XGBoost,10-fold,4,Prevotella sp002300055,0.027874063700437546
+C00024_Acetyl CoA,XGBoost,10-fold,5,Clostridium sp900539375,0.024167412891983986
+C00024_Acetyl CoA,XGBoost,10-fold,6,Faecalibacterium sp900539945,0.02307482808828354
+C00024_Acetyl CoA,XGBoost,10-fold,7,UBA4334 sp905235525,0.017702283337712288
+C00024_Acetyl CoA,XGBoost,10-fold,8,Cetobacterium_A sp905216205,0.016588328406214714
+C00024_Acetyl CoA,XGBoost,10-fold,9,Holdemanella sp900547815,0.016516005620360374
+C00024_Acetyl CoA,XGBoost,10-fold,10,Faecivivens stercoravium,0.01623758114874363
+C00024_Acetyl CoA,LightGBM,10-fold,1,Erysipelatoclostridium ramosum,0.04961990366661633
+C00024_Acetyl CoA,LightGBM,10-fold,2,Gender_Male,0.035968543631791035
+C00024_Acetyl CoA,LightGBM,10-fold,3,Prevotella sp002300055,0.0332057112530676
+C00024_Acetyl CoA,LightGBM,10-fold,4,Duodenibacillus intestinigallinarum,0.032344708623555325
+C00024_Acetyl CoA,LightGBM,10-fold,5,Clostridium sp900539375,0.026374785599796256
+C00024_Acetyl CoA,LightGBM,10-fold,6,Faecivivens stercoravium,0.022311799625821412
+C00024_Acetyl CoA,LightGBM,10-fold,7,UBA1829 sp900548385,0.019198948785557134
+C00024_Acetyl CoA,LightGBM,10-fold,8,UBA4334 sp905235525,0.019027602174007806
+C00024_Acetyl CoA,LightGBM,10-fold,9,Holdemanella sp003458715,0.01731009055871368
+C00024_Acetyl CoA,LightGBM,10-fold,10,Collinsella stercoripullorum,0.016407502675066653
+C00024_Acetyl CoA,RF,10-fold,1,Erysipelatoclostridium ramosum,0.02650347958377246
+C00024_Acetyl CoA,RF,10-fold,2,Prevotella sp002300055,0.019907033077087775
+C00024_Acetyl CoA,RF,10-fold,3,Duodenibacillus intestinigallinarum,0.016726243354535177
+C00024_Acetyl CoA,RF,10-fold,4,Cetobacterium_A sp905216205,0.013542249734480975
+C00024_Acetyl CoA,RF,10-fold,5,Clostridium sp900539375,0.010488412887663248
+C00024_Acetyl CoA,RF,10-fold,6,UBA1829 sp900548385,0.009794600243444333
+C00024_Acetyl CoA,RF,10-fold,7,Holdemanella sp900547815,0.008897886878352428
+C00024_Acetyl CoA,RF,10-fold,8,Alcohol,0.0076163189562887335
+C00024_Acetyl CoA,RF,10-fold,9,Faecalibacterium sp900539945,0.006766830045384444
+C00024_Acetyl CoA,RF,10-fold,10,UBA4334 sp905235525,0.006651266613451172
+C00346_Ethanolamine phosphate,XGBoost,10-fold,1,Niameybacter massiliensis,0.03763386234641075
+C00346_Ethanolamine phosphate,XGBoost,10-fold,2,Ligilactobacillus salivarius,0.03534577041864395
+C00346_Ethanolamine phosphate,XGBoost,10-fold,3,ER4 sp000765235,0.019539056345820427
+C00346_Ethanolamine phosphate,XGBoost,10-fold,4,Brachyspira aalborgi,0.015710117295384407
+C00346_Ethanolamine phosphate,XGBoost,10-fold,5,Lachnospira sp000436535,0.013498733751475811
+C00346_Ethanolamine phosphate,XGBoost,10-fold,6,Dialister sp000434475,0.010758860968053341
+C00346_Ethanolamine phosphate,XGBoost,10-fold,7,UBA1685 sp900546845,0.01037740521132946
+C00346_Ethanolamine phosphate,XGBoost,10-fold,8,Slackia_A equolifaciens,0.010296701453626156
+C00346_Ethanolamine phosphate,XGBoost,10-fold,9,Escherichia ruysiae,0.009973250329494476
+C00346_Ethanolamine phosphate,XGBoost,10-fold,10,Christensenella sp014287795,0.009863218292593956
+C00346_Ethanolamine phosphate,LightGBM,10-fold,1,Ligilactobacillus salivarius,0.0442508251776569
+C00346_Ethanolamine phosphate,LightGBM,10-fold,2,Niameybacter massiliensis,0.03858936818925618
+C00346_Ethanolamine phosphate,LightGBM,10-fold,3,Aphodousia sp905212345,0.023806682869437337
+C00346_Ethanolamine phosphate,LightGBM,10-fold,4,Escherichia sp001660175,0.022564019335309018
+C00346_Ethanolamine phosphate,LightGBM,10-fold,5,Leptotrichia wadei,0.0206613742366405
+C00346_Ethanolamine phosphate,LightGBM,10-fold,6,Centipeda sp001717585,0.017316422826857768
+C00346_Ethanolamine phosphate,LightGBM,10-fold,7,Collinsella bouchesdurhonensis,0.015741370647298948
+C00346_Ethanolamine phosphate,LightGBM,10-fold,8,PeH17 sp000435055,0.015584887043145814
+C00346_Ethanolamine phosphate,LightGBM,10-fold,9,Copromorpha sp905193765,0.01549253925814139
+C00346_Ethanolamine phosphate,LightGBM,10-fold,10,UBA737 sp902762875,0.014038468052833939
+C00346_Ethanolamine phosphate,RF,10-fold,1,Ligilactobacillus salivarius,0.02635099194793455
+C00346_Ethanolamine phosphate,RF,10-fold,2,Brachyspira aalborgi,0.012059127495517376
+C00346_Ethanolamine phosphate,RF,10-fold,3,Dialister sp000434475,0.00873480503207016
+C00346_Ethanolamine phosphate,RF,10-fold,4,Copromorpha sp905193765,0.00860915079008953
+C00346_Ethanolamine phosphate,RF,10-fold,5,Fusobacterium_A ulcerans,0.007442664309831014
+C00346_Ethanolamine phosphate,RF,10-fold,6,Slackia_A equolifaciens,0.007432540128771051
+C00346_Ethanolamine phosphate,RF,10-fold,7,Avispirillum faecium,0.0068585730335456235
+C00346_Ethanolamine phosphate,RF,10-fold,8,UBA1685 sp900546845,0.006571493316462923
+C00346_Ethanolamine phosphate,RF,10-fold,9,CAG-269 sp001916035,0.0065359487918307865
+C00346_Ethanolamine phosphate,RF,10-fold,10,Paratractidigestivibacter faecalis,0.006476239770502597
+C01879_5-Oxoproline,XGBoost,10-fold,1,Scatavimonas merdipullorum,0.038283176720142365
+C01879_5-Oxoproline,XGBoost,10-fold,2,Cupidesulfovibrio vulgaris_A,0.034907229244709015
+C01879_5-Oxoproline,XGBoost,10-fold,3,Cetobacterium_A sp905216205,0.03127303346991539
+C01879_5-Oxoproline,XGBoost,10-fold,4,Collinsella ihuae,0.02789182774722576
+C01879_5-Oxoproline,XGBoost,10-fold,5,Alistipes avistercoris,0.023481624200940132
+C01879_5-Oxoproline,XGBoost,10-fold,6,UMGS687 sp900545735,0.022597944363951683
+C01879_5-Oxoproline,XGBoost,10-fold,7,UMGS1322 sp905214315,0.02249518595635891
+C01879_5-Oxoproline,XGBoost,10-fold,8,Aphodousia sp900553105,0.018994389101862907
+C01879_5-Oxoproline,XGBoost,10-fold,9,Limisoma sp000437795,0.017892612144351006
+C01879_5-Oxoproline,XGBoost,10-fold,10,CAG-170 sp000432135,0.0165574811398983
+C01879_5-Oxoproline,LightGBM,10-fold,1,Alistipes avistercoris,0.042025176136361385
+C01879_5-Oxoproline,LightGBM,10-fold,2,UMGS687 sp900545735,0.037843356091487146
+C01879_5-Oxoproline,LightGBM,10-fold,3,Cupidesulfovibrio vulgaris_A,0.036838744885700145
+C01879_5-Oxoproline,LightGBM,10-fold,4,Collinsella ihuae,0.03413208948012537
+C01879_5-Oxoproline,LightGBM,10-fold,5,Scatavimonas merdipullorum,0.026807115825949062
+C01879_5-Oxoproline,LightGBM,10-fold,6,UMGS1322 sp905214315,0.02558672220626142
+C01879_5-Oxoproline,LightGBM,10-fold,7,Cetobacterium_A sp905216205,0.021634185312105515
+C01879_5-Oxoproline,LightGBM,10-fold,8,Aphodousia sp900553105,0.017137761933283775
+C01879_5-Oxoproline,LightGBM,10-fold,9,Alkalihalobacillus_A sp007293315,0.01649533874694799
+C01879_5-Oxoproline,LightGBM,10-fold,10,Evtepia excrementipullorum,0.016238910882531866
+C01879_5-Oxoproline,RF,10-fold,1,Scatavimonas merdipullorum,0.02203949667506284
+C01879_5-Oxoproline,RF,10-fold,2,Alistipes avistercoris,0.013845708422614542
+C01879_5-Oxoproline,RF,10-fold,3,Evtepia excrementipullorum,0.012526606538001018
+C01879_5-Oxoproline,RF,10-fold,4,CAG-170 sp000432135,0.01098872672112853
+C01879_5-Oxoproline,RF,10-fold,5,UMGS687 sp900545735,0.010952931369985801
+C01879_5-Oxoproline,RF,10-fold,6,Limisoma sp000437795,0.009392924135576129
+C01879_5-Oxoproline,RF,10-fold,7,Sutterella wadsworthensis,0.009314568632684763
+C01879_5-Oxoproline,RF,10-fold,8,ER4 sp000765235,0.009304484479847322
+C01879_5-Oxoproline,RF,10-fold,9,UMGS1322 sp905214315,0.00886066533387216
+C01879_5-Oxoproline,RF,10-fold,10,Avispirillum faecium,0.00849797911251045
+C16741_5-Hydroxylysine,XGBoost,10-fold,1,Alistipes shahii,0.1062355786561966
+C16741_5-Hydroxylysine,XGBoost,10-fold,2,Clostridium_A leptum,0.02181253209710121
+C16741_5-Hydroxylysine,XGBoost,10-fold,3,UBA11540 sp003445125,0.01616743952035904
+C16741_5-Hydroxylysine,XGBoost,10-fold,4,W3P20-009 sp015061285,0.015513322316110134
+C16741_5-Hydroxylysine,XGBoost,10-fold,5,UMGS1322 sp905214315,0.014945226721465588
+C16741_5-Hydroxylysine,XGBoost,10-fold,6,Bifidobacterium bifidum,0.012759705074131489
+C16741_5-Hydroxylysine,XGBoost,10-fold,7,Evtepia excrementipullorum,0.012614374980330467
+C16741_5-Hydroxylysine,XGBoost,10-fold,8,Acidaminococcus intestini,0.012121642008423805
+C16741_5-Hydroxylysine,XGBoost,10-fold,9,Spyradomonas sp900547585,0.011966708116233349
+C16741_5-Hydroxylysine,XGBoost,10-fold,10,Lachnospira sp003537285,0.011908293701708317
+C16741_5-Hydroxylysine,LightGBM,10-fold,1,Alistipes shahii,0.10368304940781625
+C16741_5-Hydroxylysine,LightGBM,10-fold,2,Clostridium_A leptum,0.03482118475505868
+C16741_5-Hydroxylysine,LightGBM,10-fold,3,Evtepia excrementipullorum,0.021355084994392984
+C16741_5-Hydroxylysine,LightGBM,10-fold,4,HGM11417 sp900761895,0.021135382632095884
+C16741_5-Hydroxylysine,LightGBM,10-fold,5,Alistipes onderdonkii,0.018074494859448963
+C16741_5-Hydroxylysine,LightGBM,10-fold,6,W3P20-009 sp015061285,0.016581416703258037
+C16741_5-Hydroxylysine,LightGBM,10-fold,7,Lachnospira sp003537285,0.016105191240964826
+C16741_5-Hydroxylysine,LightGBM,10-fold,8,Bifidobacterium bifidum,0.015381371520192928
+C16741_5-Hydroxylysine,LightGBM,10-fold,9,Acidaminococcus intestini,0.015043670178100115
+C16741_5-Hydroxylysine,LightGBM,10-fold,10,Acidaminococcus sp905213155,0.014107047778636087
+C16741_5-Hydroxylysine,RF,10-fold,1,Alistipes shahii,0.09215025732522465
+C16741_5-Hydroxylysine,RF,10-fold,2,Clostridium_A leptum,0.02625042602416383
+C16741_5-Hydroxylysine,RF,10-fold,3,QAMH01 sp900544245,0.013795272501905912
+C16741_5-Hydroxylysine,RF,10-fold,4,Evtepia excrementipullorum,0.01338096508259069
+C16741_5-Hydroxylysine,RF,10-fold,5,UMGS1322 sp905214315,0.010631615161123084
+C16741_5-Hydroxylysine,RF,10-fold,6,Lachnospira sp003537285,0.009325340486415614
+C16741_5-Hydroxylysine,RF,10-fold,7,Alistipes onderdonkii,0.008263103541081767
+C16741_5-Hydroxylysine,RF,10-fold,8,Acidaminococcus intestini,0.005311260489542797
+C16741_5-Hydroxylysine,RF,10-fold,9,Alangreenwoodia gallinarii,0.005197432008495529
+C16741_5-Hydroxylysine,RF,10-fold,10,W3P20-009 sp015061285,0.00516194633291829
+C08277_Sebacate,XGBoost,10-fold,1,UBA5905 sp900763035,0.16056281328201294
+C08277_Sebacate,XGBoost,10-fold,2,Flemingibacterium merdigallinarum,0.03365310654044151
+C08277_Sebacate,XGBoost,10-fold,3,Alangreenwoodia gallinarii,0.03355366736650467
+C08277_Sebacate,XGBoost,10-fold,4,Spyradocola merdavium,0.03161739557981491
+C08277_Sebacate,XGBoost,10-fold,5,Copromorpha sp905193765,0.027097787708044052
+C08277_Sebacate,XGBoost,10-fold,6,UMGS693 sp900544555,0.023199371993541718
+C08277_Sebacate,XGBoost,10-fold,7,Scatavimonas merdipullorum,0.022103065624833107
+C08277_Sebacate,XGBoost,10-fold,8,Avichristensenella intestinipullorum,0.01826745644211769
+C08277_Sebacate,XGBoost,10-fold,9,Veillonella atypica,0.015932323411107063
+C08277_Sebacate,XGBoost,10-fold,10,CAG-103 sp900543625,0.015876343473792076
+C08277_Sebacate,LightGBM,10-fold,1,UBA5905 sp900763035,0.151918055138945
+C08277_Sebacate,LightGBM,10-fold,2,Flemingibacterium merdigallinarum,0.03295712463439929
+C08277_Sebacate,LightGBM,10-fold,3,Spyradocola merdavium,0.032281216663396964
+C08277_Sebacate,LightGBM,10-fold,4,UMGS693 sp900544555,0.03210747071823264
+C08277_Sebacate,LightGBM,10-fold,5,UBA3855 sp017460955,0.026980522203629138
+C08277_Sebacate,LightGBM,10-fold,6,Scatavimonas merdipullorum,0.02557019264640928
+C08277_Sebacate,LightGBM,10-fold,7,Alangreenwoodia gallinarii,0.020721930023450005
+C08277_Sebacate,LightGBM,10-fold,8,Copromorpha sp905193765,0.020060132103866233
+C08277_Sebacate,LightGBM,10-fold,9,Veillonella atypica,0.018706038973175815
+C08277_Sebacate,LightGBM,10-fold,10,Avichristensenella intestinipullorum,0.018161013327093033
+C08277_Sebacate,RF,10-fold,1,UBA5905 sp900763035,0.2185073549276822
+C08277_Sebacate,RF,10-fold,2,Spyradocola merdavium,0.03229272787602999
+C08277_Sebacate,RF,10-fold,3,UBA3855 sp017460955,0.017558640834594956
+C08277_Sebacate,RF,10-fold,4,Flemingibacterium merdigallinarum,0.01720944048811115
+C08277_Sebacate,RF,10-fold,5,Scatavimonas merdipullorum,0.015405968482389574
+C08277_Sebacate,RF,10-fold,6,Alangreenwoodia gallinarii,0.013128382431731754
+C08277_Sebacate,RF,10-fold,7,Limivicinus faecipullorum,0.012090663299244343
+C08277_Sebacate,RF,10-fold,8,UMGS693 sp900544555,0.011593871943359396
+C08277_Sebacate,RF,10-fold,9,Copromorpha sp905193765,0.01104709790866734
+C08277_Sebacate,RF,10-fold,10,Negativibacillus massiliensis,0.008714779146385613
+C01015_Hydroxyproline,XGBoost,10-fold,1,Clostridium_A leptum,0.026668844744563103
+C01015_Hydroxyproline,XGBoost,10-fold,2,Gemmiger qucibialis,0.02273702621459961
+C01015_Hydroxyproline,XGBoost,10-fold,3,Faecousia sp003525905,0.018477562814950943
+C01015_Hydroxyproline,XGBoost,10-fold,4,CAG-177 sp002438685,0.017021890729665756
+C01015_Hydroxyproline,XGBoost,10-fold,5,ER4 sp900552015,0.014489293098449707
+C01015_Hydroxyproline,XGBoost,10-fold,6,Flemingibacterium merdigallinarum,0.014203346334397793
+C01015_Hydroxyproline,XGBoost,10-fold,7,Bilophila wadsworthia,0.01215919479727745
+C01015_Hydroxyproline,XGBoost,10-fold,8,Anaerostipes hadrus,0.012001181952655315
+C01015_Hydroxyproline,XGBoost,10-fold,9,Lachnospira eligens,0.011883639730513096
+C01015_Hydroxyproline,XGBoost,10-fold,10,Dysgonomonas mossii,0.011493728496134281
+C01015_Hydroxyproline,LightGBM,10-fold,1,Clostridium_A leptum,0.03482526790737044
+C01015_Hydroxyproline,LightGBM,10-fold,2,Copromonas sp000435795,0.02829310816200882
+C01015_Hydroxyproline,LightGBM,10-fold,3,Dysgonomonas mossii,0.02275290143841024
+C01015_Hydroxyproline,LightGBM,10-fold,4,ER4 sp900552015,0.01884432840202736
+C01015_Hydroxyproline,LightGBM,10-fold,5,Agathobacter sp900317585,0.017176625953401047
+C01015_Hydroxyproline,LightGBM,10-fold,6,Faecousia sp003525905,0.016800436089561863
+C01015_Hydroxyproline,LightGBM,10-fold,7,UBA11524 sp000437595,0.015341693062950235
+C01015_Hydroxyproline,LightGBM,10-fold,8,Gemmiger qucibialis,0.015251430701578042
+C01015_Hydroxyproline,LightGBM,10-fold,9,Lachnospira sp000436535,0.015245620476011234
+C01015_Hydroxyproline,LightGBM,10-fold,10,Faecalibacterium prausnitzii,0.015149137360063486
+C01015_Hydroxyproline,RF,10-fold,1,Clostridium_A leptum,0.019221692752594565
+C01015_Hydroxyproline,RF,10-fold,2,Gemmiger qucibialis,0.016208817586820808
+C01015_Hydroxyproline,RF,10-fold,3,Lachnospira sp000436535,0.01053653761951609
+C01015_Hydroxyproline,RF,10-fold,4,ER4 sp900552015,0.010199808922166308
+C01015_Hydroxyproline,RF,10-fold,5,Collinsella sp900555555,0.009565573109774243
+C01015_Hydroxyproline,RF,10-fold,6,Flemingibacterium merdigallinarum,0.008314951005396478
+C01015_Hydroxyproline,RF,10-fold,7,Lachnospira sp003537285,0.0070143177224495715
+C01015_Hydroxyproline,RF,10-fold,8,Copromonas sp000435795,0.006944939752841407
+C01015_Hydroxyproline,RF,10-fold,9,Faecousia sp003525905,0.006732266945349798
+C01015_Hydroxyproline,RF,10-fold,10,Catenibacterium sp900764565,0.006246774640139596
+C02037_Gly-Gly,XGBoost,10-fold,1,CAG-793 sp013333035,0.048265423625707626
+C02037_Gly-Gly,XGBoost,10-fold,2,Egerieicola pullicola,0.024204999208450317
+C02037_Gly-Gly,XGBoost,10-fold,3,Acutalibacter sp910580045,0.020372455939650536
+C02037_Gly-Gly,XGBoost,10-fold,4,Streptococcus parauberis,0.02002730220556259
+C02037_Gly-Gly,XGBoost,10-fold,5,Pauljensenia georgiae,0.018885480239987373
+C02037_Gly-Gly,XGBoost,10-fold,6,Faecalibacterium sp900539945,0.016814706847071648
+C02037_Gly-Gly,XGBoost,10-fold,7,Agathobacter faecis,0.016502875834703445
+C02037_Gly-Gly,XGBoost,10-fold,8,Pauljensenia turicensis,0.015251833945512772
+C02037_Gly-Gly,XGBoost,10-fold,9,Fimivicinus sp900544375,0.01392756961286068
+C02037_Gly-Gly,XGBoost,10-fold,10,Alistipes onderdonkii,0.01381952315568924
+C02037_Gly-Gly,LightGBM,10-fold,1,CAG-793 sp013333035,0.04745837888912204
+C02037_Gly-Gly,LightGBM,10-fold,2,Egerieicola pullicola,0.02511712245851594
+C02037_Gly-Gly,LightGBM,10-fold,3,Streptococcus parauberis,0.02271464441144999
+C02037_Gly-Gly,LightGBM,10-fold,4,Acutalibacter sp910580045,0.01942075311100229
+C02037_Gly-Gly,LightGBM,10-fold,5,Pauljensenia georgiae,0.01878392027359703
+C02037_Gly-Gly,LightGBM,10-fold,6,Pauljensenia turicensis,0.018059322564286447
+C02037_Gly-Gly,LightGBM,10-fold,7,BMI,0.017066592717947474
+C02037_Gly-Gly,LightGBM,10-fold,8,Fimivicinus sp900544375,0.016729768464227135
+C02037_Gly-Gly,LightGBM,10-fold,9,Akkermansia muciniphila_B,0.016432763495087
+C02037_Gly-Gly,LightGBM,10-fold,10,Alistipes onderdonkii,0.015524859295243052
+C02037_Gly-Gly,RF,10-fold,1,CAG-793 sp013333035,0.031801366854203775
+C02037_Gly-Gly,RF,10-fold,2,Acutalibacter sp910580045,0.014054981422897002
+C02037_Gly-Gly,RF,10-fold,3,Streptococcus parauberis,0.011712975360643323
+C02037_Gly-Gly,RF,10-fold,4,Egerieicola pullicola,0.010801920401724015
+C02037_Gly-Gly,RF,10-fold,5,Fimivicinus sp900544375,0.009102501323085576
+C02037_Gly-Gly,RF,10-fold,6,Faecalibacterium prausnitzii_D,0.008175819261279254
+C02037_Gly-Gly,RF,10-fold,7,Pauljensenia georgiae,0.007873699901895383
+C02037_Gly-Gly,RF,10-fold,8,Fusobacterium_B sp900542625,0.007656802511824648
+C02037_Gly-Gly,RF,10-fold,9,Avimicrobium caecorum,0.007013261649111712
+C02037_Gly-Gly,RF,10-fold,10,Pauljensenia turicensis,0.006749184512556566
+_DCA,XGBoost,10-fold,1,Alistipes_A ihumii,0.06543372571468353
+_DCA,XGBoost,10-fold,2,Alistipes onderdonkii,0.0540008582174778
+_DCA,XGBoost,10-fold,3,Acidaminococcus intestini,0.041682690382003784
+_DCA,XGBoost,10-fold,4,QAMH01 sp900544245,0.038225576281547546
+_DCA,XGBoost,10-fold,5,Barb7 sp001657575,0.036691393703222275
+_DCA,XGBoost,10-fold,6,Aphodousia sp900545335,0.03594719618558884
+_DCA,XGBoost,10-fold,7,Scatavimonas sp900540275,0.03162986785173416
+_DCA,XGBoost,10-fold,8,Bifidobacterium adolescentis,0.024518711492419243
+_DCA,XGBoost,10-fold,9,Romboutsia_C hominis,0.021614959463477135
+_DCA,XGBoost,10-fold,10,Faecimonas sp905209745,0.019091827794909477
+_DCA,LightGBM,10-fold,1,Alistipes_A ihumii,0.07110061710234118
+_DCA,LightGBM,10-fold,2,Alistipes onderdonkii,0.06157753119595235
+_DCA,LightGBM,10-fold,3,Acidaminococcus intestini,0.04507056036914219
+_DCA,LightGBM,10-fold,4,Scatavimonas sp900540275,0.04291457499161315
+_DCA,LightGBM,10-fold,5,Aphodousia sp900545335,0.03925957194226637
+_DCA,LightGBM,10-fold,6,UBA737 sp902762875,0.03393211679169216
+_DCA,LightGBM,10-fold,7,QAMH01 sp900544245,0.033645540418977084
+_DCA,LightGBM,10-fold,8,Romboutsia_C hominis,0.03098951392728865
+_DCA,LightGBM,10-fold,9,Peptococcus niger,0.029920627952562385
+_DCA,LightGBM,10-fold,10,Barb7 sp001657575,0.02748193687122023
+_DCA,RF,10-fold,1,Alistipes onderdonkii,0.0481538751186861
+_DCA,RF,10-fold,2,Alistipes_A ihumii,0.040995964318904
+_DCA,RF,10-fold,3,Bilophila wadsworthia,0.020969823372368246
+_DCA,RF,10-fold,4,Bifidobacterium adolescentis,0.01591430801259993
+_DCA,RF,10-fold,5,Paraclostridium tenue,0.013240569426636083
+_DCA,RF,10-fold,6,Scatavimonas sp900540275,0.0131048348872965
+_DCA,RF,10-fold,7,Faecalibacterium prausnitzii_G,0.012329302412614145
+_DCA,RF,10-fold,8,Turicibacter sp001543345,0.011689479344341044
+_DCA,RF,10-fold,9,Veillonella parvula_A,0.01128217883884512
+_DCA,RF,10-fold,10,Clostridium saudiense,0.01069147780945216
+C00879_Mucate,XGBoost,10-fold,1,UBA11540 sp003445125,0.03775385022163391
+C00879_Mucate,XGBoost,10-fold,2,Duncaniella sp910586665,0.02396233193576336
+C00879_Mucate,XGBoost,10-fold,3,CAG-177 sp003514385,0.023798687383532524
+C00879_Mucate,XGBoost,10-fold,4,Leptotrichia_A sp001274535,0.021962251514196396
+C00879_Mucate,XGBoost,10-fold,5,Collinsella ihuae,0.019060304388403893
+C00879_Mucate,XGBoost,10-fold,6,Slackia_A isoflavoniconvertens,0.014381833374500275
+C00879_Mucate,XGBoost,10-fold,7,Klebsiella aerogenes,0.014353035017848015
+C00879_Mucate,XGBoost,10-fold,8,CAG-103 sp900757655,0.01267049740999937
+C00879_Mucate,XGBoost,10-fold,9,Acidaminococcus sp900315205,0.012570776976644993
+C00879_Mucate,XGBoost,10-fold,10,Klebsiella africana,0.011546782217919827
+C00879_Mucate,LightGBM,10-fold,1,UBA11540 sp003445125,0.035558143376757424
+C00879_Mucate,LightGBM,10-fold,2,Duncaniella sp910586665,0.03216305515350597
+C00879_Mucate,LightGBM,10-fold,3,CAG-177 sp003514385,0.027521993059795486
+C00879_Mucate,LightGBM,10-fold,4,Leptotrichia_A sp001274535,0.026476537263515502
+C00879_Mucate,LightGBM,10-fold,5,Klebsiella africana,0.025523467436134963
+C00879_Mucate,LightGBM,10-fold,6,Limimorpha sp015061335,0.023581740676399423
+C00879_Mucate,LightGBM,10-fold,7,CAG-475 sp900763875,0.023495654872457614
+C00879_Mucate,LightGBM,10-fold,8,Gallimonas faecium,0.022181719472589744
+C00879_Mucate,LightGBM,10-fold,9,UBA4334 sp902801475,0.021293248050486782
+C00879_Mucate,LightGBM,10-fold,10,CAG-103 sp900757655,0.020528500714787665
+C00879_Mucate,RF,10-fold,1,UBA11540 sp003445125,0.024823540319651543
+C00879_Mucate,RF,10-fold,2,Scatavimonas merdipullorum,0.005976446444760176
+C00879_Mucate,RF,10-fold,3,Copromorpha sp905193765,0.0053013583729024805
+C00879_Mucate,RF,10-fold,4,Leptotrichia_A sp001274535,0.005049868601090936
+C00879_Mucate,RF,10-fold,5,CAIFEB01 sp903789375,0.005045216994950039
+C00879_Mucate,RF,10-fold,6,Prevotella sp002440225,0.004826237927098979
+C00879_Mucate,RF,10-fold,7,ER4 sp900552015,0.004810578381200939
+C00879_Mucate,RF,10-fold,8,Cryptobacteroides sp000431015,0.004757640095446043
+C00879_Mucate,RF,10-fold,9,CAG-83 sp000435555,0.004698746676860605
+C00879_Mucate,RF,10-fold,10,CAG-103 sp900757655,0.004661773181629158
+C01551_Allantoin,XGBoost,10-fold,1,Cryptobacterium curtum,0.047260597348213196
+C01551_Allantoin,XGBoost,10-fold,2,Ruminococcus_C sp000980705,0.04445935785770416
+C01551_Allantoin,XGBoost,10-fold,3,UBA1829 sp900548385,0.03965245559811592
+C01551_Allantoin,XGBoost,10-fold,4,Pauljensenia turicensis,0.030960358679294586
+C01551_Allantoin,XGBoost,10-fold,5,Ruminococcus_D bicirculans,0.027453189715743065
+C01551_Allantoin,XGBoost,10-fold,6,Aphodousia sp905212345,0.027214564383029938
+C01551_Allantoin,XGBoost,10-fold,7,Prevotella pectinovora,0.02493928372859955
+C01551_Allantoin,XGBoost,10-fold,8,Brachyspira aalborgi,0.024829059839248657
+C01551_Allantoin,XGBoost,10-fold,9,Pseudobutyrivibrio ruminis_D,0.02460775524377823
+C01551_Allantoin,XGBoost,10-fold,10,Limisoma sp000437795,0.02456897310912609
+C01551_Allantoin,LightGBM,10-fold,1,Ruminococcus_C sp000980705,0.05303494338108421
+C01551_Allantoin,LightGBM,10-fold,2,UBA1829 sp900548385,0.04127061704234389
+C01551_Allantoin,LightGBM,10-fold,3,Aphodousia sp905212345,0.03808180003376856
+C01551_Allantoin,LightGBM,10-fold,4,Cryptobacterium curtum,0.037785748255547154
+C01551_Allantoin,LightGBM,10-fold,5,Brachyspira aalborgi,0.03404234084401176
+C01551_Allantoin,LightGBM,10-fold,6,Actinomyces israelii,0.033853542679859495
+C01551_Allantoin,LightGBM,10-fold,7,Limisoma sp000437795,0.03331604658636398
+C01551_Allantoin,LightGBM,10-fold,8,Raoultibacter timonensis,0.031204065151611605
+C01551_Allantoin,LightGBM,10-fold,9,Pauljensenia turicensis,0.02915793092472403
+C01551_Allantoin,LightGBM,10-fold,10,Faecivicinus avistercoris,0.028920255708761108
+C01551_Allantoin,RF,10-fold,1,Ruminococcus_C sp000980705,0.03128078457162155
+C01551_Allantoin,RF,10-fold,2,Prevotella pectinovora,0.019635826235507026
+C01551_Allantoin,RF,10-fold,3,Aphodousia sp905212345,0.01781948531418113
+C01551_Allantoin,RF,10-fold,4,UBA1829 sp900548385,0.016249451936593922
+C01551_Allantoin,RF,10-fold,5,Cryptobacterium curtum,0.01405163972037443
+C01551_Allantoin,RF,10-fold,6,Enterobacter ludwigii,0.012068396784474236
+C01551_Allantoin,RF,10-fold,7,Actinomyces israelii,0.011866921411755943
+C01551_Allantoin,RF,10-fold,8,Dialister invisus,0.010261477130334692
+C01551_Allantoin,RF,10-fold,9,Eubacterium_G ventriosum,0.010059925090430076
+C01551_Allantoin,RF,10-fold,10,CAG-485 sp910578075,0.010035100130057137
+C00630_Isobutyryl CoA,XGBoost,10-fold,1,Erysipelatoclostridium ramosum,0.05359480530023575
+C00630_Isobutyryl CoA,XGBoost,10-fold,2,Collinsella sp900555555,0.02518714964389801
+C00630_Isobutyryl CoA,XGBoost,10-fold,3,Lachnospira eligens,0.024653436616063118
+C00630_Isobutyryl CoA,XGBoost,10-fold,4,Faecalibacterium prausnitzii_D,0.021022705361247063
+C00630_Isobutyryl CoA,XGBoost,10-fold,5,UMGS1590 sp900552455,0.020462485030293465
+C00630_Isobutyryl CoA,XGBoost,10-fold,6,Gender_Male,0.020253881812095642
+C00630_Isobutyryl CoA,XGBoost,10-fold,7,ER4 sp000765235,0.018641842529177666
+C00630_Isobutyryl CoA,XGBoost,10-fold,8,CAG-873 sp002633115,0.017077364027500153
+C00630_Isobutyryl CoA,XGBoost,10-fold,9,Lachnospira sp000436475,0.016659244894981384
+C00630_Isobutyryl CoA,XGBoost,10-fold,10,Eubacterium_G ventriosum,0.015141472220420837
+C00630_Isobutyryl CoA,LightGBM,10-fold,1,Erysipelatoclostridium ramosum,0.04728808185248266
+C00630_Isobutyryl CoA,LightGBM,10-fold,2,Collinsella sp900555555,0.04001903863256666
+C00630_Isobutyryl CoA,LightGBM,10-fold,3,UMGS1590 sp900552455,0.029355974876104397
+C00630_Isobutyryl CoA,LightGBM,10-fold,4,Faecalibacterium prausnitzii_D,0.02321540151543066
+C00630_Isobutyryl CoA,LightGBM,10-fold,5,Lachnospira sp000436475,0.019420943889110153
+C00630_Isobutyryl CoA,LightGBM,10-fold,6,CAG-873 sp002633115,0.0192032685814649
+C00630_Isobutyryl CoA,LightGBM,10-fold,7,Lachnospira eligens,0.0188396939318676
+C00630_Isobutyryl CoA,LightGBM,10-fold,8,Paraclostridium tenue,0.017849381560364315
+C00630_Isobutyryl CoA,LightGBM,10-fold,9,Eubacterium_G ventriosum,0.01762073055737413
+C00630_Isobutyryl CoA,LightGBM,10-fold,10,Prevotella sp900552515,0.017114565187256865
+C00630_Isobutyryl CoA,RF,10-fold,1,Erysipelatoclostridium ramosum,0.04107560814699542
+C00630_Isobutyryl CoA,RF,10-fold,2,Lachnospira eligens,0.01650009678372053
+C00630_Isobutyryl CoA,RF,10-fold,3,ER4 sp000765235,0.016280656955937563
+C00630_Isobutyryl CoA,RF,10-fold,4,Collinsella sp900555555,0.011754042858258493
+C00630_Isobutyryl CoA,RF,10-fold,5,Roseburia inulinivorans,0.010411815980606878
+C00630_Isobutyryl CoA,RF,10-fold,6,Eubacterium_G ventriosum,0.010406807504872365
+C00630_Isobutyryl CoA,RF,10-fold,7,Faecalibacterium sp900539945,0.009841758616861044
+C00630_Isobutyryl CoA,RF,10-fold,8,UMGS1590 sp900552455,0.008940005752378547
+C00630_Isobutyryl CoA,RF,10-fold,9,Intestinibacter sp900540355,0.008636562290828704
+C00630_Isobutyryl CoA,RF,10-fold,10,Lachnospira sp000436475,0.00834425939420665
+C02378_6-Aminohexanoate,XGBoost,10-fold,1,UMGS693 sp900544555,0.10666875541210175
+C02378_6-Aminohexanoate,XGBoost,10-fold,2,UBA3818 sp904397845,0.03178669512271881
+C02378_6-Aminohexanoate,XGBoost,10-fold,3,Alistipes avistercoris,0.026012679561972618
+C02378_6-Aminohexanoate,XGBoost,10-fold,4,Romboutsia_A weinsteinii,0.022044256329536438
+C02378_6-Aminohexanoate,XGBoost,10-fold,5,Paratractidigestivibacter faecalis,0.019880827516317368
+C02378_6-Aminohexanoate,XGBoost,10-fold,6,Prevotella sp900543975,0.0192538071423769
+C02378_6-Aminohexanoate,XGBoost,10-fold,7,Duodenibacillus intestinavium,0.016791339963674545
+C02378_6-Aminohexanoate,XGBoost,10-fold,8,Collinsella sp900555555,0.016625506803393364
+C02378_6-Aminohexanoate,XGBoost,10-fold,9,Cetobacterium_A sp905216205,0.01648874767124653
+C02378_6-Aminohexanoate,XGBoost,10-fold,10,Slackia_A piriformis,0.01562962867319584
+C02378_6-Aminohexanoate,LightGBM,10-fold,1,UMGS693 sp900544555,0.0883749196633674
+C02378_6-Aminohexanoate,LightGBM,10-fold,2,UBA3818 sp904397845,0.04524778973698237
+C02378_6-Aminohexanoate,LightGBM,10-fold,3,Clostridium_P perfringens,0.020820933998255364
+C02378_6-Aminohexanoate,LightGBM,10-fold,4,Alistipes avistercoris,0.01973319299960947
+C02378_6-Aminohexanoate,LightGBM,10-fold,5,Romboutsia_D sp000686145,0.019384334867799512
+C02378_6-Aminohexanoate,LightGBM,10-fold,6,Cetobacterium_A sp905216205,0.01911376256676604
+C02378_6-Aminohexanoate,LightGBM,10-fold,7,Duodenibacillus intestinavium,0.01910103663728049
+C02378_6-Aminohexanoate,LightGBM,10-fold,8,Collinsella sp900555555,0.01816862568625389
+C02378_6-Aminohexanoate,LightGBM,10-fold,9,Paratractidigestivibacter faecalis,0.01802716766298158
+C02378_6-Aminohexanoate,LightGBM,10-fold,10,Romboutsia_A weinsteinii,0.017740795387352033
+C02378_6-Aminohexanoate,RF,10-fold,1,UMGS693 sp900544555,0.0863735330961116
+C02378_6-Aminohexanoate,RF,10-fold,2,UBA3818 sp904397845,0.034418025793444815
+C02378_6-Aminohexanoate,RF,10-fold,3,Alistipes avistercoris,0.012867189488579551
+C02378_6-Aminohexanoate,RF,10-fold,4,Spyradocola merdavium,0.01111199618042827
+C02378_6-Aminohexanoate,RF,10-fold,5,Alistipes shahii,0.009453765959484963
+C02378_6-Aminohexanoate,RF,10-fold,6,UBA3855 sp017460955,0.0075220644797445125
+C02378_6-Aminohexanoate,RF,10-fold,7,Paratractidigestivibacter faecalis,0.007504815118594525
+C02378_6-Aminohexanoate,RF,10-fold,8,Romboutsia_A weinsteinii,0.0072585715898902435
+C02378_6-Aminohexanoate,RF,10-fold,9,Slackia_A piriformis,0.006889407561512555
+C02378_6-Aminohexanoate,RF,10-fold,10,Clostridium sp900540255,0.006790990072139078
+C00086_Urea,XGBoost,10-fold,1,Gender_Male,0.18817046284675598
+C00086_Urea,XGBoost,10-fold,2,Pauljensenia turicensis,0.07803954184055328
+C00086_Urea,XGBoost,10-fold,3,Actinomyces gerencseriae,0.03106154128909111
+C00086_Urea,XGBoost,10-fold,4,Prevotella sp900551985,0.026598460972309113
+C00086_Urea,XGBoost,10-fold,5,CAG-793 sp013333035,0.02488495223224163
+C00086_Urea,XGBoost,10-fold,6,Prevotella sp015074785,0.024091297760605812
+C00086_Urea,XGBoost,10-fold,7,Brachyspira aalborgi,0.022797461599111557
+C00086_Urea,XGBoost,10-fold,8,Eubacterium_T sp900766045,0.02112516760826111
+C00086_Urea,XGBoost,10-fold,9,Prevotella copri_A,0.020350897684693336
+C00086_Urea,XGBoost,10-fold,10,S5-A14a sp000758905,0.01998835988342762
+C00086_Urea,LightGBM,10-fold,1,Gender_Male,0.18565219151860243
+C00086_Urea,LightGBM,10-fold,2,Pauljensenia turicensis,0.07683065920898109
+C00086_Urea,LightGBM,10-fold,3,CAG-793 sp013333035,0.03235921527929045
+C00086_Urea,LightGBM,10-fold,4,Prevotella sp900551985,0.030055070064398427
+C00086_Urea,LightGBM,10-fold,5,Meiothermus_B silvanus,0.026638522573401116
+C00086_Urea,LightGBM,10-fold,6,Lachnospira sp000436535,0.02591204764263311
+C00086_Urea,LightGBM,10-fold,7,Brachyspira aalborgi,0.025183548101767407
+C00086_Urea,LightGBM,10-fold,8,Prevotella sp015074785,0.02370623594479998
+C00086_Urea,LightGBM,10-fold,9,Fusobacterium_A ulcerans_A,0.023350853986785405
+C00086_Urea,LightGBM,10-fold,10,Eubacterium_T sp900766045,0.02262788860152896
+C00086_Urea,RF,10-fold,1,Gender_Male,0.15350905596191636
+C00086_Urea,RF,10-fold,2,Pauljensenia turicensis,0.05767690217257213
+C00086_Urea,RF,10-fold,3,Actinomyces gerencseriae,0.01790335336687931
+C00086_Urea,RF,10-fold,4,S5-A14a sp000758905,0.015319830352356081
+C00086_Urea,RF,10-fold,5,CAG-1427 sp900542265,0.013443962599740705
+C00086_Urea,RF,10-fold,6,Brachyspira aalborgi,0.011319414591821002
+C00086_Urea,RF,10-fold,7,Prevotella copri_A,0.009528565504976778
+C00086_Urea,RF,10-fold,8,Lachnospira sp000437735,0.009342071920059515
+C00086_Urea,RF,10-fold,9,CAG-793 sp013333035,0.009306712630889957
+C00086_Urea,RF,10-fold,10,Faecalibacillus intestinalis,0.008432056106466941
+C01425_Glu-Glu,XGBoost,10-fold,1,Lachnospira sp000436475,0.07372213900089264
+C01425_Glu-Glu,XGBoost,10-fold,2,Neisseria subflava_A,0.027834342792630196
+C01425_Glu-Glu,XGBoost,10-fold,3,Erwinia mallotivora,0.027427008375525475
+C01425_Glu-Glu,XGBoost,10-fold,4,Fusobacterium sp000235465,0.020580092445015907
+C01425_Glu-Glu,XGBoost,10-fold,5,Lachnospira sp000436535,0.018585341051220894
+C01425_Glu-Glu,XGBoost,10-fold,6,CAG-793 sp013333035,0.018581636250019073
+C01425_Glu-Glu,XGBoost,10-fold,7,Bacillus_T coahuilensis,0.01618228666484356
+C01425_Glu-Glu,XGBoost,10-fold,8,Romboutsia_C hominis,0.014858684502542019
+C01425_Glu-Glu,XGBoost,10-fold,9,Cupidesulfovibrio vulgaris_A,0.014294855296611786
+C01425_Glu-Glu,XGBoost,10-fold,10,Lachnospira rogosae_A,0.014169568195939064
+C01425_Glu-Glu,LightGBM,10-fold,1,Lachnospira sp000436475,0.06457591958933295
+C01425_Glu-Glu,LightGBM,10-fold,2,Erwinia mallotivora,0.03349235078482752
+C01425_Glu-Glu,LightGBM,10-fold,3,Fusobacterium sp000235465,0.02982996177642134
+C01425_Glu-Glu,LightGBM,10-fold,4,Neisseria subflava_A,0.026959858067377943
+C01425_Glu-Glu,LightGBM,10-fold,5,Bacillus_T coahuilensis,0.019754769961711393
+C01425_Glu-Glu,LightGBM,10-fold,6,CAG-793 sp013333035,0.01549107318101548
+C01425_Glu-Glu,LightGBM,10-fold,7,Romboutsia_C hominis,0.0154851762942638
+C01425_Glu-Glu,LightGBM,10-fold,8,Cupidesulfovibrio vulgaris_A,0.015334190367867902
+C01425_Glu-Glu,LightGBM,10-fold,9,Phascolarctobacterium_A sp900753045,0.014977072934360833
+C01425_Glu-Glu,LightGBM,10-fold,10,Faecalibacterium prausnitzii_G,0.013970087079644535
+C01425_Glu-Glu,RF,10-fold,1,Lachnospira sp000436475,0.041530998794509694
+C01425_Glu-Glu,RF,10-fold,2,Lachnospira sp000436535,0.018416640265808953
+C01425_Glu-Glu,RF,10-fold,3,Lachnospira rogosae_A,0.014661453532126218
+C01425_Glu-Glu,RF,10-fold,4,Erwinia mallotivora,0.014132564087303272
+C01425_Glu-Glu,RF,10-fold,5,Neisseria subflava_A,0.013471152200430138
+C01425_Glu-Glu,RF,10-fold,6,Fusobacterium sp000235465,0.013151910312246069
+C01425_Glu-Glu,RF,10-fold,7,Faecalibacterium prausnitzii_D,0.010182225997736025
+C01425_Glu-Glu,RF,10-fold,8,Bacillus_T coahuilensis,0.008331600538687289
+C01425_Glu-Glu,RF,10-fold,9,Erysipelatoclostridium ramosum,0.007263182710255546
+C01425_Glu-Glu,RF,10-fold,10,Neisseria flavescens_C,0.006781633327622193
+C00491_Cystine,XGBoost,10-fold,1,Leptotrichia_A sp001274535,0.06079317629337311
+C00491_Cystine,XGBoost,10-fold,2,Neisseria flavescens_C,0.058390822261571884
+C00491_Cystine,XGBoost,10-fold,3,Fusobacterium sp000235465,0.03740028291940689
+C00491_Cystine,XGBoost,10-fold,4,Meiothermus_B silvanus,0.029697714373469353
+C00491_Cystine,XGBoost,10-fold,5,Bacillus_T coahuilensis,0.025575602427124977
+C00491_Cystine,XGBoost,10-fold,6,Actinomyces israelii,0.021956218406558037
+C00491_Cystine,XGBoost,10-fold,7,CAG-103 sp900757655,0.01936027780175209
+C00491_Cystine,XGBoost,10-fold,8,Pauljensenia georgiae,0.018859146162867546
+C00491_Cystine,XGBoost,10-fold,9,Paenibacillus tengchongensis,0.01620583049952984
+C00491_Cystine,XGBoost,10-fold,10,Egerieicola pullicola,0.015712877735495567
+C00491_Cystine,LightGBM,10-fold,1,Neisseria flavescens_C,0.06452936180989663
+C00491_Cystine,LightGBM,10-fold,2,Leptotrichia_A sp001274535,0.06018890177929288
+C00491_Cystine,LightGBM,10-fold,3,Fusobacterium sp000235465,0.03867189269807161
+C00491_Cystine,LightGBM,10-fold,4,Meiothermus_B silvanus,0.03830673694555399
+C00491_Cystine,LightGBM,10-fold,5,Neisseria subflava_A,0.029746021905040203
+C00491_Cystine,LightGBM,10-fold,6,Pauljensenia georgiae,0.024232347772740217
+C00491_Cystine,LightGBM,10-fold,7,CAG-103 sp900757655,0.024079607557603987
+C00491_Cystine,LightGBM,10-fold,8,Egerieicola pullicola,0.022545167618283245
+C00491_Cystine,LightGBM,10-fold,9,Bacillus_T coahuilensis,0.022525268881872805
+C00491_Cystine,LightGBM,10-fold,10,CAG-1427 sp900539675,0.021291695045919413
+C00491_Cystine,RF,10-fold,1,Neisseria flavescens_C,0.04525155824697141
+C00491_Cystine,RF,10-fold,2,Leptotrichia_A sp001274535,0.026702315405216847
+C00491_Cystine,RF,10-fold,3,Actinomyces israelii,0.02173673591770526
+C00491_Cystine,RF,10-fold,4,Fusobacterium sp000235465,0.01815138676097984
+C00491_Cystine,RF,10-fold,5,Turicibacter sanguinis,0.013830909276001052
+C00491_Cystine,RF,10-fold,6,Leptotrichia wadei,0.01209077469336723
+C00491_Cystine,RF,10-fold,7,Neisseria subflava_A,0.010962153719023694
+C00491_Cystine,RF,10-fold,8,Bacillus_T coahuilensis,0.010398898190506949
+C00491_Cystine,RF,10-fold,9,Erysipelatoclostridium ramosum,0.010373653780878943
+C00491_Cystine,RF,10-fold,10,ER4 sp000765235,0.010268690626996924
+C05332_Phenethylamine,XGBoost,10-fold,1,Gemmiger qucibialis,0.14641690254211426
+C05332_Phenethylamine,XGBoost,10-fold,2,Acetatifactor sp003447295,0.04686455801129341
+C05332_Phenethylamine,XGBoost,10-fold,3,Faecalibacterium prausnitzii_C,0.04304056242108345
+C05332_Phenethylamine,XGBoost,10-fold,4,Acutalibacter sp910580045,0.022847771644592285
+C05332_Phenethylamine,XGBoost,10-fold,5,Cetobacterium_A sp000799075,0.019254401326179504
+C05332_Phenethylamine,XGBoost,10-fold,6,Limivicinus faecipullorum,0.01864681765437126
+C05332_Phenethylamine,XGBoost,10-fold,7,Ruminococcus_C callidus,0.01862831972539425
+C05332_Phenethylamine,XGBoost,10-fold,8,Streptobacillus hongkongensis,0.01714882254600525
+C05332_Phenethylamine,XGBoost,10-fold,9,Scatomorpha stercorigallinarum,0.013556240126490593
+C05332_Phenethylamine,XGBoost,10-fold,10,Faecalibacterium prausnitzii_D,0.012556136585772038
+C05332_Phenethylamine,LightGBM,10-fold,1,Gemmiger qucibialis,0.1291408725038451
+C05332_Phenethylamine,LightGBM,10-fold,2,Acetatifactor sp003447295,0.055615164229967484
+C05332_Phenethylamine,LightGBM,10-fold,3,Faecalibacterium prausnitzii_C,0.022549104602810368
+C05332_Phenethylamine,LightGBM,10-fold,4,Fusobacterium_A ulcerans,0.02197525961582263
+C05332_Phenethylamine,LightGBM,10-fold,5,Fusobacterium_A mortiferum,0.0212994734974692
+C05332_Phenethylamine,LightGBM,10-fold,6,Acutalibacter sp910580045,0.019501297266278333
+C05332_Phenethylamine,LightGBM,10-fold,7,UBA1685 sp900546845,0.018686977987869117
+C05332_Phenethylamine,LightGBM,10-fold,8,Cetobacterium_A sp000799075,0.018047162671144087
+C05332_Phenethylamine,LightGBM,10-fold,9,Faecalibacterium prausnitzii_D,0.017823572004972175
+C05332_Phenethylamine,LightGBM,10-fold,10,Ruminococcus_C sp000980705,0.016318864864439796
+C05332_Phenethylamine,RF,10-fold,1,Gemmiger qucibialis,0.15103914334827134
+C05332_Phenethylamine,RF,10-fold,2,Acetatifactor sp003447295,0.04480928235106661
+C05332_Phenethylamine,RF,10-fold,3,Faecalibacterium prausnitzii_D,0.0155992867697805
+C05332_Phenethylamine,RF,10-fold,4,Acetatifactor intestinalis,0.01171827867772907
+C05332_Phenethylamine,RF,10-fold,5,Acutalibacter sp910580045,0.011573873331406625
+C05332_Phenethylamine,RF,10-fold,6,Ruminococcus_C callidus,0.010452157795440094
+C05332_Phenethylamine,RF,10-fold,7,Faecalibacterium prausnitzii_C,0.009936907431550976
+C05332_Phenethylamine,RF,10-fold,8,Ruminococcus_C sp000980705,0.007890850069875416
+C05332_Phenethylamine,RF,10-fold,9,Fusobacterium_A mortiferum,0.007383520540560236
+C05332_Phenethylamine,RF,10-fold,10,Fusobacterium_A ulcerans_A,0.00733978489665362
+C01118_o-Succinylhomoserine,XGBoost,10-fold,1,UMGS687 sp900545735,0.12972642481327057
+C01118_o-Succinylhomoserine,XGBoost,10-fold,2,Aphodousia sp900553105,0.04082225635647774
+C01118_o-Succinylhomoserine,XGBoost,10-fold,3,Sediminibacterium sp902168225,0.0229206345975399
+C01118_o-Succinylhomoserine,XGBoost,10-fold,4,Aphodousia sp905212345,0.017500916495919228
+C01118_o-Succinylhomoserine,XGBoost,10-fold,5,Sutterella parvirubra,0.017023282125592232
+C01118_o-Succinylhomoserine,XGBoost,10-fold,6,UBA9506 sp003506415,0.012698006816208363
+C01118_o-Succinylhomoserine,XGBoost,10-fold,7,Anaerostipes caccae,0.012132424861192703
+C01118_o-Succinylhomoserine,XGBoost,10-fold,8,Cellulosilyticum ruminicola,0.011484749615192413
+C01118_o-Succinylhomoserine,XGBoost,10-fold,9,Romboutsia_D sp000686145,0.011122018098831177
+C01118_o-Succinylhomoserine,XGBoost,10-fold,10,Campylobacter_B sp900539505,0.010867892764508724
+C01118_o-Succinylhomoserine,LightGBM,10-fold,1,UMGS687 sp900545735,0.11425445616682048
+C01118_o-Succinylhomoserine,LightGBM,10-fold,2,Aphodousia sp900553105,0.04914492730151548
+C01118_o-Succinylhomoserine,LightGBM,10-fold,3,Sediminibacterium sp902168225,0.028380921755580688
+C01118_o-Succinylhomoserine,LightGBM,10-fold,4,Aphodousia sp905212345,0.02473569935737337
+C01118_o-Succinylhomoserine,LightGBM,10-fold,5,Alkalihalobacillus_A sp007293315,0.020899618669597206
+C01118_o-Succinylhomoserine,LightGBM,10-fold,6,Duodenibacillus intestinavium,0.02019677199098337
+C01118_o-Succinylhomoserine,LightGBM,10-fold,7,Meiothermus_B silvanus,0.01853575007986728
+C01118_o-Succinylhomoserine,LightGBM,10-fold,8,Cellulosilyticum ruminicola,0.016595605272899574
+C01118_o-Succinylhomoserine,LightGBM,10-fold,9,Phascolarctobacterium_A sp900753045,0.016450908511836376
+C01118_o-Succinylhomoserine,LightGBM,10-fold,10,Fusobacterium_B sp900542625,0.014294236522367068
+C01118_o-Succinylhomoserine,RF,10-fold,1,UMGS687 sp900545735,0.13547977135511483
+C01118_o-Succinylhomoserine,RF,10-fold,2,Aphodousia sp900553105,0.05080956892251561
+C01118_o-Succinylhomoserine,RF,10-fold,3,Sediminibacterium sp902168225,0.020019531661016
+C01118_o-Succinylhomoserine,RF,10-fold,4,Aphodousia sp905212345,0.010540454197867024
+C01118_o-Succinylhomoserine,RF,10-fold,5,Anaerostipes caccae,0.008395583040403153
+C01118_o-Succinylhomoserine,RF,10-fold,6,Campylobacter_B sp900539505,0.006484450153952941
+C01118_o-Succinylhomoserine,RF,10-fold,7,UBA9506 sp003506415,0.00557098039798441
+C01118_o-Succinylhomoserine,RF,10-fold,8,Clostridium sp900539375,0.0047013469932625914
+C01118_o-Succinylhomoserine,RF,10-fold,9,Romboutsia_D sp000686145,0.004516736130608911
+C01118_o-Succinylhomoserine,RF,10-fold,10,Enterococcus_D gallinarum,0.004503833537437662
+C00245_Taurine,XGBoost,10-fold,1,Bilophila wadsworthia,0.09950922429561615
+C00245_Taurine,XGBoost,10-fold,2,Alistipes shahii,0.035466309636831284
+C00245_Taurine,XGBoost,10-fold,3,Neisseria sp000186165,0.031942371279001236
+C00245_Taurine,XGBoost,10-fold,4,CAG-177 sp003514385,0.026693852618336678
+C00245_Taurine,XGBoost,10-fold,5,Lachnospira sp000436475,0.023515915498137474
+C00245_Taurine,XGBoost,10-fold,6,Phocaeicola plebeius_A,0.022179804742336273
+C00245_Taurine,XGBoost,10-fold,7,UMGS693 sp900544555,0.021148957312107086
+C00245_Taurine,XGBoost,10-fold,8,UBA3818 sp904397845,0.01965596154332161
+C00245_Taurine,XGBoost,10-fold,9,Klebsiella aerogenes,0.017629703506827354
+C00245_Taurine,XGBoost,10-fold,10,Scatomorpha intestinavium,0.01682923547923565
+C00245_Taurine,LightGBM,10-fold,1,Bilophila wadsworthia,0.1009480374109418
+C00245_Taurine,LightGBM,10-fold,2,Neisseria sp000186165,0.039656903151683166
+C00245_Taurine,LightGBM,10-fold,3,Alistipes shahii,0.03137002996367487
+C00245_Taurine,LightGBM,10-fold,4,CAG-177 sp003514385,0.030328068396374454
+C00245_Taurine,LightGBM,10-fold,5,Klebsiella aerogenes,0.024885498647897075
+C00245_Taurine,LightGBM,10-fold,6,Catenibacterium sp900764565,0.022153521828521087
+C00245_Taurine,LightGBM,10-fold,7,Fimenecus sp000432435,0.021874450089895154
+C00245_Taurine,LightGBM,10-fold,8,CAG-269 sp000437215,0.020689223318096302
+C00245_Taurine,LightGBM,10-fold,9,UMGS693 sp900544555,0.02009471845185677
+C00245_Taurine,LightGBM,10-fold,10,Finegoldia sp900766215,0.01798771984327493
+C00245_Taurine,RF,10-fold,1,Bilophila wadsworthia,0.0975338879793094
+C00245_Taurine,RF,10-fold,2,Alistipes shahii,0.02145619627009848
+C00245_Taurine,RF,10-fold,3,Clostridium_A leptum,0.02012554608883087
+C00245_Taurine,RF,10-fold,4,UBA3818 sp904397845,0.014938851938173474
+C00245_Taurine,RF,10-fold,5,Veillonella atypica,0.011656958027739762
+C00245_Taurine,RF,10-fold,6,Neisseria sp000186165,0.011381352008467167
+C00245_Taurine,RF,10-fold,7,Klebsiella aerogenes,0.010826605503959405
+C00245_Taurine,RF,10-fold,8,Fimenecus sp000432435,0.010329127195716483
+C00245_Taurine,RF,10-fold,9,UBA5905 sp900763035,0.010093061606506441
+C00245_Taurine,RF,10-fold,10,Scatomorpha intestinavium,0.009728296729979057
+C02714_N-Acetylputrescine,XGBoost,10-fold,1,UBA5905 sp900763035,0.17885532975196838
+C02714_N-Acetylputrescine,XGBoost,10-fold,2,Avispirillum faecium,0.059795185923576355
+C02714_N-Acetylputrescine,XGBoost,10-fold,3,Avimicrobium caecorum,0.03505092114210129
+C02714_N-Acetylputrescine,XGBoost,10-fold,4,Alangreenwoodia gallinarii,0.03194573521614075
+C02714_N-Acetylputrescine,XGBoost,10-fold,5,Veillonella parvula_A,0.030247613787651062
+C02714_N-Acetylputrescine,XGBoost,10-fold,6,UBA1685 sp900546845,0.029326820746064186
+C02714_N-Acetylputrescine,XGBoost,10-fold,7,DULI01 sp012840445,0.02719622105360031
+C02714_N-Acetylputrescine,XGBoost,10-fold,8,Faecivivens stercoravium,0.02500023879110813
+C02714_N-Acetylputrescine,XGBoost,10-fold,9,Anaeroglobus vaginalis,0.024635232985019684
+C02714_N-Acetylputrescine,XGBoost,10-fold,10,Limivicinus faecipullorum,0.023558413609862328
+C02714_N-Acetylputrescine,LightGBM,10-fold,1,UBA5905 sp900763035,0.149773882308958
+C02714_N-Acetylputrescine,LightGBM,10-fold,2,Avispirillum faecium,0.05810975385406975
+C02714_N-Acetylputrescine,LightGBM,10-fold,3,Alangreenwoodia gallinarii,0.046199818690271774
+C02714_N-Acetylputrescine,LightGBM,10-fold,4,Veillonella parvula_A,0.04183731638710969
+C02714_N-Acetylputrescine,LightGBM,10-fold,5,Avimicrobium caecorum,0.038980293381738716
+C02714_N-Acetylputrescine,LightGBM,10-fold,6,UBA1685 sp900546845,0.031420940142761526
+C02714_N-Acetylputrescine,LightGBM,10-fold,7,Limivicinus faecipullorum,0.02847253014077473
+C02714_N-Acetylputrescine,LightGBM,10-fold,8,Faecivivens stercoravium,0.027176345070091524
+C02714_N-Acetylputrescine,LightGBM,10-fold,9,Acetatifactor intestinalis,0.027091199728168994
+C02714_N-Acetylputrescine,LightGBM,10-fold,10,DULI01 sp012840445,0.02323798529285236
+C02714_N-Acetylputrescine,RF,10-fold,1,UBA5905 sp900763035,0.2167315394643532
+C02714_N-Acetylputrescine,RF,10-fold,2,Avispirillum faecium,0.058660631448490305
+C02714_N-Acetylputrescine,RF,10-fold,3,Alangreenwoodia gallinarii,0.02589637531414842
+C02714_N-Acetylputrescine,RF,10-fold,4,Avimicrobium caecorum,0.024944617676046898
+C02714_N-Acetylputrescine,RF,10-fold,5,Faecivivens stercoravium,0.017621141410921085
+C02714_N-Acetylputrescine,RF,10-fold,6,Limivicinus faecipullorum,0.017000254271666234
+C02714_N-Acetylputrescine,RF,10-fold,7,UBA1685 sp900546845,0.015386232850191212
+C02714_N-Acetylputrescine,RF,10-fold,8,Scatomorpha stercorigallinarum,0.015384467930732131
+C02714_N-Acetylputrescine,RF,10-fold,9,Acetatifactor intestinalis,0.013919571256234803
+C02714_N-Acetylputrescine,RF,10-fold,10,Aminipila sp004103735,0.009999151474225405
+C02155_Gly-Leu,XGBoost,10-fold,1,Brachyspira aalborgi,0.02860720269382
+C02155_Gly-Leu,XGBoost,10-fold,2,Agathobacter rectalis,0.02772234007716179
+C02155_Gly-Leu,XGBoost,10-fold,3,Aphodousia sp900545335,0.02592575177550316
+C02155_Gly-Leu,XGBoost,10-fold,4,Gemmiger sp900540595,0.022175529971718788
+C02155_Gly-Leu,XGBoost,10-fold,5,CAG-488 sp000434055,0.02039465308189392
+C02155_Gly-Leu,XGBoost,10-fold,6,Prevotella sp900557405,0.016872072592377663
+C02155_Gly-Leu,XGBoost,10-fold,7,Collinsella sp900555555,0.012318088673055172
+C02155_Gly-Leu,XGBoost,10-fold,8,CAG-1427 sp900539675,0.012079181149601936
+C02155_Gly-Leu,XGBoost,10-fold,9,CAG-1427 sp900542265,0.01168014109134674
+C02155_Gly-Leu,XGBoost,10-fold,10,Ruminiclostridium_E siraeum,0.011553497985005379
+C02155_Gly-Leu,LightGBM,10-fold,1,Brachyspira aalborgi,0.04374472802712083
+C02155_Gly-Leu,LightGBM,10-fold,2,Aphodousia sp900545335,0.039219796374394704
+C02155_Gly-Leu,LightGBM,10-fold,3,Agathobacter rectalis,0.03477459252073332
+C02155_Gly-Leu,LightGBM,10-fold,4,BMI,0.02205060952662338
+C02155_Gly-Leu,LightGBM,10-fold,5,Collinsella sp900555555,0.021497642369448143
+C02155_Gly-Leu,LightGBM,10-fold,6,UMGS693 sp900544555,0.020742605462217366
+C02155_Gly-Leu,LightGBM,10-fold,7,Gemmiger sp900540595,0.019969858389250025
+C02155_Gly-Leu,LightGBM,10-fold,8,Fimenecus sp002437245,0.018114427007401204
+C02155_Gly-Leu,LightGBM,10-fold,9,Prevotella sp900557405,0.0162235525018695
+C02155_Gly-Leu,LightGBM,10-fold,10,W3P20-009 sp015061285,0.014209787879568878
+C02155_Gly-Leu,RF,10-fold,1,Agathobacter rectalis,0.010781239617568505
+C02155_Gly-Leu,RF,10-fold,2,Aphodousia sp900545335,0.007164661820647173
+C02155_Gly-Leu,RF,10-fold,3,CAG-1427 sp900542265,0.007115882236171673
+C02155_Gly-Leu,RF,10-fold,4,Flemingibacterium merdigallinarum,0.006878314829427148
+C02155_Gly-Leu,RF,10-fold,5,Dialister invisus,0.005939149947208704
+C02155_Gly-Leu,RF,10-fold,6,Prevotella sp002251385,0.005437963180772933
+C02155_Gly-Leu,RF,10-fold,7,Prevotella sp900290275,0.005226471898854167
+C02155_Gly-Leu,RF,10-fold,8,CAG-217 sp000436335,0.005216306536894952
+C02155_Gly-Leu,RF,10-fold,9,Prevotella sp900557405,0.005101253583254473
+C02155_Gly-Leu,RF,10-fold,10,CAG-488 sp000434055,0.005063017839104619
+C09815_Benzamide,XGBoost,10-fold,1,Fusobacterium_B sp900554355,0.04766824096441269
+C09815_Benzamide,XGBoost,10-fold,2,Cryptobacterium curtum,0.03805379569530487
+C09815_Benzamide,XGBoost,10-fold,3,CAG-873 sp900540625,0.03328652307391167
+C09815_Benzamide,XGBoost,10-fold,4,Actinomyces israelii,0.025727447122335434
+C09815_Benzamide,XGBoost,10-fold,5,Sediminibacterium sp902168225,0.020188655704259872
+C09815_Benzamide,XGBoost,10-fold,6,Ruminiclostridium_E sp003512525,0.019234733656048775
+C09815_Benzamide,XGBoost,10-fold,7,Ruminiclostridium_E sp900539195,0.018819758668541908
+C09815_Benzamide,XGBoost,10-fold,8,UBA5884 sp002431975,0.01856946386396885
+C09815_Benzamide,XGBoost,10-fold,9,UBA4334 sp002363115,0.016909152269363403
+C09815_Benzamide,XGBoost,10-fold,10,UBA7173 sp900545955,0.016632679849863052
+C09815_Benzamide,LightGBM,10-fold,1,Fusobacterium_B sp900554355,0.040483866068804726
+C09815_Benzamide,LightGBM,10-fold,2,CAG-873 sp900540625,0.029836226143770194
+C09815_Benzamide,LightGBM,10-fold,3,Cryptobacterium curtum,0.029040501124409188
+C09815_Benzamide,LightGBM,10-fold,4,Actinomyces israelii,0.028718841170526074
+C09815_Benzamide,LightGBM,10-fold,5,UBA5884 sp002431975,0.027588298788195145
+C09815_Benzamide,LightGBM,10-fold,6,Ruminiclostridium_E sp900539195,0.026188303610933557
+C09815_Benzamide,LightGBM,10-fold,7,Alloprevotella sp900540885,0.025284583816731574
+C09815_Benzamide,LightGBM,10-fold,8,Sediminibacterium sp902168225,0.022717214278412896
+C09815_Benzamide,LightGBM,10-fold,9,Ruminiclostridium_E sp003512525,0.022254486230420468
+C09815_Benzamide,LightGBM,10-fold,10,Enterococcus_A avium,0.02199391708397333
+C09815_Benzamide,RF,10-fold,1,Prevotella pectinovora,0.01841917184666018
+C09815_Benzamide,RF,10-fold,2,Veillonella parvula_A,0.017428391217669897
+C09815_Benzamide,RF,10-fold,3,Alistipes shahii,0.015275399252463588
+C09815_Benzamide,RF,10-fold,4,Cryptobacterium curtum,0.011673906526290856
+C09815_Benzamide,RF,10-fold,5,Actinomyces israelii,0.010228990544506121
+C09815_Benzamide,RF,10-fold,6,Fusobacterium_B sp900554355,0.009910789208992502
+C09815_Benzamide,RF,10-fold,7,UBA5884 sp002431975,0.009632189235814742
+C09815_Benzamide,RF,10-fold,8,Klebsiella ornithinolytica,0.008360971327955812
+C09815_Benzamide,RF,10-fold,9,CAG-485 sp910578075,0.008339771468510103
+C09815_Benzamide,RF,10-fold,10,UMGS1590 sp900552455,0.008051473321777676
+C00191_Glucuronate,XGBoost,10-fold,1,Erysipelatoclostridium ramosum,0.06972349435091019
+C00191_Glucuronate,XGBoost,10-fold,2,Meiothermus_B silvanus,0.04316133260726929
+C00191_Glucuronate,XGBoost,10-fold,3,CAG-103 sp900757655,0.034602753818035126
+C00191_Glucuronate,XGBoost,10-fold,4,Neisseria flavescens_C,0.03205590695142746
+C00191_Glucuronate,XGBoost,10-fold,5,Leptotrichia wadei,0.027964210137724876
+C00191_Glucuronate,XGBoost,10-fold,6,Scatavimonas merdipullorum,0.026855746284127235
+C00191_Glucuronate,XGBoost,10-fold,7,Ruminococcus_E sp902766775,0.022129857912659645
+C00191_Glucuronate,XGBoost,10-fold,8,Streptococcus parauberis,0.020965564996004105
+C00191_Glucuronate,XGBoost,10-fold,9,Pauljensenia turicensis,0.020415950566530228
+C00191_Glucuronate,XGBoost,10-fold,10,CCUG-7971 spG000499525,0.017449328675866127
+C00191_Glucuronate,LightGBM,10-fold,1,Erysipelatoclostridium ramosum,0.05570795987602272
+C00191_Glucuronate,LightGBM,10-fold,2,CAG-103 sp900757655,0.05241703513645399
+C00191_Glucuronate,LightGBM,10-fold,3,Meiothermus_B silvanus,0.048487471994412515
+C00191_Glucuronate,LightGBM,10-fold,4,Leptotrichia wadei,0.043955664459314356
+C00191_Glucuronate,LightGBM,10-fold,5,Streptococcus parauberis,0.03179671457856951
+C00191_Glucuronate,LightGBM,10-fold,6,Pauljensenia turicensis,0.031411990360732965
+C00191_Glucuronate,LightGBM,10-fold,7,Scatavimonas merdipullorum,0.028842362523407633
+C00191_Glucuronate,LightGBM,10-fold,8,Neisseria flavescens_C,0.026253144076667675
+C00191_Glucuronate,LightGBM,10-fold,9,Ruminococcus_E sp902766775,0.025991324844531868
+C00191_Glucuronate,LightGBM,10-fold,10,Leptotrichia_A sp001274535,0.022771064184725874
+C00191_Glucuronate,RF,10-fold,1,Erysipelatoclostridium ramosum,0.06884956291103206
+C00191_Glucuronate,RF,10-fold,2,CAG-103 sp900757655,0.022510110109265385
+C00191_Glucuronate,RF,10-fold,3,Leptotrichia wadei,0.02131447622916819
+C00191_Glucuronate,RF,10-fold,4,Meiothermus_B silvanus,0.013011960836698118
+C00191_Glucuronate,RF,10-fold,5,Neisseria flavescens_C,0.012834147909544853
+C00191_Glucuronate,RF,10-fold,6,Scatavimonas merdipullorum,0.012088244333019136
+C00191_Glucuronate,RF,10-fold,7,Streptococcus parauberis,0.011213808449390395
+C00191_Glucuronate,RF,10-fold,8,Avimicrobium caecorum,0.011051967252169234
+C00191_Glucuronate,RF,10-fold,9,Ruminococcus_E sp902766775,0.010941190362927353
+C00191_Glucuronate,RF,10-fold,10,Faecalibacillus intestinalis,0.010871039629476806
+3-Indoxyl sulfate,XGBoost,10-fold,1,Gender_Male,0.18799138069152832
+3-Indoxyl sulfate,XGBoost,10-fold,2,Fusobacterium_A ulcerans_A,0.036965444684028625
+3-Indoxyl sulfate,XGBoost,10-fold,3,Pauljensenia turicensis,0.029244719073176384
+3-Indoxyl sulfate,XGBoost,10-fold,4,Lactobacillus amylolyticus,0.024584190919995308
+3-Indoxyl sulfate,XGBoost,10-fold,5,Clostridium disporicum,0.021240651607513428
+3-Indoxyl sulfate,XGBoost,10-fold,6,Clostridium saudiense,0.01695573702454567
+3-Indoxyl sulfate,XGBoost,10-fold,7,Avispirillum faecium,0.016105646267533302
+3-Indoxyl sulfate,XGBoost,10-fold,8,Ruminiclostridium_E sp900539195,0.015969133004546165
+3-Indoxyl sulfate,XGBoost,10-fold,9,Clostridium_A leptum,0.015735864639282227
+3-Indoxyl sulfate,XGBoost,10-fold,10,Alloscardovia omnicolens,0.014840137213468552
+3-Indoxyl sulfate,LightGBM,10-fold,1,Gender_Male,0.19314426057235812
+3-Indoxyl sulfate,LightGBM,10-fold,2,Pauljensenia turicensis,0.047809068542970276
+3-Indoxyl sulfate,LightGBM,10-fold,3,Fusobacterium_A ulcerans_A,0.04772368543986289
+3-Indoxyl sulfate,LightGBM,10-fold,4,Clostridium saudiense,0.02690661674859889
+3-Indoxyl sulfate,LightGBM,10-fold,5,Ruminiclostridium_E sp900539195,0.024030688809296596
+3-Indoxyl sulfate,LightGBM,10-fold,6,Clostridium disporicum,0.023966049729887497
+3-Indoxyl sulfate,LightGBM,10-fold,7,Lactobacillus amylolyticus,0.022593305080313555
+3-Indoxyl sulfate,LightGBM,10-fold,8,Avispirillum faecium,0.021738486492770607
+3-Indoxyl sulfate,LightGBM,10-fold,9,Klebsiella quasipneumoniae,0.01715126256517788
+3-Indoxyl sulfate,LightGBM,10-fold,10,Alloscardovia omnicolens,0.01594740040183777
+3-Indoxyl sulfate,RF,10-fold,1,Gender_Male,0.21577072543877304
+3-Indoxyl sulfate,RF,10-fold,2,Avispirillum faecium,0.014335404984980588
+3-Indoxyl sulfate,RF,10-fold,3,Pauljensenia turicensis,0.010343875922021673
+3-Indoxyl sulfate,RF,10-fold,4,Holdemanella sp003458715,0.008105601310150864
+3-Indoxyl sulfate,RF,10-fold,5,Holdemanella biformis,0.00788425484012249
+3-Indoxyl sulfate,RF,10-fold,6,Fusobacterium_A ulcerans_A,0.007733317731483339
+3-Indoxyl sulfate,RF,10-fold,7,Faecousia sp017548065,0.0076088300726672555
+3-Indoxyl sulfate,RF,10-fold,8,Clostridium saudiense,0.007064778448260325
+3-Indoxyl sulfate,RF,10-fold,9,Dialister succinatiphilus,0.006557765516038926
+3-Indoxyl sulfate,RF,10-fold,10,Alloscardovia omnicolens,0.006279810869814841
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,1,Gender_Male,0.1995830535888672
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,2,Pauljensenia turicensis,0.07699744403362274
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,3,Clostridium disporicum,0.03270727023482323
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,4,Slackia_A isoflavoniconvertens,0.02445984072983265
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,5,Fusobacterium_A ulcerans_A,0.023312581703066826
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,6,Clostridium sp900766315,0.01822715997695923
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,7,Eubacterium_T sp900766045,0.017917605116963387
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,8,CAG-1427 sp900554685,0.016729246824979782
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,9,Streptococcus macacae,0.015627173706889153
+C01104_Trimethylamine N-oxide,XGBoost,10-fold,10,Alistipes avistercoris,0.014716186560690403
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,1,Gender_Male,0.2139948289940993
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,2,Pauljensenia turicensis,0.089420865693725
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,3,Clostridium disporicum,0.039436080981151346
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,4,Fusobacterium_A ulcerans_A,0.03480120886473144
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,5,Slackia_A isoflavoniconvertens,0.025457516411135077
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,6,Neisseria subflava_A,0.022741353084784123
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,7,CAG-1427 sp900554685,0.021501638188593457
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,8,Caecibacter sp003467125,0.020918802503097397
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,9,Desulfovibrio desulfuricans_A,0.01812645560805691
+C01104_Trimethylamine N-oxide,LightGBM,10-fold,10,Clostridium sp900766315,0.018015109714895828
+C01104_Trimethylamine N-oxide,RF,10-fold,1,Gender_Male,0.2332516352535192
+C01104_Trimethylamine N-oxide,RF,10-fold,2,Pauljensenia turicensis,0.0444744019781345
+C01104_Trimethylamine N-oxide,RF,10-fold,3,Clostridium disporicum,0.01741375653913073
+C01104_Trimethylamine N-oxide,RF,10-fold,4,Alistipes avistercoris,0.012134860410663483
+C01104_Trimethylamine N-oxide,RF,10-fold,5,Slackia_A isoflavoniconvertens,0.0073835868593575315
+C01104_Trimethylamine N-oxide,RF,10-fold,6,Eubacterium_T sp900766045,0.0069741690788710335
+C01104_Trimethylamine N-oxide,RF,10-fold,7,CAG-1427 sp900554685,0.006660208756236259
+C01104_Trimethylamine N-oxide,RF,10-fold,8,Clostridium saudiense,0.00663709017376794
+C01104_Trimethylamine N-oxide,RF,10-fold,9,Neisseria subflava_A,0.006572871334743021
+C01104_Trimethylamine N-oxide,RF,10-fold,10,Desulfovibrio desulfuricans_A,0.006508713348690203
+C02230_3-Methylguanine,XGBoost,10-fold,1,Prevotella sp900543975,0.05612076446413994
+C02230_3-Methylguanine,XGBoost,10-fold,2,Sediminibacterium sp902168225,0.04061393439769745
+C02230_3-Methylguanine,XGBoost,10-fold,3,Ellagibacter isourolithinifaciens,0.023579778149724007
+C02230_3-Methylguanine,XGBoost,10-fold,4,Klebsiella aerogenes,0.022720569744706154
+C02230_3-Methylguanine,XGBoost,10-fold,5,UBA10677 sp900543755,0.021850520744919777
+C02230_3-Methylguanine,XGBoost,10-fold,6,Limisoma sp000437795,0.02149423025548458
+C02230_3-Methylguanine,XGBoost,10-fold,7,Gemmiger sp900540595,0.021246347576379776
+C02230_3-Methylguanine,XGBoost,10-fold,8,Holdemanella biformis,0.020790843293070793
+C02230_3-Methylguanine,XGBoost,10-fold,9,Aphodousia sp900553105,0.01946806162595749
+C02230_3-Methylguanine,XGBoost,10-fold,10,Ruminiclostridium_E sp900539195,0.017314327880740166
+C02230_3-Methylguanine,LightGBM,10-fold,1,Prevotella sp900543975,0.04678408134000848
+C02230_3-Methylguanine,LightGBM,10-fold,2,Sediminibacterium sp902168225,0.037921369279719584
+C02230_3-Methylguanine,LightGBM,10-fold,3,Ellagibacter isourolithinifaciens,0.027577693684052076
+C02230_3-Methylguanine,LightGBM,10-fold,4,Limisoma sp000437795,0.026624698751480127
+C02230_3-Methylguanine,LightGBM,10-fold,5,UBA10677 sp900543755,0.0260963360187188
+C02230_3-Methylguanine,LightGBM,10-fold,6,Klebsiella aerogenes,0.02368487234596323
+C02230_3-Methylguanine,LightGBM,10-fold,7,Gemmiger sp900540595,0.02256808362005919
+C02230_3-Methylguanine,LightGBM,10-fold,8,Holdemanella biformis,0.02173900219289725
+C02230_3-Methylguanine,LightGBM,10-fold,9,Aphodousia sp900553105,0.02138929065625432
+C02230_3-Methylguanine,LightGBM,10-fold,10,Turicibacter sp001543345,0.02081980494841604
+C02230_3-Methylguanine,RF,10-fold,1,Sediminibacterium sp902168225,0.020598884485930783
+C02230_3-Methylguanine,RF,10-fold,2,Prevotella sp900543975,0.015357628618245849
+C02230_3-Methylguanine,RF,10-fold,3,UBA10677 sp900543755,0.009578464468933545
+C02230_3-Methylguanine,RF,10-fold,4,Eubacterium_G ventriosum,0.008940351731858573
+C02230_3-Methylguanine,RF,10-fold,5,Paratractidigestivibacter faecalis,0.008936785558859225
+C02230_3-Methylguanine,RF,10-fold,6,Aphodousia sp900553105,0.008392171901131939
+C02230_3-Methylguanine,RF,10-fold,7,Cupidesulfovibrio vulgaris_A,0.008097799361810903
+C02230_3-Methylguanine,RF,10-fold,8,CAG-485 sp910578075,0.007642564396423103
+C02230_3-Methylguanine,RF,10-fold,9,Ruminiclostridium_E sp900539195,0.007354263501496922
+C02230_3-Methylguanine,RF,10-fold,10,Holdemanella biformis,0.006435344522290902
+C00334_GABA,XGBoost,10-fold,1,Veillonella parvula_A,0.06447417289018631
+C00334_GABA,XGBoost,10-fold,2,Limivicinus faecipullorum,0.05860533565282822
+C00334_GABA,XGBoost,10-fold,3,Avimicrobium caecorum,0.04768668860197067
+C00334_GABA,XGBoost,10-fold,4,Alangreenwoodia gallinarii,0.03336846083402634
+C00334_GABA,XGBoost,10-fold,5,Scatomorpha stercorigallinarum,0.023650608956813812
+C00334_GABA,XGBoost,10-fold,6,UBA11540 sp003445125,0.018685108050704002
+C00334_GABA,XGBoost,10-fold,7,CAG-177 sp002438685,0.014034435153007507
+C00334_GABA,XGBoost,10-fold,8,UMGS75 sp900538885,0.012537497095763683
+C00334_GABA,XGBoost,10-fold,9,Lachnospira sp000436535,0.010988946072757244
+C00334_GABA,XGBoost,10-fold,10,Lachnospira sp000436475,0.010410632938146591
+C00334_GABA,LightGBM,10-fold,1,Veillonella parvula_A,0.07124300137719823
+C00334_GABA,LightGBM,10-fold,2,Limivicinus faecipullorum,0.05591333478894067
+C00334_GABA,LightGBM,10-fold,3,Avimicrobium caecorum,0.032226329468842144
+C00334_GABA,LightGBM,10-fold,4,Alangreenwoodia gallinarii,0.02777663300566107
+C00334_GABA,LightGBM,10-fold,5,UMGS75 sp900538885,0.0178995324469672
+C00334_GABA,LightGBM,10-fold,6,Avispirillum faecium,0.015609459752246799
+C00334_GABA,LightGBM,10-fold,7,Lachnospira sp000436475,0.015239504203601085
+C00334_GABA,LightGBM,10-fold,8,Ruminococcus_D bicirculans,0.01519222582123822
+C00334_GABA,LightGBM,10-fold,9,Veillonella atypica,0.013986658718558379
+C00334_GABA,LightGBM,10-fold,10,UBA11540 sp003445125,0.013341182142825326
+C00334_GABA,RF,10-fold,1,Veillonella parvula_A,0.057065158136393304
+C00334_GABA,RF,10-fold,2,Limivicinus faecipullorum,0.053100201851453664
+C00334_GABA,RF,10-fold,3,Avimicrobium caecorum,0.02171414397358637
+C00334_GABA,RF,10-fold,4,Alangreenwoodia gallinarii,0.021213776005660438
+C00334_GABA,RF,10-fold,5,Scatomorpha stercorigallinarum,0.016624875044195474
+C00334_GABA,RF,10-fold,6,Clostridium_A leptum,0.014686212745884959
+C00334_GABA,RF,10-fold,7,Avispirillum faecium,0.012849823369506137
+C00334_GABA,RF,10-fold,8,QALW01 sp900547955,0.008330929772915418
+C00334_GABA,RF,10-fold,9,Veillonella atypica,0.008028911189208317
+C00334_GABA,RF,10-fold,10,CAG-488 sp900539465,0.006511134137133745
+C00311_Isocitrate,XGBoost,10-fold,1,UMGS687 sp900545735,0.05828553065657616
+C00311_Isocitrate,XGBoost,10-fold,2,Sediminibacterium sp902168225,0.05133136361837387
+C00311_Isocitrate,XGBoost,10-fold,3,Holdemanella sp900547815,0.04550035297870636
+C00311_Isocitrate,XGBoost,10-fold,4,Pseudobutyrivibrio ruminis_D,0.045228417962789536
+C00311_Isocitrate,XGBoost,10-fold,5,Faecimonas sp905209745,0.02782941795885563
+C00311_Isocitrate,XGBoost,10-fold,6,Holdemanella biformis,0.027198150753974915
+C00311_Isocitrate,XGBoost,10-fold,7,W3P20-009 sp015061285,0.02706703543663025
+C00311_Isocitrate,XGBoost,10-fold,8,Prevotella sp900555035,0.025256231427192688
+C00311_Isocitrate,XGBoost,10-fold,9,PeH17 sp000435055,0.02250310778617859
+C00311_Isocitrate,XGBoost,10-fold,10,Dialister hominis,0.02242708019912243
+C00311_Isocitrate,LightGBM,10-fold,1,UMGS687 sp900545735,0.09200163268297747
+C00311_Isocitrate,LightGBM,10-fold,2,Holdemanella sp900547815,0.06040894832795387
+C00311_Isocitrate,LightGBM,10-fold,3,Fusobacterium sp000235465,0.047716542825271546
+C00311_Isocitrate,LightGBM,10-fold,4,Slackia_A isoflavoniconvertens,0.04671011657582628
+C00311_Isocitrate,LightGBM,10-fold,5,CAG-83 sp000435555,0.041044534502529456
+C00311_Isocitrate,LightGBM,10-fold,6,Holdemanella biformis,0.03985320182304704
+C00311_Isocitrate,LightGBM,10-fold,7,Sediminibacterium sp902168225,0.03737271820510349
+C00311_Isocitrate,LightGBM,10-fold,8,Faecimonas sp905209745,0.03408606773368652
+C00311_Isocitrate,LightGBM,10-fold,9,W3P20-009 sp015061285,0.02792623638966329
+C00311_Isocitrate,LightGBM,10-fold,10,CAG-488 sp000434055,0.02627596176539236
+C00311_Isocitrate,RF,10-fold,1,Holdemanella sp900547815,0.03479810335619007
+C00311_Isocitrate,RF,10-fold,2,Pseudobutyrivibrio ruminis_D,0.030470113090053663
+C00311_Isocitrate,RF,10-fold,3,UMGS687 sp900545735,0.022682714966198444
+C00311_Isocitrate,RF,10-fold,4,Dialister hominis,0.022176713193705438
+C00311_Isocitrate,RF,10-fold,5,CAIFEB01 sp903789375,0.019572714813937683
+C00311_Isocitrate,RF,10-fold,6,W3P20-009 sp015061285,0.01889389891585555
+C00311_Isocitrate,RF,10-fold,7,Prevotella sp900544495,0.015182855439681496
+C00311_Isocitrate,RF,10-fold,8,Bilophila wadsworthia,0.01429293748314786
+C00311_Isocitrate,RF,10-fold,9,Avispirillum faecium,0.013922974951801208
+C00311_Isocitrate,RF,10-fold,10,Holdemanella biformis,0.01282547974278614
+C02679_Dodecanoate,XGBoost,10-fold,1,Prevotella sp002440225,0.05423354730010033
+C02679_Dodecanoate,XGBoost,10-fold,2,Faecimonas sp905209745,0.0453280508518219
+C02679_Dodecanoate,XGBoost,10-fold,3,CAG-302 sp001916775,0.03983564302325249
+C02679_Dodecanoate,XGBoost,10-fold,4,Escherichia marmotae,0.02769903838634491
+C02679_Dodecanoate,XGBoost,10-fold,5,Faecousia sp017548065,0.02586933970451355
+C02679_Dodecanoate,XGBoost,10-fold,6,ER4 sp000765235,0.02207980491220951
+C02679_Dodecanoate,XGBoost,10-fold,7,Scatavimonas merdipullorum,0.018254511058330536
+C02679_Dodecanoate,XGBoost,10-fold,8,Avispirillum faecium,0.018072428181767464
+C02679_Dodecanoate,XGBoost,10-fold,9,Lactococcus_A plantarum,0.016466595232486725
+C02679_Dodecanoate,XGBoost,10-fold,10,SIG291 sp015057605,0.016061533242464066
+C02679_Dodecanoate,LightGBM,10-fold,1,Prevotella sp002440225,0.05308443839821865
+C02679_Dodecanoate,LightGBM,10-fold,2,Faecimonas sp905209745,0.043855533396384205
+C02679_Dodecanoate,LightGBM,10-fold,3,CAG-302 sp001916775,0.04189749451475788
+C02679_Dodecanoate,LightGBM,10-fold,4,Faecousia sp017548065,0.029704667142380854
+C02679_Dodecanoate,LightGBM,10-fold,5,ER4 sp000765235,0.0237686044901912
+C02679_Dodecanoate,LightGBM,10-fold,6,Escherichia marmotae,0.02133618416404825
+C02679_Dodecanoate,LightGBM,10-fold,7,Lactococcus_A plantarum,0.020736386331935325
+C02679_Dodecanoate,LightGBM,10-fold,8,Avispirillum faecium,0.020686869746088816
+C02679_Dodecanoate,LightGBM,10-fold,9,SIG291 sp015057605,0.019326669370589137
+C02679_Dodecanoate,LightGBM,10-fold,10,Scatavimonas merdipullorum,0.018922103542434784
+C02679_Dodecanoate,RF,10-fold,1,Prevotella sp002440225,0.0296294451120762
+C02679_Dodecanoate,RF,10-fold,2,CAG-302 sp001916775,0.015422482743130959
+C02679_Dodecanoate,RF,10-fold,3,Avispirillum faecium,0.01242097291488124
+C02679_Dodecanoate,RF,10-fold,4,Faecimonas sp905209745,0.011797313587979306
+C02679_Dodecanoate,RF,10-fold,5,ER4 sp000765235,0.011667697448123918
+C02679_Dodecanoate,RF,10-fold,6,Scatavimonas merdipullorum,0.008636227841662802
+C02679_Dodecanoate,RF,10-fold,7,Faecousia sp017548065,0.008568642403539753
+C02679_Dodecanoate,RF,10-fold,8,Alistipes onderdonkii,0.008400900050173027
+C02679_Dodecanoate,RF,10-fold,9,Alangreenwoodia gallinarii,0.007870489286062564
+C02679_Dodecanoate,RF,10-fold,10,Gallispira edinburgensis,0.0070004993841954405
+C00003_NAD+,XGBoost,10-fold,1,CAG-177 sp003538135,0.03914028778672218
+C00003_NAD+,XGBoost,10-fold,2,Neisseria subflava,0.03527619317173958
+C00003_NAD+,XGBoost,10-fold,3,Morganella psychrotolerans_B,0.031114716082811356
+C00003_NAD+,XGBoost,10-fold,4,Erysipelatoclostridium ramosum,0.028671016916632652
+C00003_NAD+,XGBoost,10-fold,5,Megasphaera sp000417505,0.028082355856895447
+C00003_NAD+,XGBoost,10-fold,6,Prevotella sp900553155,0.0201529860496521
+C00003_NAD+,XGBoost,10-fold,7,Paenibacillus tengchongensis,0.020090317353606224
+C00003_NAD+,XGBoost,10-fold,8,Roseburia intestinalis,0.017175519838929176
+C00003_NAD+,XGBoost,10-fold,9,Victivallis lenta,0.016817573457956314
+C00003_NAD+,XGBoost,10-fold,10,Aveggerthella excrementigallinarum,0.014675700105726719
+C00003_NAD+,LightGBM,10-fold,1,Morganella psychrotolerans_B,0.04710132886754234
+C00003_NAD+,LightGBM,10-fold,2,CAG-177 sp003538135,0.041154251303294975
+C00003_NAD+,LightGBM,10-fold,3,Prevotella sp900553155,0.03203315490359905
+C00003_NAD+,LightGBM,10-fold,4,Megasphaera sp000417505,0.03143427097363441
+C00003_NAD+,LightGBM,10-fold,5,Victivallis lenta,0.030364105412455693
+C00003_NAD+,LightGBM,10-fold,6,Erysipelatoclostridium ramosum,0.026022996859960432
+C00003_NAD+,LightGBM,10-fold,7,Aveggerthella excrementigallinarum,0.02345906106597282
+C00003_NAD+,LightGBM,10-fold,8,Neisseria subflava,0.021150383830714905
+C00003_NAD+,LightGBM,10-fold,9,Paenibacillus tengchongensis,0.0209297203741162
+C00003_NAD+,LightGBM,10-fold,10,NM07-P-09 sp004793665,0.01853174573403785
+C00003_NAD+,RF,10-fold,1,CAG-177 sp003538135,0.021682375276443008
+C00003_NAD+,RF,10-fold,2,Morganella psychrotolerans_B,0.020102923153015005
+C00003_NAD+,RF,10-fold,3,Erysipelatoclostridium ramosum,0.018359676824882466
+C00003_NAD+,RF,10-fold,4,Prevotella sp900553155,0.014303133787647172
+C00003_NAD+,RF,10-fold,5,Victivallis lenta,0.013436519155624762
+C00003_NAD+,RF,10-fold,6,Megasphaera sp000417505,0.013397688489575607
+C00003_NAD+,RF,10-fold,7,Paenibacillus tengchongensis,0.0126942306679747
+C00003_NAD+,RF,10-fold,8,Neisseria subflava,0.011998368366108453
+C00003_NAD+,RF,10-fold,9,ER4 sp000765235,0.00919471648338474
+C00003_NAD+,RF,10-fold,10,CAG-103 sp900757655,0.007054843161208978
+C00092_G6P,XGBoost,10-fold,1,Alistipes_A indistinctus,0.024656595662236214
+C00092_G6P,XGBoost,10-fold,2,Prevotella copri_A,0.022765327244997025
+C00092_G6P,XGBoost,10-fold,3,CAG-488 sp016292785,0.02082265354692936
+C00092_G6P,XGBoost,10-fold,4,Paenibacillus_C intestinavium,0.018549511209130287
+C00092_G6P,XGBoost,10-fold,5,Desulfovibrio desulfuricans_A,0.018235336989164352
+C00092_G6P,XGBoost,10-fold,6,CAG-83 sp002438575,0.0180920772254467
+C00092_G6P,XGBoost,10-fold,7,Barb7 sp001657575,0.01797613687813282
+C00092_G6P,XGBoost,10-fold,8,Neisseria subflava,0.01710052229464054
+C00092_G6P,XGBoost,10-fold,9,Cupidesulfovibrio vulgaris_A,0.015249784104526043
+C00092_G6P,XGBoost,10-fold,10,UBA3855 sp017460955,0.015237235464155674
+C00092_G6P,LightGBM,10-fold,1,Prevotella copri_A,0.029580938397380664
+C00092_G6P,LightGBM,10-fold,2,Alistipes_A indistinctus,0.025746824273231616
+C00092_G6P,LightGBM,10-fold,3,Porphyromonas sp900548415,0.024848755194885334
+C00092_G6P,LightGBM,10-fold,4,Desulfovibrio desulfuricans_A,0.02465376546762854
+C00092_G6P,LightGBM,10-fold,5,CAG-83 sp002438575,0.023970931976588866
+C00092_G6P,LightGBM,10-fold,6,Neisseria sp000186165,0.02356866064928323
+C00092_G6P,LightGBM,10-fold,7,Barb7 sp001657575,0.0202030916003193
+C00092_G6P,LightGBM,10-fold,8,Neisseria subflava,0.019808938583285626
+C00092_G6P,LightGBM,10-fold,9,Copromonas sp000435795,0.018029636927126717
+C00092_G6P,LightGBM,10-fold,10,Cupidesulfovibrio vulgaris_A,0.017400557014627036
+C00092_G6P,RF,10-fold,1,Barb7 sp001657575,0.008716340892261436
+C00092_G6P,RF,10-fold,2,W1P20-047 sp004555335,0.008360502875205653
+C00092_G6P,RF,10-fold,3,CAG-488 sp016292785,0.008205745128411922
+C00092_G6P,RF,10-fold,4,Neisseria sp000186165,0.007671826060912234
+C00092_G6P,RF,10-fold,5,Bilophila wadsworthia,0.007490028345614845
+C00092_G6P,RF,10-fold,6,Bifidobacterium longum,0.007206066945981372
+C00092_G6P,RF,10-fold,7,SFEL01 sp016292635,0.007118863621920118
+C00092_G6P,RF,10-fold,8,Paenibacillus_C intestinavium,0.007092648336529581
+C00092_G6P,RF,10-fold,9,UBA3855 sp017460955,0.00688230880433484
+C00092_G6P,RF,10-fold,10,Cupidesulfovibrio vulgaris_A,0.0066580488797533715
+C00123_Leu,XGBoost,10-fold,1,Fusobacterium sp000235465,0.10709702223539352
+C00123_Leu,XGBoost,10-fold,2,Lachnospira sp000436535,0.03469390049576759
+C00123_Leu,XGBoost,10-fold,3,Egerieicola pullicola,0.02519984357059002
+C00123_Leu,XGBoost,10-fold,4,Bacillus_T coahuilensis,0.024612141773104668
+C00123_Leu,XGBoost,10-fold,5,Acutalibacter sp910580045,0.022160034626722336
+C00123_Leu,XGBoost,10-fold,6,Fusobacterium_A mortiferum,0.019904930144548416
+C00123_Leu,XGBoost,10-fold,7,Christensenella sp014287795,0.018398553133010864
+C00123_Leu,XGBoost,10-fold,8,Chitinophaga silvisoli,0.017115946859121323
+C00123_Leu,XGBoost,10-fold,9,Fusobacterium_B sp900541465,0.016095474362373352
+C00123_Leu,XGBoost,10-fold,10,Veillonella atypica,0.01528196595609188
+C00123_Leu,LightGBM,10-fold,1,Fusobacterium sp000235465,0.10184078940295627
+C00123_Leu,LightGBM,10-fold,2,Lachnospira sp000436535,0.03300889032887175
+C00123_Leu,LightGBM,10-fold,3,Fusobacterium_A mortiferum,0.028157693546386697
+C00123_Leu,LightGBM,10-fold,4,Acutalibacter sp910580045,0.02320483168327367
+C00123_Leu,LightGBM,10-fold,5,Bacillus_T coahuilensis,0.022944386547037208
+C00123_Leu,LightGBM,10-fold,6,Chitinophaga silvisoli,0.021065724870779567
+C00123_Leu,LightGBM,10-fold,7,Veillonella atypica,0.019896608931172028
+C00123_Leu,LightGBM,10-fold,8,Egerieicola pullicola,0.019306443048029115
+C00123_Leu,LightGBM,10-fold,9,Christensenella sp014287795,0.01883854364761086
+C00123_Leu,LightGBM,10-fold,10,Dialister sp900541605,0.015829118845233397
+C00123_Leu,RF,10-fold,1,Fusobacterium sp000235465,0.10406645332735552
+C00123_Leu,RF,10-fold,2,Fusobacterium_A mortiferum,0.023714413154440808
+C00123_Leu,RF,10-fold,3,Acutalibacter sp910580045,0.015010214968271682
+C00123_Leu,RF,10-fold,4,Egerieicola pullicola,0.014373543086089834
+C00123_Leu,RF,10-fold,5,Faecalibacterium prausnitzii_D,0.010476164538697472
+C00123_Leu,RF,10-fold,6,Lachnospira sp000436475,0.01008309750928762
+C00123_Leu,RF,10-fold,7,Lachnospira eligens,0.009764184153939922
+C00123_Leu,RF,10-fold,8,Bacillus_T coahuilensis,0.009014589710366854
+C00123_Leu,RF,10-fold,9,Lachnospira sp000436535,0.008703624823845625
+C00123_Leu,RF,10-fold,10,Scatavimonas sp900540275,0.008468707873162258
+C02710_N-Acetylleucine,XGBoost,10-fold,1,Enterococcus_D gallinarum,0.02458433248102665
+C02710_N-Acetylleucine,XGBoost,10-fold,2,CAG-266 sp905207485,0.02268618531525135
+C02710_N-Acetylleucine,XGBoost,10-fold,3,Faecousia sp003525905,0.017783287912607193
+C02710_N-Acetylleucine,XGBoost,10-fold,4,Pauljensenia georgiae,0.015281434170901775
+C02710_N-Acetylleucine,XGBoost,10-fold,5,Prevotella sp000434975,0.015136566013097763
+C02710_N-Acetylleucine,XGBoost,10-fold,6,CAIFEB01 sp903789375,0.014737911522388458
+C02710_N-Acetylleucine,XGBoost,10-fold,7,Intestinibacter sp900540355,0.01423061452805996
+C02710_N-Acetylleucine,XGBoost,10-fold,8,Holdemanella sp900556915,0.014145080000162125
+C02710_N-Acetylleucine,XGBoost,10-fold,9,Alkalihalobacillus_A sp007293315,0.013910395093262196
+C02710_N-Acetylleucine,XGBoost,10-fold,10,Clostridium sp900540255,0.01242812443524599
+C02710_N-Acetylleucine,LightGBM,10-fold,1,CAG-266 sp905207485,0.031501329473322744
+C02710_N-Acetylleucine,LightGBM,10-fold,2,Pauljensenia georgiae,0.025325707329590403
+C02710_N-Acetylleucine,LightGBM,10-fold,3,Enterococcus_D gallinarum,0.021716962594741315
+C02710_N-Acetylleucine,LightGBM,10-fold,4,Clostridium sp900540255,0.02021539436011192
+C02710_N-Acetylleucine,LightGBM,10-fold,5,Neisseria subflava_A,0.018398929160192395
+C02710_N-Acetylleucine,LightGBM,10-fold,6,Holdemanella sp900556915,0.017601026194046097
+C02710_N-Acetylleucine,LightGBM,10-fold,7,Faecousia sp003525905,0.016153102748040413
+C02710_N-Acetylleucine,LightGBM,10-fold,8,CAIFEB01 sp903789375,0.01574623655178791
+C02710_N-Acetylleucine,LightGBM,10-fold,9,CAG-488 sp900539465,0.01508784849627112
+C02710_N-Acetylleucine,LightGBM,10-fold,10,Bifidobacterium ruminantium,0.015067459644252624
+C02710_N-Acetylleucine,RF,10-fold,1,Enterococcus_D gallinarum,0.011937543545564427
+C02710_N-Acetylleucine,RF,10-fold,2,CAG-266 sp905207485,0.010787498403390335
+C02710_N-Acetylleucine,RF,10-fold,3,Clostridium sp900540255,0.008817651721065188
+C02710_N-Acetylleucine,RF,10-fold,4,Alkalihalobacillus_A sp007293315,0.008551139464748638
+C02710_N-Acetylleucine,RF,10-fold,5,Pauljensenia georgiae,0.008108916574580802
+C02710_N-Acetylleucine,RF,10-fold,6,Bifidobacterium ruminantium,0.007868352845955847
+C02710_N-Acetylleucine,RF,10-fold,7,Faecousia sp003525905,0.0071735870099918575
+C02710_N-Acetylleucine,RF,10-fold,8,Holdemanella sp900556915,0.006831276368405451
+C02710_N-Acetylleucine,RF,10-fold,9,Klebsiella ornithinolytica,0.005753697291556605
+C02710_N-Acetylleucine,RF,10-fold,10,Neisseria subflava_A,0.005572050082252593
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,1,Escherichia sp004211955,0.039279282093048096
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,2,Streptococcus oralis_BH,0.0327678844332695
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,3,Scatavimonas sp900540275,0.03001498430967331
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,4,CAG-41 sp900066215,0.02976806089282036
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,5,Meiothermus_B silvanus,0.022618470713496208
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,6,Alistipes_A ihumii,0.018777653574943542
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,7,Bacillus_T coahuilensis,0.018623679876327515
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,8,Fusobacterium_B sp900542625,0.017346281558275223
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,9,Streptococcus macacae,0.016237488016486168
+C05984_2-Hydroxybutyrate,XGBoost,10-fold,10,Actinomyces sp900323545,0.01619310863316059
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,1,Escherichia sp004211955,0.04029559337511125
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,2,Streptococcus oralis_BH,0.04014287190663678
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,3,Scatavimonas sp900540275,0.03471179561557564
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,4,Alistipes_A ihumii,0.027767760634806835
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,5,CAG-41 sp900066215,0.02382524834219812
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,6,Meiothermus_B silvanus,0.022054548024584432
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,7,QWKK01 sp009911695,0.0179656966985983
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,8,Muribaculum sp910589555,0.017958487134630233
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,9,Streptococcus parauberis,0.017645566148108784
+C05984_2-Hydroxybutyrate,LightGBM,10-fold,10,Lachnospira eligens,0.01603785609046533
+C05984_2-Hydroxybutyrate,RF,10-fold,1,Streptococcus oralis_BH,0.019601836526974215
+C05984_2-Hydroxybutyrate,RF,10-fold,2,Scatavimonas sp900540275,0.01587828465649674
+C05984_2-Hydroxybutyrate,RF,10-fold,3,Faecalibacterium prausnitzii_D,0.014507588143501697
+C05984_2-Hydroxybutyrate,RF,10-fold,4,Escherichia sp004211955,0.01423724955465923
+C05984_2-Hydroxybutyrate,RF,10-fold,5,Avimicrobium caecorum,0.013050208232820104
+C05984_2-Hydroxybutyrate,RF,10-fold,6,Fusobacterium_A ulcerans,0.012147390858372333
+C05984_2-Hydroxybutyrate,RF,10-fold,7,Escherichia coli_E,0.010605926871642359
+C05984_2-Hydroxybutyrate,RF,10-fold,8,CAG-41 sp900066215,0.01002647456970917
+C05984_2-Hydroxybutyrate,RF,10-fold,9,ER4 sp000765235,0.0087130495400966
+C05984_2-Hydroxybutyrate,RF,10-fold,10,Lachnospira rogosae_A,0.008380203806134181
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,1,Clostridium_A leptum,0.09194798767566681
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,2,Scatavimonas sp900540275,0.0333123542368412
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,3,Galloscillospira_B excrementipullorum,0.030695822089910507
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,4,Avimicrobium caecorum,0.028226131573319435
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,5,Egerieicola pullicola,0.022981101647019386
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,6,CAG-485 sp910578075,0.021854959428310394
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,7,Phascolarctobacterium_A sp900753045,0.02070242166519165
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,8,Streptococcus parauberis,0.020474929362535477
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,9,Clostridium paraputrificum,0.018879007548093796
+C03264_2-Hydroxy-4-methylpentanoate,XGBoost,10-fold,10,Streptococcus macacae,0.018463093787431717
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,1,Clostridium_A leptum,0.09196572609694043
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,2,Scatavimonas sp900540275,0.03777659594364682
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,3,Galloscillospira_B excrementipullorum,0.03682259057816567
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,4,Avimicrobium caecorum,0.024470270852689352
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,5,Egerieicola pullicola,0.024221986304636536
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,6,Clostridium paraputrificum,0.022410586583914743
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,7,Streptococcus parauberis,0.020092305478370223
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,8,Ruminococcus_E sp902766775,0.019166649412081495
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,9,CAG-485 sp910578075,0.01874986724761066
+C03264_2-Hydroxy-4-methylpentanoate,LightGBM,10-fold,10,Alistipes_A sp900539755,0.018519417135877483
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,1,Clostridium_A leptum,0.09773889629846781
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,2,Scatavimonas sp900540275,0.028477298114737173
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,3,Galloscillospira_B excrementipullorum,0.025962819682304353
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,4,Avimicrobium caecorum,0.017251125097623648
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,5,Egerieicola pullicola,0.010401373390404449
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,6,Streptococcus parauberis,0.008212967245630058
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,7,Holdemanella porci,0.006880010108297156
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,8,Klebsiella ornithinolytica,0.006489934840264601
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,9,Alistipes_A sp900539755,0.006416297801276407
+C03264_2-Hydroxy-4-methylpentanoate,RF,10-fold,10,Clostridium paraputrificum,0.006366695176070089
+C00407_Ile,XGBoost,10-fold,1,Fusobacterium sp000235465,0.07324404269456863
+C00407_Ile,XGBoost,10-fold,2,Egerieicola pullicola,0.03417038172483444
+C00407_Ile,XGBoost,10-fold,3,Fusobacterium_A mortiferum,0.0325256772339344
+C00407_Ile,XGBoost,10-fold,4,Dialister sp900541605,0.02548724040389061
+C00407_Ile,XGBoost,10-fold,5,Bacillus_T coahuilensis,0.02248738706111908
+C00407_Ile,XGBoost,10-fold,6,Acutalibacter sp910580045,0.021061189472675323
+C00407_Ile,XGBoost,10-fold,7,CAG-793 sp013333035,0.020924780517816544
+C00407_Ile,XGBoost,10-fold,8,Faecalibacterium prausnitzii_D,0.019394170492887497
+C00407_Ile,XGBoost,10-fold,9,Veillonella atypica,0.01669887825846672
+C00407_Ile,XGBoost,10-fold,10,Lachnospira sp000436475,0.013324075378477573
+C00407_Ile,LightGBM,10-fold,1,Fusobacterium sp000235465,0.06915611115039191
+C00407_Ile,LightGBM,10-fold,2,Fusobacterium_A mortiferum,0.039595890789041674
+C00407_Ile,LightGBM,10-fold,3,Egerieicola pullicola,0.02814013203967027
+C00407_Ile,LightGBM,10-fold,4,Acutalibacter sp910580045,0.025080551258981957
+C00407_Ile,LightGBM,10-fold,5,Dialister sp900541605,0.024729362259126357
+C00407_Ile,LightGBM,10-fold,6,CAG-793 sp013333035,0.021708243660853672
+C00407_Ile,LightGBM,10-fold,7,Veillonella atypica,0.020507603524392994
+C00407_Ile,LightGBM,10-fold,8,Faecalibacterium prausnitzii_D,0.019670040484227398
+C00407_Ile,LightGBM,10-fold,9,Bacillus_T coahuilensis,0.019527294516677906
+C00407_Ile,LightGBM,10-fold,10,Chitinophaga silvisoli,0.018229631341631605
+C00407_Ile,RF,10-fold,1,Fusobacterium sp000235465,0.04370602726685957
+C00407_Ile,RF,10-fold,2,Fusobacterium_A mortiferum,0.032083417830580996
+C00407_Ile,RF,10-fold,3,Egerieicola pullicola,0.02383741315180925
+C00407_Ile,RF,10-fold,4,Faecalibacterium prausnitzii_D,0.016202855776436303
+C00407_Ile,RF,10-fold,5,Acutalibacter sp910580045,0.01403827099349724
+C00407_Ile,RF,10-fold,6,Scatavimonas sp900540275,0.009951634787670562
+C00407_Ile,RF,10-fold,7,Streptococcus oralis_BH,0.007053198249517214
+C00407_Ile,RF,10-fold,8,CAG-793 sp013333035,0.007012358679376736
+C00407_Ile,RF,10-fold,9,Dialister sp900541605,0.006944141728805494
+C00407_Ile,RF,10-fold,10,Lachnospira eligens,0.0069411197190108135
+C00383_Malonate,XGBoost,10-fold,1,UMGS687 sp900545735,0.08479061722755432
+C00383_Malonate,XGBoost,10-fold,2,Aphodousia sp900553105,0.062044188380241394
+C00383_Malonate,XGBoost,10-fold,3,Phascolarctobacterium faecium,0.035178475081920624
+C00383_Malonate,XGBoost,10-fold,4,Phascolarctobacterium_A succinatutens_A,0.03081393800675869
+C00383_Malonate,XGBoost,10-fold,5,Parasutterella excrementihominis,0.02652811072766781
+C00383_Malonate,XGBoost,10-fold,6,Neisseria subflava,0.021647894755005836
+C00383_Malonate,XGBoost,10-fold,7,Phascolarctobacterium_A succinatutens,0.02033040300011635
+C00383_Malonate,XGBoost,10-fold,8,Sediminibacterium sp902168225,0.020159311592578888
+C00383_Malonate,XGBoost,10-fold,9,Dialister invisus,0.01898038759827614
+C00383_Malonate,XGBoost,10-fold,10,Enterobacter ludwigii,0.01645013876259327
+C00383_Malonate,LightGBM,10-fold,1,UMGS687 sp900545735,0.07190826805934346
+C00383_Malonate,LightGBM,10-fold,2,Aphodousia sp900553105,0.0629636761472568
+C00383_Malonate,LightGBM,10-fold,3,Phascolarctobacterium faecium,0.0472742513318514
+C00383_Malonate,LightGBM,10-fold,4,Phascolarctobacterium_A succinatutens_A,0.03876809754131556
+C00383_Malonate,LightGBM,10-fold,5,Sediminibacterium sp902168225,0.02905708779515452
+C00383_Malonate,LightGBM,10-fold,6,Parasutterella excrementihominis,0.02893077221623113
+C00383_Malonate,LightGBM,10-fold,7,Neisseria subflava,0.022425144262095128
+C00383_Malonate,LightGBM,10-fold,8,Dialister invisus,0.021984382222965875
+C00383_Malonate,LightGBM,10-fold,9,Fusobacterium_B sp900542625,0.018497373227103975
+C00383_Malonate,LightGBM,10-fold,10,Phascolarctobacterium_A succinatutens,0.018294753371932666
+C00383_Malonate,RF,10-fold,1,UMGS687 sp900545735,0.07270368103815135
+C00383_Malonate,RF,10-fold,2,Aphodousia sp900553105,0.0683337717796219
+C00383_Malonate,RF,10-fold,3,Sediminibacterium sp902168225,0.026767283221958732
+C00383_Malonate,RF,10-fold,4,Phascolarctobacterium_A succinatutens_A,0.019505559250549868
+C00383_Malonate,RF,10-fold,5,Parasutterella excrementihominis,0.014968885921152711
+C00383_Malonate,RF,10-fold,6,Dialister invisus,0.011895764219596172
+C00383_Malonate,RF,10-fold,7,Phascolarctobacterium faecium,0.01182600934727532
+C00383_Malonate,RF,10-fold,8,UBA1829 sp900548385,0.009689351838808003
+C00383_Malonate,RF,10-fold,9,Phascolarctobacterium_A succinatutens,0.008863918975163147
+C00383_Malonate,RF,10-fold,10,Fusobacterium_B sp900542625,0.008722701014572997
+C00186_Lactate,XGBoost,10-fold,1,Acidaminococcus provencensis,0.051801830530166626
+C00186_Lactate,XGBoost,10-fold,2,Collinsella stercoripullorum,0.03458575904369354
+C00186_Lactate,XGBoost,10-fold,3,Dialister sp900543455,0.03102206438779831
+C00186_Lactate,XGBoost,10-fold,4,Faecalibacterium prausnitzii,0.02900904417037964
+C00186_Lactate,XGBoost,10-fold,5,Meiothermus_B silvanus,0.026622818782925606
+C00186_Lactate,XGBoost,10-fold,6,Fusobacterium sp000235465,0.025347162038087845
+C00186_Lactate,XGBoost,10-fold,7,Scatavimonas sp900540275,0.022501256316900253
+C00186_Lactate,XGBoost,10-fold,8,Streptococcus oralis_BH,0.018600352108478546
+C00186_Lactate,XGBoost,10-fold,9,Erysipelatoclostridium ramosum,0.017133494839072227
+C00186_Lactate,XGBoost,10-fold,10,Duncaniella sp910577345,0.015113143250346184
+C00186_Lactate,LightGBM,10-fold,1,UBA1829 sp900548385,0.04949849754615545
+C00186_Lactate,LightGBM,10-fold,2,Dialister sp900543455,0.04348689547913285
+C00186_Lactate,LightGBM,10-fold,3,Collinsella stercoripullorum,0.043071509333986
+C00186_Lactate,LightGBM,10-fold,4,Acidaminococcus provencensis,0.04269492092617617
+C00186_Lactate,LightGBM,10-fold,5,Faecalibacterium prausnitzii,0.02714987662990453
+C00186_Lactate,LightGBM,10-fold,6,Aphodousia sp900545335,0.024170709834157894
+C00186_Lactate,LightGBM,10-fold,7,Meiothermus_B silvanus,0.02284734277311016
+C00186_Lactate,LightGBM,10-fold,8,Fusobacterium sp000235465,0.020510406696614275
+C00186_Lactate,LightGBM,10-fold,9,Erysipelatoclostridium ramosum,0.020388334382760234
+C00186_Lactate,LightGBM,10-fold,10,CAG-103 sp900317855,0.019214239843893192
+C00186_Lactate,RF,10-fold,1,Faecalibacterium prausnitzii,0.017318213320629283
+C00186_Lactate,RF,10-fold,2,Streptococcus oralis_BH,0.017186614423819743
+C00186_Lactate,RF,10-fold,3,Acidaminococcus provencensis,0.015779697346800972
+C00186_Lactate,RF,10-fold,4,Erysipelatoclostridium ramosum,0.013201107837610394
+C00186_Lactate,RF,10-fold,5,Fusobacterium sp000235465,0.011880281384525182
+C00186_Lactate,RF,10-fold,6,Actinomyces sp900323545,0.010602363550115387
+C00186_Lactate,RF,10-fold,7,Scatavimonas sp900540275,0.009337814336611485
+C00186_Lactate,RF,10-fold,8,CAG-41 sp900066215,0.008780761342466463
+C00186_Lactate,RF,10-fold,9,Streptococcus macacae,0.008671076023982958
+C00186_Lactate,RF,10-fold,10,Collinsella stercoripullorum,0.008038102389157977
+C00449_Saccharopine,XGBoost,10-fold,1,CAG-83 sp000435555,0.06045565381646156
+C00449_Saccharopine,XGBoost,10-fold,2,CAG-170 sp000432135,0.0559350922703743
+C00449_Saccharopine,XGBoost,10-fold,3,UBA1685 sp900546845,0.032119251787662506
+C00449_Saccharopine,XGBoost,10-fold,4,Sutterella wadsworthensis,0.029570475220680237
+C00449_Saccharopine,XGBoost,10-fold,5,Enterocloster sp001517625,0.02273835986852646
+C00449_Saccharopine,XGBoost,10-fold,6,Clostridium disporicum,0.018324799835681915
+C00449_Saccharopine,XGBoost,10-fold,7,Veillonella parvula_A,0.01788722164928913
+C00449_Saccharopine,XGBoost,10-fold,8,CAG-103 sp900543625,0.015248855575919151
+C00449_Saccharopine,XGBoost,10-fold,9,UMGS1590 sp900552455,0.015055031515657902
+C00449_Saccharopine,XGBoost,10-fold,10,Cupidesulfovibrio vulgaris_A,0.013954867608845234
+C00449_Saccharopine,LightGBM,10-fold,1,CAG-83 sp000435555,0.0646137116981149
+C00449_Saccharopine,LightGBM,10-fold,2,CAG-170 sp000432135,0.05737678634946553
+C00449_Saccharopine,LightGBM,10-fold,3,UBA1685 sp900546845,0.03500463377454968
+C00449_Saccharopine,LightGBM,10-fold,4,Enterocloster sp001517625,0.024502637356827003
+C00449_Saccharopine,LightGBM,10-fold,5,Sutterella wadsworthensis,0.02411179320665754
+C00449_Saccharopine,LightGBM,10-fold,6,Cupidesulfovibrio vulgaris_A,0.01751948095909746
+C00449_Saccharopine,LightGBM,10-fold,7,Clostridium disporicum,0.017192092261384875
+C00449_Saccharopine,LightGBM,10-fold,8,UMGS1590 sp900552455,0.017046083736271964
+C00449_Saccharopine,LightGBM,10-fold,9,Veillonella parvula_A,0.01694547255360759
+C00449_Saccharopine,LightGBM,10-fold,10,CAG-485 sp900759795,0.016000655023318325
+C00449_Saccharopine,RF,10-fold,1,CAG-170 sp000432135,0.06732676465558182
+C00449_Saccharopine,RF,10-fold,2,CAG-83 sp000435555,0.05110715568713649
+C00449_Saccharopine,RF,10-fold,3,UBA1685 sp900546845,0.021708917295449135
+C00449_Saccharopine,RF,10-fold,4,Sutterella wadsworthensis,0.019485411458327134
+C00449_Saccharopine,RF,10-fold,5,CAG-83 sp002438575,0.008140022147562728
+C00449_Saccharopine,RF,10-fold,6,Clostridium disporicum,0.007450745564473347
+C00449_Saccharopine,RF,10-fold,7,Cupidesulfovibrio vulgaris_A,0.006752537973984113
+C00449_Saccharopine,RF,10-fold,8,Alloprevotella sp900540885,0.0066866366985751
+C00449_Saccharopine,RF,10-fold,9,Enterocloster sp001517625,0.006178128357202608
+C00449_Saccharopine,RF,10-fold,10,UMGS693 sp900544555,0.005415399693812548
+C00255_Riboflavin,XGBoost,10-fold,1,CCUG-7971 sp017590215,0.055024027824401855
+C00255_Riboflavin,XGBoost,10-fold,2,Clostridium butyricum,0.05472587049007416
+C00255_Riboflavin,XGBoost,10-fold,3,Fusobacterium sp000235465,0.05225770175457001
+C00255_Riboflavin,XGBoost,10-fold,4,Romboutsia_D sp000686145,0.045280661433935165
+C00255_Riboflavin,XGBoost,10-fold,5,UMGS1322 sp905214315,0.02362532913684845
+C00255_Riboflavin,XGBoost,10-fold,6,Dialister sp000434475,0.02073991857469082
+C00255_Riboflavin,XGBoost,10-fold,7,Dysgonomonas mossii,0.017254244536161423
+C00255_Riboflavin,XGBoost,10-fold,8,Raoultibacter timonensis,0.016895050182938576
+C00255_Riboflavin,XGBoost,10-fold,9,UBA4334 sp905235525,0.015451396815478802
+C00255_Riboflavin,XGBoost,10-fold,10,Ruminococcus_D sp900539095,0.015152662992477417
+C00255_Riboflavin,LightGBM,10-fold,1,Clostridium butyricum,0.0582230510995165
+C00255_Riboflavin,LightGBM,10-fold,2,Fusobacterium sp000235465,0.05636007347999567
+C00255_Riboflavin,LightGBM,10-fold,3,CCUG-7971 sp017590215,0.05567204057068413
+C00255_Riboflavin,LightGBM,10-fold,4,Romboutsia_D sp000686145,0.04361489181825092
+C00255_Riboflavin,LightGBM,10-fold,5,Dialister sp000434475,0.03127650479576212
+C00255_Riboflavin,LightGBM,10-fold,6,UMGS1322 sp905214315,0.02307062398675195
+C00255_Riboflavin,LightGBM,10-fold,7,Raoultibacter timonensis,0.02144134240932086
+C00255_Riboflavin,LightGBM,10-fold,8,Ruminococcus_D sp900539095,0.01916861156131592
+C00255_Riboflavin,LightGBM,10-fold,9,Holdemanella sp003458715,0.01657365699806346
+C00255_Riboflavin,LightGBM,10-fold,10,Succinivibrio sp900315395,0.0160121736461093
+C00255_Riboflavin,RF,10-fold,1,CCUG-7971 sp017590215,0.04345619010948691
+C00255_Riboflavin,RF,10-fold,2,Romboutsia_D sp000686145,0.04169178648478098
+C00255_Riboflavin,RF,10-fold,3,Clostridium butyricum,0.035875974505205084
+C00255_Riboflavin,RF,10-fold,4,Fusobacterium sp000235465,0.023481133793170832
+C00255_Riboflavin,RF,10-fold,5,Romboutsia_A weinsteinii,0.011659728641807452
+C00255_Riboflavin,RF,10-fold,6,Dialister sp000434475,0.009734921314806747
+C00255_Riboflavin,RF,10-fold,7,UMGS1322 sp905214315,0.007927839894397964
+C00255_Riboflavin,RF,10-fold,8,Bacteroides stercoris,0.007518207810421518
+C00255_Riboflavin,RF,10-fold,9,Ruminococcus_D sp900539095,0.007177893834049393
+C00255_Riboflavin,RF,10-fold,10,Holdemanella sp003458715,0.006615072394600895
+C00785_Urocanate,XGBoost,10-fold,1,Avispirillum faecium,0.0506288968026638
+C00785_Urocanate,XGBoost,10-fold,2,UMGS902 sp003343845,0.04124213010072708
+C00785_Urocanate,XGBoost,10-fold,3,Alistipes avistercoris,0.02090241014957428
+C00785_Urocanate,XGBoost,10-fold,4,Fimisoma sp900754795,0.019135667011141777
+C00785_Urocanate,XGBoost,10-fold,5,Alcohol,0.017434028908610344
+C00785_Urocanate,XGBoost,10-fold,6,CAG-170 sp000432135,0.01711839996278286
+C00785_Urocanate,XGBoost,10-fold,7,UMGS1696 sp900753285,0.015538513660430908
+C00785_Urocanate,XGBoost,10-fold,8,Gemmiger sp900540595,0.015073148533701897
+C00785_Urocanate,XGBoost,10-fold,9,Alectryocaccomicrobium excrementavium,0.013288948684930801
+C00785_Urocanate,XGBoost,10-fold,10,Excrementavichristensenella intestinipullorum,0.013128257356584072
+C00785_Urocanate,LightGBM,10-fold,1,Avispirillum faecium,0.04836685040921611
+C00785_Urocanate,LightGBM,10-fold,2,UMGS902 sp003343845,0.04201340216951549
+C00785_Urocanate,LightGBM,10-fold,3,Alistipes avistercoris,0.029227364221054198
+C00785_Urocanate,LightGBM,10-fold,4,Fimisoma sp900754795,0.022059483941799515
+C00785_Urocanate,LightGBM,10-fold,5,Age,0.018611027044096076
+C00785_Urocanate,LightGBM,10-fold,6,Clostridium_A leptum,0.017368525870873234
+C00785_Urocanate,LightGBM,10-fold,7,CAG-170 sp000432135,0.016625078411821453
+C00785_Urocanate,LightGBM,10-fold,8,Alcohol,0.01592849548559702
+C00785_Urocanate,LightGBM,10-fold,9,Enterococcus_A avium,0.015276856430365552
+C00785_Urocanate,LightGBM,10-fold,10,Dialister sp000434475,0.01475936151780688
+C00785_Urocanate,RF,10-fold,1,Avispirillum faecium,0.04812970556014115
+C00785_Urocanate,RF,10-fold,2,UMGS902 sp003343845,0.0318770741604779
+C00785_Urocanate,RF,10-fold,3,Alistipes avistercoris,0.014305597466843763
+C00785_Urocanate,RF,10-fold,4,CAG-170 sp000432135,0.013758909550308281
+C00785_Urocanate,RF,10-fold,5,Clostridium_A leptum,0.011863308893779432
+C00785_Urocanate,RF,10-fold,6,Fimisoma sp900754795,0.010250225234643334
+C00785_Urocanate,RF,10-fold,7,Alectryocaccomicrobium excrementavium,0.008469319429960705
+C00785_Urocanate,RF,10-fold,8,ER4 sp000765235,0.008388314184764488
+C00785_Urocanate,RF,10-fold,9,UMGS1696 sp900753285,0.007884787262229544
+C00785_Urocanate,RF,10-fold,10,UBA1685 sp900546845,0.007411119701506494
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,1,Acutalibacter sp910580045,0.11552807688713074
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,2,Evtepia excrementipullorum,0.04401825740933418
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,3,UMGS687 sp900545735,0.03164394572377205
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,4,Cellulosilyticum ruminicola,0.02587168663740158
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,5,Onthousia sp900758495,0.023944957181811333
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,6,Prevotella sp900556395,0.022749517112970352
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,7,Ruminococcus_C callidus,0.02262178622186184
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,8,Fusobacterium_B sp900542625,0.02137441188097
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,9,UMGS75 sp900538885,0.02035566233098507
+C11118_1-Methyl-2-pyrrolidinone,XGBoost,10-fold,10,Slackia_A isoflavoniconvertens,0.018071811646223068
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,1,Acutalibacter sp910580045,0.11594654254700955
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,2,Evtepia excrementipullorum,0.04381963018314531
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,3,Onthousia sp900758495,0.0284055829377952
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,4,Cellulosilyticum ruminicola,0.0254549185338436
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,5,Prevotella sp900556395,0.025236275327415007
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,6,Ruminococcus_C callidus,0.024602076291725193
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,7,Meiothermus_B silvanus,0.024569100963003396
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,8,UMGS75 sp900538885,0.024382657456324352
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,9,Slackia_A isoflavoniconvertens,0.023112772490064257
+C11118_1-Methyl-2-pyrrolidinone,LightGBM,10-fold,10,UMGS687 sp900545735,0.02144705258937307
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,1,Acutalibacter sp910580045,0.08385180168575047
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,2,Evtepia excrementipullorum,0.03768792850979078
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,3,Egerieicola pullicola,0.019047923737993494
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,4,UMGS687 sp900545735,0.0129061622009372
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,5,Onthousia sp900758495,0.010977277459571395
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,6,Faecalibacterium prausnitzii_G,0.008847525253067227
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,7,Clostridium_A leptum,0.00860906351444569
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,8,Scatomorpha stercorigallinarum,0.00801340700971326
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,9,Lachnospira sp000437735,0.007886501838560578
+C11118_1-Methyl-2-pyrrolidinone,RF,10-fold,10,Fusobacterium_B sp900542625,0.006834211988397267
+C17714_Heptanoate,XGBoost,10-fold,1,Faecousia sp000434635,0.06663937866687775
+C17714_Heptanoate,XGBoost,10-fold,2,UBA5905 sp900763035,0.041513845324516296
+C17714_Heptanoate,XGBoost,10-fold,3,Alistipes_A ihumii,0.03518393263220787
+C17714_Heptanoate,XGBoost,10-fold,4,CAG-170 sp000432135,0.02818816900253296
+C17714_Heptanoate,XGBoost,10-fold,5,Lachnospira eligens,0.02216508984565735
+C17714_Heptanoate,XGBoost,10-fold,6,PeH17 sp000435055,0.02146543376147747
+C17714_Heptanoate,XGBoost,10-fold,7,Spyradocola merdavium,0.016952263191342354
+C17714_Heptanoate,XGBoost,10-fold,8,Neisseria flavescens_C,0.015136510133743286
+C17714_Heptanoate,XGBoost,10-fold,9,Limivicinus faecipullorum,0.011875037103891373
+C17714_Heptanoate,XGBoost,10-fold,10,UBA10677 sp900543755,0.010439185425639153
+C17714_Heptanoate,LightGBM,10-fold,1,Faecousia sp000434635,0.048211389872395295
+C17714_Heptanoate,LightGBM,10-fold,2,Alistipes_A ihumii,0.03764541838725211
+C17714_Heptanoate,LightGBM,10-fold,3,CAG-170 sp000432135,0.03703427980544782
+C17714_Heptanoate,LightGBM,10-fold,4,PeH17 sp000435055,0.02831140779638928
+C17714_Heptanoate,LightGBM,10-fold,5,UBA5905 sp900763035,0.02654346514663944
+C17714_Heptanoate,LightGBM,10-fold,6,Spyradocola merdavium,0.023772372543923528
+C17714_Heptanoate,LightGBM,10-fold,7,UMGS124 sp900539345,0.018636940027720178
+C17714_Heptanoate,LightGBM,10-fold,8,CAG-103 sp900757655,0.016826179192154078
+C17714_Heptanoate,LightGBM,10-fold,9,Neisseria flavescens_C,0.01527938133137464
+C17714_Heptanoate,LightGBM,10-fold,10,CAG-269 sp001916035,0.01514162527986495
+C17714_Heptanoate,RF,10-fold,1,Faecousia sp000434635,0.05237807387433445
+C17714_Heptanoate,RF,10-fold,2,PeH17 sp000435055,0.038226205913095564
+C17714_Heptanoate,RF,10-fold,3,CAG-170 sp000432135,0.029235990639064856
+C17714_Heptanoate,RF,10-fold,4,Alistipes_A ihumii,0.02741341928752662
+C17714_Heptanoate,RF,10-fold,5,UBA5905 sp900763035,0.01646088522105342
+C17714_Heptanoate,RF,10-fold,6,Spyradocola merdavium,0.011345233400016119
+C17714_Heptanoate,RF,10-fold,7,Ruminiclostridium_E siraeum,0.008106245316770082
+C17714_Heptanoate,RF,10-fold,8,Scatomorpha stercorigallinarum,0.007260404406867541
+C17714_Heptanoate,RF,10-fold,9,Ruminiclostridium_E sp900539195,0.006465868668379889
+C17714_Heptanoate,RF,10-fold,10,QAMH01 sp900544245,0.006251036041323606
+C00417_cis-Aconitate,XGBoost,10-fold,1,Fimenecus sp002437245,0.03752699866890907
+C00417_cis-Aconitate,XGBoost,10-fold,2,Eubacterium_G ventriosum,0.03379416465759277
+C00417_cis-Aconitate,XGBoost,10-fold,3,Sutterella sp900545275,0.030736079439520836
+C00417_cis-Aconitate,XGBoost,10-fold,4,Gender_Male,0.02435636892914772
+C00417_cis-Aconitate,XGBoost,10-fold,5,Chitinophaga silvisoli,0.02290252596139908
+C00417_cis-Aconitate,XGBoost,10-fold,6,Clostridium saudiense,0.022323627024888992
+C00417_cis-Aconitate,XGBoost,10-fold,7,Lachnospira sp000436535,0.021545790135860443
+C00417_cis-Aconitate,XGBoost,10-fold,8,CAG-115 sp000432175,0.018306629732251167
+C00417_cis-Aconitate,XGBoost,10-fold,9,DULI01 sp012840445,0.017770184203982353
+C00417_cis-Aconitate,XGBoost,10-fold,10,UBA3839 sp002393575,0.017287151888012886
+C00417_cis-Aconitate,LightGBM,10-fold,1,Eubacterium_G ventriosum,0.05364871780805582
+C00417_cis-Aconitate,LightGBM,10-fold,2,Fimenecus sp002437245,0.039884677412656784
+C00417_cis-Aconitate,LightGBM,10-fold,3,Clostridium saudiense,0.035776329807457076
+C00417_cis-Aconitate,LightGBM,10-fold,4,Sutterella sp900545275,0.03373550290861917
+C00417_cis-Aconitate,LightGBM,10-fold,5,DULI01 sp012840445,0.02774456204649595
+C00417_cis-Aconitate,LightGBM,10-fold,6,Collinsella intestinalis,0.022983441534340183
+C00417_cis-Aconitate,LightGBM,10-fold,7,Avimicrobium caecorum,0.02261660475391312
+C00417_cis-Aconitate,LightGBM,10-fold,8,Chitinophaga silvisoli,0.022043277880062558
+C00417_cis-Aconitate,LightGBM,10-fold,9,QWKK01 sp009911695,0.021260157972659753
+C00417_cis-Aconitate,LightGBM,10-fold,10,Lachnospira sp000436535,0.02125910140326467
+C00417_cis-Aconitate,RF,10-fold,1,UBA3839 sp002393575,0.023105553139849813
+C00417_cis-Aconitate,RF,10-fold,2,Faecalibacillus intestinalis,0.017892228873531472
+C00417_cis-Aconitate,RF,10-fold,3,Clostridium saudiense,0.011844501684966641
+C00417_cis-Aconitate,RF,10-fold,4,CAIFEB01 sp903789375,0.011311340129904951
+C00417_cis-Aconitate,RF,10-fold,5,Holdemanella sp900556915,0.009794483142465534
+C00417_cis-Aconitate,RF,10-fold,6,Clostridium sp900540255,0.009476148014696126
+C00417_cis-Aconitate,RF,10-fold,7,Sutterella sp900545275,0.00933558317143376
+C00417_cis-Aconitate,RF,10-fold,8,Chitinophaga silvisoli,0.009297480411738314
+C00417_cis-Aconitate,RF,10-fold,9,Sutterella wadsworthensis,0.009136277419495955
+C00417_cis-Aconitate,RF,10-fold,10,Fimenecus sp002437245,0.008265735588194689
+C00314_Pyridoxine,XGBoost,10-fold,1,Scatavimonas merdipullorum,0.07121045142412186
+C00314_Pyridoxine,XGBoost,10-fold,2,UMGS693 sp900544555,0.03939623013138771
+C00314_Pyridoxine,XGBoost,10-fold,3,Spyradocola merdavium,0.02645406313240528
+C00314_Pyridoxine,XGBoost,10-fold,4,Prevotella sp900557255,0.021682163700461388
+C00314_Pyridoxine,XGBoost,10-fold,5,Alangreenwoodia gallinarii,0.01865777187049389
+C00314_Pyridoxine,XGBoost,10-fold,6,Alistipes_A indistinctus,0.013383028097450733
+C00314_Pyridoxine,XGBoost,10-fold,7,Faecalibacterium prausnitzii_G,0.011739871464669704
+C00314_Pyridoxine,XGBoost,10-fold,8,CAG-274 sp000432155,0.011151893995702267
+C00314_Pyridoxine,XGBoost,10-fold,9,Catenibacterium sp900540685,0.01096093375235796
+C00314_Pyridoxine,XGBoost,10-fold,10,Paraclostridium tenue,0.010254012420773506
+C00314_Pyridoxine,LightGBM,10-fold,1,Scatavimonas merdipullorum,0.06654290140271146
+C00314_Pyridoxine,LightGBM,10-fold,2,UMGS693 sp900544555,0.041025315092431174
+C00314_Pyridoxine,LightGBM,10-fold,3,Spyradocola merdavium,0.030056956716747345
+C00314_Pyridoxine,LightGBM,10-fold,4,Fimivicinus sp900544375,0.01918460825087825
+C00314_Pyridoxine,LightGBM,10-fold,5,Alangreenwoodia gallinarii,0.019156584696290394
+C00314_Pyridoxine,LightGBM,10-fold,6,Prevotella sp900557255,0.017830680197106513
+C00314_Pyridoxine,LightGBM,10-fold,7,Alistipes_A indistinctus,0.01132158145780856
+C00314_Pyridoxine,LightGBM,10-fold,8,Prevotella sp900555035,0.011037967614593858
+C00314_Pyridoxine,LightGBM,10-fold,9,UBA10281 sp900554485,0.010946712852695033
+C00314_Pyridoxine,LightGBM,10-fold,10,Fimisoma sp000435715,0.010896124715649961
+C00314_Pyridoxine,RF,10-fold,1,Scatavimonas merdipullorum,0.07241778668979768
+C00314_Pyridoxine,RF,10-fold,2,UMGS693 sp900544555,0.026550190774649943
+C00314_Pyridoxine,RF,10-fold,3,Spyradocola merdavium,0.02264089286241065
+C00314_Pyridoxine,RF,10-fold,4,Alangreenwoodia gallinarii,0.011871603536494966
+C00314_Pyridoxine,RF,10-fold,5,Prevotella sp900557255,0.006603735707198691
+C00314_Pyridoxine,RF,10-fold,6,Alistipes_A indistinctus,0.0065152167128381434
+C00314_Pyridoxine,RF,10-fold,7,UBA10281 sp900554485,0.006050033986488417
+C00314_Pyridoxine,RF,10-fold,8,UBA3855 sp017460955,0.006020690156795749
+C00314_Pyridoxine,RF,10-fold,9,Fimivicinus sp900544375,0.005653959975335539
+C00314_Pyridoxine,RF,10-fold,10,Dialister sp000434475,0.005614227622228695

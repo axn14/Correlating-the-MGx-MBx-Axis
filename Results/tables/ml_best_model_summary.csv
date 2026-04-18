@@ -1,0 +1,10 @@
+Metabolite,Metabolite_Name,Direction,IsPolyamine,Classifier,Mean_AUC,Std_AUC,IsBestModel,N_pos,N_neg,AUC_label,Difficulty
+C01046_N-Methylglutamate,C01046_N-Methylglutamate,Depleted,False,SVM,0.7636,0.079,True,174,173,0.764 ± 0.079,Good (0.70–0.80)
+C00630_Isobutyryl CoA,C00630_Isobutyryl CoA,Depleted,False,SVM,0.712,0.0798,True,174,173,0.712 ± 0.080,Good (0.70–0.80)
+C00003_NAD+,C00003_NAD+,Depleted,False,SVM,0.6845,0.0848,True,174,173,0.684 ± 0.085,Moderate (0.60–0.70)
+C04501_N-Acetylglucosamine 1-phosphate,C04501_N-Acetylglucosamine 1-p,Elevated,False,SVM,0.6673,0.0871,True,174,173,0.667 ± 0.087,Moderate (0.60–0.70)
+"C01026_N,N-Dimethylglycine","C01026_N,N-Dimethylglycine",Elevated,False,SVM,0.6455,0.1106,True,174,173,0.645 ± 0.111,Moderate (0.60–0.70)
+C02115_Alpha-Methylserine,C02115_Alpha-Methylserine,Depleted,False,SVM,0.6191,0.0839,True,174,173,0.619 ± 0.084,Moderate (0.60–0.70)
+C01425_Glu-Glu,C01425_Glu-Glu,Elevated,False,SVM,0.6137,0.09,True,174,173,0.614 ± 0.090,Moderate (0.60–0.70)
+C00864_Pantothenate,C00864_Pantothenate,Elevated,False,SVM,0.5959,0.0923,True,174,173,0.596 ± 0.092,Hard (<0.60)
+C00093_Glycerophosphate,C00093_Glycerophosphate,Elevated,False,SVM,0.5491,0.1015,True,174,173,0.549 ± 0.102,Hard (<0.60)

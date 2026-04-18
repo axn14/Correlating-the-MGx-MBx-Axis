@@ -1,0 +1,22 @@
+target,gutsmash_class,n_validated,n_total,validation_rate,metabolite_name,pathway
+C00186_Lactate,SCFA_Lactate,0,5,0.0,C00186,Other
+C00314_Pyridoxine,Vitamin_B6,0,8,0.0,C00314,Other
+C00255_Riboflavin,Vitamin_Riboflavin,0,5,0.0,C00255,Other
+C00191_Glucuronate,GlucuronideBioT,0,11,0.0,C00191,Other
+C01551_Allantoin,Purine_Catabolism,0,7,0.0,C01551,Other
+C02679_Dodecanoate,MCFA,0,4,0.0,C02679,Other
+C00423_trans-Cinnamate,PhenylamineFerm,0,8,0.0,C00423,Other
+C00630_Isobutyryl CoA,BranchedChainAA,0,3,0.0,C00630,Other
+C08262_Isovalerate,BranchedChainAA,0,6,0.0,C08262,Other
+C17714_Heptanoate,MCFA,0,6,0.0,C17714,Other
+C05332_Phenethylamine,PhenylamineFerm,0,4,0.0,C05332,Other
+C00086_Urea,Urea,1,8,0.125,C00086,Other
+C03264_2-Hydroxy-4-methylpentanoate,BranchedChainAA,1,5,0.2,C03264,Other
+_DCA,Secondary_BA,1,5,0.2,_DCA,Other
+C00123_Leu,BranchedChainAA,2,9,0.2222222222222222,C00123,Amino Acid
+C00407_Ile,BranchedChainAA,2,9,0.2222222222222222,C00407,Amino Acid
+C00245_Taurine,BileAcid_BSH,3,9,0.3333333333333333,C00245,Other
+C02714_N-Acetylputrescine,Putrescine,3,8,0.375,C02714,Other
+C01104_Trimethylamine N-oxide,TMAO_Choline,2,5,0.4,C01104,Other
+3-Indoxyl sulfate,Indole,5,10,0.5,3-Indoxyl sulfate,Other
+C00334_GABA,GABA,4,6,0.6666666666666666,C00334,Other

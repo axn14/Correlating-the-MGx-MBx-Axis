@@ -1,0 +1,1399 @@
+Species,Metabolite,kegg_id,genus,E1_shap_stable,E2_spearman,E3_kegg,E4_glasso,E5_mofa,E6_mediation,E7_within_stage,Evidence_score,Confidence,pathway
+Aphodousia sp900553105,C00383_Malonate,C00383,Aphodousia,True,True,False,False,True,True,False,4,High (4+),Other
+Sediminibacterium sp902168225,C00383_Malonate,C00383,Sediminibacterium,True,True,False,False,True,True,False,4,High (4+),Other
+Aphodousia sp900553105,C01118_o-Succinylhomoserine,C01118,Aphodousia,True,True,False,False,True,True,False,4,High (4+),Other
+UBA1829 sp900548385,C00383_Malonate,C00383,UBA1829,True,True,False,False,True,False,False,3,Medium-High (3),Other
+Clostridium_A leptum,C00245_Taurine,C00245,Clostridium,True,True,False,False,False,True,False,3,Medium-High (3),Other
+Sediminibacterium sp902168225,C01118_o-Succinylhomoserine,C01118,Sediminibacterium,True,True,False,False,True,False,False,3,Medium-High (3),Other
+Alistipes shahii,C00245_Taurine,C00245,Alistipes,True,True,False,False,False,True,False,3,Medium-High (3),Other
+UMGS687 sp900545735,C01118_o-Succinylhomoserine,C01118,UMGS687,True,True,False,False,True,False,False,3,Medium-High (3),Other
+UMGS687 sp900545735,C00383_Malonate,C00383,UMGS687,True,True,False,False,True,False,False,3,Medium-High (3),Other
+Aphodousia sp900553105,C00423_trans-Cinnamate,C00423,Aphodousia,True,True,False,False,False,True,False,3,Medium-High (3),Other
+Acutalibacter sp910580045,C11118_1-Methyl-2-pyrrolidinone,C11118,Acutalibacter,True,True,False,False,False,True,False,3,Medium-High (3),Other
+CCUG-7971 sp017590215,C00255_Riboflavin,C00255,CCUG-7971,True,True,False,False,False,True,False,3,Medium-High (3),Other
+UBA5905 sp900763035,C02714_N-Acetylputrescine,C02714,UBA5905,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-170 sp000432135,C00785_Urocanate,C00785,CAG-170,True,True,False,False,False,False,False,2,Medium (2),Other
+QAMH01 sp900544245,C17714_Heptanoate,C17714,QAMH01,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes shahii,C16741_5-Hydroxylysine,C16741,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS902 sp003343845,3-Indoxyl sulfate,3-Indoxyl sulfate,UMGS902,True,True,False,False,False,False,False,2,Medium (2),Other
+Scatavimonas merdipullorum,C00314_Pyridoxine,C00314,Scatavimonas,True,True,False,False,False,False,False,2,Medium (2),Other
+Veillonella parvula_A,C02714_N-Acetylputrescine,C02714,Veillonella,True,True,False,False,False,False,False,2,Medium (2),Other
+Fusobacterium_A mortiferum,C00407_Ile,C00407,Fusobacterium,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Alistipes putredinis,C01042_N-Acetylaspartate,C01042,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+QAMH01 sp900544245,C16741_5-Hydroxylysine,C16741,QAMH01,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes avistercoris,C00785_Urocanate,C00785,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS687 sp900545735,C05341_beta-Ala-Lys,C05341,UMGS687,False,True,False,False,True,False,False,2,Medium (2),Other
+Faecousia sp003525905,C00134_Putrescine,C00134,Faecousia,False,True,False,True,False,False,False,2,Medium (2),Polyamine
+Clostridium_A leptum,C03264_2-Hydroxy-4-methylpentanoate,C03264,Clostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes shahii,C00423_trans-Cinnamate,C00423,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Lachnospira sp000436475,C02679_Dodecanoate,C02679,Lachnospira,True,False,False,False,True,False,False,2,Medium (2),Other
+Alangreenwoodia gallinarii,C02714_N-Acetylputrescine,C02714,Alangreenwoodia,True,True,False,False,False,False,False,2,Medium (2),Other
+Veillonella atypica,C01042_N-Acetylaspartate,C01042,Veillonella,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecalibacterium prausnitzii,C05332_Phenethylamine,C05332,Faecalibacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+UBA5905 sp900763035,C00245_Taurine,C00245,UBA5905,True,True,False,False,False,False,False,2,Medium (2),Other
+Veillonella parvula_A,_DCA,,Veillonella,True,True,False,False,False,False,False,2,Medium (2),Other
+Clostridium_A leptum,C02714_N-Acetylputrescine,C02714,Clostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecousia sp000434635,C17714_Heptanoate,C17714,Faecousia,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-488 sp900539465,C00334_GABA,C00334,CAG-488,True,True,False,False,False,False,False,2,Medium (2),Other
+Clostridium_A leptum,C00785_Urocanate,C00785,Clostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Avispirillum faecium,C00785_Urocanate,C00785,Avispirillum,True,True,False,False,False,False,False,2,Medium (2),Other
+Avispirillum faecium,C00334_GABA,C00334,Avispirillum,True,True,False,False,False,False,False,2,Medium (2),Other
+Clostridium_A leptum,C00134_Putrescine,C00134,Clostridium,False,True,True,False,False,False,False,2,Medium (2),Polyamine
+UMGS693 sp900544555,C02378_6-Aminohexanoate,C02378,UMGS693,True,True,False,False,False,False,False,2,Medium (2),Other
+Erysipelatoclostridium ramosum,C00630_Isobutyryl CoA,C00630,Erysipelatoclostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Avimicrobium caecorum,C02714_N-Acetylputrescine,C02714,Avimicrobium,True,True,False,False,False,False,False,2,Medium (2),Other
+Acutalibacter sp910580045,C05332_Phenethylamine,C05332,Acutalibacter,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS693 sp900544555,C00314_Pyridoxine,C00314,UMGS693,True,True,False,False,False,False,False,2,Medium (2),Other
+Agathobacter rectalis,C00398_Tryptamine,C00398,Agathobacter,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Alistipes onderdonkii,C01042_N-Acetylaspartate,C01042,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-103 sp900543625,C17714_Heptanoate,C17714,CAG-103,True,True,False,False,False,False,False,2,Medium (2),Other
+Bifidobacterium adolescentis,C01042_N-Acetylaspartate,C01042,Bifidobacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecivivens stercoravium,C02714_N-Acetylputrescine,C02714,Faecivivens,True,True,False,False,False,False,False,2,Medium (2),Other
+Agathobacter sp900317585,C00398_Tryptamine,C00398,Agathobacter,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Ruminococcus_C sp000980705,C05332_Phenethylamine,C05332,Ruminococcus,True,True,False,False,False,False,False,2,Medium (2),Other
+UBA5905 sp900763035,C17714_Heptanoate,C17714,UBA5905,True,True,False,False,False,False,False,2,Medium (2),Other
+Alangreenwoodia gallinarii,C17714_Heptanoate,C17714,Alangreenwoodia,True,True,False,False,False,False,False,2,Medium (2),Other
+Clostridium_A leptum,C00334_GABA,C00334,Clostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Campylobacter_B sp900539505,C01118_o-Succinylhomoserine,C01118,Campylobacter,False,True,False,False,True,False,False,2,Medium (2),Other
+Avimicrobium caecorum,C03264_2-Hydroxy-4-methylpentanoate,C03264,Avimicrobium,True,True,False,False,False,False,False,2,Medium (2),Other
+ER4 sp000765235,C00003_NAD+,C00003,ER4,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes putredinis,C08262_Isovalerate,C08262,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Aphodousia sp900553105,C05341_beta-Ala-Lys,C05341,Aphodousia,False,True,False,False,True,False,False,2,Medium (2),Other
+UBA1685 sp900546845,C02714_N-Acetylputrescine,C02714,UBA1685,True,True,False,False,False,False,False,2,Medium (2),Other
+Lachnospira rogosae_A,C01425_Glu-Glu,C01425,Lachnospira,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes putredinis,_DCA,,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Aphodousia sp900553105,C01047_N-gamma-Ethylglutamine,C01047,Aphodousia,False,True,False,False,True,False,False,2,Medium (2),Other
+UBA737 sp902762875,C02714_N-Acetylputrescine,C02714,UBA737,True,True,False,False,False,False,False,2,Medium (2),Other
+Avimicrobium caecorum,C00334_GABA,C00334,Avimicrobium,True,True,False,False,False,False,False,2,Medium (2),Other
+Bifidobacterium pseudocatenulatum,C01042_N-Acetylaspartate,C01042,Bifidobacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Lachnospira sp000436475,C01425_Glu-Glu,C01425,Lachnospira,True,True,False,False,False,False,False,2,Medium (2),Other
+Bilophila wadsworthia,C00245_Taurine,C00245,Bilophila,True,True,False,False,False,False,False,2,Medium (2),Other
+UBA11540 sp003445125,C00334_GABA,C00334,UBA11540,True,True,False,False,False,False,False,2,Medium (2),Other
+Galloscillospira_B excrementipullorum,C03264_2-Hydroxy-4-methylpentanoate,C03264,Galloscillospira,True,True,False,False,False,False,False,2,Medium (2),Other
+Agathobacter sp900546625,C00398_Tryptamine,C00398,Agathobacter,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Alistipes onderdonkii,C00346_Ethanolamine phosphate,C00346,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Alangreenwoodia gallinarii,C00314_Pyridoxine,C00314,Alangreenwoodia,True,True,False,False,False,False,False,2,Medium (2),Other
+Fusobacterium_A mortiferum,C00123_Leu,C00123,Fusobacterium,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Alistipes shahii,C00346_Ethanolamine phosphate,C00346,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Avispirillum faecium,3-Indoxyl sulfate,3-Indoxyl sulfate,Avispirillum,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes shahii,C01042_N-Acetylaspartate,C01042,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-170 sp000432135,C17714_Heptanoate,C17714,CAG-170,True,True,False,False,False,False,False,2,Medium (2),Other
+Lachnospira sp000436535,C01425_Glu-Glu,C01425,Lachnospira,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes shahii,C08262_Isovalerate,C08262,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-83 sp000435555,C17714_Heptanoate,C17714,CAG-83,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-83 sp000435555,C00449_Saccharopine,C00449,CAG-83,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes_A ihumii,C17714_Heptanoate,C17714,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes onderdonkii,_DCA,,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Sediminibacterium sp902168225,C00423_trans-Cinnamate,C00423,Sediminibacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Eubacterium_T sp900766045,C01104_Trimethylamine N-oxide,C01104,Eubacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes_A ihumii,_DCA,,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Veillonella parvula_A,C00334_GABA,C00334,Veillonella,True,True,False,False,False,False,False,2,Medium (2),Other
+Gemmiger formicilis,C00398_Tryptamine,C00398,Gemmiger,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+UMGS902 sp003343845,C00785_Urocanate,C00785,UMGS902,True,True,False,False,False,False,False,2,Medium (2),Other
+Roseburia intestinalis,C00630_Isobutyryl CoA,C00630,Roseburia,True,True,False,False,False,False,False,2,Medium (2),Other
+Agathobacter faecis,C00398_Tryptamine,C00398,Agathobacter,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Alangreenwoodia gallinarii,C00334_GABA,C00334,Alangreenwoodia,True,True,False,False,False,False,False,2,Medium (2),Other
+Veillonella parvula_A,C07151_Metformin,C07151,Veillonella,True,True,False,False,False,False,False,2,Medium (2),Other
+Gemmiger formicilis,C05332_Phenethylamine,C05332,Gemmiger,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-83 sp002438575,C00449_Saccharopine,C00449,CAG-83,True,True,False,False,False,False,False,2,Medium (2),Other
+Barnesiella intestinihominis,C00245_Taurine,C00245,Barnesiella,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecalibacterium prausnitzii_G,C05984_2-Hydroxybutyrate,C05984,Faecalibacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Scatomorpha intestinavium,C00245_Taurine,C00245,Scatomorpha,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS687 sp900545735,C00440_5-Methyltetrahydrofolate,C00440,UMGS687,False,True,False,False,True,False,False,2,Medium (2),Other
+Prevotella sp002440225,C02679_Dodecanoate,C02679,Prevotella,True,True,False,False,False,False,False,2,Medium (2),Other
+Clostridium_A leptum,3-Indoxyl sulfate,3-Indoxyl sulfate,Clostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Lachnospira sp000436475,C00123_Leu,C00123,Lachnospira,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Scatavimonas merdipullorum,C00245_Taurine,C00245,Scatavimonas,True,True,False,False,False,False,False,2,Medium (2),Other
+Scatavimonas merdipullorum,C01879_5-Oxoproline,C01879,Scatavimonas,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS687 sp900545735,C00954_Indole-3-acetate,C00954,UMGS687,False,True,False,False,True,False,False,2,Medium (2),Other
+UBA11540 sp003445125,C00879_Mucate,C00879,UBA11540,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecousia sp017548065,C00785_Urocanate,C00785,Faecousia,True,True,False,False,False,False,False,2,Medium (2),Other
+Prevotella sp002300055,C00024_Acetyl CoA,C00024,Prevotella,True,True,False,False,False,False,False,2,Medium (2),Other
+Erysipelatoclostridium ramosum,C00003_NAD+,C00003,Erysipelatoclostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes onderdonkii,C16741_5-Hydroxylysine,C16741,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes onderdonkii,C00122_Fumarate,C00122,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+SFEL01 sp016292635,C00245_Taurine,C00245,SFEL01,True,True,False,False,False,False,False,2,Medium (2),Other
+Phascolarctobacterium_A succinatutens_A,C00383_Malonate,C00383,Phascolarctobacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Avispirillum faecium,C01879_5-Oxoproline,C01879,Avispirillum,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS1322 sp905214315,C01879_5-Oxoproline,C01879,UMGS1322,True,True,False,False,False,False,False,2,Medium (2),Other
+Aphodousia sp900553105,C00440_5-Methyltetrahydrofolate,C00440,Aphodousia,False,True,False,False,True,False,False,2,Medium (2),Other
+Morganella psychrotolerans_B,C00003_NAD+,C00003,Morganella,True,True,False,False,False,False,False,2,Medium (2),Other
+Fusobacterium_A mortiferum,C01104_Trimethylamine N-oxide,C01104,Fusobacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+UMGS687 sp900545735,C00423_trans-Cinnamate,C00423,UMGS687,True,True,False,False,False,False,False,2,Medium (2),Other
+Lactobacillus amylolyticus,3-Indoxyl sulfate,3-Indoxyl sulfate,Lactobacillus,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes shahii,C01959_Taurocyamine,C01959,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes onderdonkii,C02679_Dodecanoate,C02679,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Leptotrichia_A sp001274535,C00491_Cystine,C00491,Leptotrichia,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-1427 sp900554685,C00879_Mucate,C00879,CAG-1427,True,True,False,False,False,False,False,2,Medium (2),Other
+Erysipelatoclostridium ramosum,C00191_Glucuronate,C00191,Erysipelatoclostridium,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-170 sp000432135,C00449_Saccharopine,C00449,CAG-170,True,True,False,False,False,False,False,2,Medium (2),Other
+Egerieicola pullicola,C00407_Ile,C00407,Egerieicola,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Lachnospira sp000436475,C00407_Ile,C00407,Lachnospira,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Sediminibacterium sp902168225,C00954_Indole-3-acetate,C00954,Sediminibacterium,False,True,False,False,True,False,False,2,Medium (2),Other
+Lachnospira sp000436535,C00123_Leu,C00123,Lachnospira,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+CAG-170 sp000432135,C01879_5-Oxoproline,C01879,CAG-170,True,True,False,False,False,False,False,2,Medium (2),Other
+Campylobacter_B sp900539505,C00440_5-Methyltetrahydrofolate,C00440,Campylobacter,False,True,False,False,True,False,False,2,Medium (2),Other
+Escherichia coli,C00123_Leu,C00123,Escherichia,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Holdemanella sp900547815,C00024_Acetyl CoA,C00024,Holdemanella,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-274 sp000432155,C08262_Isovalerate,C08262,CAG-274,True,True,False,False,False,False,False,2,Medium (2),Other
+CAG-274 sp000432155,C00314_Pyridoxine,C00314,CAG-274,True,True,False,False,False,False,False,2,Medium (2),Other
+Alistipes shahii,C03264_2-Hydroxy-4-methylpentanoate,C03264,Alistipes,True,True,False,False,False,False,False,2,Medium (2),Other
+Sediminibacterium sp902168225,C00440_5-Methyltetrahydrofolate,C00440,Sediminibacterium,False,True,False,False,True,False,False,2,Medium (2),Other
+Aphodousia sp900553105,C03570_Mannosamine,C03570,Aphodousia,False,True,False,False,True,False,False,2,Medium (2),Other
+Scatavimonas merdipullorum,C01551_Allantoin,C01551,Scatavimonas,True,True,False,False,False,False,False,2,Medium (2),Other
+Fusobacterium sp000235465,C00123_Leu,C00123,Fusobacterium,True,True,False,False,False,False,False,2,Medium (2),Amino Acid
+Akkermansia muciniphila,C00134_Putrescine,C00134,Akkermansia,False,False,True,True,False,False,False,2,Medium (2),Polyamine
+Akkermansia muciniphila,C00062_Arg,C00062,Akkermansia,False,False,True,True,False,False,False,2,Medium (2),Other
+Barnesiella intestinihominis,C00134_Putrescine,C00134,Barnesiella,False,True,False,True,False,False,False,2,Medium (2),Polyamine
+Lachnospira sp000437735,C00315_Spermidine,C00315,Lachnospira,False,False,True,True,False,False,False,2,Medium (2),Other
+Dialister invisus,C00134_Putrescine,C00134,Dialister,False,False,True,True,False,False,False,2,Medium (2),Polyamine
+Akkermansia muciniphila,"C00986_1,3-Diaminopropane",C00986,Akkermansia,False,False,True,True,False,False,False,2,Medium (2),Other
+Ruminococcus_E bromii_B,C00134_Putrescine,C00134,Ruminococcus,False,True,False,True,False,False,False,2,Medium (2),Polyamine
+Roseburia inulinivorans,C00398_Tryptamine,C00398,Roseburia,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Lachnospira rogosae_A,C00398_Tryptamine,C00398,Lachnospira,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Lachnospira sp000436475,C00398_Tryptamine,C00398,Lachnospira,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Lachnospira sp000436475,C02714_N-Acetylputrescine,C02714,Lachnospira,True,False,False,False,True,False,False,2,Medium (2),Other
+Gemmiger formicilis,C08277_Sebacate,C08277,Gemmiger,False,True,False,False,True,False,False,2,Medium (2),Other
+UBA5905 sp900763035,C08277_Sebacate,C08277,UBA5905,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecalibacterium prausnitzii_C,C05332_Phenethylamine,C05332,Faecalibacterium,True,True,False,False,False,False,False,2,Medium (2),Other
+Avispirillum faecium,C02714_N-Acetylputrescine,C02714,Avispirillum,True,True,False,False,False,False,False,2,Medium (2),Other
+Gemmiger qucibialis,C05332_Phenethylamine,C05332,Gemmiger,True,True,False,False,False,False,False,2,Medium (2),Other
+Faecalibacterium prausnitzii_C,C00398_Tryptamine,C00398,Faecalibacterium,False,True,False,False,True,False,False,2,Medium (2),Indole / Tryptophan
+Faecalibacterium prausnitzii_D,C05332_Phenethylamine,C05332,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C02656_Pimelate,C02656,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00803_Valerate,C00803,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C00483_Tyramine,C00483,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C02678_Dodecanedioate,C02678,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C05629_3-Phenylpropionate,C05629,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00431_5-Aminovalerate,C00431,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00695_Cholate,C00695,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+UBA3855 sp017460955,C08277_Sebacate,C08277,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00134_Putrescine,C00134,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium sp900539945,C00398_Tryptamine,C00398,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Alistipes putredinis,C08277_Sebacate,C08277,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00431_5-Aminovalerate,C00431,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,"C03283_2,4-Diaminobutyrate",C03283,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C05332_Phenethylamine,C05332,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00803_Valerate,C00803,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C01046_N-Methylglutamate,C01046,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00134_Putrescine,C00134,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+ER4 sp000765235,C00055_CMP,C00055,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Alistipes onderdonkii,C08277_Sebacate,C08277,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00134_Putrescine,C00134,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+ER4 sp000765235,C02656_Pimelate,C02656,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C06103_6-Hydroxyhexanoate,C06103,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00364_dTMP,C00364,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C02678_Dodecanedioate,C02678,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00055_CMP,C00055,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+CAG-170 sp000432135,"C03283_2,4-Diaminobutyrate",C03283,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger sp900540595,C05332_Phenethylamine,C05332,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C02714_N-Acetylputrescine,C02714,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C callidus,C05332_Phenethylamine,C05332,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00134_Putrescine,C00134,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Acetatifactor intestinalis,C00431_5-Aminovalerate,C00431,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C17714_Heptanoate,C17714,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C05332_Phenethylamine,C05332,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C02656_Pimelate,C02656,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00803_Valerate,C00803,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C02714_N-Acetylputrescine,C02714,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00695_Cholate,C00695,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+ER4 sp900552015,C02714_N-Acetylputrescine,C02714,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00364_dTMP,C00364,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C06104_Adipate,C06104,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_G ventriosum,C02678_Dodecanedioate,C02678,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C05332_Phenethylamine,C05332,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00134_Putrescine,C00134,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Veillonella atypica,C06104_Adipate,C06104,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-41 sp900066215,C05332_Phenethylamine,C05332,CAG-41,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C00803_Valerate,C00803,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00803_Valerate,C00803,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00431_5-Aminovalerate,C00431,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C05332_Phenethylamine,C05332,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C02678_Dodecanedioate,C02678,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C00431_5-Aminovalerate,C00431,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00364_dTMP,C00364,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,"C03283_2,4-Diaminobutyrate",C03283,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00431_5-Aminovalerate,C00431,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA737 sp902762875,C00431_5-Aminovalerate,C00431,UBA737,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C00483_Tyramine,C00483,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C02656_Pimelate,C02656,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii,C08277_Sebacate,C08277,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1206 sp000433115,C00695_Cholate,C00695,UBA1206,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Faecousia sp000434635,C05629_3-Phenylpropionate,C05629,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C05629_3-Phenylpropionate,C05629,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C05332_Phenethylamine,C05332,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,"C03283_2,4-Diaminobutyrate",C03283,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00431_5-Aminovalerate,C00431,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C08277_Sebacate,C08277,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii,C02656_Pimelate,C02656,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C02714_N-Acetylputrescine,C02714,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00055_CMP,C00055,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Lachnospira sp003537285,C05332_Phenethylamine,C05332,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C00398_Tryptamine,C00398,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+ER4 sp900552015,C02656_Pimelate,C02656,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00695_Cholate,C00695,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Gemmiger sp900540595,C00398_Tryptamine,C00398,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Alangreenwoodia gallinarii,C00803_Valerate,C00803,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C01042_N-Acetylaspartate,C01042,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C08277_Sebacate,C08277,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,"C03283_2,4-Diaminobutyrate",C03283,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00055_CMP,C00055,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Acetatifactor intestinalis,C02656_Pimelate,C02656,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C00398_Tryptamine,C00398,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+ER4 sp000765235,C06104_Adipate,C06104,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alectryocaccomicrobium excrementavium,C00408_Pipecolate,C00408,Alectryocaccomicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00398_Tryptamine,C00398,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Lachnospira eligens,C00055_CMP,C00055,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Ventricola intestinavium,C02714_N-Acetylputrescine,C02714,Ventricola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C02714_N-Acetylputrescine,C02714,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C00134_Putrescine,C00134,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Acetatifactor sp003447295,C02656_Pimelate,C02656,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C00134_Putrescine,C00134,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Avimicrobium caecorum,C00431_5-Aminovalerate,C00431,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00134_Putrescine,C00134,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Alangreenwoodia gallinarii,C06103_6-Hydroxyhexanoate,C06103,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA737 sp902762875,C00134_Putrescine,C00134,UBA737,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium sp900539945,C05629_3-Phenylpropionate,C05629,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C06103_6-Hydroxyhexanoate,C06103,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii,C00483_Tyramine,C00483,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C00431_5-Aminovalerate,C00431,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00134_Putrescine,C00134,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium prausnitzii,C00695_Cholate,C00695,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Acetatifactor intestinalis,C00398_Tryptamine,C00398,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Avispirillum faecium,C08277_Sebacate,C08277,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C00695_Cholate,C00695,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Faecousia sp003525905,C00695_Cholate,C00695,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+UMGS693 sp900544555,C08277_Sebacate,C08277,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C00695_Cholate,C00695,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Aphodomorpha sp900549955,C02714_N-Acetylputrescine,C02714,Aphodomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C00431_5-Aminovalerate,C00431,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C00134_Putrescine,C00134,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium prausnitzii_C,C00695_Cholate,C00695,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+CAG-488 sp000434055,C00431_5-Aminovalerate,C00431,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00431_5-Aminovalerate,C00431,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,"C03283_2,4-Diaminobutyrate",C03283,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00398_Tryptamine,C00398,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Alangreenwoodia gallinarii,C05629_3-Phenylpropionate,C05629,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C00695_Cholate,C00695,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+ER4 sp000765235,C01585_Hexanoate,C01585,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp000434055,C00134_Putrescine,C00134,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Eubacterium_F sp003491505,C05629_3-Phenylpropionate,C05629,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C05629_3-Phenylpropionate,C05629,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C06103_6-Hydroxyhexanoate,C06103,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C00398_Tryptamine,C00398,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Alistipes shahii,C06104_Adipate,C06104,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Galloscillospira_B excrementipullorum,C00431_5-Aminovalerate,C00431,Galloscillospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha intestinavium,C00431_5-Aminovalerate,C00431,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C05629_3-Phenylpropionate,C05629,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00695_Cholate,C00695,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+CAG-103 sp900543625,C00055_CMP,C00055,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Lachnospira eligens_A,C05629_3-Phenylpropionate,C05629,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C02656_Pimelate,C02656,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C02656_Pimelate,C02656,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C01046_N-Methylglutamate,C01046,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C00364_dTMP,C00364,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C01672_Cadaverine,C01672,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+CAG-170 sp000432135,C00055_CMP,C00055,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+UBA5905 sp900763035,C06104_Adipate,C06104,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C sp000980705,C00398_Tryptamine,C00398,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Acetatifactor intestinalis,C01046_N-Methylglutamate,C01046,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C02656_Pimelate,C02656,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp000434055,C02656_Pimelate,C02656,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C01046_N-Methylglutamate,C01046,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00803_Valerate,C00803,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,"C03283_2,4-Diaminobutyrate",C03283,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C00483_Tyramine,C00483,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C06103_6-Hydroxyhexanoate,C06103,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C01046_N-Methylglutamate,C01046,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C00695_Cholate,C00695,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Galloscillospira_B excrementipullorum,C00408_Pipecolate,C00408,Galloscillospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C00431_5-Aminovalerate,C00431,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C05629_3-Phenylpropionate,C05629,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C01046_N-Methylglutamate,C01046,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00055_CMP,C00055,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Faecalibacterium prausnitzii_C,C00483_Tyramine,C00483,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C01046_N-Methylglutamate,C01046,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00364_dTMP,C00364,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C06104_Adipate,C06104,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C00364_dTMP,C00364,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger sp900540595,C05629_3-Phenylpropionate,C05629,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C06104_Adipate,C06104,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C01921_Glycocholate,C01921,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00576_Betaine aldehyde,C00576,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C00719_Betaine,C00719,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C06104_Adipate,C06104,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C05629_3-Phenylpropionate,C05629,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C06104_Adipate,C06104,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C00055_CMP,C00055,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+CAG-1427 sp900554685,C02656_Pimelate,C02656,CAG-1427,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C05629_3-Phenylpropionate,C05629,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C06103_6-Hydroxyhexanoate,C06103,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C05629_3-Phenylpropionate,C05629,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C02656_Pimelate,C02656,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Klebsiella pneumoniae,"C00986_1,3-Diaminopropane",C00986,Klebsiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C06103_6-Hydroxyhexanoate,C06103,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodomorpha sp900549955,C00431_5-Aminovalerate,C00431,Aphodomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C17714_Heptanoate,C17714,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avichristensenella intestinipullorum,C00408_Pipecolate,C00408,Avichristensenella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C00489_Glutarate,C00489,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C00055_CMP,C00055,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+UBA5905 sp900763035,C00489_Glutarate,C00489,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,"C03283_2,4-Diaminobutyrate",C03283,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C00055_CMP,C00055,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+CAG-170 sp000432135,C01042_N-Acetylaspartate,C01042,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C17714_Heptanoate,C17714,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00695_Cholate,C00695,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+UBA1206 sp000433115,C02656_Pimelate,C02656,UBA1206,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C02656_Pimelate,C02656,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C00489_Glutarate,C00489,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+S5-A14a sp000758905,C00388_Histamine,C00388,S5-A14a,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp017548065,C06103_6-Hydroxyhexanoate,C06103,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C01042_N-Acetylaspartate,C01042,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C00803_Valerate,C00803,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C05145_3-Aminoisobutyrate,C05145,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes_A ihumii,"C03283_2,4-Diaminobutyrate",C03283,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C01042_N-Acetylaspartate,C01042,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C06103_6-Hydroxyhexanoate,C06103,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C02656_Pimelate,C02656,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C05145_3-Aminoisobutyrate,C05145,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C05629_3-Phenylpropionate,C05629,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C callidus,C02656_Pimelate,C02656,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E siraeum,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodomorpha sp900549955,C00695_Cholate,C00695,Aphodomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+CAG-103 sp900757655,"C03283_2,4-Diaminobutyrate",C03283,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C05629_3-Phenylpropionate,C05629,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,"C03283_2,4-Diaminobutyrate",C03283,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C00803_Valerate,C00803,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C06104_Adipate,C06104,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00489_Glutarate,C00489,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C01672_Cadaverine,C01672,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+UBA5905 sp900763035,"C03283_2,4-Diaminobutyrate",C03283,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C06103_6-Hydroxyhexanoate,C06103,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Limivicinus faecipullorum,C00408_Pipecolate,C00408,Limivicinus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ventricola intestinavium,C02656_Pimelate,C02656,Ventricola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C17714_Heptanoate,C17714,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fimimonas sp003537755,"C03283_2,4-Diaminobutyrate",C03283,Fimimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C01046_N-Methylglutamate,C01046,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00576_Betaine aldehyde,C00576,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00695_Cholate,C00695,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Erysipelatoclostridium ramosum,C00055_CMP,C00055,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Alistipes shahii,2-Hydroxypentanoate,2-Hydroxypentanoate,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00489_Glutarate,C00489,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas sp900540275,C00695_Cholate,C00695,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Veillonella atypica,C00803_Valerate,C00803,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00576_Betaine aldehyde,C00576,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C17714_Heptanoate,C17714,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp002965065,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00803_Valerate,C00803,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C06103_6-Hydroxyhexanoate,C06103,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00576_Betaine aldehyde,C00576,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,"C03283_2,4-Diaminobutyrate",C03283,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C00803_Valerate,C00803,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,"C03283_2,4-Diaminobutyrate",C03283,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00364_dTMP,C00364,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00300_Creatine,C00300,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C00364_dTMP,C00364,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C06103_6-Hydroxyhexanoate,C06103,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C01042_N-Acetylaspartate,C01042,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C00364_dTMP,C00364,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00398_Tryptamine,C00398,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+ER4 sp900552015,C00785_Urocanate,C00785,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Bifidobacterium pseudocatenulatum,C02918_1-Methylnicotinamide,C02918,Bifidobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C00576_Betaine aldehyde,C00576,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00483_Tyramine,C00483,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C06104_Adipate,C06104,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00408_Pipecolate,C00408,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C01672_Cadaverine,C01672,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+CAG-170 sp000432135,C01585_Hexanoate,C01585,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00364_dTMP,C00364,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C00055_CMP,C00055,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+ER4 sp000765235,C06103_6-Hydroxyhexanoate,C06103,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C01046_N-Methylglutamate,C01046,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium_A mortiferum,C00079_Phe,C00079,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha intestinavium,C01046_N-Methylglutamate,C01046,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Sutterella wadsworthensis,C01672_Cadaverine,C01672,Sutterella,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Lachnospira eligens,C00630_Isobutyryl CoA,C00630,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C05145_3-Aminoisobutyrate,C05145,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-41 sp900066215,C00398_Tryptamine,C00398,CAG-41,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+ER4 sp000765235,C00398_Tryptamine,C00398,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Acetatifactor intestinalis,C17714_Heptanoate,C17714,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C01585_Hexanoate,C01585,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C01585_Hexanoate,C01585,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger sp900540595,C00483_Tyramine,C00483,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C06104_Adipate,C06104,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha stercorigallinarum,C00489_Glutarate,C00489,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C01585_Hexanoate,C01585,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C05122_Taurocholate,C05122,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Scatavimonas merdipullorum,C00847_4-Pyridoxate,C00847,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C08262_Isovalerate,C08262,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C00364_dTMP,C00364,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00847_4-Pyridoxate,C00847,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C17714_Heptanoate,C17714,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00489_Glutarate,C00489,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C05145_3-Aminoisobutyrate,C05145,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C01585_Hexanoate,C01585,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00296_Quinate,C00296,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C05145_3-Aminoisobutyrate,C05145,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00364_dTMP,C00364,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C00803_Valerate,C00803,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00055_CMP,C00055,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Alistipes shahii,C00300_Creatine,C00300,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C00055_CMP,C00055,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Lachnospira sp003537285,C00364_dTMP,C00364,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00364_dTMP,C00364,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C06104_Adipate,C06104,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00489_Glutarate,C00489,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00785_Urocanate,C00785,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C06103_6-Hydroxyhexanoate,C06103,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00576_Betaine aldehyde,C00576,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00803_Valerate,C00803,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00408_Pipecolate,C00408,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00483_Tyramine,C00483,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00785_Urocanate,C00785,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00408_Pipecolate,C00408,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C05145_3-Aminoisobutyrate,C05145,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C06103_6-Hydroxyhexanoate,C06103,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C01042_N-Acetylaspartate,C01042,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C05122_Taurocholate,C05122,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Ruminococcus_D bicirculans,C00055_CMP,C00055,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Ruminiclostridium_E sp910579265,C01672_Cadaverine,C01672,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Alistipes shahii,C00055_CMP,C00055,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+ER4 sp000765235,C05145_3-Aminoisobutyrate,C05145,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C01585_Hexanoate,C01585,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C17714_Heptanoate,C17714,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp017548065,C17714_Heptanoate,C17714,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C17714_Heptanoate,C17714,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C02571_o-Acetylcarnitine,C02571,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodomorpha sp900549955,C01046_N-Methylglutamate,C01046,Aphodomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00300_Creatine,C00300,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C01046_N-Methylglutamate,C01046,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00055_CMP,C00055,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Alistipes onderdonkii,C06103_6-Hydroxyhexanoate,C06103,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00803_Valerate,C00803,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C01672_Cadaverine,C01672,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Ruminococcus_E bromii_B,C00364_dTMP,C00364,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha intestinavium,C00408_Pipecolate,C00408,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha intestinavium,C00803_Valerate,C00803,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C callidus,C00364_dTMP,C00364,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C00364_dTMP,C00364,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00334_GABA,C00334,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C01046_N-Methylglutamate,C01046,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C06104_Adipate,C06104,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C06103_6-Hydroxyhexanoate,C06103,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C00630_Isobutyryl CoA,C00630,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C01046_N-Methylglutamate,C01046,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C00364_dTMP,C00364,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii,C00055_CMP,C00055,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+Acetatifactor intestinalis,C06104_Adipate,C06104,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C06104_Adipate,C06104,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C01921_Glycocholate,C01921,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C00364_dTMP,C00364,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alectryocaccomicrobium faecavium,C00408_Pipecolate,C00408,Alectryocaccomicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1206 sp000433115,C06103_6-Hydroxyhexanoate,C06103,UBA1206,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp900539465,C01046_N-Methylglutamate,C01046,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C10172_Proline betaine,C10172,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00408_Pipecolate,C00408,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C01046_N-Methylglutamate,C01046,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,2-Hydroxypentanoate,2-Hydroxypentanoate,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes_A ihumii,C01585_Hexanoate,C01585,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C00630_Isobutyryl CoA,C00630,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00300_Creatine,C00300,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00803_Valerate,C00803,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C callidus,C00055_CMP,C00055,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Nucleotide
+CAG-170 sp000432135,C06104_Adipate,C06104,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C00357_N-Acetylglucosamine 6-phosphate,C00357,UBA1829,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C06104_Adipate,C06104,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp017548065,3-Indoxyl sulfate,3-Indoxyl sulfate,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00334_GABA,C00334,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C01046_N-Methylglutamate,C01046,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C07151_Metformin,C07151,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,2-Hydroxypentanoate,2-Hydroxypentanoate,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Klebsiella quasipneumoniae,"C00986_1,3-Diaminopropane",C00986,Klebsiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00847_4-Pyridoxate,C00847,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C05145_3-Aminoisobutyrate,C05145,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00803_Valerate,C00803,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C00483_Tyramine,C00483,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C06103_6-Hydroxyhexanoate,C06103,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00242_Guanine,C00242,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii,C00630_Isobutyryl CoA,C00630,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C06104_Adipate,C06104,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C10172_Proline betaine,C10172,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C00482_Sinapate,C00482,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C01046_N-Methylglutamate,C01046,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C01046_N-Methylglutamate,C01046,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C01585_Hexanoate,C01585,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia fergusonii,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Limivicinus faecipullorum,C00334_GABA,C00334,Limivicinus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C00300_Creatine,C00300,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C05145_3-Aminoisobutyrate,C05145,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp900552515,C06103_6-Hydroxyhexanoate,C06103,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C01586_Hippurate,C01586,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+RUG11247 sp902767315,C01046_N-Methylglutamate,C01046,RUG11247,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C01042_N-Acetylaspartate,C01042,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00296_Quinate,C00296,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C01672_Cadaverine,C01672,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Alistipes putredinis,C00300_Creatine,C00300,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00300_Creatine,C00300,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acutalibacter sp910580045,C00803_Valerate,C00803,Acutalibacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C08262_Isovalerate,C08262,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00576_Betaine aldehyde,C00576,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00482_Sinapate,C00482,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C00079_Phe,C00079,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1206 sp000433115,C01672_Cadaverine,C01672,UBA1206,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Eubacterium_G ventriosum,C00630_Isobutyryl CoA,C00630,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+RUG11247 sp902767315,C01672_Cadaverine,C01672,RUG11247,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Prevotella stercorea,C01672_Cadaverine,C01672,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+UBA1685 sp900546845,C17714_Heptanoate,C17714,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C00954_Indole-3-acetate,C00954,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha intestinavium,C00489_Glutarate,C00489,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS902 sp003343845,C00334_GABA,C00334,UMGS902,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,2-Hydroxypentanoate,2-Hydroxypentanoate,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C05984_2-Hydroxybutyrate,C05984,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00364_dTMP,C00364,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C05122_Taurocholate,C05122,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Faecalibacterium prausnitzii_D,C00483_Tyramine,C00483,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,3-Indoxyl sulfate,3-Indoxyl sulfate,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00803_Valerate,C00803,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C00423_trans-Cinnamate,C00423,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C08262_Isovalerate,C08262,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-177 sp003538135,C05145_3-Aminoisobutyrate,C05145,CAG-177,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C00408_Pipecolate,C00408,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C01042_N-Acetylaspartate,C01042,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C01921_Glycocholate,C01921,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00079_Phe,C00079,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C01585_Hexanoate,C01585,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C01921_Glycocholate,C01921,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,3-Indoxyl sulfate,3-Indoxyl sulfate,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C01042_N-Acetylaspartate,C01042,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C00847_4-Pyridoxate,C00847,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C00079_Phe,C00079,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C00079_Phe,C00079,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C00576_Betaine aldehyde,C00576,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00300_Creatine,C00300,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C07151_Metformin,C07151,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C00482_Sinapate,C00482,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C01042_N-Acetylaspartate,C01042,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+W1P20-047 sp004555335,C06104_Adipate,C06104,W1P20-047,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_F sp003491505,C00483_Tyramine,C00483,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C01672_Cadaverine,C01672,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecousia sp000434635,C00785_Urocanate,C00785,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C00630_Isobutyryl CoA,C00630,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C00079_Phe,C00079,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00334_GABA,C00334,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Klebsiella variicola,"C00986_1,3-Diaminopropane",C00986,Klebsiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00954_Indole-3-acetate,C00954,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS687 sp900545735,C00642_p-Hydroxyphenylacetate,C00642,UMGS687,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C17714_Heptanoate,C17714,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Neisseria flavescens_C,C00719_Betaine,C00719,Neisseria,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,2-Hydroxypentanoate,2-Hydroxypentanoate,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00334_GABA,C00334,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00847_4-Pyridoxate,C00847,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C01672_Cadaverine,C01672,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium prausnitzii_D,C01672_Cadaverine,C01672,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Escherichia marmotae,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+S5-A14a sp000758905,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,S5-A14a,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00300_Creatine,C00300,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp004211955,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA11540 sp003445125,C01672_Cadaverine,C01672,UBA11540,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+UBA5884 sp002431975,C00576_Betaine aldehyde,C00576,UBA5884,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00079_Phe,C00079,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C00630_Isobutyryl CoA,C00630,Roseburia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E siraeum,C01585_Hexanoate,C01585,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00719_Betaine,C00719,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C00214_Thymidine,C00214,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha stercorigallinarum,C00334_GABA,C00334,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C00630_Isobutyryl CoA,C00630,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C00630_Isobutyryl CoA,C00630,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes avistercoris,3-Indoxyl sulfate,3-Indoxyl sulfate,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp000434055,C01672_Cadaverine,C01672,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecousia sp000434635,C00954_Indole-3-acetate,C00954,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+SIG291 sp015057605,C01672_Cadaverine,C01672,SIG291,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+ER4 sp900552015,C00483_Tyramine,C00483,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C05145_3-Aminoisobutyrate,C05145,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C00630_Isobutyryl CoA,C00630,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,2-Hydroxypentanoate,2-Hydroxypentanoate,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C05145_3-Aminoisobutyrate,C05145,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alectryocaccomicrobium excrementavium,C00489_Glutarate,C00489,Alectryocaccomicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00079_Phe,C00079,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00847_4-Pyridoxate,C00847,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00489_Glutarate,C00489,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,2-Hydroxypentanoate,2-Hydroxypentanoate,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00152_Asn,C00152,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00300_Creatine,C00300,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C00079_Phe,C00079,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00785_Urocanate,C00785,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp016292785,C01672_Cadaverine,C01672,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Escherichia coli,C05635_5-Hydroxyindoleacetate,C05635,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00489_Glutarate,C00489,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00576_Betaine aldehyde,C00576,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C05145_3-Aminoisobutyrate,C05145,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,2-Hydroxypentanoate,2-Hydroxypentanoate,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00408_Pipecolate,C00408,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA11540 sp003445125,C00954_Indole-3-acetate,C00954,UBA11540,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA11540 sp003445125,C00483_Tyramine,C00483,UBA11540,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoripullorum,C00334_GABA,C00334,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C00630_Isobutyryl CoA,C00630,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436535,C00079_Phe,C00079,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia ruysiae,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C00483_Tyramine,C00483,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00408_Pipecolate,C00408,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Neisseria subflava_A,C00300_Creatine,C00300,Neisseria,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C01585_Hexanoate,C01585,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha stercorigallinarum,C00408_Pipecolate,C00408,Scatomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00630_Isobutyryl CoA,C00630,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C10172_Proline betaine,C10172,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00242_Guanine,C00242,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C05145_3-Aminoisobutyrate,C05145,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C01042_N-Acetylaspartate,C01042,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C01921_Glycocholate,C01921,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Neisseria subflava_A,C00719_Betaine,C00719,Neisseria,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,"C04259_N-alpha,N-alpha-Dimethylhistidine",C04259,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C08262_Isovalerate,C08262,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C00630_Isobutyryl CoA,C00630,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C00489_Glutarate,C00489,Paraclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C05145_3-Aminoisobutyrate,C05145,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Egerieicola pullicola,C01672_Cadaverine,C01672,Egerieicola,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+CAG-1427 sp900554685,3-Indoxyl sulfate,3-Indoxyl sulfate,CAG-1427,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00785_Urocanate,C00785,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C00408_Pipecolate,C00408,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E sp900539195,C00785_Urocanate,C00785,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C05582_Homovanillate,C05582,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,2-Hydroxypentanoate,2-Hydroxypentanoate,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C02735_Phenylethanolamine,C02735,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS902 sp900761025,C10172_Proline betaine,C10172,UMGS902,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00954_Indole-3-acetate,C00954,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,2-Hydroxypentanoate,2-Hydroxypentanoate,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00489_Glutarate,C00489,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C01042_N-Acetylaspartate,C01042,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp003447235,C01672_Cadaverine,C01672,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Avimicrobium caecorum,C05122_Taurocholate,C05122,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Alistipes shahii,C00311_Isocitrate,C00311,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436535,C00630_Isobutyryl CoA,C00630,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C00408_Pipecolate,C00408,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C01921_Glycocholate,C01921,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C01921_Glycocholate,C01921,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,2-Hydroxypentanoate,2-Hydroxypentanoate,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1322 sp905214315,C16741_5-Hydroxylysine,C16741,UMGS1322,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00334_GABA,C00334,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00079_Phe,C00079,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoripullorum,C00847_4-Pyridoxate,C00847,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii,C10172_Proline betaine,C10172,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C01585_Hexanoate,C01585,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C00954_Indole-3-acetate,C00954,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C00489_Glutarate,C00489,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00334_GABA,C00334,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C01585_Hexanoate,C01585,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00408_Pipecolate,C00408,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00576_Betaine aldehyde,C00576,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C00079_Phe,C00079,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+QALW01 sp900547955,C00334_GABA,C00334,QALW01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00954_Indole-3-acetate,C00954,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avichristensenella intestinipullorum,C00489_Glutarate,C00489,Avichristensenella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00576_Betaine aldehyde,C00576,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00300_Creatine,C00300,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C01672_Cadaverine,C01672,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Escherichia sp005843885,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C00163_Propionate,C00163,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),SCFA
+ER4 sp900552015,C00847_4-Pyridoxate,C00847,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium_A mortiferum,3-Indoxyl sulfate,3-Indoxyl sulfate,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C00024_Acetyl CoA,C00024,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C00785_Urocanate,C00785,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Heteroscilispira lomanii,C00334_GABA,C00334,Heteroscilispira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C00489_Glutarate,C00489,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Egerieicola pullicola,C00300_Creatine,C00300,Egerieicola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00134_Putrescine,C00134,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Lachnospira rogosae_A,C02571_o-Acetylcarnitine,C02571,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C02678_Dodecanedioate,C02678,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes_A ihumii,C00576_Betaine aldehyde,C00576,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00489_Glutarate,C00489,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Bacillus_T coahuilensis,C02571_o-Acetylcarnitine,C02571,Bacillus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C01921_Glycocholate,C01921,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C00079_Phe,C00079,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00483_Tyramine,C00483,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00408_Pipecolate,C00408,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Pyramidobacter sp002007215,C00847_4-Pyridoxate,C00847,Pyramidobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Galloscillospira_B excrementipullorum,C00334_GABA,C00334,Galloscillospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00576_Betaine aldehyde,C00576,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C00489_Glutarate,C00489,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00003_NAD+,C00003,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C00245_Taurine,C00245,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C06103_6-Hydroxyhexanoate,C06103,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C01042_N-Acetylaspartate,C01042,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avanaerovorax faecigallinarum,C00576_Betaine aldehyde,C00576,Avanaerovorax,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia albertii,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+QALW01 sp900547955,C00408_Pipecolate,C00408,QALW01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C01042_N-Acetylaspartate,C01042,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C08262_Isovalerate,C08262,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C00576_Betaine aldehyde,C00576,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,2-Hydroxypentanoate,2-Hydroxypentanoate,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C05332_Phenethylamine,C05332,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp003447235,3-Indoxyl sulfate,3-Indoxyl sulfate,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodomorpha sp900549955,C00408_Pipecolate,C00408,Aphodomorpha,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fimenecus sp000432435,C00576_Betaine aldehyde,C00576,Fimenecus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C01585_Hexanoate,C01585,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C05122_Taurocholate,C05122,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Faecalibacterium sp900539945,C02571_o-Acetylcarnitine,C02571,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00003_NAD+,C00003,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C06104_Adipate,C06104,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00576_Betaine aldehyde,C00576,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C05984_2-Hydroxybutyrate,C05984,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C sp000980705,C00483_Tyramine,C00483,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C05635_5-Hydroxyindoleacetate,C05635,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C00489_Glutarate,C00489,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes hadrus,C00483_Tyramine,C00483,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00300_Creatine,C00300,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+SFEL01 sp016292635,C00847_4-Pyridoxate,C00847,SFEL01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C01921_Glycocholate,C01921,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00300_Creatine,C00300,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C00847_4-Pyridoxate,C00847,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1322 sp905214315,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,UMGS1322,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C06104_Adipate,C06104,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii,C00079_Phe,C00079,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C06104_Adipate,C06104,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C05145_3-Aminoisobutyrate,C05145,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00300_Creatine,C00300,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Egerieicola pullicola,C00079_Phe,C00079,Egerieicola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C01921_Glycocholate,C01921,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS902 sp003343845,C00483_Tyramine,C00483,UMGS902,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00079_Phe,C00079,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C10172_Proline betaine,C10172,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp002300055,C00003_NAD+,C00003,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C05145_3-Aminoisobutyrate,C05145,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C06104_Adipate,C06104,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C00576_Betaine aldehyde,C00576,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C00423_trans-Cinnamate,C00423,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lactobacillus amylolyticus,C00785_Urocanate,C00785,Lactobacillus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00576_Betaine aldehyde,C00576,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C06104_Adipate,C06104,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C01921_Glycocholate,C01921,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C01921_Glycocholate,C01921,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,2-Hydroxypentanoate,2-Hydroxypentanoate,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp002439605,C05127_1-Methylhistamine,C05127,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00482_Sinapate,C00482,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp002965065,C00300_Creatine,C00300,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C06104_Adipate,C06104,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C06104_Adipate,C06104,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C05122_Taurocholate,C05122,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Oribacterium sp900318695,2-Hydroxypentanoate,2-Hydroxypentanoate,Oribacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C00314_Pyridoxine,C00314,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C01959_Taurocyamine,C01959,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp001660175,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C02679_Dodecanoate,C02679,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Escherichia albertii,C00003_NAD+,C00003,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00079_Phe,C00079,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium disporicum,C02918_1-Methylnicotinamide,C02918,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1590 sp900552455,C00931_Porphobilinogen,C00931,UMGS1590,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C05635_5-Hydroxyindoleacetate,C05635,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C00630_Isobutyryl CoA,C00630,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium_A mortiferum,2-Hydroxypentanoate,2-Hydroxypentanoate,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,2-Hydroxypentanoate,2-Hydroxypentanoate,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C00423_trans-Cinnamate,C00423,UBA1829,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C02679_Dodecanoate,C02679,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Scatavimonas sp900540275,C03264_2-Hydroxy-4-methylpentanoate,C03264,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp900767615,C05127_1-Methylhistamine,C05127,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00245_Taurine,C00245,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodousia sp900553105,C00642_p-Hydroxyphenylacetate,C00642,Aphodousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00296_Quinate,C00296,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C00847_4-Pyridoxate,C00847,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436535,C02571_o-Acetylcarnitine,C02571,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C00300_Creatine,C00300,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C00003_NAD+,C00003,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00954_Indole-3-acetate,C00954,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C02679_Dodecanoate,C02679,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00314_Pyridoxine,C00314,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C02679_Dodecanoate,C02679,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00482_Sinapate,C00482,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C05635_5-Hydroxyindoleacetate,C05635,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Oribacterium sp900318695,C00483_Tyramine,C00483,Oribacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00003_NAD+,C00003,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C05145_3-Aminoisobutyrate,C05145,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C00483_Tyramine,C00483,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00378_Thiamine,C00378,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger qucibialis,C01104_Trimethylamine N-oxide,C01104,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+QAMH01 sp900544245,C00785_Urocanate,C00785,QAMH01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C02679_Dodecanoate,C02679,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAIFEB01 sp903789375,C00388_Histamine,C00388,CAIFEB01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C02679_Dodecanoate,C02679,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C01008_Trimethylsulfonium,C01008,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C01585_Hexanoate,C01585,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS2070 sp905203455,C00388_Histamine,C00388,UMGS2070,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Phascolarctobacterium_A succinatutens,C05123_Isethionate,C05123,Phascolarctobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C02679_Dodecanoate,C02679,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,3-Indoxyl sulfate,3-Indoxyl sulfate,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00954_Indole-3-acetate,C00954,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Klebsiella michiganensis,C05127_1-Methylhistamine,C05127,Klebsiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp000434055,C00785_Urocanate,C00785,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C00214_Thymidine,C00214,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA10677 sp900543755,C05341_beta-Ala-Lys,C05341,UBA10677,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C03264_2-Hydroxy-4-methylpentanoate,C03264,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+RUG11247 sp902767315,C00847_4-Pyridoxate,C00847,RUG11247,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C05145_3-Aminoisobutyrate,C05145,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00079_Phe,C00079,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C02679_Dodecanoate,C02679,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Ruminococcus_C sp000980705,C10172_Proline betaine,C10172,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C02679_Dodecanoate,C02679,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C00931_Porphobilinogen,C00931,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00630_Isobutyryl CoA,C00630,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C00482_Sinapate,C00482,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C00003_NAD+,C00003,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C02678_Dodecanedioate,C02678,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C08277_Sebacate,C08277,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ventricola intestinavium,C00847_4-Pyridoxate,C00847,Ventricola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C00785_Urocanate,C00785,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas merdipullorum,C00954_Indole-3-acetate,C00954,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp004211955,C00847_4-Pyridoxate,C00847,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00079_Phe,C00079,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C08277_Sebacate,C08277,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecivivens stercoravium,C00134_Putrescine,C00134,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Holdemanella biformis,C05123_Isethionate,C05123,Holdemanella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00300_Creatine,C00300,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C05635_5-Hydroxyindoleacetate,C05635,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C05145_3-Aminoisobutyrate,C05145,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,3-Indoxyl sulfate,3-Indoxyl sulfate,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C05122_Taurocholate,C05122,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Alistipes onderdonkii,2-Hydroxypentanoate,2-Hydroxypentanoate,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C02571_o-Acetylcarnitine,C02571,Fusobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAIFEB01 sp903789375,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,CAIFEB01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C00630_Isobutyryl CoA,C00630,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C08262_Isovalerate,C08262,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C02037_Gly-Gly,C02037,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00378_Thiamine,C00378,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-41 sp900066215,C05984_2-Hydroxybutyrate,C05984,CAG-41,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger sp900540595,2-Hydroxypentanoate,2-Hydroxypentanoate,Gemmiger,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C00847_4-Pyridoxate,C00847,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C00300_Creatine,C00300,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C02678_Dodecanedioate,C02678,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00695_Cholate,C00695,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Escherichia ruysiae,C00847_4-Pyridoxate,C00847,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C00314_Pyridoxine,C00314,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Christensenella intestinihominis,C05635_5-Hydroxyindoleacetate,C05635,Christensenella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C00407_Ile,C00407,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+Ruminococcus_E bromii_B,C03264_2-Hydroxy-4-methylpentanoate,C03264,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avimicrobium caecorum,C00003_NAD+,C00003,Avimicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00314_Pyridoxine,C00314,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C08277_Sebacate,C08277,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C05122_Taurocholate,C05122,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Lactobacillus amylolyticus,C00366_Urate,C00366,Lactobacillus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00423_trans-Cinnamate,C00423,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00296_Quinate,C00296,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C00482_Sinapate,C00482,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acidaminococcus sp900315205,C00475_Cytidine,C00475,Acidaminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Pauljensenia turicensis,C05635_5-Hydroxyindoleacetate,C05635,Pauljensenia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00847_4-Pyridoxate,C00847,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00785_Urocanate,C00785,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C00079_Phe,C00079,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00178_Thymine,C00178,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii,2-Hydroxypentanoate,2-Hydroxypentanoate,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-41 sp900066215,C03264_2-Hydroxy-4-methylpentanoate,C03264,CAG-41,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00785_Urocanate,C00785,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA11540 sp003445125,C00178_Thymine,C00178,UBA11540,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii,C00398_Tryptamine,C00398,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Avichristensenella intestinipullorum,C00791_Creatinine,C00791,Avichristensenella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00003_NAD+,C00003,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C05629_3-Phenylpropionate,C05629,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C03264_2-Hydroxy-4-methylpentanoate,C03264,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,2-Hydroxypentanoate,2-Hydroxypentanoate,Agathobacter,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C02678_Dodecanedioate,C02678,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp002965065,C05635_5-Hydroxyindoleacetate,C05635,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C00314_Pyridoxine,C00314,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00262_Hypoxanthine,C00262,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C16741_5-Hydroxylysine,C16741,Barnesiella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C10172_Proline betaine,C10172,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C02678_Dodecanedioate,C02678,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia fergusonii,C00847_4-Pyridoxate,C00847,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00847_4-Pyridoxate,C00847,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C01921_Glycocholate,C01921,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp900290275,C00003_NAD+,C00003,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii,C00003_NAD+,C00003,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00719_Betaine,C00719,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C00954_Indole-3-acetate,C00954,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C08262_Isovalerate,C08262,Clostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C00262_Hypoxanthine,C00262,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C02571_o-Acetylcarnitine,C02571,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00630_Isobutyryl CoA,C00630,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium sp900539945,C00152_Asn,C00152,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA11540 sp003445125,"C00986_1,3-Diaminopropane",C00986,UBA11540,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003537285,C02678_Dodecanedioate,C02678,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Bifidobacterium pseudocatenulatum,C01004_Trigonelline,C01004,Bifidobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+QAMH01 sp900544245,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,QAMH01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00242_Guanine,C00242,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C08262_Isovalerate,C08262,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,"C03283_2,4-Diaminobutyrate",C03283,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C04677_AICAR,C04677,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alectryocaccomicrobium excrementavium,C03264_2-Hydroxy-4-methylpentanoate,C03264,Alectryocaccomicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00178_Thymine,C00178,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+HGM11417 sp900761895,C00245_Taurine,C00245,HGM11417,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1322 sp905214315,C00386_Carnosine,C00386,UMGS1322,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00719_Betaine,C00719,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C sp000980705,C00296_Quinate,C00296,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00482_Sinapate,C00482,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,"C03283_2,4-Diaminobutyrate",C03283,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C00214_Thymidine,C00214,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_T sp900766045,3-Indoxyl sulfate,3-Indoxyl sulfate,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00242_Guanine,C00242,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_G ventriosum,C10172_Proline betaine,C10172,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1322 sp905214315,"C00986_1,3-Diaminopropane",C00986,UMGS1322,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella parvula_A,C16741_5-Hydroxylysine,C16741,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp003451515,C00242_Guanine,C00242,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes putredinis,C03264_2-Hydroxy-4-methylpentanoate,C03264,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS2070 sp905203455,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,UMGS2070,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C01585_Hexanoate,C01585,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C10172_Proline betaine,C10172,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00431_5-Aminovalerate,C00431,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,_DCA,,Veillonella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C02714_N-Acetylputrescine,C02714,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Leptotrichia_A sp001274535,C00388_Histamine,C00388,Leptotrichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1322 sp905214315,C00417_cis-Aconitate,C00417,UMGS1322,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C00134_Putrescine,C00134,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Escherichia coli_E,C00152_Asn,C00152,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,"C03283_2,4-Diaminobutyrate",C03283,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-170 sp000432135,C08277_Sebacate,C08277,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00378_Thiamine,C00378,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C00493_Shikimate,C00493,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+QWKK01 sp009911695,C01585_Hexanoate,C01585,QWKK01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C00242_Guanine,C00242,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia ruysiae,C00719_Betaine,C00719,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C08262_Isovalerate,C08262,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Galloscillospira_B excrementipullorum,C00791_Creatinine,C00791,Galloscillospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Spyradocola merdavium,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,Spyradocola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Holdemanella sp003458715,C05123_Isethionate,C05123,Holdemanella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_D,C05122_Taurocholate,C05122,Faecalibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Avispirillum faecium,C00214_Thymidine,C00214,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C10172_Proline betaine,C10172,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C05332_Phenethylamine,C05332,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Flemingibacterium merdigallinarum,C10172_Proline betaine,C10172,Flemingibacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,C00262_Hypoxanthine,C00262,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C01585_Hexanoate,C01585,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00791_Creatinine,C00791,Escherichia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C00152_Asn,C00152,UMGS693,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-83 sp000435555,C05135_4-(beta-Acetylaminoethyl)imidazole,C05135,CAG-83,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C08277_Sebacate,C08277,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+QWKK01 sp009911695,C05635_5-Hydroxyindoleacetate,C05635,QWKK01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii,C03264_2-Hydroxy-4-methylpentanoate,C03264,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C00695_Cholate,C00695,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Erysipelatoclostridium ramosum,C00398_Tryptamine,C00398,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Indole / Tryptophan
+Faecalibacillus intestinalis,C10172_Proline betaine,C10172,Faecalibacillus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00003_NAD+,C00003,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+SFEL01 sp016292635,C00482_Sinapate,C00482,SFEL01,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_G ventriosum,C01921_Glycocholate,C01921,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas sp900540275,C01921_Glycocholate,C01921,Scatavimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C10172_Proline betaine,C10172,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Egerieicola pullicola,C11527_4-Hydroxymandelate,C11527,Egerieicola,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-177 sp003514385,C01004_Trigonelline,C01004,CAG-177,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacillus intestinalis,C05341_beta-Ala-Lys,C05341,Faecalibacillus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C08262_Isovalerate,C08262,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C08277_Sebacate,C08277,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Erysipelatoclostridium ramosum,C05984_2-Hydroxybutyrate,C05984,Erysipelatoclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fimimonas sp003537755,C00214_Thymidine,C00214,Fimimonas,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00262_Hypoxanthine,C00262,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C00388_Histamine,C00388,CAG-1427,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1206 sp000433115,C00152_Asn,C00152,UBA1206,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00791_Creatinine,C00791,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C00695_Cholate,C00695,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Alistipes shahii,_DCA,,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp000434055,3-Indoxyl sulfate,3-Indoxyl sulfate,CAG-488,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C00475_Cytidine,C00475,UBA3855,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_G ventriosum,C00270_N-Acetylneuraminate,C00270,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E siraeum,C00388_Histamine,C00388,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C05629_3-Phenylpropionate,C05629,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alectryocaccomicrobium excrementavium,C10172_Proline betaine,C10172,Alectryocaccomicrobium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E siraeum,C05122_Taurocholate,C05122,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Ruminiclostridium_E sp900539195,C01585_Hexanoate,C01585,Ruminiclostridium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00242_Guanine,C00242,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Limivicinus faecipullorum,C03264_2-Hydroxy-4-methylpentanoate,C03264,Limivicinus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C00242_Guanine,C00242,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_G ventriosum,C00296_Quinate,C00296,Eubacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp900290275,2-Hydroxyoctanoate,2-Hydroxyoctanoate,Prevotella,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Anaerostipes caccae,C00296_Quinate,C00296,Anaerostipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp000434635,3-Indoxyl sulfate,3-Indoxyl sulfate,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C10172_Proline betaine,C10172,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C05122_Taurocholate,C05122,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+CAG-103 sp900543625,C01551_Allantoin,C01551,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00386_Carnosine,C00386,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C01008_Trimethylsulfonium,C01008,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Cetobacterium_A sp000799075,C00242_Guanine,C00242,Cetobacterium,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens_A,C02678_Dodecanedioate,C02678,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Egerieicola pullicola,C00123_Leu,C00123,Egerieicola,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+CAG-793 sp013333035,C02037_Gly-Gly,C02037,CAG-793,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sediminibacterium sp902168225,C05341_beta-Ala-Lys,C05341,Sediminibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Aphodousia sp900553105,C00954_Indole-3-acetate,C00954,Aphodousia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Megasphaera sp000417505,C00003_NAD+,C00003,Megasphaera,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C01047_N-gamma-Ethylglutamine,C01047,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Alangreenwoodia gallinarii,C02679_Dodecanoate,C02679,Alangreenwoodia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C05984_2-Hydroxybutyrate,C05984,Lachnospira,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Bilophila wadsworthia,_DCA,,Bilophila,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Duodenibacillus intestinigallinarum,C00024_Acetyl CoA,C00024,Duodenibacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C00383_Malonate,C00383,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C02378_6-Aminohexanoate,C02378,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Fimivicinus sp900544375,C02037_Gly-Gly,C02037,Fimivicinus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia albertii,C03264_2-Hydroxy-4-methylpentanoate,C03264,Escherichia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Slackia_A isoflavoniconvertens,C01104_Trimethylamine N-oxide,C01104,Slackia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00407_Ile,C00407,Fusobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+UMGS687 sp900545735,C00311_Isocitrate,C00311,UMGS687,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C01015_Hydroxyproline,C01015,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Streptococcus macacae,C03264_2-Hydroxy-4-methylpentanoate,C03264,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+DULI01 sp012840445,C00245_Taurine,C00245,DULI01,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5884 sp002431975,C00423_trans-Cinnamate,C00423,UBA5884,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C00314_Pyridoxine,C00314,UBA5905,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_T sp900766045,C00491_Cystine,C00491,Eubacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodousia sp900553105,C00311_Isocitrate,C00311,Aphodousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Actinomyces israelii,C00491_Cystine,C00491,Actinomyces,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia albertii,C05984_2-Hydroxybutyrate,C05984,Escherichia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1696 sp900753285,C00122_Fumarate,C00122,UMGS1696,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sediminibacterium sp902168225,C01047_N-gamma-Ethylglutamine,C01047,Sediminibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C05341_beta-Ala-Lys,C05341,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Streptococcus macacae,C05984_2-Hydroxybutyrate,C05984,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp017548065,C01959_Taurocyamine,C01959,Faecousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sediminibacterium sp902168225,C03570_Mannosamine,C03570,Sediminibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-115 sp000432175,C00407_Ile,C00407,CAG-115,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+Scatavimonas sp900540275,C05984_2-Hydroxybutyrate,C05984,Scatavimonas,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-177 sp003538135,C01959_Taurocyamine,C01959,CAG-177,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS687 sp900545735,C11118_1-Methyl-2-pyrrolidinone,C11118,UMGS687,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Enterococcus_D gallinarum,C02710_N-Acetylleucine,C02710,Enterococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sutterella wadsworthensis,C00417_cis-Aconitate,C00417,Sutterella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes avistercoris,C01879_5-Oxoproline,C01879,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Veillonella atypica,C07151_Metformin,C07151,Veillonella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes avistercoris,C02378_6-Aminohexanoate,C02378,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodousia sp900553105,C06524_Nornicotine,C06524,Aphodousia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C01118_o-Succinylhomoserine,C01118,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C01015_Hydroxyproline,C01015,Faecousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Bacillus_T coahuilensis,C00491_Cystine,C00491,Bacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Pauljensenia turicensis,C01551_Allantoin,C01551,Pauljensenia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C09815_Benzamide,C09815,UBA1829,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Gallimonas faecium,C00311_Isocitrate,C00311,Gallimonas,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Streptococcus sp001937065,_DCA,,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+S5-A14a sp000758905,C00491_Cystine,C00491,S5-A14a,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,_DCA,,Paraclostridium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia sp005843885,C00407_Ile,C00407,Escherichia,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+Avispirillum faecium,C00346_Ethanolamine phosphate,C00346,Avispirillum,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,"C00986_1,3-Diaminopropane",C00986,Escherichia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Gallispira edinburgensis,C00122_Fumarate,C00122,Gallispira,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA5884 sp002431975,C09815_Benzamide,C09815,UBA5884,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Neisseria flavescens_C,C00491_Cystine,C00491,Neisseria,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Desulfovibrio sp905214305,C08262_Isovalerate,C08262,Desulfovibrio,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lactobacillus amylolyticus,C01879_5-Oxoproline,C01879,Lactobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E sp902766775,C00191_Glucuronate,C00191,Ruminococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium butyricum,C00255_Riboflavin,C00255,Clostridium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00407_Ile,C00407,Escherichia,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+Leptotrichia wadei,C00191_Glucuronate,C00191,Leptotrichia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-488 sp003486665,C16741_5-Hydroxylysine,C16741,CAG-488,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Bifidobacterium longum,C01959_Taurocyamine,C01959,Bifidobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C02378_6-Aminohexanoate,C02378,UBA3855,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS687 sp900545735,C01047_N-gamma-Ethylglutamine,C01047,UMGS687,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Sediminibacterium sp902168225,C00311_Isocitrate,C00311,Sediminibacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C00191_Glucuronate,C00191,CAG-127,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Desulfovibrio sp905214305,C16741_5-Hydroxylysine,C16741,Desulfovibrio,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Paratractidigestivibacter faecalis,C02378_6-Aminohexanoate,C02378,Paratractidigestivibacter,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Muribaculum sp910589555,C01015_Hydroxyproline,C01015,Muribaculum,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Neisseria subflava_A,_DCA,,Neisseria,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C01551_Allantoin,C01551,UBA1829,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Flemingibacterium merdigallinarum,C01015_Hydroxyproline,C01015,Flemingibacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CCUG-7971 sp017590215,C00407_Ile,C00407,CCUG-7971,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+CAG-83 sp000435555,C00879_Mucate,C00879,CAG-83,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Romboutsia_C hominis,_DCA,,Romboutsia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes avistercoris,C00879_Mucate,C00879,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Scatavimonas sp900540275,C00186_Lactate,C00186,Scatavimonas,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_G ventriosum,C00024_Acetyl CoA,C00024,Eubacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Flemingibacterium merdigallinarum,C00122_Fumarate,C00122,Flemingibacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+HGM11417 sp900761895,C00092_G6P,C00092,HGM11417,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Scatomorpha intestinavium,C00255_Riboflavin,C00255,Scatomorpha,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lactobacillus amylolyticus,C00417_cis-Aconitate,C00417,Lactobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Christensenella sp014287795,C00123_Leu,C00123,Christensenella,True,False,False,False,False,False,False,1,Low-Medium (1),Amino Acid
+Leptotrichia_A sp001274535,C00191_Glucuronate,C00191,Leptotrichia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Streptococcus parauberis,C02037_Gly-Gly,C02037,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1685 sp900546845,C00346_Ethanolamine phosphate,C00346,UBA1685,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436535,C00417_cis-Aconitate,C00417,Lachnospira,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-177 sp002438685,C01015_Hydroxyproline,C01015,CAG-177,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sediminibacterium sp902168225,C00299_Uridine,C00299,Sediminibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA3839 sp002393575,C00186_Lactate,C00186,UBA3839,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C09815_Benzamide,C09815,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Acutalibacter sp910580045,"C00986_1,3-Diaminopropane",C00986,Acutalibacter,False,False,True,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp900757655,C00191_Glucuronate,C00191,CAG-103,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C00879_Mucate,C00879,CAG-1427,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E sp003512525,C09815_Benzamide,C09815,Ruminiclostridium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes avistercoris,C01104_Trimethylamine N-oxide,C01104,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C03570_Mannosamine,C03570,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Copromorpha sp905193765,C07151_Metformin,C07151,Copromorpha,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_F sp003491505,C01551_Allantoin,C01551,Eubacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+RGIG8773 sp018110825,C02378_6-Aminohexanoate,C02378,RGIG8773,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alkalihalobacillus_A sp007293315,C00122_Fumarate,C00122,Alkalihalobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00378_Thiamine,C00378,CAG-103,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Alistipes_A indistinctus,C00092_G6P,C00092,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Collinsella ihuae,C00879_Mucate,C00879,Collinsella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAIFEB01 sp903789375,C00879_Mucate,C00879,CAIFEB01,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS687 sp900545735,C03570_Mannosamine,C03570,UMGS687,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Roseburia intestinalis,C00024_Acetyl CoA,C00024,Roseburia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium disporicum,C00449_Saccharopine,C00449,Clostridium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Bilophila wadsworthia,C01015_Hydroxyproline,C01015,Bilophila,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodousia sp900553105,C00299_Uridine,C00299,Aphodousia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-302 sp001916775,C02679_Dodecanoate,C02679,CAG-302,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+QAMH01 sp900544245,C01015_Hydroxyproline,C01015,QAMH01,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Parasutterella excrementihominis,C00383_Malonate,C00383,Parasutterella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Streptococcus parauberis,C00191_Glucuronate,C00191,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp900543975,C01551_Allantoin,C01551,Prevotella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS1322 sp905214315,C00255_Riboflavin,C00255,UMGS1322,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sutterella sp900545275,C00417_cis-Aconitate,C00417,Sutterella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Roseburia intestinalis,C02037_Gly-Gly,C02037,Roseburia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes onderdonkii,C02710_N-Acetylleucine,C02710,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS693 sp900544555,C00186_Lactate,C00186,UMGS693,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Streptococcus oralis_BH,C00186_Lactate,C00186,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Streptococcus macacae,C00186_Lactate,C00186,Streptococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C00299_Uridine,C00299,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+DULI01 sp012840445,C00417_cis-Aconitate,C00417,DULI01,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes_A sp900539755,C00122_Fumarate,C00122,Alistipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C06524_Nornicotine,C06524,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Alkalihalobacillus_A sp007293315,C01879_5-Oxoproline,C01879,Alkalihalobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Barb7 sp001657575,C00092_G6P,C00092,Barb7,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Brachyspira aalborgi,C00491_Cystine,C00491,Brachyspira,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Sediminibacterium sp902168225,C06524_Nornicotine,C06524,Sediminibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Cupidesulfovibrio vulgaris_A,C00449_Saccharopine,C00449,Cupidesulfovibrio,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C11118_1-Methyl-2-pyrrolidinone,C11118,Faecalibacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Dialister sp000434475,C00346_Ethanolamine phosphate,C00346,Dialister,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Prevotella sp002300055,C02155_Gly-Leu,C02155,Prevotella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-177 sp002438685,C02155_Gly-Leu,C02155,CAG-177,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-873 sp900540625,C09815_Benzamide,C09815,CAG-873,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium_B sp900542625,C00383_Malonate,C00383,Fusobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lactobacillus helveticus,C07151_Metformin,C07151,Lactobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA3855 sp017460955,C09815_Benzamide,C09815,UBA3855,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C06524_Nornicotine,C06524,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00255_Riboflavin,C00255,Fusobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp017548065,_DCA,,Faecousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Romboutsia_D sp000686145,C00255_Riboflavin,C00255,Romboutsia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Romboutsia_A weinsteinii,C00255_Riboflavin,C00255,Romboutsia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C00299_Uridine,C00299,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Porphyromonas sp900548415,C00092_G6P,C00092,Porphyromonas,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium_A leptum,C11118_1-Methyl-2-pyrrolidinone,C11118,Clostridium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UMGS687 sp900545735,C00299_Uridine,C00299,UMGS687,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Fusobacterium_B sp900554355,C09815_Benzamide,C09815,Fusobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C11284_3-Indolebutyrate,C11284,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Anaerostipes hadrus,C02037_Gly-Gly,C02037,Anaerostipes,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C01047_N-gamma-Ethylglutamine,C01047,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Pauljensenia turicensis,C00086_Urea,C00086,Pauljensenia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium sp000235465,C00491_Cystine,C00491,Fusobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Phascolarctobacterium_A succinatutens,C00383_Malonate,C00383,Phascolarctobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Neisseria sp000186165,C02710_N-Acetylleucine,C02710,Neisseria,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+46-32 sp003243445,C00417_cis-Aconitate,C00417,46-32,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Brachyspira aalborgi,C00086_Urea,C00086,Brachyspira,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lactobacillus amylolyticus,C00491_Cystine,C00491,Lactobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Eubacterium_T sp900766045,C00086_Urea,C00086,Eubacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Actinomyces israelii,C09815_Benzamide,C09815,Actinomyces,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C01118_o-Succinylhomoserine,C01118,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Onthousia sp900758495,C11118_1-Methyl-2-pyrrolidinone,C11118,Onthousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Aminipila sp004103735,C02155_Gly-Leu,C02155,Aminipila,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Leptotrichia_A sp001274535,C02037_Gly-Gly,C02037,Leptotrichia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Lactobacillus amylolyticus,C00086_Urea,C00086,Lactobacillus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Fimisoma sp900754795,C11118_1-Methyl-2-pyrrolidinone,C11118,Fimisoma,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Aphodousia sp905212345,C01118_o-Succinylhomoserine,C01118,Aphodousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+S5-A14a sp000758905,C00086_Urea,C00086,S5-A14a,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+W3P20-009 sp015061285,C02155_Gly-Leu,C02155,W3P20-009,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_C callidus,C11118_1-Methyl-2-pyrrolidinone,C11118,Ruminococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Christensenella intestinihominis,C00255_Riboflavin,C00255,Christensenella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Clostridium sp900540255,C02710_N-Acetylleucine,C02710,Clostridium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger sp900540595,C02155_Gly-Leu,C02155,Gemmiger,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Dialister sp000434475,C00255_Riboflavin,C00255,Dialister,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D sp900539095,C00255_Riboflavin,C00255,Ruminococcus,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Dialister sp900541605,C02710_N-Acetylleucine,C02710,Dialister,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C02710_N-Acetylleucine,C02710,Faecousia,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Holdemanella sp003458715,C00255_Riboflavin,C00255,Holdemanella,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Desulfovibrio desulfuricans_A,C00092_G6P,C00092,Desulfovibrio,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Carnobacterium maltaromaticum,C00092_G6P,C00092,Carnobacterium,True,False,False,False,False,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C11284_3-Indolebutyrate,C11284,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,C05332_Phenethylamine,C05332,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00315_Spermidine,C00315,Escherichia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+CAG-127 sp900319515,C02678_Dodecanedioate,C02678,CAG-127,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium_A mortiferum,C00077_Ornithine,C00077,Fusobacterium,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E siraeum,C00077_Ornithine,C00077,Ruminiclostridium,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Lachnospira eligens,C02678_Dodecanedioate,C02678,Lachnospira,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Barnesiella intestinihominis,C00315_Spermidine,C00315,Barnesiella,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Sutterella wadsworthensis_A,C00134_Putrescine,C00134,Sutterella,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Phascolarctobacterium faecium,C00315_Spermidine,C00315,Phascolarctobacterium,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Akkermansia muciniphila,C00077_Ornithine,C00077,Akkermansia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Faecimonas sp905209745,C01672_Cadaverine,C01672,Faecimonas,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Alangreenwoodia gallinarii,C02678_Dodecanedioate,C02678,Alangreenwoodia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Fusobacterium_A mortiferum,C00378_Thiamine,C00378,Fusobacterium,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C02714_N-Acetylputrescine,C02714,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacillus intestinalis,C00315_Spermidine,C00315,Faecalibacillus,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Escherichia coli,C00077_Ornithine,C00077,Escherichia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Akkermansia muciniphila,C00315_Spermidine,C00315,Akkermansia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000437735,"C00986_1,3-Diaminopropane",C00986,Lachnospira,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Sutterella wadsworthensis,C00134_Putrescine,C00134,Sutterella,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Holdemanella sp003436425,C00315_Spermidine,C00315,Holdemanella,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Prevotella sp000436035,C00062_Arg,C00062,Prevotella,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Fimenecus sp000432435,C00134_Putrescine,C00134,Fimenecus,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Fimivicinus sp900544375,C00134_Putrescine,C00134,Fimivicinus,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Ruminococcus_D bicirculans,C02678_Dodecanedioate,C02678,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Megasphaera sp000417505,C00077_Ornithine,C00077,Megasphaera,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Megasphaera sp000417505,C00134_Putrescine,C00134,Megasphaera,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Escherichia fergusonii,"C00986_1,3-Diaminopropane",C00986,Escherichia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C00062_Arg,C00062,Lachnospira,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_D bicirculans,"C00986_1,3-Diaminopropane",C00986,Ruminococcus,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Escherichia fergusonii,C00077_Ornithine,C00077,Escherichia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Ruminiclostridium_E siraeum,C00315_Spermidine,C00315,Ruminiclostridium,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Lachnospira sp000437735,C00062_Arg,C00062,Lachnospira,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Megasphaera sp000417505,C00315_Spermidine,C00315,Megasphaera,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Ruminococcus_E bromii_B,C08277_Sebacate,C08277,Ruminococcus,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+RUG705 sp905188025,C00378_Thiamine,C00378,RUG705,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+RUG705 sp905188025,C00315_Spermidine,C00315,RUG705,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,"C00986_1,3-Diaminopropane",C00986,Faecousia,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+PeH17 sp000435055,C00062_Arg,C00062,PeH17,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+Prevotella pectinovora,C00077_Ornithine,C00077,Prevotella,False,False,False,True,False,False,False,1,Low-Medium (1),Other
+CAG-103 sp000432375,C00134_Putrescine,C00134,CAG-103,False,False,False,True,False,False,False,1,Low-Medium (1),Polyamine
+Actinomyces sp900323545,C01118_o-Succinylhomoserine,C01118,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C01118_o-Succinylhomoserine,C01118,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C01118_o-Succinylhomoserine,C01118,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C01118_o-Succinylhomoserine,C01118,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C00954_Indole-3-acetate,C00954,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C00954_Indole-3-acetate,C00954,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C00954_Indole-3-acetate,C00954,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C00954_Indole-3-acetate,C00954,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C00954_Indole-3-acetate,C00954,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C00954_Indole-3-acetate,C00954,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C00954_Indole-3-acetate,C00954,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C06524_Nornicotine,C06524,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C06524_Nornicotine,C06524,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C06524_Nornicotine,C06524,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UMGS687 sp900545735,C06524_Nornicotine,C06524,UMGS687,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C06524_Nornicotine,C06524,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C06524_Nornicotine,C06524,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C01047_N-gamma-Ethylglutamine,C01047,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C01047_N-gamma-Ethylglutamine,C01047,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C01047_N-gamma-Ethylglutamine,C01047,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C01047_N-gamma-Ethylglutamine,C01047,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C01047_N-gamma-Ethylglutamine,C01047,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C00440_5-Methyltetrahydrofolate,C00440,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C00440_5-Methyltetrahydrofolate,C00440,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C00440_5-Methyltetrahydrofolate,C00440,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C00440_5-Methyltetrahydrofolate,C00440,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C00440_5-Methyltetrahydrofolate,C00440,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C00440_5-Methyltetrahydrofolate,C00440,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C00299_Uridine,C00299,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C00299_Uridine,C00299,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C00299_Uridine,C00299,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C00299_Uridine,C00299,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C00299_Uridine,C00299,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C00383_Malonate,C00383,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C00383_Malonate,C00383,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C00383_Malonate,C00383,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C00383_Malonate,C00383,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C00383_Malonate,C00383,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C03570_Mannosamine,C03570,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C03570_Mannosamine,C03570,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Campylobacter_B sp900539505,C03570_Mannosamine,C03570,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C03570_Mannosamine,C03570,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C03570_Mannosamine,C03570,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C03570_Mannosamine,C03570,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces sp900323545,C05341_beta-Ala-Lys,C05341,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C05341_beta-Ala-Lys,C05341,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Actinomyces gerencseriae,C05341_beta-Ala-Lys,C05341,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA1829 sp900548385,C05341_beta-Ala-Lys,C05341,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900539675,C05341_beta-Ala-Lys,C05341,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-1427 sp900542265,C05341_beta-Ala-Lys,C05341,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Paraclostridium tenue,C00398_Tryptamine,C00398,Paraclostridium,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+Actinomyces gerencseriae,C00398_Tryptamine,C00398,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+Campylobacter_B sp900539505,C00398_Tryptamine,C00398,Campylobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+UBA1829 sp900548385,C00398_Tryptamine,C00398,UBA1829,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+UMGS687 sp900545735,C00398_Tryptamine,C00398,UMGS687,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+CAG-1427 sp900539675,C00398_Tryptamine,C00398,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+Aphodousia sp900553105,C00398_Tryptamine,C00398,Aphodousia,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+CAG-1427 sp900542265,C00398_Tryptamine,C00398,CAG-1427,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+UBA1685 sp900546845,C00134_Putrescine,C00134,UBA1685,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Actinomyces sp900323545,C00398_Tryptamine,C00398,Actinomyces,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+Faecivivens stercoravium,C00431_5-Aminovalerate,C00431,Faecivivens,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C00398_Tryptamine,C00398,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+Sediminibacterium sp902168225,C00398_Tryptamine,C00398,Sediminibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Indole / Tryptophan
+CAG-170 sp000432135,C02714_N-Acetylputrescine,C02714,CAG-170,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C02714_N-Acetylputrescine,C02714,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C02714_N-Acetylputrescine,C02714,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C02714_N-Acetylputrescine,C02714,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C02714_N-Acetylputrescine,C02714,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C02714_N-Acetylputrescine,C02714,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C02714_N-Acetylputrescine,C02714,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C02714_N-Acetylputrescine,C02714,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C02714_N-Acetylputrescine,C02714,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C02714_N-Acetylputrescine,C02714,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+CAG-103 sp900543625,C08277_Sebacate,C08277,CAG-103,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C00134_Putrescine,C00134,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Agathobacter sp900546625,C00134_Putrescine,C00134,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Agathobacter faecis,C00134_Putrescine,C00134,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Agathobacter rectalis,C00134_Putrescine,C00134,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium prausnitzii_C,C00134_Putrescine,C00134,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Lachnospira rogosae_A,C00134_Putrescine,C00134,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Agathobacter sp900317585,C00134_Putrescine,C00134,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Gemmiger formicilis,C00134_Putrescine,C00134,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Faecalibacterium prausnitzii_G,C00134_Putrescine,C00134,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Lachnospira sp000436475,C00134_Putrescine,C00134,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Polyamine
+Roseburia inulinivorans,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C01744_3-(4-Hydroxyphenyl)propionate,C01744,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C08277_Sebacate,C08277,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C08277_Sebacate,C08277,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C08277_Sebacate,C08277,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C08277_Sebacate,C08277,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C08277_Sebacate,C08277,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C08277_Sebacate,C08277,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C08277_Sebacate,C08277,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C00431_5-Aminovalerate,C00431,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C08277_Sebacate,C08277,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C08277_Sebacate,C08277,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C00245_Taurine,C00245,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C00245_Taurine,C00245,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C00245_Taurine,C00245,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C00245_Taurine,C00245,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C00245_Taurine,C00245,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C00245_Taurine,C00245,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C00245_Taurine,C00245,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C00245_Taurine,C00245,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C00245_Taurine,C00245,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C00245_Taurine,C00245,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C06103_6-Hydroxyhexanoate,C06103,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C06103_6-Hydroxyhexanoate,C06103,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C06103_6-Hydroxyhexanoate,C06103,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C06103_6-Hydroxyhexanoate,C06103,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C06103_6-Hydroxyhexanoate,C06103,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C06103_6-Hydroxyhexanoate,C06103,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+UBA5905 sp900763035,C02656_Pimelate,C02656,UBA5905,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C05629_3-Phenylpropionate,C05629,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,"C03283_2,4-Diaminobutyrate",C03283,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C00695_Cholate,C00695,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Bile Acid
+Acetatifactor sp003447295,C02714_N-Acetylputrescine,C02714,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp900552015,C02678_Dodecanedioate,C02678,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Avispirillum faecium,C00134_Putrescine,C00134,Avispirillum,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Faecousia sp003525905,C08277_Sebacate,C08277,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C08277_Sebacate,C08277,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,C02678_Dodecanedioate,C02678,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C08277_Sebacate,C08277,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Alistipes shahii,C02678_Dodecanedioate,C02678,Alistipes,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Faecousia sp003525905,"C03283_2,4-Diaminobutyrate",C03283,Faecousia,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C00134_Putrescine,C00134,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Polyamine
+Acetatifactor sp003447295,C05332_Phenethylamine,C05332,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor sp003447295,C02678_Dodecanedioate,C02678,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Acetatifactor intestinalis,C02678_Dodecanedioate,C02678,Acetatifactor,False,True,False,False,False,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C06103_6-Hydroxyhexanoate,C06103,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C06103_6-Hydroxyhexanoate,C06103,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira sp000436475,C06103_6-Hydroxyhexanoate,C06103,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C11284_3-Indolebutyrate,C11284,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C11284_3-Indolebutyrate,C11284,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter rectalis,C11284_3-Indolebutyrate,C11284,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_C,C11284_3-Indolebutyrate,C11284,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Lachnospira rogosae_A,C11284_3-Indolebutyrate,C11284,Lachnospira,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900317585,C11284_3-Indolebutyrate,C11284,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Gemmiger formicilis,C11284_3-Indolebutyrate,C11284,Gemmiger,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Faecalibacterium prausnitzii_G,C11284_3-Indolebutyrate,C11284,Faecalibacterium,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Roseburia inulinivorans,C06104_Adipate,C06104,Roseburia,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter sp900546625,C06104_Adipate,C06104,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+Agathobacter faecis,C06104_Adipate,C06104,Agathobacter,False,False,False,False,True,False,False,1,Low-Medium (1),Other
+ER4 sp000765235,C05629_3-Phenylpropionate,C05629,ER4,False,True,False,False,False,False,False,1,Low-Medium (1),Other

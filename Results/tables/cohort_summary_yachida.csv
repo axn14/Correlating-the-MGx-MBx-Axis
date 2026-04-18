@@ -1,0 +1,4 @@
+Group,n,Age (mean±SD),BMI (mean±SD),Male (%)
+Healthy,127,64.7 ± 10.6,23.0 ± 2.8,55.9
+Early_CRC,126,63.4 ± 9.6,23.0 ± 3.5,57.1
+Advanced_CRC,94,61.2 ± 10.6,23.1 ± 3.4,64.9

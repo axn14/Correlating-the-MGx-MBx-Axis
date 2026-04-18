@@ -1,0 +1,21 @@
+Feature,N_comparisons,Comparisons,Mean_Log2FC,Min_QValue,IsPolyamine,Directions
+C00122_Fumarate,2,Healthy_vs_Stage_0 | Healthy_vs_Stage_III_IV,-2.220429082790254,0.011376521542431524,False,Down in case
+C00423_trans-Cinnamate,1,Healthy_vs_HS,1.7155855436768654,0.004430420619302769,False,Up in case
+C00245_Taurine,1,Healthy_vs_HS,-1.0352383161239302,0.005539759096787975,False,Down in case
+C00568_p-Aminobenzoate,1,Healthy_vs_HS,-1.766898392657783,0.005539759096787975,False,Down in case
+C02678_Dodecanedioate,1,Healthy_vs_HS,2.586991755782492,0.005539759096787975,False,Up in case
+C02727_N-epsilon-Acetyllysine,1,Healthy_vs_HS,1.0221480631998046,0.005539759096787975,False,Up in case
+C03592_5-Methyl-2'-deoxycytidine,1,Healthy_vs_HS,-1.2986026653719593,0.005539759096787975,False,Down in case
+SDMA,1,Healthy_vs_HS,1.9644410733043998,0.005539759096787975,False,Up in case
+C00534_Pyridoxamine,1,Healthy_vs_HS,-3.7362797992825367,0.005956605242062381,False,Down in case
+C01425_Glu-Glu,1,Healthy_vs_Stage_III_IV,-1.71444710475257,0.00803513517539352,False,Down in case
+C04501_N-Acetylglucosamine 1-phosphate,1,Healthy_vs_Stage_III_IV,1.353131081691029,0.00803513517539352,False,Up in case
+C02714_N-Acetylputrescine,1,Healthy_vs_HS,-1.298316254672404,0.009171422942731914,True,Down in case
+C02230_3-Methylguanine,1,Healthy_vs_HS,-2.061535574263942,0.01341499316292488,False,Down in case
+C09815_Benzamide,1,Healthy_vs_HS,-4.324617519346624,0.016161407353923157,False,Down in case
+C01005_O-Phosphoserine,1,Healthy_vs_Stage_III_IV,-1.135164613440142,0.018308927498235313,False,Down in case
+C00491_Cystine,1,Healthy_vs_Stage_0,-1.4279709294927694,0.026947981232631837,False,Down in case
+C02378_6-Aminohexanoate,1,Healthy_vs_HS,-1.8163937948959858,0.034158713343002405,False,Down in case
+C00719_Betaine,1,Healthy_vs_Stage_0,1.3489124918053186,0.0365296887545537,False,Up in case
+C00366_Urate,1,Healthy_vs_Stage_III_IV,1.786571693260943,0.04767203294756762,False,Up in case
+C16741_5-Hydroxylysine,1,Healthy_vs_Stage_III_IV,-1.2744984552019982,0.04767203294756762,False,Down in case
