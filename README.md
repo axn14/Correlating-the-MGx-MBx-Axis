@@ -1,5 +1,9 @@
 # CRC Gut Microbiome–Metabolome Integration Study
 
+<img width="1193" height="667" alt="image" src="https://github.com/user-attachments/assets/a4d14ef4-da9f-4f43-a6b7-0ed70b243200" />
+<img width="994" height="695" alt="image" src="https://github.com/user-attachments/assets/959f8f36-a9ac-46ec-8e6b-0cb6bef699b6" />
+
+
 **Generalised multi-omics pipeline for identifying microbial and metabolic signatures across colorectal cancer progression.**
 
 ---
