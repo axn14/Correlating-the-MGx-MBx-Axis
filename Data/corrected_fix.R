@@ -1,6 +1,6 @@
-################################################################################
-# CORRECTED FIX - Data is already in correct format!
-################################################################################
+
+# CORRECTED FIX (primary correction)
+
 
 library(tidyverse)
 library(mixOmics)
@@ -12,7 +12,6 @@ preprocess_omics_data_corrected <- function(data_obj, min_prevalence = 0.1) {
   
   cat("\n=== Preprocessing Data (CORRECTED) ===\n")
   
-  # Your data format: first column is feature names, rest are samples
   # Row 1 = Species/Metabolite ID
   # Columns 2-end = Sample_1, Sample_2, etc.
   
@@ -41,7 +40,7 @@ preprocess_omics_data_corrected <- function(data_obj, min_prevalence = 0.1) {
   cat(paste("Number of species:", nrow(species_data), "\n"))
   cat(paste("Number of metabolites:", nrow(mtb_data), "\n"))
   
-  # NOW transpose so samples are rows and features are columns
+  # transpose so samples are rows and features are columns
   species_mat <- t(species_data)
   mtb_mat <- t(mtb_data)
   
@@ -108,9 +107,9 @@ preprocess_omics_data_corrected <- function(data_obj, min_prevalence = 0.1) {
   ))
 }
 
-################################################################################
+
 # RUN THE CORRECTED PREPROCESSING
-################################################################################
+
 
 cat("\n########## RUNNING CORRECTED ANALYSIS ##########\n")
 
