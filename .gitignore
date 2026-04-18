@@ -1,1 +1,28 @@
+# Results and intermediate data (large, reproducible from code)
 Results/
+Data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Jupyter checkpoints and backup files
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+*.bak
+*.bak1
+*.bak2
+*.bak3
+*.bak_*
+
+# IDE / OS
+.vscode/
+*.DS_Store
+Thumbs.db
+
+# Large model/database files
+*.qza
+*.h5
+*.hdf5

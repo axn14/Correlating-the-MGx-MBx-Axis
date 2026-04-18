@@ -1,0 +1,50 @@
+name: metabolomics-pipeline
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.12
+  - pip
+
+  # --- Core ---
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy>=1.11
+  - statsmodels>=0.14
+
+  # --- ML ---
+  - scikit-learn>=1.4
+  - xgboost>=2.0
+  - lightgbm>=4.1
+
+  # --- Bioinformatics (conda-forge / bioconda) ---
+  - networkx>=3.2
+  - biopython>=1.83
+
+  # --- Visualisation ---
+  - matplotlib>=3.8
+  - seaborn>=0.13
+
+  # --- Jupyter ---
+  - jupyter
+  - ipykernel
+
+  # --- Upstream pipeline (bioconda) ---
+  - fastp                    # QC + adapter trimming
+  - bowtie2                  # MetaPhlAn internal aligner
+  - samtools                 # BAM/SAM handling
+
+  - pip:
+    - mofapy2==0.7.0
+    - scikit-bio>=0.6.0
+    - shap>=0.44.0
+    - pyteomics>=4.7.0
+    - pymzml>=2.5.4
+    - pysradb
+    - metaphlan
+    - humann
+    - multiqc
+    - tqdm>=4.66
+    - joblib>=1.3

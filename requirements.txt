@@ -1,0 +1,53 @@
+# ============================================================
+# requirements.txt — Generalised Metabolite–Metagenomics
+# Correlation Pipeline (Publication Notebooks NB00–NB06)
+# ============================================================
+# Install all: pip install -r requirements.txt --break-system-packages
+# Pinned versions tested on Python 3.12 (Windows/WSL)
+# ============================================================
+
+# --- Core scientific stack ---
+numpy>=1.26.0
+pandas>=2.1.0
+scipy>=1.11.0
+statsmodels>=0.14.0
+
+# --- Machine learning ---
+scikit-learn>=1.4.0
+xgboost>=2.0.0
+lightgbm>=4.1.0
+shap>=0.44.0
+
+# --- Multi-omic integration ---
+mofapy2==0.7.0
+
+# --- Bioinformatics ---
+scikit-bio>=0.6.0          # PERMANOVA, UniFrac, beta diversity
+biopython>=1.83            # Sequence handling, NCBI API
+networkx>=3.2              # Bipartite network construction
+
+# --- Metabolomics (mzML / raw data) ---
+pyteomics>=4.7.0           # mzML file parsing
+pymzml>=2.5.4              # Alternative mzML reader
+pyopenms>=3.1.0            # Peak picking, feature alignment (optional — large install)
+
+# --- Visualisation ---
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# --- Pipeline utilities ---
+tqdm>=4.66.0               # Progress bars for long loops
+joblib>=1.3.0              # Parallel processing
+
+# --- Upstream pipeline tools (NB00 — requires system bioinformatics tools) ---
+# The following are Python wrappers; the underlying tools must be installed
+# separately via conda or system package manager:
+#   metaphlan4:  pip install metaphlan
+#   humann3:     pip install humann
+#   pysradb:     pip install pysradb      (SRA download / metadata)
+#   fastp:       conda install -c bioconda fastp  (QC/trimming)
+#   multiqc:     pip install multiqc
+
+# --- Optional: notebook environment ---
+jupyter>=1.0.0
+ipykernel>=6.27.0
