@@ -1,0 +1,49 @@
+compound_name,kegg_id
+putrescine,C00134
+spermidine,C00315
+spermine,C00750
+agmatine,C00986
+cadaverine,C01672
+ornithine,C00077
+arginine,C00062
+n-acetylputrescine,C02714
+acetate,C00033
+propionate,C00163
+butyrate,C00246
+valerate,C01134
+chenodeoxycholic acid,C05122
+taurocholic acid,C04483
+glycocholic acid,C05466
+cholic acid,C00695
+deoxycholic acid,C04515
+lithocholic acid,C17231
+methionine,C00073
+glutamine,C00064
+glutamate,C00025
+glycine,C00037
+aspartate,C00049
+alanine,C00041
+lysine,C00047
+proline,C00148
+threonine,C00188
+leucine,C00123
+isoleucine,C00407
+tryptophan,C00078
+indole,C00399
+succinate,C00042
+fumarate,C00122
+malate,C00149
+oxaloacetate,C00036
+citrate,C00158
+lactate,C00186
+pyruvate,C00022
+riboflavin,C00255
+urea,C00086
+sebacate,C08277
+phenylalanine,C00079
+tyrosine,C00082
+histidine,C00135
+valine,C00183
+serine,C00065
+threonine,C00188
+asparagine,C00152

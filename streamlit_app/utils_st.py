@@ -21,6 +21,16 @@ def show_figure(stem: str, caption: str = "", use_container_width: bool = True) 
 
 
 def load_csv(name: str) -> pd.DataFrame | None:
+    """Load a CSV — prefers user-run results if available in session state."""
+    import streamlit as st
+    user_dir = getattr(st.session_state, "run_output_dir", None)
+    if user_dir is not None:
+        user_path = Path(user_dir) / "tables" / name
+        if user_path.exists():
+            try:
+                return pd.read_csv(user_path)
+            except Exception:
+                pass
     path = TABLES_DIR / name
     if not path.exists():
         return None

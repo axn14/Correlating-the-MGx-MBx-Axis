@@ -1,0 +1,15 @@
+services:
+  pipeline:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./user_data:/app/user_data      # place input files here before running
+      - ./results:/app/results          # pipeline writes outputs here
+    environment:
+      - DATA_DIR=/app/user_data
+      - RESULTS_DIR=/app/results
+      - INTER_DIR=/app/results/intermediate
+      - FIG_DIR=/app/results/figures
+      - TABLE_DIR=/app/results/tables
+    restart: unless-stopped

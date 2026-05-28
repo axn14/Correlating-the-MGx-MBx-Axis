@@ -18,6 +18,7 @@ Design principles
 
 from __future__ import annotations
 
+import os
 import warnings
 import pickle
 from pathlib import Path
@@ -37,11 +38,11 @@ warnings.filterwarnings("ignore")
 # ============================================================================
 # PATHS  (Windows paths — WSL notebooks resolve via drive mapping)
 # ============================================================================
-DATA_DIR    = Path(r"E:\D.Ani\Academic\KI\Data")
-RESULTS_DIR = Path(r"E:\D.Ani\Academic\KI\Results")
-INTER_DIR   = RESULTS_DIR / "intermediate"
-FIG_DIR     = RESULTS_DIR / "figures"
-TABLE_DIR   = RESULTS_DIR / "tables"
+DATA_DIR    = Path(os.environ.get("DATA_DIR",    r"E:\D.Ani\Academic\KI\Data"))
+RESULTS_DIR = Path(os.environ.get("RESULTS_DIR", r"E:\D.Ani\Academic\KI\Results"))
+INTER_DIR   = Path(os.environ.get("INTER_DIR",   str(RESULTS_DIR / "intermediate")))
+FIG_DIR     = Path(os.environ.get("FIG_DIR",     str(RESULTS_DIR / "figures")))
+TABLE_DIR   = Path(os.environ.get("TABLE_DIR",   str(RESULTS_DIR / "tables")))
 
 # ============================================================================
 # DATASET REGISTRY
