@@ -37,8 +37,8 @@ warnings.filterwarnings("ignore")
 # ============================================================================
 # PATHS  (Windows paths — WSL notebooks resolve via drive mapping)
 # ============================================================================
-DATA_DIR    = Path(r"C:\Users\andna\Documents\KI\Data")
-RESULTS_DIR = Path(r"C:\Users\andna\Documents\KI\Results")
+DATA_DIR    = Path(r"E:\D.Ani\Academic\KI\Data")
+RESULTS_DIR = Path(r"E:\D.Ani\Academic\KI\Results")
 INTER_DIR   = RESULTS_DIR / "intermediate"
 FIG_DIR     = RESULTS_DIR / "figures"
 TABLE_DIR   = RESULTS_DIR / "tables"
@@ -114,10 +114,11 @@ THREE_GROUP_MAP   = {
 # ============================================================================
 _PATHWAY_KEGG_REF: dict[str, dict[str, str]] = {
     "Polyamine": {
-        "C00134": "Putrescine",    "C00315": "Spermidine",
-        "C00750": "Spermine",      "C00179": "Agmatine",
-        "C01672": "Cadaverine",    "C00077": "Ornithine",
+        "C00134": "Putrescine",         "C00315": "Spermidine",
+        "C00750": "Spermine",           "C00986": "Agmatine",
+        "C01672": "Cadaverine",         "C00077": "Ornithine",
         "C00062": "Arginine",
+        "C02714": "N-Acetylputrescine", "C02567": "N1-Acetylspermine",
     },
     "SCFA": {
         "C00033": "Acetate",       "C00163": "Propionate",
@@ -151,6 +152,26 @@ _PATHWAY_KEGG_REF: dict[str, dict[str, str]] = {
 }
 
 
+# ============================================================================
+# POLYAMINE KEGG IDs AND EC NUMBERS
+# ── Biosynthetic + SSAT catabolic (C02714, C02567) forms included.
+# ── C00179 (original entry) corrected to C00986 (Agmatine).
+# ============================================================================
+POLYAMINE_KEGG: frozenset = frozenset(_PATHWAY_KEGG_REF["Polyamine"].keys())
+
+POLYAMINE_EC: dict[str, list[str]] = {
+    "C00134": ["4.1.1.17", "4.1.1.18", "4.1.1.19"],  # Putrescine: ODC, LDC, ADC
+    "C00315": ["2.5.1.16"],                             # Spermidine synthase
+    "C00750": ["2.5.1.22"],                             # Spermine synthase
+    "C00986": ["4.1.1.19", "3.5.3.11"],                # Agmatine: ADC, agmatinase
+    "C01672": ["4.1.1.18"],                             # Cadaverine: LDC
+    "C00077": ["4.1.1.17"],                             # Ornithine: ODC
+    "C00062": ["4.1.1.19", "3.5.3.11"],                # Arginine: ADC, agmatinase
+    "C02714": ["2.3.1.57"],                             # N-Acetylputrescine: SSAT
+    "C02567": ["2.3.1.57"],                             # N1-Acetylspermine: SSAT
+}
+
+
 def annotate_pathway(kegg_id: str) -> str:
     """Post-discovery pathway annotation. Returns pathway label or 'Other'.
     Handles both bare KEGG IDs ('C00134') and KEGGID_Name format ('C00134_Putrescine').
@@ -181,6 +202,19 @@ def extract_genus(species_str: str) -> str:
     return genus
 
 
+def has_kegg_enzyme(species: str, kegg_id: str, genus_ec_map: dict) -> bool:
+    """Return True if the genus of `species` carries a known EC for `kegg_id`.
+
+    genus_ec_map : {genus_lower: set(EC_strings)} — built from the UniProt
+                   enzyme annotation CSV (module_b3_uniprot_enzymes.csv).
+    """
+    genus = extract_genus(species).lower()
+    required = POLYAMINE_EC.get(kegg_id, [])
+    if not required:
+        return False
+    return any(ec in genus_ec_map.get(genus, set()) for ec in required)
+
+
 # ============================================================================
 # QUALITY CONTROL THRESHOLDS
 # ============================================================================
@@ -192,7 +226,7 @@ MIN_CORR       = 0.20    # minimum |ρ| pre-filter before BH correction
 
 MAX_SPECIES_NB02 = 500   # top-variance species retained for correlation analysis
 MAX_MTB_NB02     = 150   # top-variance metabolites retained for correlation analysis
-N_TOP_TARGETS    = 50    # top dysregulated metabolite targets for ML (NB03)
+N_TOP_TARGETS    = 50    # top-N candidates; 45 survive metabolite availability filter in NB03 (5 absent from mt_log after QC) — see NB03 Cell 5
 
 # ============================================================================
 # DATA LOADING
@@ -325,11 +359,48 @@ def validate_sample_alignment(meta: pd.DataFrame,
 # ============================================================================
 
 def build_metabolite_name_map(mtb_map: pd.DataFrame) -> dict[str, str]:
-    """Return {KEGG_ID: human_readable_name} from the mtb.map table."""
+    """Return {compound_id: KEGG_ID} from the mtb.map table."""
     if mtb_map.empty:
         return {}
-    col = mtb_map.columns[0]
-    return mtb_map[col].to_dict()
+    if "KEGG" in mtb_map.columns:
+        return mtb_map["KEGG"].dropna().to_dict()
+    return {}
+
+
+def remap_mtb_to_kegg(mtb_df: pd.DataFrame,
+                       mtb_map: pd.DataFrame,
+                       dataset: str = "") -> pd.DataFrame:
+    """
+    Rename metabolite columns to bare KEGG IDs for cross-dataset comparison.
+
+    Yachida columns use 'C00024_Name' format — KEGG prefix extracted directly.
+    Sinha/Kim columns use compound names — looked up via the map's KEGG column.
+    Duplicate KEGG IDs (same metabolite annotated twice) are summed.
+    Compounds without a KEGG mapping are dropped.
+    Returns an empty DataFrame if no mappings are found.
+    """
+    if mtb_df.empty:
+        return mtb_df
+    rename: dict[str, str] = {}
+    if dataset == "YACHIDA-CRC-2019" or all(
+        re.match(r"C\d{5}_", str(c)) for c in mtb_df.columns[:5]
+    ):
+        for col in mtb_df.columns:
+            m = re.match(r"(C\d{5})_", str(col))
+            if m:
+                rename[col] = m.group(1)
+    elif "KEGG" in mtb_map.columns:
+        kegg_lookup = mtb_map["KEGG"].dropna().to_dict()
+        for col in mtb_df.columns:
+            kid = kegg_lookup.get(col)
+            if kid and pd.notna(kid):
+                rename[col] = str(kid)
+
+    if not rename:
+        return pd.DataFrame(index=mtb_df.index)
+
+    remapped = mtb_df[list(rename.keys())].rename(columns=rename)
+    return remapped.T.groupby(level=0).sum().T
 
 
 # ============================================================================
@@ -352,6 +423,37 @@ def reduce_species_names(species_df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     for short, orig_cols in col_map.items():
         arr = species_df[orig_cols].values.astype(float)
         data[short] = arr.sum(axis=1) if len(orig_cols) > 1 else arr[:, 0]
+
+    return pd.DataFrame(data, index=species_df.index), col_map
+
+
+def reduce_to_genus(species_df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+    """
+    Aggregate MetaPhlAn4/GTDB abundance data to genus level by summing all
+    species within each genus.
+
+    Works for both species-level (Yachida: 'd__...;g__Odoribacter;s__...')
+    and genus-level (Sinha/Kim: 'd__...;g__Actinomyces') inputs.
+    GTDB-style clade suffixes (_A, _B, _C) are preserved as distinct genera.
+    Returns (genus_df, {genus_name: [original_cols]}).
+    """
+    col_map: dict[str, list[str]] = {}
+    for col in species_df.columns:
+        sep = "|" if "|" in col else ";"
+        parts = col.split(sep)
+        genus = None
+        for part in reversed(parts):
+            if part.startswith("g__"):
+                genus = part[3:]
+                break
+        if not genus:
+            genus = "_unknown_"
+        col_map.setdefault(genus, []).append(col)
+
+    data: dict[str, np.ndarray] = {}
+    for genus, orig_cols in col_map.items():
+        arr = species_df[orig_cols].values.astype(float)
+        data[genus] = arr.sum(axis=1) if len(orig_cols) > 1 else arr[:, 0]
 
     return pd.DataFrame(data, index=species_df.index), col_map
 
@@ -470,12 +572,16 @@ def shannon_kruskal_test(qc_df: pd.DataFrame,
 
 def qc_filter_species(df: pd.DataFrame,
                       prevalence_min: float = PREVALENCE_SPE,
-                      min_abundance: float = 1e-4) -> pd.DataFrame:
+                      min_abundance: float = 1e-4,
+                      prevalence: float | None = None) -> pd.DataFrame:
     """Filter species by prevalence and minimum abundance.
 
     min_abundance: species whose max relative abundance across all samples
     is below this threshold are removed (default 0.01% — MetaPhlAn detection floor).
+    prevalence: alias for prevalence_min (accepts either kwarg).
     """
+    if prevalence is not None:
+        prevalence_min = prevalence
     prev = (df > 0).mean(axis=0)
     df   = df.loc[:, prev >= prevalence_min]
     if min_abundance > 0:
@@ -510,13 +616,15 @@ def qc_filter(df: pd.DataFrame,
 # TRANSFORMS
 # ============================================================================
 
-def clr_transform(df: pd.DataFrame, pseudocount: float = 1e-4) -> pd.DataFrame:
+def clr_transform(df: pd.DataFrame, pseudocount: float | None = None) -> pd.DataFrame:
     """
     Centered log-ratio (CLR) transform for compositional species data.
-    pseudocount = 1e-4 keeps absent-species CLR at a biologically plausible level.
+    pseudocount: if None, uses min(non-zero)/2 so absent-species CLR never
+    exceeds the lowest observed species.
     """
     x    = df.values.copy().astype(float)
-    x    = np.where(x == 0, pseudocount, x)
+    pc   = pseudocount if pseudocount is not None else np.min(x[x > 0]) / 2.0
+    x    = np.where(x == 0, pc, x)
     logx = np.log(x)
     clr  = logx - logx.mean(axis=1, keepdims=True)
     return pd.DataFrame(clr, index=df.index, columns=df.columns)
@@ -731,19 +839,40 @@ def rda_analysis(Y: pd.DataFrame,
 # DIFFERENTIAL ABUNDANCE
 # ============================================================================
 
-def differential_abundance(df:       pd.DataFrame,
-                            meta:     pd.DataFrame,
+def differential_abundance(df:        pd.DataFrame,
+                            meta:      pd.DataFrame,
                             group_col: str,
                             g1: str,
                             g2: str,
-                            fdr: float = FDR_THRESHOLD) -> pd.DataFrame:
+                            fdr:       float = FDR_THRESHOLD,
+                            transform: str   = "log10") -> pd.DataFrame:
     """
     Mann-Whitney U test for each feature between g1 and g2.
     Returns: feature, U, pval, qval, effect_size (rank-biserial r),
              mean_g1, mean_g2, log2FC, median_g1, median_g2.
+
+    transform : 'log10' | 'clr' | 'raw'
+        Determines how log2FC is recovered from pre-transformed means.
+        'log10' — data is log10-transformed (metabolites from NB01).
+                  log2FC = (μ_g2 − μ_g1) × log2(10)  [= log2(conc_g2/conc_g1)]
+        'clr'   — data is CLR-transformed (species, natural-log base).
+                  log2FC = (μ_g2 − μ_g1) × log2(e)   [≈ log2(rel_abund_g2/rel_abund_g1)]
+        'raw'   — untransformed counts/intensities.
+                  log2FC = log2((μ_g2 + ε) / (μ_g1 + ε))
+
+    Note: computing log2(mean_g2 / mean_g1) when the data is already log-transformed
+    is mathematically wrong (ratio of logs ≠ log of ratio) and produces NaN/extreme
+    values whenever means are near zero or have opposite signs after centering.
     """
     idx1 = meta.index[meta[group_col] == g1].intersection(df.index)
     idx2 = meta.index[meta[group_col] == g2].intersection(df.index)
+
+    if transform == "log10":
+        _log2fc = lambda m1, m2: (m2 - m1) * np.log2(10)
+    elif transform == "clr":
+        _log2fc = lambda m1, m2: (m2 - m1) * np.log2(np.e)
+    else:
+        _log2fc = lambda m1, m2: np.log2((m2 + 1e-9) / (m1 + 1e-9))
 
     results = []
     for feat in df.columns:
@@ -753,17 +882,20 @@ def differential_abundance(df:       pd.DataFrame,
             continue
         stat, pval = mannwhitneyu(x1, x2, alternative="two-sided")
         n1, n2     = len(x1), len(x2)
-        effect     = 1 - (2 * stat) / (n1 * n2)  # rank-biserial correlation
+        # Signed rank-biserial: positive → x1 > x2 (e.g. Healthy > CRC)
+        all_ranks = rankdata(np.concatenate([x1, x2]))
+        U1 = float(all_ranks[:n1].sum() - n1 * (n1 + 1) / 2)
+        effect = float(2 * U1 / (n1 * n2) - 1)
         results.append({
-            "feature":    feat,
-            "U":          float(stat),
-            "pval":       float(pval),
+            "feature":     feat,
+            "U":           float(stat),
+            "pval":        float(pval),
             "effect_size": float(effect),
-            "mean_g1":    float(x1.mean()),
-            "mean_g2":    float(x2.mean()),
-            "median_g1":  float(np.median(x1)),
-            "median_g2":  float(np.median(x2)),
-            "log2FC":     float(np.log2((x2.mean() + 1e-9) / (x1.mean() + 1e-9))),
+            "mean_g1":     float(x1.mean()),
+            "mean_g2":     float(x2.mean()),
+            "median_g1":   float(np.median(x1)),
+            "median_g2":   float(np.median(x2)),
+            "log2FC":      float(_log2fc(x1.mean(), x2.mean())),
         })
 
     if not results:
@@ -868,35 +1000,70 @@ def bootstrap_mediation(
     n_boot: int = 1000,
     ci: float   = 0.95,
     random_state: int = 42,
+    covariates: np.ndarray | None = None,
 ) -> dict:
     """
     Non-parametric percentile bootstrap for ACME (Average Causal Mediation Effect).
 
-    Model:
-        a  path : X → M  (species → metabolite)
-        b  path : M → Y controlling for X
-        c' path : direct X → Y controlling for M
+    Model (with optional covariate adjustment):
+        a  path : X → M  controlling for covariates
+        b  path : M → Y  controlling for X + covariates
+        c' path : direct X → Y controlling for M + covariates
         ACME    = a × b
 
+    Args:
+        covariates: optional (n_samples, n_cov) array of confounders (Age, BMI, etc.).
+                    NaN rows are excluded. When provided, each OLS regression includes
+                    the covariate columns so ACME reflects the species–metabolite path
+                    net of confounding by measured variables.
+
     Returns dict with: acme, acme_ci_lo, acme_ci_hi, a, b, c_direct,
-                       c_total, prop_mediated, p_value, n_boot, ci.
+                       c_total, prop_mediated, p_value, n_boot, ci, adjusted.
     """
     from sklearn.linear_model import LinearRegression
 
     rng  = np.random.default_rng(random_state)
+
+    # Convert inputs to numpy so .reshape() and boolean indexing work on
+    # pandas Series passed from the mediation cell.
+    x = np.asarray(x, dtype=float)
+    m = np.asarray(m, dtype=float)
+    y = np.asarray(y, dtype=float)
+
+    # Build NaN mask including covariates
     mask = ~(np.isnan(x) | np.isnan(m) | np.isnan(y))
+    if covariates is not None:
+        cov_arr = np.asarray(covariates, dtype=float)
+        mask = mask & (~np.isnan(cov_arr).any(axis=1))
+        cov_arr = cov_arr[mask]
+    else:
+        cov_arr = None
+
     x, m, y = x[mask], m[mask], y[mask]
     if len(x) < 15:
         return {k: np.nan for k in
                 ["acme", "acme_ci_lo", "acme_ci_hi", "a", "b",
                  "c_direct", "c_total", "prop_mediated", "p_value"]}
 
-    def _acme(xi, mi, yi):
-        a_  = LinearRegression().fit(xi.reshape(-1, 1), mi).coef_[0]
-        bc  = LinearRegression().fit(np.column_stack([xi, mi]), yi)
-        b_  = bc.coef_[1]
-        cd  = bc.coef_[0]
-        ct  = LinearRegression().fit(xi.reshape(-1, 1), yi).coef_[0]
+    def _build_X(base_cols):
+        """Stack covariate columns after base columns if covariates available."""
+        if cov_arr is None:
+            return base_cols
+        return np.column_stack([base_cols, cov_arr])
+
+    def _acme(xi, mi, yi, cov_i=None):
+        _cov = cov_i if cov_i is not None else cov_arr
+        xa = (_build_X(xi.reshape(-1, 1)) if _cov is None
+              else np.column_stack([xi.reshape(-1, 1), _cov]))
+        a_  = LinearRegression().fit(xa, mi).coef_[0]
+        xb = (_build_X(np.column_stack([xi, mi])) if _cov is None
+              else np.column_stack([xi, mi, _cov]))
+        bc  = LinearRegression().fit(xb, yi)
+        b_  = bc.coef_[1]   # mediator coefficient
+        cd  = bc.coef_[0]   # direct effect
+        xc = (_build_X(xi.reshape(-1, 1)) if _cov is None
+              else np.column_stack([xi.reshape(-1, 1), _cov]))
+        ct  = LinearRegression().fit(xc, yi).coef_[0]
         return a_ * b_, a_, b_, cd, ct
 
     acme_obs, a_obs, b_obs, c_dir, c_tot = _acme(x, m, y)
@@ -904,7 +1071,8 @@ def bootstrap_mediation(
     boot_acme = np.empty(n_boot)
     for i in range(n_boot):
         idx = rng.integers(0, len(x), size=len(x))
-        boot_acme[i] = _acme(x[idx], m[idx], y[idx])[0]
+        cov_i = cov_arr[idx] if cov_arr is not None else None
+        boot_acme[i] = _acme(x[idx], m[idx], y[idx], cov_i)[0]
 
     alpha = (1 - ci) / 2
     ci_lo = float(np.nanpercentile(boot_acme, alpha * 100))
@@ -931,6 +1099,7 @@ def bootstrap_mediation(
         "prop_mediated": float(prop_med) if not np.isnan(prop_med) else np.nan,
         "p_value":       p_val,
         "n_boot":        n_boot,
+        "adjusted":      covariates is not None,
         "ci":            ci,
     }
 
@@ -1103,6 +1272,8 @@ PALETTE_3GROUP = {
 def savefig(fig: plt.Figure, subdir: str, filename: str, dpi: int = 150) -> None:
     out = FIG_DIR / subdir
     out.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out / filename, dpi=dpi, bbox_inches="tight")
+    # F0 FIX: PLoS requires vector-format figures; auto-convert any raster extension to PDF
+    pdf_name = Path(filename).with_suffix(".pdf").name
+    fig.savefig(out / pdf_name, bbox_inches="tight")
     plt.close(fig)
-    print(f"Saved figure: {out / filename}")
+    print(f"Saved figure: {out / pdf_name}")
