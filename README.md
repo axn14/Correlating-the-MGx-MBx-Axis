@@ -8,6 +8,35 @@
 
 ---
 
+## Quick Start
+
+### Option A — Browse pre-computed results (no installation required beyond Streamlit)
+
+```bash
+git clone https://github.com/axn14/Correlating-the-MGx-MBx-Axis.git
+cd Correlating-the-MGx-MBx-Axis
+pip install -r streamlit_app/requirements_st.txt
+streamlit run streamlit_app/app.py
+# Open http://localhost:8501
+```
+
+The results viewer loads pre-computed figures and tables from the YACHIDA-CRC-2019 cohort. No heavy dependencies required.
+
+### Option B — Run the pipeline on your own data (Docker)
+
+```bash
+git clone https://github.com/axn14/Correlating-the-MGx-MBx-Axis.git
+cd Correlating-the-MGx-MBx-Axis
+docker-compose up --build
+# Open http://localhost:8501 → click "Upload & Run" in the sidebar
+```
+
+Upload your own species abundance table, metabolomics table, and sample metadata. The pipeline runs steps 1–5 (Preprocessing → Associations → ML → MOFA+ → Network) fully inside the container. See [User Data Pipeline](#user-data-pipeline) for input format details and limitations.
+
+> **⚠ Disclaimer:** This tool is provided for academic and research use only. It has been developed and validated exclusively on the YACHIDA-CRC-2019 cohort. Results on other datasets have not been clinically validated and should not be used for diagnostic or clinical decision-making purposes. See [Limitations](#limitations) for details on which analysis streams are unavailable for user-submitted data.
+
+---
+
 ## Overview
 
 This repository contains the complete analysis pipeline for an integrative microbiome–metabolome study of colorectal cancer (CRC). The pipeline combines shotgun metagenomic species profiles, untargeted LC-MS metabolomics, machine learning, constraint-based metabolic modelling, and genomic metabolic capacity inference (GutSMASH) to identify microbial sources of disease-associated metabolites across CRC progression stages.
@@ -73,7 +102,7 @@ NB09 ── Mechanistic flux (MICOM community FBA, AGORA103, excretion flux atla
 ## Repository Structure
 
 ```
-├── Notebooks/
+├── Notebooks/                              # Analysis notebooks (NB00–NB09)
 │   ├── 00_upstream_pipeline.ipynb          # SRA → fastp → MetaPhlAn4 → HUMAnN3 → mzML
 │   ├── 00b_lcms_pyopenms.ipynb             # pyOpenMS LC-MS feature detection pipeline
 │   ├── 01_preprocessing.ipynb              # CLR/log10 transform, QC, PCA, duplicates
@@ -85,11 +114,32 @@ NB09 ── Mechanistic flux (MICOM community FBA, AGORA103, excretion flux atla
 │   ├── 07_advanced_evidence_integration.ipynb  # Multi-source evidence integration
 │   ├── 08_general_metabolite_source_attribution.ipynb  # Generalised source attribution
 │   └── 09_mechanistic_flux_micom.ipynb     # MICOM FBA, AGORA103 community models
-├── Code/                                   # Legacy per-step Python scripts (archived)
-│   ├── 01_preprocessing/
-│   ├── 02_association_maps/
-│   ├── 03_validated_associations/
-│   └── 04_source_attribution/
+├── Code/                                   # Same notebooks (copy for direct code browsing)
+├── pipeline/                               # Modular pipeline for user-submitted data
+│   ├── data_intake.py                      # Format detection: MetaPhlAn, OTU, KEGG/HMDB
+│   ├── step1_preprocess.py                 # CLR + log10 transforms, prevalence filters
+│   ├── step2_associations.py               # DA, Spearman, partial correlations
+│   ├── step3_ml.py                         # 5-model nested CV + SHAP
+│   ├── step4_mofa.py                       # MOFA+ wrapper (mofapy2)
+│   ├── step5_network.py                    # Partial-corr network + bootstrap mediation
+│   ├── runner.py                           # Orchestrator with background-thread support
+│   └── reference/                          # HMDB→KEGG and compound name lookup tables
+├── streamlit_app/                          # Interactive results viewer
+│   ├── app.py                              # Home page
+│   ├── utils_st.py                         # Shared helpers
+│   ├── requirements_st.txt                 # Minimal deps for viewer only
+│   └── pages/
+│       ├── 0_Upload_and_Run.py             # Upload UI + pipeline runner
+│       ├── 1_Preprocessing.py
+│       ├── 2_Associations.py
+│       ├── 3_Machine_Learning.py
+│       ├── 4_MOFA.py
+│       ├── 5_Mediation_Network.py
+│       ├── 6_Evidence_Integration.py
+│       └── 7_MICOM_Flux.py
+├── Thesis-Figures/pdf converted/           # Pre-computed publication figures (31 images)
+├── Dockerfile                              # Full pipeline container (Python 3.12 + R)
+├── docker-compose.yml                      # Volume-mounted run configuration
 ├── utils.py                                # Shared constants, transforms, DA, correlation
 ├── requirements.txt                        # pip-installable dependencies
 ├── environment.yml                         # conda environment (Python 3.12)
@@ -178,6 +228,60 @@ NB09 ── Mechanistic flux (MICOM community FBA, AGORA103, excretion flux atla
 - 5-model benchmark across top 15 dysregulated metabolites
 - Best-performing models provide SHAP-interpretable producer rankings
 - LODO cross-cohort validation (in progress, pending additional cohort data)
+
+---
+
+## User Data Pipeline
+
+Anyone can run this pipeline on their own paired metagenomics + metabolomics data using Docker.
+
+### Accepted input formats
+
+| File | Accepted formats |
+|------|-----------------|
+| **Species table** | MetaPhlAn3/4 profile (clade names with `k__\|s__`), generic OTU/ASV TSV, or any tab/comma-separated abundance matrix (auto-transposed if needed) |
+| **Metabolomics table** | KEGG IDs (`C12345`), HMDB IDs (`HMDB00062`), common compound names (putrescine, leucine, …), or generic feature names |
+| **Metadata** | Any TSV/CSV with a `sample_id` / `Sample` / `SampleID` column plus at least one grouping/condition column |
+
+### Running with Docker
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/axn14/Correlating-the-MGx-MBx-Axis.git
+cd Correlating-the-MGx-MBx-Axis
+
+# 2. Build and start (first build takes ~10 min to install all dependencies)
+docker-compose up --build
+
+# 3. Open http://localhost:8501 in your browser
+# 4. Click "Upload & Run" in the sidebar and follow the on-screen steps
+```
+
+Results are written to `./results/` on your host machine and are immediately available in the viewer pages.
+
+### What runs on user data
+
+| Step | Available | Notes |
+|------|-----------|-------|
+| Preprocessing (NB01) | ✅ | CLR + log₁₀ transforms, prevalence filters |
+| Statistical associations (NB02) | ✅ | DA, Spearman, partial corr (auto-detects confounders) |
+| ML benchmarking (NB03) | ✅ | 5-model nested CV; 10 Optuna trials (reduced for speed) |
+| MOFA+ (NB04) | ✅ | Requires R in container; gracefully skipped if unavailable |
+| Network & mediation (NB05) | ✅ | Partial-corr network + bootstrap ACME |
+| GutSMASH BGC (NB06, E8) | ❌ | Requires assembled MAGs — not generalisable to abundance tables |
+| MICOM flux (NB09, E9) | ❌ | Requires AGORA103 model coverage for user species |
+
+**Evidence streams for user data:** E1–E7 only. TRINITY criterion for user data = E1/E2 (statistical) + E3 (KEGG enzyme) + E7 (within-stage Spearman).
+
+---
+
+## Limitations
+
+- **Not clinically validated:** This tool has been developed and evaluated on the YACHIDA-CRC-2019 cohort only. Do not use results for clinical or diagnostic decisions.
+- **E8/E9 not available for user data:** GutSMASH (E8) requires assembled metagenome-assembled genomes (MAGs); MICOM (E9) requires your species to be present in the AGORA103 database. Both are therefore unavailable when submitting abundance tables.
+- **ML runtime:** The ML step (step 3) runs up to 45 targets × 10 outer folds × 5 models and may take 20–60 minutes depending on dataset size and CPU.
+- **MOFA+ requires R:** The Dockerfile installs R base. If `mofapy2` fails to initialise, MOFA+ is automatically skipped with a warning.
+- **AGORA103 coverage:** ~70% of MetaPhlAn4 species bins are not in AGORA103 (which covers ~6,000 cultured species). MICOM results for user data would reflect only the covered fraction.
 
 ---
 
