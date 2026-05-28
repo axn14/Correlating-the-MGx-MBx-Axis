@@ -102,7 +102,7 @@ NB09 ── Mechanistic flux (MICOM community FBA, AGORA103, excretion flux atla
 ## Repository Structure
 
 ```
-├── Notebooks/                              # Analysis notebooks (NB00–NB09)
+├── Code/                                   # Same notebooks (copy for direct code browsing)
 │   ├── 00_upstream_pipeline.ipynb          # SRA → fastp → MetaPhlAn4 → HUMAnN3 → mzML
 │   ├── 00b_lcms_pyopenms.ipynb             # pyOpenMS LC-MS feature detection pipeline
 │   ├── 01_preprocessing.ipynb              # CLR/log10 transform, QC, PCA, duplicates
@@ -114,7 +114,6 @@ NB09 ── Mechanistic flux (MICOM community FBA, AGORA103, excretion flux atla
 │   ├── 07_advanced_evidence_integration.ipynb  # Multi-source evidence integration
 │   ├── 08_general_metabolite_source_attribution.ipynb  # Generalised source attribution
 │   └── 09_mechanistic_flux_micom.ipynb     # MICOM FBA, AGORA103 community models
-├── Code/                                   # Same notebooks (copy for direct code browsing)
 ├── pipeline/                               # Modular pipeline for user-submitted data
 │   ├── data_intake.py                      # Format detection: MetaPhlAn, OTU, KEGG/HMDB
 │   ├── step1_preprocess.py                 # CLR + log10 transforms, prevalence filters
@@ -151,7 +150,7 @@ NB09 ── Mechanistic flux (MICOM community FBA, AGORA103, excretion flux atla
 
 ## Methods Summary
 
-### 1. Upstream Processing (NB00, NB00b)
+### 1. Upstream Processing (NB00, NB00b) [BETA]
 - **Quality control:** fastp (adapter trimming, quality filtering, paired-end)
 - **Taxonomic profiling:** MetaPhlAn4 (mpa_vJan21_CHOCOPhlAnSGB_202103 database)
 - **Functional profiling:** HUMAnN3 (pathway abundance + gene families)
