@@ -35,3 +35,6 @@ Thumbs.db
 desktop.ini
 .DS_Store
 ~$*
+
+# surgical-edit backups (git is the backup)
+*.bak

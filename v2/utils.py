@@ -1257,33 +1257,25 @@ def genus_clr_table(species_df, prevalence=None, samples=None, genera=None):
         # abundance, which clr_transform's pseudocount then handles.
         sub = feat.drop(columns="Sample").reindex(columns=genera, fill_value=0.0)
 
-        # Re-close the subcomposition before the CLR. Fixing the basis is not
-        # sufficient on its own: reindexing Yachida from 13,645 genera down to the
-        # ~59 shared ones leaves each row summing to an arbitrary fraction, and that
-        # fraction differs per cohort. Measured on the real tables, Yachida's median
-        # positive genus abundance is ~1.4e-6 against Sinha's ~3.6e-3, so
-        # clr_transform's fixed additive pseudocount (1e-4) is ~72x the typical
-        # Yachida value but only ~0.03x the typical Sinha one -- 93% of Yachida's
-        # positive values sit BELOW it, which flattens real variation into the
-        # pseudocount floor in the training cohort while leaving the target cohort
-        # untouched. That is a systematic train/target mismatch in exactly the
-        # transfer the `genera=` argument exists to make valid.
-        # Closure removes the arbitrary scale, so both cohorts meet the pseudocount
-        # on the same footing. CLR is invariant to closure in exact arithmetic, so
-        # this changes no legitimate signal -- it only stops the absolute input
-        # scale leaking into the result (checks.py A8).
-        X = sub.to_numpy(dtype=np.float64)
-        totals = X.sum(axis=1, keepdims=True)
-        empty = (totals <= 0).ravel()
-        if empty.any():
+        # Reindexing to the shared basis leaves each row summing to an arbitrary
+        # fraction of its original mass, and that fraction differs per cohort --
+        # Yachida goes from 13,645 genera to ~59, Sinha from 63. clr_transform's
+        # multiplicative replacement closes each row before the log, so the two
+        # cohorts meet the zero-replacement delta on the same footing and the CLR
+        # reference really is identical across them (checks.py A8). Fixing the basis
+        # alone was not sufficient; the scale leaked through the old additive
+        # pseudocount.
+        # Reported here rather than left to clr_transform's generic warning, because
+        # at this point the cause is specific and nameable: the basis does not fit
+        # this cohort.
+        empty = int((sub.to_numpy(dtype=np.float64).sum(axis=1) <= 0).sum())
+        if empty:
             warnings.warn(
-                f"genus_clr_table: {int(empty.sum())} sample(s) contain none of the "
-                f"{len(genera)} basis genera; their CLR row is uniformly zero and "
-                "carries no information. Check the basis against this cohort."
+                f"genus_clr_table: {empty} sample(s) contain none of the "
+                f"{len(genera)} basis genera; their CLR row carries no information. "
+                "Check the basis against this cohort."
             )
-        X = np.divide(X, totals, out=np.zeros_like(X), where=totals > 0)
 
-        sub = pd.DataFrame(X, columns=genera, index=sub.index)
         sub.insert(0, "Sample", sample_col)
         return clr_transform(sub)
 
@@ -1440,12 +1432,84 @@ def filter_near_zero_variance(df, threshold=1e-10):
 # TRANSFORMATION & NORMALISATION
 # ============================================================================
 
-def clr_transform(df, pseudocount=1e-4):
+# Multiplicative zero replacement: delta is this fraction of the smallest observed
+# positive value, i.e. of the effective detection limit. 0.65 is the conventional
+# choice for multiplicative replacement (Martin-Fernandez et al.).
+CLR_DELTA_FRACTION = 0.65
+
+
+def _multiplicative_replacement(X, delta_fraction=None):
+    """Close rows to sum 1, then replace zeros multiplicatively.
+
+    Returns an array with no zeros, rows summing to 1, and the ratios between
+    originally-positive parts unchanged -- which is the property an additive
+    constant destroys.
+    """
+    if delta_fraction is None:
+        delta_fraction = CLR_DELTA_FRACTION
+    X = np.asarray(X, dtype=np.float64)
+    X = np.where(X < 0, 0.0, X)          # negatives are not compositional
+
+    totals = X.sum(axis=1, keepdims=True)
+    empty = (totals <= 0).ravel()
+    closed = np.divide(X, totals, out=np.zeros_like(X), where=totals > 0)
+
+    positive = closed[closed > 0]
+    if positive.size == 0:
+        raise ValueError("clr_transform: no positive values anywhere, cannot transform")
+    delta = delta_fraction * positive.min()
+
+    n_zero = (closed == 0).sum(axis=1, keepdims=True)
+    occupied = n_zero * delta            # share handed to the replaced zeros
+    bad = (occupied >= 1.0).ravel() & ~empty
+    if bad.any():
+        raise ValueError(
+            f"clr_transform: zero replacement would consume the whole composition "
+            f"for {int(bad.sum())} sample(s) -- too many zeros relative to the "
+            "detection limit. Filter features by prevalence first."
+        )
+
+    out = np.where(closed > 0, closed * (1.0 - occupied), delta)
+    if empty.any():
+        # No composition at all. A uniform row makes its CLR exactly zero
+        # everywhere, which is the honest "carries no information" encoding.
+        out[empty, :] = 1.0 / out.shape[1]
+        warnings.warn(
+            f"clr_transform: {int(empty.sum())} sample(s) have no positive values; "
+            "their CLR row is uniformly zero and carries no information."
+        )
+    return out
+
+
+def clr_transform(df, pseudocount=None):
+    """Centred log-ratio transform with compositional zero replacement.
+
+    `pseudocount=None` (the default) uses **multiplicative replacement**: rows are
+    closed to sum 1, zeros become `CLR_DELTA_FRACTION * min(positive)`, and the
+    observed parts are rescaled so the row still sums to 1. This preserves the
+    ratios between observed parts -- the thing CLR exists to represent -- and is
+    scale-invariant, because both the closure and delta are defined relative to
+    the data.
+
+    Passing a float restores the previous behaviour, a fixed constant ADDED to
+    every cell. It is kept only so earlier results can be reproduced, and is not
+    recommended: it is not scale-invariant and it distorts the ratios between
+    observed parts. On the real tables the distortion was severe rather than
+    academic. Yachida's median positive genus abundance is 1.4e-6 against the old
+    constant of 1e-4, so 93% of its positive values sat *below* the constant and
+    their real variation was flattened into the floor -- its measured-entry CLR
+    minimum (-2.687) was indistinguishable from its true-zero floor (-2.704).
+    Sinha, median 3.6e-3, passed through almost untouched. Training on one and
+    transferring to the other therefore crossed a systematic scale mismatch
+    (checks.py A8).
+    """
     feature_cols = [c for c in df.columns if c != "Sample"]
-    X = df[feature_cols].apply(pd.to_numeric, errors="coerce").fillna(0.0).values + pseudocount
+    X = df[feature_cols].apply(pd.to_numeric, errors="coerce").fillna(0.0).to_numpy(float)
+
+    X = X + float(pseudocount) if pseudocount is not None else _multiplicative_replacement(X)
+
     log_X = np.log(X)
-    geometric_mean = log_X.mean(axis=1, keepdims=True)
-    clr_values = log_X - geometric_mean
+    clr_values = log_X - log_X.mean(axis=1, keepdims=True)
 
     result = pd.DataFrame(clr_values, columns=feature_cols)
     result.insert(0, "Sample", df["Sample"].values)
@@ -1598,7 +1662,7 @@ def _coef_mode(coefs, bw="scott"):
 
 
 def clr_lm_da(species_df, meta_df, group1, group2, group_col="Stage.Group",
-              covars=None, already_clr=True, pseudocount=1e-4,
+              covars=None, already_clr=True, pseudocount=None,
               bias_correct=True, min_per_group=5):
     """Covariate-adjusted compositional differential abundance (LinDA-style).
 
