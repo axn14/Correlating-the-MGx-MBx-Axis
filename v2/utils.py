@@ -1167,10 +1167,25 @@ def reduce_species_names(species_df):
     return out, col_map
 
 
+# Labels that are not genera, compared case-insensitively after stripping. Taxa
+# unresolved below family parse to "Unknown"; the cohort tables also ship an
+# explicit "Unclassified" catch-all column.
+_NON_GENUS_LABELS = {"", "unknown", "none", "nan", "unclassified", "unassigned"}
+
+
 def normalise_genus_name(g):
-    """Strip GTDB placeholder suffixes ("Blautia_A" -> "Blautia") and brackets, so the
-    same genus matches across a shotgun and a 16S cohort."""
-    g = re.sub(r"_[A-Z]+$", "", str(g).strip())
+    """Strip the rank prefix ("g__Blautia" -> "Blautia"), GTDB placeholder suffixes
+    ("Blautia_A" -> "Blautia") and brackets, so the same genus matches across a
+    shotgun and a 16S cohort.
+
+    The rank prefix is stripped defensively. Every cohort currently on disk ships
+    full semicolon-delimited taxonomy strings, which reach this function already
+    parsed by extract_genus(), so the prefix branch is not exercised in production
+    -- but a bare "g__Name" column must not be allowed to normalise to itself and
+    then silently fail to match a basis built from parsed names.
+    """
+    g = re.sub(r"^[a-z]__", "", str(g).strip())
+    g = re.sub(r"_[A-Z]+$", "", g)
     return g.strip("[]").strip()
 
 
@@ -1189,7 +1204,13 @@ def _genus_abundance(species_df, samples=None):
     feat = gen.drop(columns="Sample")
     feat.columns = [normalise_genus_name(c) for c in feat.columns]
     feat = feat.T.groupby(level=0).sum().T
-    feat = feat.loc[:, ~feat.columns.isin(["", "Unknown", "None"])]
+    # Non-genus buckets. Sinha and Kim each carry a literal "Unclassified" column,
+    # which is not a genus; the previous drop-list missed it, so it survived
+    # aggregation and was treated as one. It never reached the cross-cohort basis
+    # (Yachida has no such column to intersect with), but it polluted any
+    # single-cohort genus analysis of those two.
+    feat = feat.loc[:, [c for c in feat.columns
+                        if str(c).strip().lower() not in _NON_GENUS_LABELS]]
     feat.insert(0, "Sample", gen["Sample"].values)
     return feat
 
@@ -1234,9 +1255,37 @@ def genus_clr_table(species_df, prevalence=None, samples=None, genera=None):
         sample_col = feat["Sample"].values
         # fill_value=0.0 covers genera this cohort never measured: a true zero
         # abundance, which clr_transform's pseudocount then handles.
-        feat = feat.drop(columns="Sample").reindex(columns=genera, fill_value=0.0)
-        feat.insert(0, "Sample", sample_col)
-        return clr_transform(feat)
+        sub = feat.drop(columns="Sample").reindex(columns=genera, fill_value=0.0)
+
+        # Re-close the subcomposition before the CLR. Fixing the basis is not
+        # sufficient on its own: reindexing Yachida from 13,645 genera down to the
+        # ~59 shared ones leaves each row summing to an arbitrary fraction, and that
+        # fraction differs per cohort. Measured on the real tables, Yachida's median
+        # positive genus abundance is ~1.4e-6 against Sinha's ~3.6e-3, so
+        # clr_transform's fixed additive pseudocount (1e-4) is ~72x the typical
+        # Yachida value but only ~0.03x the typical Sinha one -- 93% of Yachida's
+        # positive values sit BELOW it, which flattens real variation into the
+        # pseudocount floor in the training cohort while leaving the target cohort
+        # untouched. That is a systematic train/target mismatch in exactly the
+        # transfer the `genera=` argument exists to make valid.
+        # Closure removes the arbitrary scale, so both cohorts meet the pseudocount
+        # on the same footing. CLR is invariant to closure in exact arithmetic, so
+        # this changes no legitimate signal -- it only stops the absolute input
+        # scale leaking into the result (checks.py A8).
+        X = sub.to_numpy(dtype=np.float64)
+        totals = X.sum(axis=1, keepdims=True)
+        empty = (totals <= 0).ravel()
+        if empty.any():
+            warnings.warn(
+                f"genus_clr_table: {int(empty.sum())} sample(s) contain none of the "
+                f"{len(genera)} basis genera; their CLR row is uniformly zero and "
+                "carries no information. Check the basis against this cohort."
+            )
+        X = np.divide(X, totals, out=np.zeros_like(X), where=totals > 0)
+
+        sub = pd.DataFrame(X, columns=genera, index=sub.index)
+        sub.insert(0, "Sample", sample_col)
+        return clr_transform(sub)
 
     if prevalence is None:
         prevalence = PREVALENCE_SPECIES

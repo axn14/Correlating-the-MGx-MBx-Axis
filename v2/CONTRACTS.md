@@ -433,8 +433,25 @@ matrix was structurally unable to reach significance).
   cohort only, and targets are intersected on mere *presence*. Thresholding the target would
   let held-out data choose the model's features; presence is a property of that cohort's
   assay coverage, not of its outcome.
-- **Memory:** the server caps the user slice at 1500 MiB with 2 cores. Threading backends,
-  `n_jobs ≤ 2`, `max_bin=64` for XGBoost; `GraphicalLassoCV` with `n_jobs=1`.
+- **Compute (revised 2026-10-18 — the analysis server is no longer available).** Execution
+  moved to the local Windows workstation: **8 physical cores / 16 logical** (Ryzen 7 6800H),
+  **31.2 GB RAM**, Python 3.12.10 in `.venv`. The former 1500 MiB / 2-core slice no longer
+  applies, and `run_pipeline.sh` is superseded by `run_pipeline.py` because bash is not
+  available as the execution host.
+  Two of the old constraints are **kept, on their own merits** — they were never purely
+  concessions to the small slice:
+  - `max_bin=64` for XGBoost. With n=277 primary samples, 256 bins cannot be populated
+    meaningfully; 64 is justified by sample size and is ~3× faster per fit.
+  - `n_jobs=1` on any estimator fitted *inside* an already-parallel loop
+    (`ml_workbench/engine.py`, `run_cv_auc_cached`). This prevents oversubscription at any
+    core count, not just two.
+
+  What changes is the **outer** parallelism and the thread budget. BLAS threads multiply with
+  joblib workers, so 8 × 8 = 64 threads would thrash 8 cores. `run_pipeline.py` therefore sets
+  the thread environment **per notebook**: linear-algebra notebooks (01, 01b, 02, 06, 08, 09)
+  receive the cores through BLAS (`OMP_NUM_THREADS=8`), while joblib-parallel notebooks
+  (03, 05) get `OMP_NUM_THREADS=1` and spend the cores on workers via `KI_N_JOBS=8`.
+  `GraphicalLassoCV`'s `n_jobs=1` was a 1500 MiB concession and may rise now.
 
 ---
 
