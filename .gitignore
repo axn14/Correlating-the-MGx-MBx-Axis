@@ -1,0 +1,37 @@
+# ---------------------------------------------------------------------------
+# Data. ~52 GB: the four cohort TSVs plus the pre-built AGORA2/AGORA103 community
+# models (~36 GB) and MICOM solver artefacts. Source cohorts are cited by
+# accession in the manuscript and the model build is documented, not shipped.
+# ---------------------------------------------------------------------------
+Data/
+
+# ---------------------------------------------------------------------------
+# Generated outputs. Every figure and table is reproducible from a pipeline run
+# against a tagged commit; the frozen baseline is archived for deposition
+# separately. Notebooks recreate this tree via mkdir(parents=True, exist_ok=True).
+# ---------------------------------------------------------------------------
+Results/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# joblib / Optuna caches written by ml_workbench
+.joblib_cache/
+*.optuna-journal*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local tooling state (personal, not shared)
+.claude/settings.local.json
+
+# OS and Office cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*

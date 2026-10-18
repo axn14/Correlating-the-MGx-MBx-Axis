@@ -1,0 +1,11 @@
+# The repo is authored on Windows but executed under bash (run_pipeline.sh,
+# run_micom.sh) on WSL or the analysis server. CRLF in a shell script makes bash
+# fail with an opaque "bad interpreter" error, so endings are normalised to LF.
+* text=auto eol=lf
+
+*.sh    text eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+*.ipynb text eol=lf
+*.tsv   text eol=lf
+*.csv   text eol=lf
