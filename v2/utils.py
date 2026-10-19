@@ -32,6 +32,31 @@ import seaborn as sns
 from scipy.stats import entropy, mannwhitneyu, spearmanr, rankdata
 from statsmodels.stats.multitest import multipletests
 from sklearn.decomposition import PCA
+from sklearn.exceptions import ConvergenceWarning
+
+# ============================================================================
+# NUMERICAL HEALTH
+# ============================================================================
+
+# What fit_strict raises when a fit is not numerically sound. Catch this tuple where a
+# failure has a defined treatment (e.g. counted as a permutation exceedance).
+NUMERICAL_FAILURES = (ConvergenceWarning, RuntimeWarning, FloatingPointError)
+
+
+def fit_strict(estimator, *args, **kwargs):
+    """Fit `estimator` with convergence and numerical warnings promoted to errors.
+
+    A warning is not an exception. NB09's GLASSO permutation loop caught exceptions
+    only, so 37 of 100 refits that raised ConvergenceWarning were counted as
+    converged and the cell printed "100/100 converged". Use this for every fit whose
+    convergence a reported result depends on, and catch NUMERICAL_FAILURES wherever
+    a failure has a defined, conservative treatment. Returns the fitted estimator.
+    """
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", ConvergenceWarning)
+        warnings.simplefilter("error", RuntimeWarning)
+        return estimator.fit(*args, **kwargs)
+
 
 # ============================================================================
 # PATHS

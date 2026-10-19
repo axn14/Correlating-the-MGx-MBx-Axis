@@ -309,7 +309,12 @@ def run_one(nb: str, env_extra: dict[str, str], run_dir: Path) -> tuple[int, flo
     import psutil
 
     env = os.environ.copy()
-    env["MPLBACKEND"] = "Agg"
+    # No MPLBACKEND: the kernel uses the inline backend, so executed notebooks (and their
+    # HTML exports) carry their figures. Forcing Agg -- inherited from the bash runner --
+    # left them figure-less and emitted ~40 "FigureCanvasAgg is non-interactive" warnings
+    # per run. Verified safe first: none of the 19 pyplot-level plt.savefig() calls comes
+    # after a plt.show() or in a different cell from its figure's creation.
+    env.pop("MPLBACKEND", None)
     env.update(env_extra)
     stem = Path(nb).stem
     executed = run_dir / f"{stem}.ipynb"
@@ -350,9 +355,22 @@ def scan_notebook(nb: Path) -> str:
     """Surface warnings/tracebacks from cell output; nbconvert's log omits them."""
     if not nb.exists():
         return "(no executed copy -- nbconvert failed before writing; see the .log)"
+    # UTF-8 end to end: decoding the child's output with the Windows locale codepage
+    # turned every em dash in a notebook message into mojibake.
     out = subprocess.run([sys.executable, str(HERE / "pipeline_tools.py"), "scan", str(nb)],
-                         capture_output=True, text=True, cwd=HERE)
+                         capture_output=True, text=True, encoding="utf-8", errors="replace",
+                         cwd=HERE, env={**os.environ, "PYTHONIOENCODING": "utf-8"})
     return out.stdout.strip() or "(no warnings)"
+
+
+# Scan content that marks a result as numerically suspect. The notebook still counts as
+# having run (its result is reusable), but the summary says WARN, never a clean OK:
+# NB09 printed "OK" over 37 non-converged GLASSO permutation fits.
+WARN_MARKERS = ("ConvergenceWarning", "RuntimeWarning", "!!!")
+
+
+def warn_flag(scan: str) -> bool:
+    return any(m in scan for m in WARN_MARKERS)
 
 
 # ---------------------------------------------------------------------------
@@ -486,7 +504,8 @@ def main() -> int:
         path = HERE / nb
         if ok:
             prev = man[nb]
-            emit(f"{nb:<44} SKIP  ({why}; run {prev.get('run_id', '?')})")
+            tag = "; result carries WARN" if prev.get("warn") else ""
+            emit(f"{nb:<44} SKIP  ({why}; run {prev.get('run_id', '?')}{tag})")
             for ln in (prev.get("scan") or "(no warnings)").splitlines():
                 emit("    " + ln)
             continue
@@ -499,14 +518,16 @@ def main() -> int:
         scan = scan_notebook(executed)
         export_html(executed)
 
-        man[nb] = {"status": status, "seconds": round(secs, 1), "peak_mb": round(peak),
-                   "finished": f"{datetime.now():%F %T}", "finished_epoch": time.time(),
-                   "code_digest": code_digest(path), "inputs_digest": inp_fp,
-                   "profile": profile, "mode": mode, "run_id": run_id, "scan": scan,
-                   "thread_env": env_extra}
+        warn = status == "OK" and warn_flag(scan)
+        man[nb] = {"status": status, "warn": warn, "seconds": round(secs, 1),
+                   "peak_mb": round(peak), "finished": f"{datetime.now():%F %T}",
+                   "finished_epoch": time.time(), "code_digest": code_digest(path),
+                   "inputs_digest": inp_fp, "profile": profile, "mode": mode,
+                   "run_id": run_id, "scan": scan, "thread_env": env_extra}
         save_manifest(man)
 
-        emit(f"{nb:<44} {status:<4} {secs:7.0f}s  peak {peak:6.0f} MB")
+        shown = "WARN" if warn else status
+        emit(f"{nb:<44} {shown:<4} {secs:7.0f}s  peak {peak:6.0f} MB")
         for ln in scan.splitlines():
             emit("    " + ln)
 

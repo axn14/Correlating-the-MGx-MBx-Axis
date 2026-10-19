@@ -18,6 +18,15 @@ import time
 PATTERN = re.compile(r"Traceback|WARNING|SKIPPED|SKIP \(|!!!|Error:", re.IGNORECASE)
 WARN_CLASS = re.compile(r"\b([A-Z][A-Za-z]*(?:Warning|Error))\b")
 
+# Known-benign messages, each with the reason it is benign. They are still counted and
+# reported on one summary line -- whitelisted, never silently dropped.
+BENIGN = [
+    (re.compile(r"TqdmWarning: IProgress not found"),
+     "tqdm progress widget unavailable (ipywidgets not installed) -- cosmetic"),
+    (re.compile(r"FigureCanvasAgg is non-interactive"),
+     "plt.show() under a non-interactive backend -- no effect on saved figures"),
+]
+
 
 def memrun(peak_file, cmd):
     import psutil
@@ -42,7 +51,7 @@ def scan(path):
     non-converged GLASSO permutation fits filled that budget, so 3 of them -- and
     anything later -- never reached the summary."""
     nb = json.load(open(path, encoding="utf-8"))
-    groups, order = {}, []
+    groups, order, benign = {}, [], {}
     for c in nb.get("cells", []):
         if c.get("cell_type") != "code":
             continue
@@ -59,6 +68,10 @@ def scan(path):
                     if not PATTERN.search(line) or "FutureWarning" in line \
                             or s.startswith("warnings.warn("):
                         continue
+                    reason = next((r for rx, r in BENIGN if rx.search(line)), None)
+                    if reason:
+                        benign[reason] = benign.get(reason, 0) + 1
+                        continue
                     m = WARN_CLASS.search(line)
                     items.append((m.group(1) if m else s[:120], s))
             else:
@@ -74,6 +87,9 @@ def scan(path):
         n, example = groups[(cid, key)]
         out.append(f"[{cid}] {key} x{n}: {example[:180]}" if n > 1
                    else f"[{cid}] {example[:220]}")
+    if benign:
+        out.append("(whitelisted as benign: "
+                   + "; ".join(f"{reason} x{n}" for reason, n in benign.items()) + ")")
     print("\n".join(out) if out else "(no warnings)")
 
 
