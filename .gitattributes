@@ -6,6 +6,9 @@
 *.sh    text eol=lf
 *.py    text eol=lf
 *.md    text eol=lf
-*.ipynb text eol=lf
+# Notebooks pass through v2/tools/nbstrip.py on staging: the committed form is source
+# only (outputs, execution counts and volatile kernel metadata stripped), so running
+# cells in the editor never pollutes a diff. Repo-local setup is in that file's header.
+*.ipynb text eol=lf filter=nbstrip
 *.tsv   text eol=lf
 *.csv   text eol=lf
