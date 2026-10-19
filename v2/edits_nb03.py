@@ -572,8 +572,17 @@ PROGRESS.write_text('')
 # run can never be mistaken for -- or skipped in favour of -- a full one.
 _max_t = os.environ.get('NB03_MAX_TARGETS')
 if _max_t:
-    print(f'SMOKE RUN: target list capped at {int(_max_t)} of {len(target_metabolites)}')
-    target_metabolites = list(target_metabolites)[:int(_max_t)]
+    _n = int(_max_t)
+    # Keep pre-specified compounds in the sample. NB08/NB09's producer-evidence
+    # path only runs when NB03 benchmarks a pre-specified compound, so a smoke run
+    # of DA targets alone gives false confidence about exactly those notebooks
+    # (the first smoke run capped to three DA targets and NB08 then crashed).
+    _pre  = [t for t in target_metabolites if t in pa_features]
+    _rest = [t for t in target_metabolites if t not in pa_features]
+    _k = min(len(_pre), max(1, _n // 2))
+    print(f'SMOKE RUN: target list capped at {_n} of {len(target_metabolites)} '
+          f'({_k} pre-specified + {min(_n - _k, len(_rest))} DA)')
+    target_metabolites = _pre[:_k] + _rest[:_n - _k]
 
 # -- timing probe: project the total runtime before committing to it --
 # CAVEAT: this times a FIXED-parameter fit, but the nested tuning explores costlier
