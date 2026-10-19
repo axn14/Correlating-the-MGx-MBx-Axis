@@ -73,11 +73,14 @@ ev['SHAP_positive'] = ev.get('Direction').eq('positive') if 'Direction' in ev el
 ev['Model_beats_chance'] = ev['Model_perm_q'] < utils.FDR_THRESHOLD
 ev['Evidence_predictive'] = ev['SHAP_positive'] & ev['Model_beats_chance']
 
-# ---- 2. genomic evidence (AGORA2 producing enzyme for THIS compound) ----
+# ---- 2. genomic evidence (tri-state; None = no genomic reference available) ----
+# genomic_evidence() is defined in NB08's evidence-setup cell. While no genomic
+# reference index is built it returns None throughout, so AGORA2_model_available is
+# False everywhere and Evidence_genomic is never counted as a negative.
 kegg_by_name = {v: k for k, v in utils.POLYAMINE_KEGG.items()}
 ev['KEGG_parent'] = ev['Polyamine'].map(kegg_by_name)
 ev['AGORA2_encodes_enzyme'] = [
-    agora2_evidence(sp, kid) if pd.notna(kid) else None
+    genomic_evidence(sp, kid) if pd.notna(kid) else None
     for sp, kid in zip(ev['Species'], ev['KEGG_parent'])
 ]
 ev['AGORA2_model_available'] = ev['AGORA2_encodes_enzyme'].notna()
