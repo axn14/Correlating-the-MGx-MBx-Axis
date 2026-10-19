@@ -113,6 +113,8 @@ ORDER = [n for n, *_ in NOTEBOOKS]
 # with fixed seeds and single-threaded fits inside the parallel loop it changes wall
 # time, not output (verified byte-identical for XGBoost under 1 vs 8 workers).
 PROFILE_KEYS = ("NB03_N_PERM", "NB03_N_ITER", "NB03_MAX_TARGETS")
+# First notebook whose outputs depend on the profile; everything upstream is immune.
+PROFILE_FIRST = "03_ml_benchmarking.ipynb"
 
 # Shake-out profile: exercises every code path end to end in minutes. NOT
 # publication output -- N_PERM=19 floors the permutation p at 0.05, and only three
@@ -286,7 +288,8 @@ def reuse_decision(nb: str, man: dict, code_fp: str, inp_fp: str, profile: dict,
         return False, "code cells changed"
     if prev.get("inputs_digest") != inp_fp:
         return False, "shared inputs changed (utils/viz/requirements/Data)"
-    if prev.get("profile") != profile:
+    # The profile only steers NB03, so it can only change NB03 and what consumes it.
+    if ORDER.index(nb) >= ORDER.index(PROFILE_FIRST) and prev.get("profile") != profile:
         return False, "profile changed"
     if upstream_will_run:
         return False, "an upstream notebook re-runs"
@@ -524,8 +527,10 @@ def main() -> int:
         emit(f"  re-run with: python run_pipeline.py --from {Path(stale[0]).stem[:2]}")
 
     emit(f"pipeline finished {datetime.now():%F %T}  (mode: {mode})")
+    first = ORDER.index(PROFILE_FIRST)
     all_ok = all(man.get(n, {}).get("status") == "OK"
-                 and man.get(n, {}).get("profile") == profile for n in ORDER)
+                 and (i < first or man.get(n, {}).get("profile") == profile)
+                 for i, n in enumerate(ORDER))
     if mode == "FULL" and all_ok and not stale and SMOKE_MARKER.exists():
         if git["dirty"] is False:
             SMOKE_MARKER.unlink()
