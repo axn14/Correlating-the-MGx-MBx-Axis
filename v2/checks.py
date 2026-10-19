@@ -677,6 +677,21 @@ def e3():
     assert not stale, f"CONTRACTS.md still presents Adenoma as a group: {stale}"
 
 
+@check("E4 generators are retired: no edits_nb*.py in v2/ (the notebooks are authoritative)")
+def e4():
+    # The edits_nb*.py generators had drifted from the notebooks in both directions:
+    # 12 of 14 differed, the NB08 trio could not produce a runnable NB08 in any order,
+    # and the GLASSO one held a configuration measured to make convergence worse.
+    # Their reviewed content was transplanted by cell id and they were archived under
+    # archive/generators/. Re-running one would silently overwrite hand fixes, so an
+    # active generator in v2/ is a failure, not a warning.
+    active = sorted(p.name for p in NB_DIR.glob("edits_nb*.py"))
+    assert not active, (f"active notebook generators in v2/: {active}. Move them to "
+                        "archive/generators/ -- re-running one overwrites hand fixes.")
+    assert (NB_DIR / "archive" / "generators" / "README.md").exists(), \
+        "archive/generators/README.md is missing (it records what was transplanted)"
+
+
 # ---------------------------------------------------------------------------
 # Runner
 # ---------------------------------------------------------------------------

@@ -142,8 +142,10 @@ class Notebook:
 
     # -- output ------------------------------------------------------------
     def save(self, verbose=True):
-        self.path.write_text(
-            json.dumps(self.doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        # Bytes, not write_text: text mode on Windows would turn every "\n" into
+        # "\r\n" and the notebook would show as entirely changed.
+        self.path.write_bytes(
+            (json.dumps(self.doc, indent=1, ensure_ascii=False) + "\n").encode("utf-8"))
         if verbose:
             print(f"{self.path.name}: {len(self.changes)} change(s)")
             for ch in self.changes:

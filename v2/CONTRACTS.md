@@ -122,7 +122,12 @@ statistics sharing one filename template — Step 6's unadjusted Mann-Whitney an
 adjusted model — so Yachida carried two answers to one question under near-identical names,
 and because `Stage_0 ∪ Stage_I_II == Early_CRC` they overlap by construction. 12 of the 16
 had no reader at all, and the two live readers disagreed about which was authoritative.
-Both now slice this table: NB03 (`edits_nb03.py`) and `ml_workbench/engine.py`.
+Both now slice this table: NB03 (`c06-top15-select`) and `ml_workbench/engine.py`.
+
+**Source of truth (2026-10-20).** The notebooks in `v2/` are authoritative. The
+`edits_nb*.py` generators had drifted from them in both directions and are retired to
+`archive/generators/` (see its README for what was transplanted and why the rest was
+not); `checks.py` E4 fails if one reappears in `v2/`.
 
 Step 6's fine-grained DA is still *computed* (it feeds the volcano plots and the summary) but
 is **no longer written to disk**.

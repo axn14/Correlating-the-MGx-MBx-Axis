@@ -35,10 +35,16 @@ fi
 
 echo "micom run ($MODE) started $(date '+%F %T')" > "$SUMMARY"
 
-# 1. (Re)generate the notebook from its edit script — single source of truth.
-echo "[$(date '+%F %T')] building 10_micom_flux.ipynb from edits_nb10.py"
-if ! "$PY" edits_nb10.py > "$LOG_DIR/edits_nb10.log" 2>&1; then
-    echo "FAILED to build notebook — see $LOG_DIR/edits_nb10.log" | tee -a "$SUMMARY"; exit 1
+# 1. NB10 is NOT regenerated. The edits_nb*.py generators are retired (notebooks are
+#    authoritative; see archive/generators/README.md), and rebuilding NB10 from its
+#    generator would overwrite the committed notebook. NB10 is also Paper 2 work: it
+#    needs micom/cobra, which are not in the pinned environment, and this bash runner
+#    targets the retired analysis server. Refuse loudly rather than run half-configured.
+if [ "${MICOM_I_KNOW:-0}" != "1" ]; then
+    echo "REFUSED: NB10 (MICOM) is not runnable in the current environment (no micom in" | tee -a "$SUMMARY"
+    echo "requirements.txt; bash runner for a retired server). Redesign pending (W3)." | tee -a "$SUMMARY"
+    echo "Set MICOM_I_KNOW=1 only after installing micom and reviewing NB10." | tee -a "$SUMMARY"
+    exit 1
 fi
 
 # 2. Execute it (memory-tracked, no cell timeout). The notebook itself stops after
