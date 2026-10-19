@@ -549,9 +549,13 @@ if _sel_all:
         direction_map[r['Feature']] = 'Elevated' if r['CliffsD'] < 0 else 'Depleted'
 
 N_OUTER     = 5
-N_ITER      = 10
+N_ITER      = int(os.environ.get('NB03_N_ITER', 10))
 N_INNER     = 3
 N_PERM      = int(os.environ.get('NB03_N_PERM', 100))
+# Outer parallelism. run_pipeline.py sets KI_N_JOBS to the physical core count and
+# OMP_NUM_THREADS=1, so each fit is single-threaded and the cores go to workers.
+# The default of 2 reproduces the old server cap if the notebook is run by hand.
+N_JOBS      = int(os.environ.get('KI_N_JOBS', 2))
 MIN_CLASS_N = 20
 
 # Live progress (notebook output is only written when the notebook finishes).
@@ -562,16 +566,28 @@ def progress(msg):
         fh.write(f"{time.strftime('%H:%M:%S')}  {msg}\n")
 PROGRESS.write_text('')
 
+# Smoke-run cap. NB03_MAX_TARGETS limits the benchmark to the first N targets so a
+# shake-out run reaches every downstream notebook in minutes. Unset (the default)
+# runs every target. run_pipeline.py records these knobs in its manifest, so a capped
+# run can never be mistaken for -- or skipped in favour of -- a full one.
+_max_t = os.environ.get('NB03_MAX_TARGETS')
+if _max_t:
+    print(f'SMOKE RUN: target list capped at {int(_max_t)} of {len(target_metabolites)}')
+    target_metabolites = list(target_metabolites)[:int(_max_t)]
+
 # -- timing probe: project the total runtime before committing to it --
+# CAVEAT: this times a FIXED-parameter fit, but the nested tuning explores costlier
+# settings, so the projection is a lower bound -- it predicted 2.75 h for a run
+# that took ~36 h on the old server. Treat it as a floor, not an estimate.
 if target_metabolites:
     _X, _y, _fc, _ = build_feature_matrix(spc, mtb, target_metabolites[0], conf_df)
     _yb = binarize_target(_y)
     _cache = build_fold_cache(_X, _yb, n_splits=N_OUTER)
     _t0 = time.time(); run_cv_auc_cached(_cache, _yb); _t_fit = (time.time() - _t0) / N_OUTER
     _fits_per_target = N_OUTER * (N_ITER * N_INNER + 1) + N_OUTER * (N_PERM + 1)
-    _proj_h = len(target_metabolites) * _fits_per_target * _t_fit / 2 / 3600   # 2 workers
+    _proj_h = len(target_metabolites) * _fits_per_target * _t_fit / N_JOBS / 3600
     print(f'Timing probe: {_t_fit:.2f} s/fit -> projected {_proj_h:.2f} h for '
-          f'{len(target_metabolites)} targets ({_fits_per_target} fits each, 2 workers)')
+          f'{len(target_metabolites)} targets ({_fits_per_target} fits each, {N_JOBS} workers)')
     progress(f'probe {_t_fit:.2f} s/fit (fixed params), projected {_proj_h:.2f} h, '
              f'{len(target_metabolites)} targets, N_PERM={N_PERM}')
     if _proj_h > 2.75:
@@ -598,7 +614,7 @@ for col_name in target_metabolites:
 
     # Performance: nested CV
     nested_aucs, chosen = nested_cv_auc(X, y_bin, n_outer=N_OUTER, n_iter=N_ITER,
-                                        inner=N_INNER, random_state=42, n_jobs=2)
+                                        inner=N_INNER, random_state=42, n_jobs=N_JOBS)
     tuned_params_by_target[col_name] = chosen
 
     # Significance: fixed-parameter observed vs permuted, identical folds
@@ -607,7 +623,7 @@ for col_name in target_metabolites:
     roc_store[col_name] = (mean_fpr, mean_tpr, fixed_aucs)
     fixed_auc = float(fixed_aucs.mean())
     perm_aucs = run_permutation_null_cached(fold_cache, y_bin, None, n_perm=N_PERM,
-                                            random_state=42, base_seed=1000, n_jobs=2)
+                                            random_state=42, base_seed=1000, n_jobs=N_JOBS)
     perm_p = (np.sum(perm_aucs >= fixed_auc) + 1) / (N_PERM + 1)
 
     in_e, in_a = col_name in top15_early_set, col_name in top15_advanced_set

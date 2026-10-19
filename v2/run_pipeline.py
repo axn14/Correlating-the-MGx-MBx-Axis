@@ -11,6 +11,7 @@ is the same footprint as pipeline_tools.py.
     python run_pipeline.py --only 02 03     # just these, by stem prefix
     python run_pipeline.py --from 06        # this notebook onward
     python run_pipeline.py --dry-run        # print the plan and exit
+    python run_pipeline.py --smoke          # fast shake-out pass, NOT publication output
 
 Why a manifest: a notebook that has already succeeded is skipped on the next
 invocation. The previous bash runner had no such record, so any failure meant
@@ -70,13 +71,34 @@ ENV_JOBLIB = {
 NOTEBOOKS: list[tuple[str, bool, dict[str, str], str]] = [
     ("01_preprocessing.ipynb", True, ENV_BLAS, "builds the reduced pickle"),
     ("01b_yachida_significant_features.ipynb", False, ENV_BLAS, "nothing downstream reads it"),
-    ("02_analysis.ipynb", True, ENV_BLAS, "writes the tidy DA table"),
+    # As on disk NB02 writes per-comparison DA CSVs, which is what NB03 reads. The tidy
+    # differential_abundance_v2.csv exists only in edits_nb02b.py, not yet applied.
+    ("02_analysis.ipynb", True, ENV_BLAS, "writes per-comparison DA tables"),
     ("03_ml_benchmarking.ipynb", True, ENV_JOBLIB, "nested CV + permutation"),
-    ("05_two_stage_model.ipynb", False, ENV_JOBLIB, "leaf analysis + transfer"),
+    # NB05 does not read KI_N_JOBS (its LightGBM fits pin n_jobs themselves), so the
+    # joblib profile would only starve its sklearn/BLAS work of threads.
+    ("05_two_stage_model.ipynb", False, ENV_BLAS, "leaf analysis + transfer"),
     ("06_multiomics_factors.ipynb", True, ENV_BLAS, "NB08/NB09 need its tables"),
     ("08_pathway_analysis.ipynb", True, ENV_BLAS, "writes the evidence table"),
     ("09_pathway_network.ipynb", True, ENV_BLAS, "reads it"),
 ]
+
+
+# Environment knobs that change RESULTS, not merely speed. A manifest entry is
+# reused only if it was produced under the same profile, so a smoke run's capped
+# NB03 can never satisfy a full run. (KI_N_JOBS is excluded: with fixed seeds and
+# single-threaded fits it changes wall time, not output.)
+PROFILE_KEYS = ("NB03_N_PERM", "NB03_N_ITER", "NB03_MAX_TARGETS")
+
+# Shake-out profile: exercises every code path end to end in minutes. NOT
+# publication output -- N_PERM=19 floors the permutation p at 0.05, and only three
+# targets are benchmarked.
+SMOKE_PROFILE = {"NB03_N_PERM": "19", "NB03_N_ITER": "2", "NB03_MAX_TARGETS": "3"}
+SMOKE_MARKER = HERE.parent / "Results" / "SMOKE_RUN.txt"
+
+
+def current_profile() -> dict:
+    return {k: os.environ.get(k, "") for k in PROFILE_KEYS}
 
 
 def load_manifest() -> dict:
@@ -148,6 +170,9 @@ def main() -> int:
     ap.add_argument("--only", nargs="+", metavar="STEM", help="run only these, by stem prefix")
     ap.add_argument("--from", dest="from_", metavar="STEM", help="start at this notebook")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--smoke", action="store_true",
+                    help="shake-out run: NB03 capped to 3 targets, N_ITER=2, N_PERM=19. "
+                         "Exercises every notebook fast; NOT publication output.")
     ap.add_argument("--skip-checks", action="store_true",
                     help="skip pre-flight checks.py (not advised)")
     args = ap.parse_args()
@@ -176,12 +201,38 @@ def main() -> int:
             print(f"{nb:<44} {str(fatal):<6} {env['OMP_NUM_THREADS']:<5} {note}")
         return 0
 
+    if args.smoke:
+        os.environ.update(SMOKE_PROFILE)       # run_one copies os.environ per notebook
+    profile = current_profile()
+    mode = "SMOKE" if args.smoke else ("CUSTOM" if any(profile.values()) else "FULL")
+
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     man = {} if args.fresh else load_manifest()
 
     lines = [f"v2 pipeline run started {datetime.now():%F %T}",
-             f"host: {N_CORES} physical cores, python {sys.version.split()[0]}"]
+             f"host: {N_CORES} physical cores, python {sys.version.split()[0]}",
+             f"mode: {mode}   profile: "
+             + (", ".join(f"{k}={v}" for k, v in profile.items() if v) or "defaults")]
+    if mode == "SMOKE":
+        lines.append("!! SMOKE RUN -- shake-out only. Outputs in Results/ are NOT publication "
+                     "results (NB03 capped to 3 targets, N_PERM=19). !!")
     SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    if mode == "SMOKE":
+        SMOKE_MARKER.parent.mkdir(parents=True, exist_ok=True)
+        SMOKE_MARKER.write_text(
+            f"Results/ was last written by a SMOKE run ({datetime.now():%F %T}).\n"
+            "NB03 benchmarked only 3 targets with N_ITER=2 and N_PERM=19, and every\n"
+            "downstream notebook consumed those outputs. Nothing here is publication\n"
+            "output. A full run (python run_pipeline.py) recomputes everything and\n"
+            "deletes this file on success.\n", encoding="utf-8")
+
+    order = [n for n, *_ in NOTEBOOKS]
+
+    def upstream_latest(nb: str) -> float:
+        """Most recent finish time of any notebook upstream of `nb` in the manifest."""
+        i = order.index(nb)
+        t = [man[u].get("finished_epoch", 0.0) for u in order[:i] if u in man]
+        return max(t) if t else 0.0
 
     def emit(line: str) -> None:
         print(line)
@@ -212,7 +263,20 @@ def main() -> int:
         stem = path.stem
         fp = notebook_fingerprint(path)
         prev = man.get(nb)
-        if prev and prev.get("status") == "OK" and prev.get("fingerprint") == fp:
+        # Reuse a previous result only if ALL of these hold:
+        #   - it succeeded, from this exact notebook source (fingerprint);
+        #   - under the same result-affecting profile (a smoke run never satisfies
+        #     a full one, or vice versa);
+        #   - it finished AFTER every upstream notebook's latest run. Each notebook
+        #     consumes upstream outputs, so if anything upstream was re-run since,
+        #     this result was computed from inputs that no longer exist. Checking
+        #     only the notebook's own fingerprint -- the first version of this
+        #     runner -- would have reused NB03 on top of a freshly re-run NB02.
+        reusable = (prev is not None and prev.get("status") == "OK"
+                    and prev.get("fingerprint") == fp
+                    and prev.get("profile") == profile
+                    and prev.get("finished_epoch", 0.0) >= upstream_latest(nb))
+        if reusable:
             emit(f"{nb:<44} SKIP  (already OK at {prev.get('finished', '?')})")
             continue
 
@@ -225,8 +289,9 @@ def main() -> int:
         # Fingerprint again: --inplace rewrites the file, so the pre-run value is
         # stale and would make the next resume re-run a notebook that succeeded.
         man[nb] = {"status": status, "seconds": round(secs, 1), "peak_mb": round(peak),
-                   "finished": f"{datetime.now():%F %T}",
-                   "fingerprint": notebook_fingerprint(path)}
+                   "finished": f"{datetime.now():%F %T}", "finished_epoch": time.time(),
+                   "fingerprint": notebook_fingerprint(path), "profile": profile,
+                   "mode": mode}
         save_manifest(man)
 
         emit(f"{nb:<44} {status:<4} {secs:7.0f}s  peak {peak:6.0f} MB")
@@ -238,7 +303,14 @@ def main() -> int:
             emit("Fix the cause, then re-run; completed notebooks will be skipped.")
             return 1
 
-    emit(f"pipeline finished {datetime.now():%F %T}")
+    emit(f"pipeline finished {datetime.now():%F %T}  (mode: {mode})")
+    all_ok = all(man.get(n, {}).get("status") == "OK"
+                 and man.get(n, {}).get("profile") == profile for n, *_ in selected)
+    if mode == "FULL" and all_ok and len(selected) == len(NOTEBOOKS) and SMOKE_MARKER.exists():
+        SMOKE_MARKER.unlink()
+        emit("Full run complete: removed Results/SMOKE_RUN.txt.")
+    elif mode == "SMOKE":
+        emit("SMOKE RUN: Results/ holds shake-out outputs only -- see Results/SMOKE_RUN.txt.")
     emit("")
     emit("NB10 (MICOM) is not part of this run: it is a long solve against the")
     emit("pre-built AGORA2 community models. Run it separately, then re-run 08 and 09")

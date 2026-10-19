@@ -448,9 +448,15 @@ matrix was structurally unable to reach significance).
 
   What changes is the **outer** parallelism and the thread budget. BLAS threads multiply with
   joblib workers, so 8 × 8 = 64 threads would thrash 8 cores. `run_pipeline.py` therefore sets
-  the thread environment **per notebook**: linear-algebra notebooks (01, 01b, 02, 06, 08, 09)
-  receive the cores through BLAS (`OMP_NUM_THREADS=8`), while joblib-parallel notebooks
-  (03, 05) get `OMP_NUM_THREADS=1` and spend the cores on workers via `KI_N_JOBS=8`.
+  the thread environment **per notebook**: NB03, the only notebook that parallelises at the
+  joblib level, gets `OMP_NUM_THREADS=1` and spends the cores on workers via `KI_N_JOBS=8`;
+  every other notebook receives the cores through BLAS (`OMP_NUM_THREADS=8`).
+  Resume rule: `run_pipeline.py` reuses a notebook's previous result only if it succeeded
+  from the same source, under the same result-affecting profile (`NB03_N_PERM`,
+  `NB03_N_ITER`, `NB03_MAX_TARGETS`), **and finished after every upstream notebook's latest
+  run** — so a re-run of NB02 always forces NB03 onward to recompute. `--smoke` runs a
+  shake-out profile (NB03 capped to 3 targets, `N_ITER=2`, `N_PERM=19`) and writes
+  `Results/SMOKE_RUN.txt`; a full run recomputes everything and deletes the marker.
   `GraphicalLassoCV`'s `n_jobs=1` was a 1500 MiB concession and may rise now.
 
 ---
