@@ -566,6 +566,52 @@ def c8():
         raise AssertionError("duplicate genera must raise")
 
 
+@check("C9 replication separates 'not measurable' from 'not replicated'; flags contradictions")
+def c9():
+    from scipy.stats import spearmanr as _sp
+    rng = np.random.default_rng(9)
+    # spearman_grid == scipy.stats.spearmanr, ties included.
+    A = np.round(rng.normal(size=(60, 3)), 1)
+    B = rng.normal(size=(60, 2)) + 0.5 * A[:, :2]
+    r, p = utils.spearman_grid(A, B)
+    for i in range(3):
+        for j in range(2):
+            ref = _sp(A[:, i], B[:, j])
+            assert abs(ref.statistic - r[i, j]) < 1e-10 and abs(ref.pvalue - p[i, j]) < 1e-9
+
+    n = 150
+    base = rng.normal(size=n)
+
+    def cohort(name, ids, signs, genera):
+        G = pd.DataFrame({"Sample": range(n)})
+        for g in genera:
+            G[g] = base + rng.normal(0, 0.5, n) if g == "G1" else rng.normal(size=n)
+        M = pd.DataFrame({"Sample": range(n)})
+        for comp, s in signs.items():
+            M[comp] = s * base + rng.normal(0, 0.5, n)
+        ident = utils.metabolite_identity(
+            pd.DataFrame({"Compound": list(ids), "KEGG": list(ids.values())}), name)
+        return {"name": name, "genus": G, "mtb": M, "identity": ident}
+
+    disc = cohort("D", {"dA": "K1", "dB": "K2", "dC": "K3"},
+                  {"dA": 1, "dB": 1, "dC": 1}, ["G1", "G2"])
+    t1 = cohort("T1", {"x1": "K1", "x2": "K2"}, {"x1": 1, "x2": -1}, ["G1", "G2"])
+    t2 = cohort("T2", {"y1": "K1"}, {"y1": 1}, ["G2"])          # G1 absent here
+    pairs, summary = utils.genus_metabolite_replication(disc, [t1, t2])
+    row = pairs.set_index(["Genus", "Compound"])
+    assert {("G1", "dA"), ("G1", "dB"), ("G1", "dC")} <= set(row.index), "discovery hits missing"
+    a, b, c = row.loc[("G1", "dA")], row.loc[("G1", "dB")], row.loc[("G1", "dC")]
+    assert a["In_T1"] and a["Compound_T1"] == "x1" and a["Replicated_T1"], \
+        "an identity-matched, same-sign hit was not replicated"
+    assert b["Contradicted_T1"] and not b["Replicated_T1"], "opposite sign not flagged"
+    assert not c["In_T1"] and np.isnan(c["Rho_T1"]) and not c["Replicated_T1"] \
+        and not c["Contradicted_T1"], "an unmeasured compound was scored as a failure"
+    assert not a["In_T2"], "a pair whose genus is absent was scored as measurable"
+    s1 = summary.set_index("Target").loc["T1"]
+    assert s1["Not_measurable_compound"] >= 1 and s1["Replicated"] >= 1 \
+        and s1["Contradicted"] >= 1
+
+
 # ---------------------------------------------------------------------------
 # D. Biology
 # ---------------------------------------------------------------------------
@@ -826,6 +872,19 @@ def e5():
                 hits.append(f"{extra} line {lineno}")
     assert not hits, ("blanket warning suppression (name a category instead): "
                       + ", ".join(hits))
+
+
+@check("E6 no notebook defines its own genus or CLR helper")
+def e6():
+    # NB02 had its own _norm_genus / genus_clr, which kept 'Unclassified' as a genus
+    # and drifted from utils.genus_clr_table -- the helper the A8/C8 guards test.
+    # A private copy is code no check covers.
+    rx = re.compile(r"^\s*def\s+(_?norm(alise)?_genus\w*|_?genus_clr\w*|_?clr\w*)\s*\(")
+    hits = [f"{name} cell {idx} line {k}"
+            for name, idx, ctype, text in _notebook_sources() if ctype == "code"
+            for k, line in enumerate(text.splitlines(), 1) if rx.search(line)]
+    assert not hits, ("notebook-local genus/CLR helper (use utils.genus_clr_table / "
+                      "utils.clr_transform): " + ", ".join(hits))
 
 
 # ---------------------------------------------------------------------------

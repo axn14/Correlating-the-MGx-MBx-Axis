@@ -18,7 +18,7 @@ Every notebook imports `utils` via `sys.path.insert(0, '.')` (run from `v2/`) �
 paths. Every notebook that uses stage encoding imports it from `utils` and asserts against
 it; none defines a local copy.
 
-Run `python checks.py` before any pipeline run. `run_pipeline.sh` does this and aborts on
+Run `python checks.py` before any pipeline run. `run_pipeline.py` does this and aborts on
 failure.
 
 ---
@@ -102,7 +102,7 @@ Early_CRC and MP in Advanced_CRC; the first v2 run dropped HS and called MP "Ade
 |---|---|---|
 | `primary_mask(meta)` | Healthy + Early_CRC + Advanced_CRC | every primary analysis |
 | `sensitivity_mask(meta)` | PostSurgery only | NB01b §4b, NB06 §14 |
-| `crc_only_mask(meta)` | Early_CRC + Advanced_CRC (n=150) | NB04, NB05 stage 2 |
+| `crc_only_mask(meta)` | Early_CRC + Advanced_CRC (n=150) | NB05 stage 2 |
 | `apply_mask(mask, *frames, meta_df=)` | filters frames **by Sample ID**, not row position | all of the above |
 
 **NB02 performs the primary split once**, so `preprocessed_data_reduced_v2.pkl` holds primary
@@ -171,12 +171,13 @@ unless every row is `Early_CRC` or `Advanced_CRC`. Enforced in code, not left as
 | `Tumor.Location.Raw` | original string | provenance |
 | `Tumor.Location.Category` | NoTumor / Distal / Proximal / MultiSite / Unknown | descriptive only |
 | `Tumor.Location.Site` | Rectum / Left_colon / Right_colon / MultiSite, **NaN** for non-cancer | the analysis column |
-| `TumorSite_*` dummies | from `build_confounder_matrix(..., include_tumor_location=True)` | NB04, NB05 stage 2, workbench CRC scope |
+| `TumorSite_*` dummies | from `build_confounder_matrix(..., include_tumor_location=True)` | NB05 stage 2, workbench CRC scope |
 
 Within-cancer site counts: Rectum 69, Right_colon 44, Left_colon 32, MultiSite 5.
 
-Permitted uses: **NB04** (within-cancer stage trend, site-adjusted, plus per-site subgroups),
-**NB05 stage 2** (Early vs Advanced), **ML Workbench** in "CRC only" scope. Nowhere else.
+Permitted uses: **NB05 stage 2** (Early vs Advanced, with and without site on identical
+folds), **ML Workbench** in "CRC only" scope. Nowhere else. (NB04, which also used it, is
+discarded.)
 
 ---
 
@@ -282,7 +283,8 @@ and tables:
 per-comparison `{ds}_{g1}_vs_{g2}_{species|metabolites}_DA_v2.csv` family),
 `da_robust_hit_summary_v2.csv`, `{ds}_polyamine_partial_correlations_v2.csv`,
 `consistent_polyamine_correlations_genus_v2.csv`, `{ds}_genus_polyamine_correlations_v2.csv`,
-`polyamine_DA_summary_v2.csv`, plus progression and network tables.
+`polyamine_DA_summary_v2.csv`, `replication_genus_metabolome_v2.csv`, plus progression and
+network tables.
 **Performs the primary split.** Feature reduction: top-500 species by variance, computed on
 primary samples only. **Metabolites are not capped** — every metabolite surviving NB01's
 label-blind prevalence filter is kept (Yachida 279, Sinha 530, Kim 462; asserted).
@@ -296,10 +298,22 @@ Partial correlations adjust for the full confounder set and are **NB09's SHAP-in
 candidate pool**. They are computed by `utils.partial_spearman_grid`, which reproduces
 `pingouin.partial_corr(method="spearman")` exactly (`checks.py` C7; on the real data max
 |Δr| 1e-15) in one matrix product instead of one call per pair — the old loop's
-`except Exception: continue` dropped any pair that raised without a trace. Cross-cohort replication is **genus level** (species names cannot match
-between shotgun and 16S) with metabolites matched by **KEGG parent** compound, and
-`Same_direction` requires sign agreement — a pair significant in two cohorts with opposite
-signs is a contradiction, reported as such.
+`except Exception: continue` dropped any pair that raised without a trace. Covariates are
+per cohort (`utils.COHORT_CONFOUNDERS`): Yachida age, BMI, sex, Brinkman index, alcohol;
+Sinha age, BMI, sex; Kim age, sex, smoking (Kim was adjusted for age and sex only before
+2026-10-20, because Yachida's list was applied to every cohort).
+
+Cross-cohort replication is **genus level** (species names cannot match between shotgun and
+16S), from `utils.genus_clr_table`, and runs at two scopes:
+- **Metabolome-wide** (`replication_genus_metabolome_v2.csv`, `utils.genus_metabolite_replication`,
+  `checks.py` C9): every Yachida genus × metabolite Spearman association at q < 0.05 is
+  re-tested in each validation cohort where it is **measurable** — the compound matched by
+  identity (KEGG ∪ HMDB intersection) and the genus present. Pairs that cannot be measured are
+  reported as `Not_measurable_*`, never as failed replications; validation q-values are BH
+  over the measurable discovery hits; every row carries `Replication_tier`. A pair significant
+  in a validation cohort with the opposite sign is `Contradicted`, not replicated.
+- **Polyamine-targeted** (`consistent_polyamine_correlations_genus_v2.csv`): metabolites
+  matched by **KEGG parent** compound; `Same_direction` requires sign agreement.
 
 ### NB03 `03_ml_benchmarking.ipynb`
 **Reads** the reduced pickle + NB02's grouped DA tables. **Writes**
@@ -313,15 +327,12 @@ signed OOF SHAP with `Direction` and bootstrap rank CIs. No oversampling (a medi
 balanced by construction). Minority class < 20 → skipped and logged. Verifies the
 tumour-location guard is live.
 
-### NB04 `04_crc_stage_tumour_site.ipynb`
-*(replaces `04_mp_trajectory.ipynb`, whose subject was the excluded MP group)*
-**Reads** the reduced pickle. **Writes** `tables/nb04_polyamine_stage_trend_v2.csv`
-(**read by NB08**), `nb04_polyamine_tumour_site_v2.csv`,
-`nb04_polyamine_stage_trend_per_site_v2.csv`, `nb04_species_stage_trend_v2.csv`.
-Scope `crc_only_mask` (n=150). Tumour site **is** a covariate here, and the notebook first
-demonstrates that the guard rejects the same call on the full cohort. Per-site results are
-exploratory (nominal p, uncorrected across sites); MultiSite (n=5) is excluded from site
-tests.
+### NB04 — discarded (2026-10-20)
+`04_mp_trajectory.ipynb` was superseded (its subject, the MP arm, is excluded) and its
+planned replacement `04_crc_stage_tumour_site.ipynb` was never built; neither exists. Tumour
+site as a covariate lives in NB05 stage 2 (CRC-only, with and without site on identical
+folds), stage trends in NB02, and the guard demonstration is `checks.py` B2. No notebook
+reads an `nb04_*` table.
 
 ### NB05 `05_two_stage_model.ipynb`
 **Reads** the reduced pickle, `ml_results_v2.pkl`, and the raw TSVs: stage 3 with the
@@ -398,8 +409,15 @@ hardcoded 0/1 treatment contrast against an unscaled exposure, and cross-section
 cannot order cause and effect.
 
 ### NB08 `08_pathway_analysis.ipynb`
+> **STATUS (2026-10-20) — the design below is NOT what executes.** The executed NB08 is the
+> polyamine-era evidence notebook: it writes the `r1_*`, `r3_*`, `r4_*`, `r5_*` and `r8_*`
+> tables but **not** `pair_evidence_nb08_v2.csv`, which only the retired `edits_nb08b.py`
+> produced (not applicable as written; see `archive/generators/README.md`). The schema below
+> is the design target for the NB08 rebuild as the metabolome-wide evidence assembler. Until
+> then, do not cite `pair_evidence_nb08_v2.csv` or its columns.
+
 **Reads** the reduced pickle, `ml_results_v2.pkl`, MOFA tables, NB02 partial correlations and
-replication, NB04 stage trends, and optionally NB10's MICOM pairs.
+replication, and optionally NB10's MICOM pairs.
 **Primary output: `tables/pair_evidence_nb08_v2.csv`** — one row per (species, polyamine),
 **read by NB09**. Also `r1_agora2_producer_enrichment_v2.csv`,
 `r1_agora2_enrichment_test_v2.csv`, `r3_scfa_polyamine_enrichment_v2.csv`, and the
@@ -431,11 +449,16 @@ list drawn from this cohort's own SHAP output. R4/R5/R8 are **supplementary desc
 indices** and contribute no evidence column.
 
 ### NB09 `09_pathway_network.ipynb`
+> **STATUS (2026-10-20):** as executed, NB09 reads NB02's polyamine partial correlations and
+> NB08's `r1`/`r8` tables directly and scores **three** sources (NB03 SHAP, AGORA2 — always
+> unavailable — and MOFA co-loading). Reading `pair_evidence_nb08_v2.csv` and the five-source
+> count below take effect with the NB08 rebuild.
+
 **Reads** `pair_evidence_nb08_v2.csv` (**required** — raises if absent and never recomputes
 it), plus the reduced pickle and MOFA loadings.
 **Writes** `tables/final_evidence_synthesis_v2.csv`,
-`tables/d_glasso_partial_correlation_edges_v2.csv`, Module C/G tables,
-`figures/pathway_network/*`, `figures/pathway/final_evidence_source_support_v2.png`.
+`tables/d_glasso_partial_correlation_edges_v2.csv`, Module B/C/G tables,
+`figures/pathway_network/*` (including `final_evidence_synthesis_heatmap_v2.png`).
 Adds the one source NB08 cannot compute — **MOFA same-sign co-loading** (|weight| > 0.10) —
 then counts **five independent sources** and applies pre-declared tiers: `Strong` ≥ 3,
 `Moderate` = 2, `Weak` = 1, `Statistical only` = 0. The statistical association is **not**
@@ -504,12 +527,21 @@ matrix was structurally unable to reach significance).
 
 ## 8. MICOM (NB10) — decoupled run
 
-`run_micom.sh`, its own tmux session, **after** the main pipeline. Then **re-run NB08 and
-NB09** so the mechanistic column fills; until then `MICOM_status == 'pending'`.
+**Not runnable in the current environment:** `micom`/`cobra` are not in the pinned
+environment and `run_micom.sh` (a bash runner for the retired server) refuses to start. Once
+NB10 is redesigned and run, **re-run NB08 and NB09** so the mechanistic column fills; until
+then `MICOM_status == 'pending'`.
 
 ### Attainable evidence ceiling — read this before interpreting any `Tier`
 
-NB09 counts five sources (§7). Two are currently unavailable:
+**As executed today, NB09 counts three sources** — NB03 SHAP, AGORA2 genomic and MOFA
+co-loading — and genomic is disabled, so the attainable maximum is **2 of 3** and its
+`Strong (3/3)` tier is **unreachable**. In the smoke run every supported row was `Weak (1/3)`,
+and those came from MOFA co-loading alone, which the integrity review measured firing near
+its chance rate (council item C11). The five-source design below applies after the NB08
+rebuild.
+
+The five-source design (§7) has two sources currently unavailable:
 
 | Source | State |
 |---|---|
@@ -591,11 +623,14 @@ Candidate targets come from the robust-hit tables, not a nominal-p screen.
 
 ```bash
 python checks.py                       # must pass
-bash run_pipeline.sh                   # 01, 01b, 02, 03, 04, 05, 06, 08, 09
-bash run_micom.sh                      # NB10, separate session, hours
-# then re-run NB08 + NB09 to fill the mechanistic column
+python run_pipeline.py                 # 01, 01b, 02, 03, 05, 06, 08, 09; reuses valid results
+python run_pipeline.py --smoke         # fast shake-out pass -- NOT publication output
+python run_pipeline.py --dry-run       # shows every reuse decision and its reason
+# NB10 (MICOM) is not runnable in the pinned environment (section 8).
 ```
 
-Fatal if they fail: 01, 02, 03, 06, 08, 09. Non-fatal: 01b, 04, 05.
+Fatal if they fail: 01, 02, 03, 06, 08, 09. Non-fatal: 01b, 05. Executed notebooks, HTML,
+logs and `provenance.json` land in `Results/runs/<run_id>/`; tracked notebooks are never
+modified.
 Status and peak memory per notebook: `Results/logs/summary_v2.txt`.
 NB03 live progress: `Results/logs/nb03_progress_v2.txt`.

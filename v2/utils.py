@@ -468,6 +468,17 @@ def apply_mask(mask, *frames, sample_col="Sample", meta_df=None):
 # 196–540 in the disease groups), so leaving it out would let a smoking effect
 # masquerade as a cancer effect.
 YACHIDA_COMPLETE_CONFOUNDERS = ["Age", "BMI", "Gender", "Brinkman.Index", "Alcohol"]
+
+# Candidate confounders per cohort -- what each cohort actually records, measured on the
+# harmonised metadata (2026-10-20). Yachida records smoking as the Brinkman index; Kim
+# only as a binary Smoker flag (99% populated) and age in three bands; Sinha records
+# neither smoking nor alcohol. Applying Yachida's list everywhere left Kim adjusted for
+# age and sex only. Callers still drop any candidate that is <50% populated or constant.
+COHORT_CONFOUNDERS = {
+    "YACHIDA-CRC-2019":  ["Age", "BMI", "Gender", "Brinkman.Index", "Alcohol"],
+    "SINHA_CRC_2016":    ["Age", "BMI", "Gender"],
+    "Kim_adenomas_2020": ["Age", "Gender", "Smoker"],
+}
 YACHIDA_ALL_CONFOUNDERS = YACHIDA_COMPLETE_CONFOUNDERS
 # Tumour location is a disease-status proxy WHENEVER non-cancer samples are in
 # scope: it is "-" for every Healthy/HS/MP sample, so "NoTumor" alone identifies
@@ -555,6 +566,15 @@ def _read_wide_numeric_tsv(fpath):
         sample_col = num.astype("int64") if (num == num.round()).all() else num
     out.insert(0, "Sample", sample_col.values)
     return out
+
+
+def load_mtb_map(dataset, data_dir=DATA_DIR):
+    """Read one cohort's metabolite map without loading its (large) abundance tables.
+    Kim's ships as "mtb_map.tsv" rather than "mtb.map.tsv"; both names are tried."""
+    for p in (data_dir / f"{dataset} mtb.map.tsv", data_dir / f"{dataset} mtb_map.tsv"):
+        if p.exists():
+            return pd.read_csv(p, sep="\t")
+    raise FileNotFoundError(f"no mtb.map file for {dataset} in {data_dir}")
 
 
 def load_all_datasets(data_dir=DATA_DIR, datasets=DATASETS, exclude=None):
@@ -1771,7 +1791,8 @@ def partial_spearman_grid(X, Y, Z):
         raise ValueError(f"partial_spearman_grid: n={n} with k={k} covariates "
                          "leaves no degrees of freedom")
 
-    design = np.column_stack([np.ones(n), rankdata(Z, axis=0)])
+    ranked_z = rankdata(Z, axis=0) if k else np.empty((n, 0))
+    design = np.column_stack([np.ones(n), ranked_z])
 
     def _residuals(A):
         R = rankdata(A, axis=0)
@@ -1788,6 +1809,131 @@ def partial_spearman_grid(X, Y, Z):
     r[degenerate] = np.nan
     p[degenerate] = np.nan
     return r, p
+
+
+def spearman_grid(X, Y):
+    """Spearman correlation of every column of X with every column of Y, as one matrix
+    product: partial_spearman_grid with no covariates (Pearson of centred ranks, t-test
+    with n - 2 df), which is what scipy.stats.spearmanr computes pair by pair."""
+    X = np.asarray(X, dtype=float)
+    return partial_spearman_grid(X, Y, np.empty((X.shape[0], 0)))
+
+
+def genus_metabolite_replication(discovery, targets, q_threshold=None):
+    """Cross-cohort replication of genus x metabolite Spearman associations.
+
+    `discovery` and each element of `targets` are dicts:
+        {"name": cohort, "genus": genus CLR table ("Sample" + genera),
+         "mtb": metabolite table ("Sample" + compounds),
+         "identity": metabolite_identity() frame for that cohort}
+    Genus and metabolite tables are aligned on "Sample" (inner join).
+
+    Returns (pairs, summary). `pairs` has one row per discovery (Genus, Compound) pair
+    significant at q < q_threshold in the discovery cohort, with the compound's
+    Replication_tier and, per target T:
+        In_<T>             the pair is MEASURABLE in T: the compound is identity-matched
+                           (KEGG or HMDB, by set intersection) and the genus is present
+        Compound_<T>       the matched compound column in T
+        Rho_<T>, P_<T>     T's Spearman correlation for the pair
+        Q_<T>              BH over T's measurable discovery hits (a replication family)
+        Replicated_<T>     Q_<T> < threshold with the discovery sign
+        Contradicted_<T>   Q_<T> < threshold with the opposite sign
+    A pair not measurable in T has In_<T> False and NaN statistics, and is never
+    counted as a failed replication -- the distinction replication tiering exists for.
+    """
+    if q_threshold is None:
+        q_threshold = FDR_THRESHOLD
+
+    def _aligned(c):
+        g = [x for x in c["genus"].columns if x != "Sample"]
+        m = [x for x in c["mtb"].columns if x != "Sample"]
+        d = c["genus"].merge(c["mtb"], on="Sample")
+        return d, g, m
+
+    d, genera, compounds = _aligned(discovery)
+    rho, p = spearman_grid(d[genera].to_numpy(float), d[compounds].to_numpy(float))
+    flat = p.ravel()
+    q = np.full(flat.shape, np.nan)
+    ok = np.isfinite(flat)
+    if ok.any():
+        q[ok] = multipletests(flat[ok], method="fdr_bh")[1]
+    q = q.reshape(p.shape)
+    gi, ci = np.where(q < q_threshold)
+
+    disc_ids = {r.Compound: r.Ids for r in discovery["identity"].itertuples()}
+    tiers = replication_tier(discovery["identity"],
+                             {t["name"]: t["identity"] for t in targets})
+    tier_of = dict(zip(tiers["Compound"], tiers["Replication_tier"]))
+    canon_of = dict(zip(discovery["identity"]["Compound"], discovery["identity"]["Canonical"]))
+
+    pairs = pd.DataFrame({
+        "Genus": [genera[i] for i in gi],
+        "Compound": [compounds[j] for j in ci],
+        "Rho_discovery": rho[gi, ci], "P_discovery": p[gi, ci], "Q_discovery": q[gi, ci],
+    })
+    pairs["Canonical"] = pairs["Compound"].map(canon_of)
+    pairs["Replication_tier"] = pairs["Compound"].map(tier_of).fillna("discovery_only")
+
+    summary = []
+    for t in targets:
+        name = t["name"]
+        td, t_genera, t_compounds = _aligned(t)
+        t_ids = {r.Compound: r.Ids for r in t["identity"].itertuples()}
+        by_id = {}
+        for comp in t_compounds:
+            for i in t_ids.get(comp, frozenset()):
+                by_id.setdefault(i, set()).add(comp)
+
+        def _match(comp):
+            hits = {}
+            for i in disc_ids.get(comp, frozenset()):
+                for tc in by_id.get(i, ()):
+                    hits[tc] = hits.get(tc, 0) + 1
+            if not hits:
+                return None
+            return sorted(hits, key=lambda tc: (-hits[tc], tc))[0]   # most shared ids
+
+        match = {comp: _match(comp) for comp in pairs["Compound"].unique()}
+        t_gset = set(t_genera)
+        pairs[f"Compound_{name}"] = pairs["Compound"].map(match)
+        measurable = pairs[f"Compound_{name}"].notna() & pairs["Genus"].isin(t_gset)
+        pairs[f"In_{name}"] = measurable.to_numpy()
+
+        for col in ("Rho", "P", "Q"):
+            pairs[f"{col}_{name}"] = np.nan
+        if measurable.any():
+            mg = sorted(pairs.loc[measurable, "Genus"].unique())
+            mc = sorted(pairs.loc[measurable, f"Compound_{name}"].unique())
+            r_t, p_t = spearman_grid(td[mg].to_numpy(float), td[mc].to_numpy(float))
+            gpos = {g: k for k, g in enumerate(mg)}
+            cpos = {c: k for k, c in enumerate(mc)}
+            idx = pairs.index[measurable]
+            gk = pairs.loc[idx, "Genus"].map(gpos).to_numpy()
+            ck = pairs.loc[idx, f"Compound_{name}"].map(cpos).to_numpy()
+            pairs.loc[idx, f"Rho_{name}"] = r_t[gk, ck]
+            pairs.loc[idx, f"P_{name}"] = p_t[gk, ck]
+            pv = pairs.loc[idx, f"P_{name}"].to_numpy(float)
+            fin = np.isfinite(pv)
+            qv = np.full(pv.shape, np.nan)
+            if fin.any():
+                qv[fin] = multipletests(pv[fin], method="fdr_bh")[1]
+            pairs.loc[idx, f"Q_{name}"] = qv
+        sig_t = pairs[f"Q_{name}"] < q_threshold
+        same = np.sign(pairs[f"Rho_{name}"]) == np.sign(pairs["Rho_discovery"])
+        pairs[f"Replicated_{name}"] = (sig_t & same).to_numpy()
+        pairs[f"Contradicted_{name}"] = (sig_t & ~same).to_numpy()
+
+        no_cmp = pairs[f"Compound_{name}"].isna()
+        summary.append({
+            "Target": name, "Discovery_hits": len(pairs),
+            "Measurable": int(measurable.sum()),
+            "Not_measurable_compound": int(no_cmp.sum()),
+            "Not_measurable_genus": int((~no_cmp & ~pairs["Genus"].isin(t_gset)).sum()),
+            "Replicated": int(pairs[f"Replicated_{name}"].sum()),
+            "Contradicted": int(pairs[f"Contradicted_{name}"].sum()),
+            "Measurable_not_significant": int((measurable & ~sig_t).sum()),
+        })
+    return pairs, pd.DataFrame(summary)
 
 
 def zscore_per_dataset(df):
