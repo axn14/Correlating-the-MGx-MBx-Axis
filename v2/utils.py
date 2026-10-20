@@ -1819,6 +1819,40 @@ def spearman_grid(X, Y):
     return partial_spearman_grid(X, Y, np.empty((X.shape[0], 0)))
 
 
+def residualise_on_confounders(y, Z):
+    """OLS residual of the target `y` on an intercept and the confounders `Z` (n x k).
+
+    NB03 asks whether the species predict a metabolite GIVEN the confounders: the
+    target becomes this residual (then a median split) and the confounders leave the
+    feature matrix. With them IN the features, the label permutation tested "target
+    independent of species AND confounders", which the confounders alone reject
+    (putrescine: AUC 0.67 from confounders only), so a significant p said nothing
+    about the species. Exact when the confounding is linear.
+
+    Residualise the TARGET, not the species: species residuals keep confounder
+    information in their zero patterns (a zero-abundance sample's residual is a linear
+    function of Z), and a tree model recovers it -- in a calibration study on the real
+    species a confounder-only target was "predicted" at AUC 0.73 from residualised
+    species. checks.py C10 guards the residual's properties.
+
+    Z must be complete (impute it from the confounders alone first); rank-deficient Z
+    (a constant column) is handled by least squares.
+    """
+    y = np.asarray(y, dtype=float)
+    Z = np.asarray(Z, dtype=float)
+    if Z.ndim == 1:
+        Z = Z[:, None]
+    if Z.shape[0] != y.shape[0]:
+        raise ValueError(f"residualise_on_confounders: y has {y.shape[0]} rows, Z has "
+                         f"{Z.shape[0]}")
+    if not (np.isfinite(y).all() and np.isfinite(Z).all()):
+        raise ValueError("residualise_on_confounders: y or Z has NaN/inf -- impute Z "
+                         "(from the confounders alone) and drop missing targets first")
+    design = np.column_stack([np.ones(len(y)), Z])
+    beta, *_ = np.linalg.lstsq(design, y, rcond=None)
+    return y - design @ beta
+
+
 def genus_metabolite_replication(discovery, targets, q_threshold=None):
     """Cross-cohort replication of genus x metabolite Spearman associations.
 

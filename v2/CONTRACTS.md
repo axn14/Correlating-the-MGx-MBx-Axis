@@ -322,10 +322,26 @@ Cross-cohort replication is **genus level** (species names cannot match between 
 `logs/nb03_progress_v2.txt`.
 Targets: `Robust == True` metabolites (≤ 8 elevated + 7 depleted per comparison) **plus** the
 7 pre-specified polyamines. Protocol: nested CV for `AUC_nested`; fixed-parameter permutation
-test (`N_PERM`, default 100, `NB03_N_PERM` overrides) for `Perm_pvalue` → BH `Perm_qvalue`;
-signed OOF SHAP with `Direction` and bootstrap rank CIs. No oversampling (a median split is
-balanced by construction). Minority class < 20 → skipped and logged. Verifies the
-tumour-location guard is live.
+test (`N_PERM`, default 100, `NB03_N_PERM` overrides) for `Perm_pvalue` → BH `Perm_qvalue`
+(the p-value refers to `AUC_fixed`, not `AUC_nested`); signed OOF SHAP with `Direction` and
+bootstrap rank CIs. No oversampling (a median split is balanced by construction). Minority
+class < 20 → skipped and logged. Verifies the tumour-location guard is live.
+
+**Species given confounders (2026-10-20).** Features are the species only; each target is
+the OLS residual of the metabolite on Age, BMI, sex, Brinkman index and alcohol
+(`utils.residualise_on_confounders`, `checks.py` C10), split at its median. **Errata:** the
+confounders used to be features, so the label permutation tested "target independent of
+species *and* confounders" — the confounders alone predict putrescine's split at AUC 0.67 —
+and a significant p said nothing about the species. Calibration on the real Yachida species
+and confounders, 100 synthetic targets that depend on the confounders only (a valid test
+rejects ~5%): the old test rejected **100%** (mean AUC 0.81); the residualised target
+rejects **6.0%** (continuous target) and **5.0%** (zero-inflated, 60% at the floor), mean
+AUC 0.49, p-values slightly conservative. Residualising the *species* instead is invalid
+(99% rejection): a zero-abundance sample's residual is a linear function of the confounders,
+and the trees recover it. `R2_confounders`, `AUC_confounders_raw` (confounders alone, raw
+split) and `AUC_confounders_adjusted` (confounders alone, adjusted split; ≈ 0.5 unless
+confounding is nonlinear) are reported per target. Confounders are imputed once from the
+confounders alone (§7).
 
 ### NB04 — discarded (2026-10-20)
 `04_mp_trajectory.ipynb` was superseded (its subject, the MP arm, is excluded) and its
@@ -478,9 +494,11 @@ matrix was structurally unable to reach significance).
 - **No live network calls.** AGORA2 enzyme evidence comes from the local index at
   `Results/tables/agora2_species_ec_index.json`, rebuilt from `Data/micom/agora2_extracted/`
   by `utils.build_agora2_ec_index` (~40 s, 1439 species).
-- **Imputation inside folds only.** Confounder imputation happens in a pipeline step refit
-  per CV fold, never on the full matrix. Targets are never imputed — rows with a missing
-  target are dropped.
+- **Imputation never sees a target or a held-out fold.** Where confounders are model
+  features (NB05), their imputation is a pipeline step refit per CV fold. Where they adjust
+  a target (NB03), they are imputed once from the confounders alone — no target, no species
+  — so no label information can enter the folds. Targets are never imputed — rows with a
+  missing target are dropped.
 - **Genus matching** uses `utils.normalise_genus_name` (strips GTDB `_A` suffixes) and
   `utils.genus_clr_table`, shared by NB02's replication and NB05's transfer model so the two
   cannot drift apart.

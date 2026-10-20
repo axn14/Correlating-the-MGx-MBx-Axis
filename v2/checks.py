@@ -614,6 +614,42 @@ def c9():
         and s1["Contradicted"] >= 1
 
 
+@check("C10 NB03's adjusted target carries no confounder signal and keeps a species effect")
+def c10():
+    """NB03 used to keep the confounders as features and permute the label against
+    all of them, testing 'target independent of species AND confounders'. The target
+    is now residualised on the confounders (utils.residualise_on_confounders). Here a
+    species tracks the confounders and the target depends on the confounders only, so
+    the species must lose its association with the adjusted target; a planted direct
+    species effect must survive."""
+    rng = np.random.default_rng(10)
+    n = 400
+    Z = np.column_stack([rng.normal(size=n), rng.integers(0, 2, n), rng.gamma(2, 1, n)])
+    s_conf = Z @ np.array([0.8, 0.6, 0.5]) + rng.normal(0, 0.6, n)    # confounded species
+    s_true = rng.normal(size=n)                                        # causal species
+    y_null = Z @ np.array([1.0, 0.8, 0.7]) + rng.normal(0, 1, n)      # confounders only
+    y_alt = y_null + 0.6 * s_true
+
+    r = utils.residualise_on_confounders(y_null, Z)
+    design = np.column_stack([np.ones(n), Z])
+    assert np.abs(design.T @ r).max() < 1e-8 * n, "residual is not orthogonal to [1, Z]"
+    raw = abs(np.corrcoef(s_conf, y_null)[0, 1])
+    adj = abs(np.corrcoef(s_conf, r)[0, 1])
+    assert raw > 0.5 and adj < 0.1, \
+        f"confounded species: |rho| raw {raw:.2f} -> adjusted {adj:.2f} (expected < 0.1)"
+    kept = np.corrcoef(s_true, utils.residualise_on_confounders(y_alt, Z))[0, 1]
+    assert kept > 0.4, f"a direct species effect did not survive adjustment (rho {kept:.2f})"
+    # Rank-deficient Z (a duplicated and a constant column) gives the same residual.
+    Zd = np.column_stack([Z, Z[:, 0], np.ones(n)])
+    assert np.allclose(utils.residualise_on_confounders(y_null, Zd), r, atol=1e-8)
+    try:
+        utils.residualise_on_confounders(y_null, np.where(Z > 2.5, np.nan, Z))
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing confounder values were accepted")
+
+
 # ---------------------------------------------------------------------------
 # D. Biology
 # ---------------------------------------------------------------------------
