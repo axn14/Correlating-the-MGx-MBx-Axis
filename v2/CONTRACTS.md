@@ -494,6 +494,12 @@ matrix was structurally unable to reach significance).
 - **No live network calls.** AGORA2 enzyme evidence comes from the local index at
   `Results/tables/agora2_species_ec_index.json`, rebuilt from `Data/micom/agora2_extracted/`
   by `utils.build_agora2_ec_index` (~40 s, 1439 species).
+- **One figure theme.** Every notebook that draws calls `viz.apply_theme()` and nothing
+  else restyles (`checks.py` E10): DejaVu Sans, bundled with matplotlib, for text and
+  mathtext; TrueType (Type 42) fonts in PDF/PS so figure text stays editable; a glyph
+  missing from the font is an error (E11). Seaborn's style alone resolved to system Arial on
+  Windows, which has no subscript digits ("−log₁₀" rendered as boxes) and cannot be
+  redistributed.
 - **Imputation never sees a target or a held-out fold.** Where confounders are model
   features (NB05), their imputation is a pipeline step refit per CV fold. Where they adjust
   a target (NB03), they are imputed once from the confounders alone — no target, no species

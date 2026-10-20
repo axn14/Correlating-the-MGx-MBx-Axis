@@ -45,10 +45,14 @@ and re-step any pair that FAILs the CVD / normal-vision separation checks.
 
 from __future__ import annotations
 
+import warnings
+from pathlib import Path
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from matplotlib import font_manager
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
 # ============================================================================
@@ -126,6 +130,17 @@ _SEVERITY_ALIASES = {
 # THEME
 # ============================================================================
 
+# The one typeface, bundled with matplotlib so every host renders identical glyphs.
+# seaborn's whitegrid style put system Arial first on Windows: Arial has no subscript
+# digits, so NB01b's volcano axis read "-log□□(Q-value)", NB03's labels lost theirs
+# silently under a blanket warning filter, and the theme-less notebooks rendered in a
+# second typeface. System Arial also cannot be redistributed and is absent on Linux.
+# (A venue that mandates Arial needs a vendored, OFL-licensed Arial-metric font
+# checked for subscript coverage -- never the system copy.)
+THEME_FONT = "DejaVu Sans"
+THEME_FONT_FILE = "DejaVuSans.ttf"
+
+
 def apply_theme(context: str = "notebook", dpi: int = 110) -> None:
     """Install the shared theme. Call ONCE per notebook, right after the imports.
 
@@ -133,9 +148,30 @@ def apply_theme(context: str = "notebook", dpi: int = 110) -> None:
     blocks, which disagreed on dpi (100/110/unset) and on whether to call
     `set_context` at all -- the reason identical `fontsize=` values rendered at
     different physical sizes in different notebooks.
+
+    Fonts: THEME_FONT for text and mathtext; TrueType (Type 42) in PDF/PS so figure
+    text stays editable and searchable instead of Type 3 outlines; real <text> in SVG.
+    A glyph missing from the font is an ERROR, not a box in a published label.
+    checks.py E11 renders a subscript label under this theme.
     """
     sns.set_style("whitegrid")
     sns.set_context(context)
+    mpl.rcParams.update({
+        "font.family":      "sans-serif",
+        "font.sans-serif":  [THEME_FONT],
+        "mathtext.fontset": "dejavusans",
+        "pdf.fonttype":     42,
+        "ps.fonttype":      42,
+        "svg.fonttype":     "none",
+    })
+    warnings.filterwarnings("error", message=r"Glyph \d+ .*missing from font")
+    # A list, not a string: a lone string is parsed as a fontconfig pattern, and the
+    # hyphen in "sans-serif" breaks that parse.
+    resolved = Path(font_manager.findfont(font_manager.FontProperties(family=["sans-serif"]),
+                                          fallback_to_default=False)).name
+    if resolved != THEME_FONT_FILE:
+        raise RuntimeError(f"apply_theme: the sans-serif font resolved to {resolved}, "
+                           f"not {THEME_FONT_FILE}")
     mpl.rcParams.update({
         "figure.dpi":        dpi,
         "savefig.dpi":       150,

@@ -1058,10 +1058,53 @@ def e9():
                         if isinstance(n, ast.Name) and n.id in helpers)
         for f in used:
             guarded.setdefault(f, []).append(name.split()[0])
-    dead = {f: chk for f, chk in guarded.items() if f not in reached and f not in _GUARD_ONLY}
+    dead = {f: chk for f, chk in guarded.items()
+            if f not in reached and f not in _GUARD_ONLY}
     assert not dead, ("checks guard utils functions no executed notebook reaches (guards on "
                       "dead code): " + ", ".join(f"{f} [{'/'.join(sorted(set(c)))}]"
                                                  for f, c in sorted(dead.items())))
+
+
+@check("E10 every plotting notebook installs viz.apply_theme and none restyles on its own")
+def e10():
+    # Five notebooks styled themselves with seaborn (system Arial first on Windows) and
+    # three applied no theme at all, so one run rendered two typefaces and subscript
+    # labels lost their glyphs.
+    plots = re.compile(r"\bplt\.|\bsns\.|savefig\(|save_figure\(")
+    restyle = re.compile(r"sns\.set_style\(|sns\.set_theme\(|sns\.set\(|sns\.set_context\(|"
+                         r"plt\.style\.use\(|mpl\.rc\(|rcParams\[[^\]]+\]\s*=|"
+                         r"rcParams\.update\(")
+    hits = []
+    for nb in sorted(NB_DIR.glob("*.ipynb")):
+        doc = json.loads(nb.read_text(encoding="utf-8"))
+        src = "\n".join("".join(c["source"]) for c in doc["cells"] if c["cell_type"] == "code")
+        if plots.search(src) and "viz.apply_theme(" not in src:
+            hits.append(f"{nb.name}: draws figures without viz.apply_theme()")
+        hits += [f"{nb.name} line {k}: {line.strip()[:70]}"
+                 for k, line in enumerate(src.splitlines(), 1)
+                 if restyle.search(line) and not line.strip().startswith("#")]
+    assert not hits, "figure styling outside viz.apply_theme:\n  " + "\n  ".join(hits)
+
+
+@check("E11 the theme renders subscript labels in DejaVu Sans with editable PDF fonts")
+def e11():
+    # Under seaborn's whitegrid alone, Arial resolved and "-log10" with subscript digits
+    # rendered as boxes (with only a warning); PDFs embedded Type 3 fonts.
+    import io
+    import viz
+    from matplotlib.figure import Figure
+    with warnings.catch_warnings():               # apply_theme's error filter stays local
+        viz.apply_theme()
+        fig = Figure(figsize=(3, 2))
+        ax = fig.subplots()
+        ax.set_ylabel("−log₁₀(q)  ρ  δ  ≥  ±  →")
+        ax.set_xlabel(r"$\log_{10}$ abundance")
+        png, pdf = io.BytesIO(), io.BytesIO()
+        fig.savefig(png, format="png")            # raises if a glyph is missing
+        fig.savefig(pdf, format="pdf")
+    data = pdf.getvalue()
+    assert b"/Type3" not in data, "the PDF embeds Type 3 fonts (pdf.fonttype is not 42)"
+    assert b"DejaVuSans" in data, "the PDF does not embed DejaVu Sans"
 
 
 # ---------------------------------------------------------------------------
