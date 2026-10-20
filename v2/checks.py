@@ -769,6 +769,27 @@ def e4():
         "archive/generators/README.md is missing (it records what was transplanted)"
 
 
+@check("E5 no blanket warning suppression in notebooks or shared code")
+def e5():
+    # NB03 and NB05 used warnings.filterwarnings('ignore'), which muted convergence,
+    # numerical and missing-glyph warnings; NB09's GLASSO non-convergence went
+    # unreported the same way. Suppression must name a category.
+    bare = re.compile(r"""(filterwarnings|simplefilter)\(\s*['"]ignore['"]\s*\)""")
+    hits = []
+    for name, idx, ctype, text in _notebook_sources():
+        if ctype != "code":
+            continue
+        for lineno, line in enumerate(text.splitlines(), 1):
+            if not line.strip().startswith("#") and bare.search(line):
+                hits.append(f"{name} cell {idx} line {lineno}")
+    for extra in ("utils.py", "viz.py", "run_pipeline.py"):
+        for lineno, line in enumerate((NB_DIR / extra).read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip().startswith("#") and bare.search(line):
+                hits.append(f"{extra} line {lineno}")
+    assert not hits, ("blanket warning suppression (name a category instead): "
+                      + ", ".join(hits))
+
+
 # ---------------------------------------------------------------------------
 # Runner
 # ---------------------------------------------------------------------------

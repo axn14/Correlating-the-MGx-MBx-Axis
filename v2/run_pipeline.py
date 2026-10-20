@@ -60,7 +60,7 @@ MANIFEST = LOG_DIR / "pipeline_manifest.json"
 ARCHIVES_KEPT = 3
 
 # Inputs every notebook depends on. A change to any of them invalidates every result.
-SHARED_CODE = ("utils.py", "viz.py", "requirements.txt")
+SHARED_CODE = ("utils.py", "viz.py", "requirements.txt", "requirements.lock")
 DATA_GLOB = "*.tsv"                      # flat cohort tables in Data/ (not Data/micom)
 
 # 8 physical cores / 16 logical on the Ryzen 7 6800H. Compute-bound tree building
