@@ -528,6 +528,44 @@ def c7():
     assert np.isnan(rc[-1]).all() and np.isnan(pc[-1]).all()
 
 
+@check("C8 transfer features harmonise detection depth and share one CLR delta")
+def c8():
+    """A shotgun training cohort resolves far smaller proportions than a 16S target.
+    Unharmonised, the training set has few zeros and the target many, so a transferred
+    score can learn detection depth as if it were disease."""
+    rng = np.random.default_rng(8)
+    genera = [f"G{j}" for j in range(12)]
+
+    def cohort(n, lod):
+        P = rng.dirichlet(np.full(len(genera), 0.15), size=n)    # many tiny proportions
+        P = np.where(P < lod, 0.0, P)
+        df = pd.DataFrame(P, columns=[f"d__B;p__P;c__C;o__O;f__F;g__{g}" for g in genera])
+        df.insert(0, "Sample", [f"s{lod}_{i}" for i in range(n)])
+        return df
+
+    train = cohort(80, 1e-9)          # shotgun-like: almost nothing censored
+    target = cohort(60, 1e-3)         # 16S-like: a coarse detection limit
+    tr, te, info = utils.transfer_genus_features(train, target, genera)
+    assert list(tr.columns) == list(te.columns) == ["Sample"] + genera
+    assert info["zero_frac_train"] > info["zero_frac_train_before"], \
+        "detection harmonisation did not censor the training cohort"
+    assert abs(info["zero_frac_train"] - info["zero_frac_target"]) < \
+        abs(info["zero_frac_train_before"] - info["zero_frac_target"]), \
+        "harmonisation did not move the training zero fraction toward the target's"
+    assert np.isclose(info["delta"], utils.CLR_DELTA_FRACTION * info["target_detection_limit"]), \
+        "the two cohorts do not share one delta set by the target's detection limit"
+    for M in (tr[genera].to_numpy(), te[genera].to_numpy()):
+        sd = M.std(axis=0, ddof=1)
+        assert np.allclose(M.mean(axis=0), 0, atol=1e-9)
+        assert np.allclose(sd[sd > 0], 1.0), "features are not standardised within cohort"
+    try:
+        utils.transfer_genus_features(train, target, genera + [genera[0]])
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("duplicate genera must raise")
+
+
 # ---------------------------------------------------------------------------
 # D. Biology
 # ---------------------------------------------------------------------------

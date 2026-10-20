@@ -1346,6 +1346,95 @@ def shared_genera(train_species_df, target_species_dfs, prevalence=None,
     return sorted(shared)
 
 
+def _zscore_columns(M):
+    """Column-wise z-score; a constant column becomes all zeros."""
+    mu = M.mean(axis=0, keepdims=True)
+    sd = M.std(axis=0, ddof=1, keepdims=True)
+    return np.divide(M - mu, sd, out=np.zeros_like(M), where=sd > 0)
+
+
+def transfer_genus_features(train_species, target_species, genera, train_samples=None,
+                            target_samples=None, harmonise_detection=True,
+                            standardise=True):
+    """Genus features for a train -> target transfer, harmonised for detection depth.
+
+    Pass UNFILTERED species tables for both cohorts (choose `genera` with
+    shared_genera on the same unfiltered tables). Prevalence-filtering the target
+    first -- as NB05 stage 3 originally did with NB01's filtered tables -- lets the
+    held-out cohort choose the model's features (Sinha's shared basis fell from 55 to
+    37 genera, losing Fusobacterium among others).
+
+    1. Genus abundances on the shared basis, closed to proportions within each cohort.
+    2. Detection-limit harmonisation: training proportions below the target's
+       detection limit (its smallest positive proportion on the basis) are set to 0
+       and rows re-closed. Shotgun Yachida resolves proportions down to ~2e-7 while 16S
+       Sinha and Kim stop near 1e-4 and 5e-5, so without this the training cohort has
+       ~2.5% zeros on the basis against the targets' ~38-48% -- and a transferred score
+       can track detection depth instead of disease.
+    3. CLR with ONE multiplicative-replacement delta shared by both cohorts
+       (CLR_DELTA_FRACTION x the smallest positive proportion across both).
+    4. Features z-scored WITHIN each cohort. Label-blind: it uses each cohort's own
+       feature distribution, never an outcome, and removes per-genus location and scale
+       offsets between platforms.
+
+    Returns (train_df, target_df, info): DataFrames with "Sample" + `genera` columns,
+    and an info dict with zero fractions before/after harmonisation, the detection
+    limit, the shared delta, and presence/absence matrices for a sensitivity model.
+    """
+    genera = list(genera)
+    if len(set(genera)) != len(genera):
+        raise ValueError("transfer_genus_features: duplicate names in `genera`")
+
+    def _table(species, samples):
+        g = _genus_abundance(species, samples=samples)
+        sample_ids = g["Sample"].to_numpy()
+        M = g.drop(columns="Sample").reindex(columns=genera, fill_value=0.0).to_numpy(float)
+        return sample_ids, M
+
+    def _close(M):
+        s = M.sum(axis=1, keepdims=True)
+        return np.divide(M, s, out=np.zeros_like(M), where=s > 0)
+
+    tr_ids, A = _table(train_species, train_samples)
+    te_ids, B = _table(target_species, target_samples)
+    A, B = _close(A), _close(B)
+    if not (B > 0).any():
+        raise ValueError("transfer_genus_features: the target has no positive value "
+                         "on the shared basis")
+    info = {"n_genera": len(genera),
+            "zero_frac_train_before": float((A == 0).mean()),
+            "zero_frac_target": float((B == 0).mean())}
+    if harmonise_detection:
+        lod = float(B[B > 0].min())
+        A = _close(np.where(A < lod, 0.0, A))
+        info["target_detection_limit"] = lod
+    info["zero_frac_train"] = float((A == 0).mean())
+    for name, M in (("train", A), ("target", B)):
+        empty = int((M.sum(axis=1) == 0).sum())
+        if empty:
+            raise ValueError(f"transfer_genus_features: {empty} {name} sample(s) have no "
+                             "detected genus on the shared basis")
+
+    delta = CLR_DELTA_FRACTION * float(min(A[A > 0].min(), B[B > 0].min()))
+    info["delta"] = delta
+
+    def _clr(M):
+        L = np.log(_multiplicative_replacement(M, delta=delta))
+        return L - L.mean(axis=1, keepdims=True)
+
+    LA, LB = _clr(A), _clr(B)
+    if standardise:
+        LA, LB = _zscore_columns(LA), _zscore_columns(LB)
+    info["presence_train"] = (A > 0).astype(float)
+    info["presence_target"] = (B > 0).astype(float)
+
+    tr_df = pd.DataFrame(LA, columns=genera)
+    tr_df.insert(0, "Sample", tr_ids)
+    te_df = pd.DataFrame(LB, columns=genera)
+    te_df.insert(0, "Sample", te_ids)
+    return tr_df, te_df, info
+
+
 def aggregate_to_genus(species_df):
     genus_map = {}
     for col in species_df.columns:
@@ -1463,12 +1552,16 @@ def filter_near_zero_variance(df, threshold=1e-10):
 CLR_DELTA_FRACTION = 0.65
 
 
-def _multiplicative_replacement(X, delta_fraction=None):
+def _multiplicative_replacement(X, delta_fraction=None, delta=None):
     """Close rows to sum 1, then replace zeros multiplicatively.
 
     Returns an array with no zeros, rows summing to 1, and the ratios between
     originally-positive parts unchanged -- which is the property an additive
     constant destroys.
+
+    `delta`, if given, is used as-is instead of delta_fraction * min(positive). Pass
+    it when two tables must share one replacement value (cross-cohort transfer):
+    a per-table delta gives a shotgun cohort a far smaller floor than a 16S one.
     """
     if delta_fraction is None:
         delta_fraction = CLR_DELTA_FRACTION
@@ -1482,7 +1575,8 @@ def _multiplicative_replacement(X, delta_fraction=None):
     positive = closed[closed > 0]
     if positive.size == 0:
         raise ValueError("clr_transform: no positive values anywhere, cannot transform")
-    delta = delta_fraction * positive.min()
+    if delta is None:
+        delta = delta_fraction * positive.min()
 
     n_zero = (closed == 0).sum(axis=1, keepdims=True)
     occupied = n_zero * delta            # share handed to the replaced zeros

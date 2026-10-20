@@ -31,13 +31,10 @@ Applied to a scratch copy, diffed cell by cell, then transplanted by cell id:
 | `edits_nb03.py` | NB03 `c01-imports`, `c06-top15-select` | reads the tidy DA table |
 | `edits_nb06.py` | NB06 `cell-001`, `017`, `030`; inserts `cell-029b`, `029c` | PostSurgery projection; corrected stage-group prose |
 | `edits_nb06.py` | NB06 `cell-020`, merged | its labels kept; its hardcoded hex palette replaced by `viz.group_palette` |
+| `edits_nb05.py` | the whole notebook (stages 1–6), with fixes | stage 3 rebuilt on unfiltered tables via `utils.transfer_genus_features` (target-prevalence leak and detection-limit mismatch fixed, exact Mann–Whitney test, presence-only sensitivity model); stage 6 on the same features, 999 permutations, separability measured before standardisation; blanket warning filter scoped |
 
 ## What was not transplanted, and why
 
-- **`edits_nb05.py`** (NB05 rebuild: cross-cohort transfer, severity transfer). Its
-  transfer stage has two known defects, so it is transplanted only together with their
-  fixes: a held-out-prevalence leak in the genus basis, and a detection-limit mismatch
-  between the shotgun training cohort and the 16S targets.
 - **`edits_nb08.py`, `08b`, `08c`, `edits_nb09.py`**: reference material for the NB08
   evidence-assembler rebuild only. They are not applicable as written (see above).
 - **`edits_nb09_glasso.py`**: superseded by the validated GLASSO configuration applied

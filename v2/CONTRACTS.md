@@ -324,8 +324,9 @@ exploratory (nominal p, uncorrected across sites); MultiSite (n=5) is excluded f
 tests.
 
 ### NB05 `05_two_stage_model.ipynb`
-**Reads** the reduced pickle, NB01's pickle (for genus tables), `ml_results_v2.pkl`, and
-— for stage 6 only — the raw TSVs, loaded with `exclude={}`.
+**Reads** the reduced pickle, `ml_results_v2.pkl`, and the raw TSVs: stage 3 with the
+default exclusions, stage 6 with `exclude={}`. Transfer features come from **unfiltered**
+species tables through `utils.transfer_genus_features` (`checks.py` C8).
 **Writes** `tables/nb05_stage2_early_vs_advanced_v2.csv`,
 `tables/nb05_external_transfer_v2.csv`, `tables/nb05_severity_transfer_v2.csv`,
 `tables/two_stage_model_results_v2.csv`, `tables/two_stage_shap_<polyamine>_v2.csv`,
@@ -333,8 +334,16 @@ tests.
 `figures/ml/nb05_severity_transfer_v2.png`.
 Stage 1 Healthy vs CRC (no site). Stage 2 Early vs Advanced (site allowed; with/without
 compared on identical folds). **Stage 3 external transfer**: a genus-level model trained on
-Yachida only, applied unchanged to Sinha and Kim, AUC with a 2000-sample bootstrap CI and the
-within-Yachida CV AUC as the ceiling. Stage 4 asks whether stage probabilities add anything
+Yachida only, applied unchanged to Sinha and Kim, AUC with a 2000-sample bootstrap CI, an
+exact one-sided Mann–Whitney p against chance, a presence/absence sensitivity model, and the
+within-Yachida CV AUC as the ceiling. Features: genus basis prevalent in Yachida and merely
+present in the target (`shared_genera` on unfiltered tables), Yachida proportions below the
+target's detection limit set to zero, one shared CLR zero-replacement value, per-cohort
+standardisation (label-blind). **Errata (2026-10-20):** the first version chose the basis on
+NB01's prevalence-filtered target table — the held-out cohort helped choose the features (Sinha
+37 genera instead of 59) — and gave each cohort its own CLR delta although shotgun Yachida had
+5–12% zeros on the basis against the targets' 55–84%. Corrected results: Yachida → Sinha AUC
+0.655 (p = 0.002; presence-only 0.567); Yachida → Kim AUC 0.452 (p = 0.80, does not transfer). Stage 4 asks whether stage probabilities add anything
 to metabolite prediction. Stage 5 is per-polyamine SHAP attribution. Leaf notebook — nothing
 downstream reads it.
 
@@ -353,16 +362,21 @@ therefore **unfalsifiable outside Yachida**, and no notebook may claim to predic
 3-level severity (Healthy → Adenoma → Carcinoma) is the finest axis Kim can confirm. Sinha
 has no adenoma arm and is **not** scored for severity at all.
 
-**Direction and scope.** Yachida → Kim only. Measured shared genera: Yachida ∩ Kim = 408,
-Yachida ∩ Sinha = 60, all three = 53 (Sinha measures only 62 genera in total, so including
-it would cost ~8× the feature space). This is **single-direction external validation, not
+**Direction and scope.** Yachida → Kim only. Shared genera, measured at runtime (prevalent
+in Yachida's labelled training samples, present in the target): stage 3 Yachida ∩ Sinha = 59,
+Yachida ∩ Kim = 398; stage 6 (adenomas admitted) Yachida ∩ Kim = 397. The earlier figures of
+60 and 408 were not reproduced by any code path and are withdrawn. This is **single-direction external validation, not
 LODO**: only Yachida has an adenoma-plus-carcinoma gradient, so holding it out leaves no
 staged training data. Binary LODO across all three cohorts is stage 3.
 
 **Reported with negative controls**, because a transfer number is not interpretable without
-them: a 20-fold label permutation (real ρ must exceed every permuted ρ) and a cohort
-separability AUC (if Yachida and Kim are near-perfectly separable on the shared genera, the
-"severity" score may be tracking platform rather than disease). Class cut-points come from
+them: a 999-permutation label null with a p-value (was 20 permutations under an "exceeds
+every permutation" rule, whose p floor is 1/21), and a cohort-separability AUC measured on the
+harmonised features **before** per-cohort standardisation (after it, cross-validated cohort
+membership anti-learns and the AUC is meaningless — the first run reported 0.130). Current
+result: within-Yachida ρ +0.190, transferred to Kim ρ −0.059, permutation p = 0.33 — the
+severity gradient **does not transfer**; separability AUC 1.000, so shotgun and 16S remain
+perfectly distinguishable on these genera even after detection harmonisation. Class cut-points come from
 the **training** score distribution; step-wise AUROCs (Control-vs-Adenoma and
 Adenoma-vs-Carcinoma) are reported **separately**, as a pooled number hides which step fails.
 
