@@ -1575,6 +1575,127 @@ def log_transform(df, pseudocount=1.0, base=2):
     return result
 
 
+# Metabolites detected in at least this fraction of samples form the PQN reference.
+MTB_REFERENCE_DETECTION = 0.95
+
+
+def transform_metabolites(df, ref_detection=MTB_REFERENCE_DETECTION):
+    """log10 -> reference-set PQN -> non-detects tied at a per-metabolite floor.
+
+    For absolute (not pre-scaled) metabolomes. Returns (transformed_df, info) where
+    info holds the per-sample offset, the per-metabolite detection rate and the
+    reference set, so the normalisation can be audited downstream.
+
+    1. Detected values (x > 0) become log10(x + 1); non-detects are set aside.
+    2. Probabilistic quotient normalisation on the reference set: metabolites
+       detected in >= `ref_detection` of samples. Each sample's offset is its median
+       log deviation from the reference profile over those metabolites only.
+    3. Non-detects are placed at one floor per metabolite: half the lowest
+       normalised detected value (log10 2 below it). Every non-detect therefore ranks
+       below every detected value and all non-detects are tied, so a rank test or a
+       median split sees "undetected" as one level rather than a spread.
+
+    Why: the previous transform centred each sample on the median of log10(x + 1)
+    over ALL metabolites with non-detects as 0. With 38.8% non-detects in Yachida the
+    offset tracked each sample's detection rate (rho = -0.92), not its dilution;
+    22 of 307 samples got no centring at all. Advanced CRC samples had slightly more
+    non-detects (39.4% vs 38.1%), a 0.136 smaller offset, and so every detected
+    value rose by ~0.14: 38 of 40 significant Healthy-vs-Advanced metabolites came
+    out "elevated" (median MeanDiff +0.108). Non-detects were also spread by the
+    offset (239 distinct values among Spermine's undetected cells), which defeated
+    NB03's class-balance guard. checks.py C6 guards the mechanism: non-detects
+    outside the reference set must not move any offset.
+    """
+    cols = [c for c in df.columns if c != "Sample"]
+    X = df[cols].apply(pd.to_numeric, errors="coerce").to_numpy(dtype=float)
+    detected = np.isfinite(X) & (X > 0)
+    L = np.full(X.shape, np.nan)
+    L[detected] = np.log10(X[detected] + 1.0)
+    det_rate = detected.mean(axis=0)
+    ref = det_rate >= ref_detection
+    if ref.sum() < 10:
+        raise ValueError(
+            f"transform_metabolites: only {int(ref.sum())} metabolites are detected in "
+            f">= {ref_detection:.0%} of samples -- too few for a stable PQN reference")
+    ref_profile = np.nanmedian(L[:, ref], axis=0)
+    offset = np.nanmedian(L[:, ref] - ref_profile, axis=1)
+    if not np.isfinite(offset).all():
+        raise ValueError("transform_metabolites: a sample has no detected reference "
+                         "metabolite, so it cannot be normalised")
+    Ln = L - offset[:, None]
+    floor = np.nanmin(np.where(detected, Ln, np.nan), axis=0) - np.log10(2.0)
+    if not np.isfinite(floor).all():
+        raise ValueError("transform_metabolites: a metabolite is never detected; "
+                         "filter by prevalence first")
+    out = np.where(detected, Ln, floor[None, :])
+    result = pd.DataFrame(out, columns=cols)
+    result.insert(0, "Sample", df["Sample"].values)
+    info = {"method": f"log10(x+1) -> PQN on metabolites detected in >= "
+                      f"{ref_detection:.0%} of samples -> non-detects at floor",
+            "offset": pd.Series(offset, index=df["Sample"].values, name="PQN_offset"),
+            "detection_rate": pd.Series(det_rate, index=cols, name="Detection_rate"),
+            "reference": [c for c, r in zip(cols, ref) if r]}
+    return result, info
+
+
+def partial_spearman_grid(X, Y, Z):
+    """Partial Spearman correlation of every column of X with every column of Y,
+    adjusting for the columns of Z -- exactly pingouin.partial_corr(method="spearman").
+
+    pingouin ranks x, y and every covariate (average ties) and takes the partial
+    Pearson correlation of the ranks. That equals the Pearson correlation of the
+    residuals of rank(x) and rank(y) regressed on [1, rank(Z)], so the residuals are
+    computed once per column and every pair comes from one matrix product. The
+    p-value is the two-sided t-test with n - 2 - k degrees of freedom, as in
+    pingouin. Replaces one pingouin call per pair (about 1.8 ms each, wrapped in an
+    `except Exception: continue` that silently dropped any pair that raised).
+    checks.py C7 asserts the equivalence against pingouin itself.
+
+    This is NOT "Spearman correlation of residuals from regressing raw values", which
+    is a different estimator. Covariates are ranked like everything else, as pingouin
+    does; a nominal covariate with three or more levels should be one-hot encoded by
+    the caller rather than passed as integer codes.
+
+    X: (n, p), Y: (n, q), Z: (n, k) numeric, complete cases.
+    Returns (r, p) arrays of shape (p, q); NaN where a residualised column is constant.
+    """
+    from scipy.stats import t as _student_t
+
+    X, Y, Z = (np.asarray(a, dtype=float) for a in (X, Y, Z))
+    if Z.ndim == 1:
+        Z = Z[:, None]
+    n, k = X.shape[0], Z.shape[1]
+    for name, arr in (("X", X), ("Y", Y), ("Z", Z)):
+        if arr.shape[0] != n:
+            raise ValueError(f"partial_spearman_grid: {name} has {arr.shape[0]} rows, "
+                             f"expected {n}")
+        if not np.isfinite(arr).all():
+            raise ValueError(f"partial_spearman_grid: {name} contains NaN/inf; "
+                             "pass complete cases")
+    dof = n - 2 - k
+    if dof < 1:
+        raise ValueError(f"partial_spearman_grid: n={n} with k={k} covariates "
+                         "leaves no degrees of freedom")
+
+    design = np.column_stack([np.ones(n), rankdata(Z, axis=0)])
+
+    def _residuals(A):
+        R = rankdata(A, axis=0)
+        beta, *_ = np.linalg.lstsq(design, R, rcond=None)
+        return R - design @ beta
+
+    EX, EY = _residuals(X), _residuals(Y)
+    nx, ny = np.linalg.norm(EX, axis=0), np.linalg.norm(EY, axis=0)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        r = np.clip((EX.T @ EY) / np.outer(nx, ny), -1.0, 1.0)
+        t = r * np.sqrt(dof / (1.0 - r ** 2))
+    p = 2.0 * _student_t.sf(np.abs(t), dof)
+    degenerate = (nx[:, None] <= 1e-9 * np.sqrt(n)) | (ny[None, :] <= 1e-9 * np.sqrt(n))
+    r[degenerate] = np.nan
+    p[degenerate] = np.nan
+    return r, p
+
+
 def zscore_per_dataset(df):
     feature_cols = [c for c in df.columns if c != "Sample"]
     X = df[feature_cols].apply(pd.to_numeric, errors="coerce").fillna(0.0).values

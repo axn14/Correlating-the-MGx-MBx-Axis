@@ -47,8 +47,20 @@ disk and from `DATASETS_ALL`, `COMPARISONS`, `POLYAMINE_DATASETS` and `STUDY_GRO
 Nothing downstream of NB01 ever used them. `DATASETS_IBD` survives as an empty list because
 NB01 imports it to tag exploratory figures; that test is now always `False`.
 
+**Absolute metabolomes** (Yachida) go through `utils.transform_metabolites`: log10(x+1),
+probabilistic quotient normalisation on the metabolites detected in ≥95% of samples (61 in
+Yachida), and non-detects tied at one floor per metabolite, below every detected value
+(`checks.py` C6). **Errata (2026-10-20):** this replaced a sample-wise median taken over all
+metabolites with non-detects as 0. With 38.8% non-detects that offset tracked each sample's
+detection rate (ρ −0.92) rather than its dilution, and because Advanced CRC samples had
+slightly more non-detects (39.4% vs 38.1%), every detected value in that group was shifted up
+by ~0.14: 11 robust Healthy-vs-Advanced metabolites, all "elevated". After the fix (and the
+cap removal below) the robust counts are Healthy vs Early 21 (6 up / 15 down), Healthy vs
+Advanced 19 (7 up / 12 down), Early vs Advanced 0, and the median difference across all
+metabolites is within ±0.05 for every comparison.
+
 **Pre-scaled metabolomes** (Sinha, Kim) are detected by `utils.is_prescaled()` (any negative
-value) and skip prevalence filtering, half-min imputation, log transform and median centring.
+value) and skip prevalence filtering and the log10/PQN transform.
 Applying `log10(x+1)` to a z-score turns every value below −1 into NaN, which is what
 silently voided Sinha in the earlier pipeline.
 
@@ -271,10 +283,20 @@ per-comparison `{ds}_{g1}_vs_{g2}_{species|metabolites}_DA_v2.csv` family),
 `da_robust_hit_summary_v2.csv`, `{ds}_polyamine_partial_correlations_v2.csv`,
 `consistent_polyamine_correlations_genus_v2.csv`, `{ds}_genus_polyamine_correlations_v2.csv`,
 `polyamine_DA_summary_v2.csv`, plus progression and network tables.
-**Performs the primary split.** Feature reduction: top-500 species / top-150 metabolites by
-variance, computed on primary samples only, polyamines and proxies exempt.
+**Performs the primary split.** Feature reduction: top-500 species by variance, computed on
+primary samples only. **Metabolites are not capped** — every metabolite surviving NB01's
+label-blind prevalence filter is kept (Yachida 279, Sinha 530, Kim 462; asserted).
+**Errata (2026-10-20):** a `MAX_MTB_REDUCED=150` variance cap used to apply here. It was the
+only filter on the pre-scaled Sinha/Kim metabolomes (discarding ~70%), it left only 15/113 and
+24/152 of the compounds identity-matched to Yachida, and it removed most of the robust
+early-stage signal. `full_corr` and the binary-stage correlations also lost their 200-species /
+500-metabolite caps and two contaminations: species significant against polyamines on the same
+data topped up into a "top-variance" set, and forced polyamine inclusion.
 Partial correlations adjust for the full confounder set and are **NB09's SHAP-independent
-candidate pool**. Cross-cohort replication is **genus level** (species names cannot match
+candidate pool**. They are computed by `utils.partial_spearman_grid`, which reproduces
+`pingouin.partial_corr(method="spearman")` exactly (`checks.py` C7; on the real data max
+|Δr| 1e-15) in one matrix product instead of one call per pair — the old loop's
+`except Exception: continue` dropped any pair that raised without a trace. Cross-cohort replication is **genus level** (species names cannot match
 between shotgun and 16S) with metabolites matched by **KEGG parent** compound, and
 `Same_direction` requires sign agreement — a pair significant in two cohorts with opposite
 signs is a contradiction, reported as such.

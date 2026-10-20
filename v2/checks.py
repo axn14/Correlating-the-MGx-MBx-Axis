@@ -451,6 +451,83 @@ def c5():
     assert res.loc[res["Species"] == "s_up", "Rho_species_stage"].iloc[0] > 0
 
 
+@check("C6 metabolite normalisation is blind to non-detects outside its reference set")
+def c6():
+    """Regression guard for the zero-inclusive median-centring artefact.
+
+    The old transform centred each sample on the median of log10(x+1) over ALL
+    metabolites with non-detects as 0, so a group with slightly more non-detects got
+    a smaller offset and every detected value rose: 38 of 40 significant
+    Healthy-vs-Advanced metabolites were "elevated". This tests the mechanism, not a
+    simulated p-value count: extra non-detects in non-reference metabolites must not
+    move any sample's offset or any detected value -- and the test must FAIL on the
+    old transform, or it guards nothing.
+    """
+    rng = np.random.default_rng(6)
+    n, p_ref, p_other = 40, 15, 25
+    ref = 10 ** rng.normal(3.0, 0.5, (n, p_ref))            # always detected
+    other = 10 ** rng.normal(2.0, 0.8, (n, p_other))
+    other[rng.random((n, p_other)) < 0.4] = 0.0              # zero-inflated
+    cols_ref = [f"r{j}" for j in range(p_ref)]
+    cols_other = [f"o{j}" for j in range(p_other)]
+    base = pd.DataFrame(np.hstack([ref, other]), columns=cols_ref + cols_other)
+    base.insert(0, "Sample", range(n))
+
+    more = base.copy()
+    extra = rng.random((n, p_other)) < 0.3
+    extra[: n // 2] = False                                  # only the second half
+    more[cols_other] = more[cols_other].where(~extra, 0.0)
+
+    t0, i0 = utils.transform_metabolites(base)
+    t1, i1 = utils.transform_metabolites(more)
+    assert i0["reference"] == cols_ref, "reference set should be the always-detected block"
+    assert np.allclose(i0["offset"].to_numpy(), i1["offset"].to_numpy()), \
+        "non-detects outside the reference set moved the normalisation offsets"
+    still = (more[cols_other].to_numpy() > 0)
+    a = t0[cols_other].to_numpy()[still]
+    b = t1[cols_other].to_numpy()[still]
+    assert np.allclose(a, b), "detected values moved when other metabolites lost detection"
+
+    # The test discriminates: the old zero-inclusive median DOES move.
+    old = lambda d: np.median(np.log10(d.drop(columns="Sample").to_numpy(float) + 1.0), axis=1)
+    assert not np.allclose(old(base), old(more)), \
+        "test would not have caught the old transform -- it guards nothing"
+
+    # Non-detects: one tied floor per metabolite, strictly below every detected value.
+    X1 = t1[cols_other].to_numpy()
+    for j in range(p_other):
+        nd = more[cols_other[j]].to_numpy() == 0
+        if nd.any() and (~nd).any():
+            assert np.unique(X1[nd, j]).size == 1, "non-detects are not tied"
+            assert X1[nd, j][0] < X1[~nd, j].min(), "a non-detect ranks above a detection"
+
+
+@check("C7 partial_spearman_grid reproduces pingouin.partial_corr(method='spearman')")
+def c7():
+    import pingouin as pg
+    rng = np.random.default_rng(7)
+    n = 120
+    X = rng.normal(size=(n, 5))
+    X[:, 0] = np.round(X[:, 0])                              # heavy ties
+    Y = rng.normal(size=(n, 4)) + 0.4 * X[:, :4]
+    Z = np.column_stack([rng.normal(size=n), rng.integers(0, 2, n).astype(float)])
+    r, p = utils.partial_spearman_grid(X, Y, Z)
+    df = pd.DataFrame(np.column_stack([X, Y, Z]),
+                      columns=[f"x{i}" for i in range(5)] + [f"y{j}" for j in range(4)]
+                      + ["z0", "z1"])
+    for i in range(5):
+        for j in range(4):
+            res = pg.partial_corr(data=df, x=f"x{i}", y=f"y{j}", covar=["z0", "z1"],
+                                  method="spearman")
+            assert abs(res["r"].iloc[0] - r[i, j]) < 1e-10, (i, j, res["r"].iloc[0], r[i, j])
+            pref = res["p-val"].iloc[0]
+            assert abs(np.log10(pref) - np.log10(p[i, j])) < 1e-8, (i, j, pref, p[i, j])
+    # A constant column yields NaN, never an exception or a silently dropped pair.
+    Xc = np.column_stack([X, np.ones(n)])
+    rc, pc = utils.partial_spearman_grid(Xc, Y, Z)
+    assert np.isnan(rc[-1]).all() and np.isnan(pc[-1]).all()
+
+
 # ---------------------------------------------------------------------------
 # D. Biology
 # ---------------------------------------------------------------------------
