@@ -1,6 +1,6 @@
 """Pre-flight self-checks for the v2.1 pipeline.
 
-`run_pipeline.sh` runs this FIRST and aborts if anything fails, so a run can never
+`run_pipeline.py` runs this FIRST and aborts if anything fails, so a run can never
 produce results under a broken group definition, a leaked covariate or an inverted
 effect sign. Every check is fast (synthetic data or metadata only) -- no notebook
 output is required, so this is runnable before the first real run.
@@ -13,7 +13,9 @@ Checks are grouped by what they protect:
   B. leakage           -- tumour location refused whenever a non-cancer sample is in scope
   C. statistical signs -- DA / partial-correlation / CLR-LM directions
   D. biology           -- the polyamine EC map lists producing reactions only
-  E. notebook hygiene  -- no stale constructs (SMOTE, TumorLoc_, Adenoma, Precursor)
+  E. notebook hygiene  -- no stale constructs (SMOTE, TumorLoc_, Adenoma, Precursor);
+                          CONTRACTS.md agrees with the data and with output_contract.py
+                          (E7/E8); every guarded utils function is reachable (E9)
 
 Run directly:  python checks.py        (exit 0 = all passed)
 """
@@ -885,6 +887,145 @@ def e6():
             for k, line in enumerate(text.splitlines(), 1) if rx.search(line)]
     assert not hits, ("notebook-local genus/CLR helper (use utils.genus_clr_table / "
                       "utils.clr_transform): " + ", ".join(hits))
+
+
+def _quoted_ints(pattern, txt, what):
+    m = re.search(pattern, txt)
+    assert m, f"CONTRACTS.md no longer states {what} in the expected form ({pattern!r})"
+    return tuple(int(g) for g in m.groups())
+
+
+@check("E7 CONTRACTS.md quotes the cohort counts the data produce")
+def e7():
+    # The counts are recomputed from the metadata here and compared with the prose, so
+    # the document cannot drift from the data (A3/A6 pin the same numbers in code).
+    txt = (NB_DIR / "CONTRACTS.md").read_text(encoding="utf-8")
+    y = _yachida_meta()
+    yc = (len(y), int(utils.primary_mask(y).sum()), int(utils.sensitivity_mask(y).sum()),
+          int(utils.crc_only_mask(y).sum()))
+    q = _quoted_ints(r"Counts: \*\*(\d+) loaded, (\d+) primary, (\d+) sensitivity, "
+                     r"(\d+) carcinomas\.\*\*", txt, "the Yachida counts line")
+    assert q == yc, f"Yachida counts line quotes {q}, the data give {yc}"
+    q = _quoted_ints(r"\| `YACHIDA-CRC-2019` \|[^|\n]*\| (\d+) primary \(\+(\d+) sensitivity\)",
+                     txt, "Yachida's cohort-table row")
+    assert q == yc[1:3], f"Yachida cohort row quotes {q}, the data give {yc[1:3]}"
+    q = _quoted_ints(r"`crc_only_mask\(meta\)` \|[^|\n]*\(n=(\d+)\)", txt, "the CRC-only mask row")
+    assert q == (yc[3],), f"crc_only_mask row quotes n={q[0]}, the data give {yc[3]}"
+    for ds in ("SINHA_CRC_2016", "Kim_adenomas_2020"):
+        raw = pd.read_csv(utils.DATA_DIR / f"{ds} metadata.tsv", sep="\t")
+        raw = raw[~raw["Study.Group"].isin(utils.EXCLUDED_STUDY_GROUPS.get(ds, []))]
+        meta = utils.harmonize_metadata(raw.reset_index(drop=True), ds)
+        groups = meta.loc[utils.primary_mask(meta), "Study.Group"]
+        got = (len(groups), int((groups == "Healthy").sum()), int((groups == "CRC").sum()))
+        q = _quoted_ints(rf"\| `{ds}` \|[^|\n]*\| (\d+) \((\d+) Healthy \+ (\d+) CRC\)",
+                         txt, f"{ds}'s cohort-table row")
+        assert q == got, f"{ds} cohort row quotes {q}, the data give {got}"
+
+
+# Files CONTRACTS.md names that are pipeline INPUTS, not outputs (paths under Data/ are
+# inputs by location and need no entry).
+_DOC_INPUTS = {
+    "manifest.csv": "NB10 input: the MICOM model manifest in Data/micom/models_agora2/",
+}
+
+
+@check("E8 every output CONTRACTS.md names is declared in output_contract.py")
+def e8():
+    # The prose contract once listed outputs no code wrote (pair_evidence_nb08_v2.csv,
+    # NB05's transfer tables) while every run reported success. output_contract.py is
+    # the executable version run_pipeline enforces; this keeps the two in step.
+    import fnmatch
+    import output_contract as oc
+    import run_pipeline as rp
+    assert set(oc.CONTRACT_OUTPUTS) == set(rp.ORDER), (
+        "output_contract.py and run_pipeline.py disagree on the notebooks: "
+        f"{sorted(set(oc.CONTRACT_OUTPUTS) ^ set(rp.ORDER))}")
+    overlap = [f"{o.path} ({nb}) also declared by {oc.owners(o.path.replace('*', 'X'))}"
+               for nb, outs in oc.CONTRACT_OUTPUTS.items() for o in outs
+               if oc.owners(o.path.replace("*", "X")) != [nb]]
+    assert not overlap, "contract patterns overlap between notebooks:\n  " + "\n  ".join(overlap)
+
+    declared = ([o.path.rsplit("/", 1)[-1] for outs in oc.CONTRACT_OUTPUTS.values()
+                 for o in outs] + list(oc.NOT_PRODUCED))
+    txt = (NB_DIR / "CONTRACTS.md").read_text(encoding="utf-8")
+    unknown = []
+    for name in sorted(set(re.findall(r"`([^`\s]+\.(?:csv|pkl|png|pdf))`", txt))):
+        if name.startswith("Data/") or name in _DOC_INPUTS:
+            continue
+        pat = re.sub(r"\{[^}]*\}|<[^>]*>", "*", name.rsplit("/", 1)[-1])
+        if not any(fnmatch.fnmatchcase(pat.replace("*", "X"), d)
+                   or fnmatch.fnmatchcase(d.replace("*", "X"), pat) for d in declared):
+            unknown.append(name)
+    assert not unknown, ("CONTRACTS.md names output(s) that no notebook's contract declares "
+                         "(declare them, or list them in output_contract.NOT_PRODUCED with "
+                         "the reason): " + ", ".join(unknown))
+
+
+# utils functions a behavioural check exercises although no executed notebook may reach
+# them -- each a guard on NOT calling the function.
+_GUARD_ONLY = {
+    "load_agora2_ec_index": "D5 asserts it refuses while AGORA2 is disabled",
+}
+
+
+@check("E9 every utils function a behavioural check guards is reached by an executed notebook")
+def e9():
+    # The CLR transfer fixes guarded by A8/A9 once protected helpers that no executed
+    # notebook called; the pipeline ran a private copy instead. A check on code the
+    # pipeline never runs is a guard on dead code.
+    import ast
+    import run_pipeline as rp
+
+    def names(node, pool):
+        found = set()
+        for n in ast.walk(node):
+            if isinstance(n, ast.Name) and n.id in pool:
+                found.add(n.id)
+            elif (isinstance(n, ast.Attribute) and n.attr in pool
+                  and isinstance(n.value, ast.Name) and n.value.id == "utils"):
+                found.add(n.attr)
+        return found
+
+    utree = ast.parse((NB_DIR / "utils.py").read_text(encoding="utf-8"))
+    funcs = {n.name: n for n in utree.body if isinstance(n, ast.FunctionDef)}
+    calls = {f: names(node, funcs) - {f} for f, node in funcs.items()}
+
+    roots = set()
+    for nb in rp.ORDER:
+        doc = json.loads((NB_DIR / nb).read_text(encoding="utf-8"))
+        src = "\n".join("".join(c["source"]) for c in doc["cells"] if c["cell_type"] == "code")
+        roots |= {m for m in re.findall(r"\butils\.(\w+)", src) if m in funcs}
+        for block in re.findall(r"from utils import \(([^)]*)\)|from utils import ([^\n(]+)", src):
+            roots |= {w for w in re.findall(r"\w+", " ".join(block)) if w in funcs}
+    roots |= names(ast.parse((NB_DIR / "viz.py").read_text(encoding="utf-8")), funcs)
+    reached, todo = set(), list(roots)
+    while todo:
+        f = todo.pop()
+        if f not in reached:
+            reached.add(f)
+            todo.extend(calls.get(f, ()))
+
+    ctree = ast.parse(Path(__file__).read_text(encoding="utf-8"))
+    helpers = {n.name: n for n in ctree.body if isinstance(n, ast.FunctionDef)}
+    guarded = {}
+    for name, fn in _results:
+        if name[:1] not in "ABCD":
+            continue
+        seen, todo, used = set(), [fn.__name__], set()
+        while todo:
+            h = todo.pop()
+            if h in seen or h not in helpers:
+                continue
+            seen.add(h)
+            used |= names(helpers[h], funcs)
+            todo.extend(n.id for n in ast.walk(helpers[h])
+                        if isinstance(n, ast.Name) and n.id in helpers)
+        for f in used:
+            guarded.setdefault(f, []).append(name.split()[0])
+    dead = {f: chk for f, chk in guarded.items() if f not in reached and f not in _GUARD_ONLY}
+    assert not dead, ("checks guard utils functions no executed notebook reaches (guards on "
+                      "dead code): " + ", ".join(f"{f} [{'/'.join(sorted(set(c)))}]"
+                                                 for f, c in sorted(dead.items())))
 
 
 # ---------------------------------------------------------------------------

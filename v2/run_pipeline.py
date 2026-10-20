@@ -27,7 +27,15 @@ so editing utils.py -- where the masks, CLR and DA live -- left every notebook
 
 Freshness. When NB01 is about to run, Results/{tables,intermediate,figures} are moved
 to Results/_archive/<run_id>/ first, so a file whose writer was removed can never
-satisfy a downstream reader. The newest three archives are kept.
+satisfy a downstream reader. Any other notebook that runs has the outputs its contract
+declares moved there first, for the same reason. The newest three archives are kept.
+
+Output contract (output_contract.py). After a notebook exits 0, each output it
+declares must exist, be written by this execution, and (CSV) carry a header, the
+required columns and enough rows, or (pickle) the required keys; numbers CONTRACTS.md
+quotes must match what it produced. A violation turns OK into FAIL. The same check
+runs before a result is reused, so a deleted or hand-edited output forces a re-run.
+Files a notebook writes that its contract does not declare are listed, not failed.
 
 Thread policy. Oversubscription is the real risk on 8 physical cores: BLAS threads
 multiply with joblib workers, so 8 x 8 = 64 threads thrash. NB03 parallelises at the
@@ -48,6 +56,8 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+import output_contract as oc
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -259,20 +269,41 @@ def save_manifest(man: dict) -> None:
     tmp.replace(MANIFEST)  # atomic, so a kill mid-write cannot corrupt it
 
 
+def prune_archives() -> None:
+    if ARCHIVE_DIR.exists():
+        for old in sorted(p for p in ARCHIVE_DIR.iterdir() if p.is_dir())[:-ARCHIVES_KEPT]:
+            shutil.rmtree(old, ignore_errors=True)
+
+
 def archive_results(run_id: str) -> Path | None:
     """Move generated outputs aside so stale files cannot satisfy readers."""
     dest = ARCHIVE_DIR / run_id
     moved = False
-    for sub in ("tables", "intermediate", "figures"):
+    for sub in oc.OUTPUT_DIRS:
         src = RESULTS / sub
         if src.exists() and any(src.iterdir()):
             dest.mkdir(parents=True, exist_ok=True)
             shutil.move(str(src), str(dest / sub))
             moved = True
-    if ARCHIVE_DIR.exists():
-        for old in sorted(p for p in ARCHIVE_DIR.iterdir() if p.is_dir())[:-ARCHIVES_KEPT]:
-            shutil.rmtree(old, ignore_errors=True)
+    prune_archives()
     return dest if moved else None
+
+
+def started_epoch(rec: dict) -> float:
+    """Start of the execution a manifest record describes (records written before
+    started_epoch was kept carry only the finish time and the duration)."""
+    if "started_epoch" in rec:
+        return rec["started_epoch"]
+    # Those records stamped the finish after the warning scan and HTML export, so
+    # finish - duration lands a few seconds after the real start; allow a minute.
+    return rec.get("finished_epoch", 0.0) - rec.get("seconds", 0.0) - 60.0
+
+
+def contract_problems(nb: str, since: float, until: float | None) -> list[str]:
+    try:
+        return oc.verify(nb, since=since, until=until) + oc.verify_doc_facts(nb)
+    except Exception as exc:          # a contract that cannot be checked is not satisfied
+        return [f"contract check raised {exc!r}"]
 
 
 def reuse_decision(nb: str, man: dict, code_fp: str, inp_fp: str, profile: dict,
@@ -297,6 +328,11 @@ def reuse_decision(nb: str, man: dict, code_fp: str, inp_fp: str, profile: dict,
     up = [man[u].get("finished_epoch", 0.0) for u in ORDER[:i] if u in man]
     if up and prev.get("finished_epoch", 0.0) < max(up):
         return False, "an upstream notebook finished more recently"
+    # Its outputs must still be the ones it wrote, and still satisfy the contract.
+    problems = contract_problems(nb, started_epoch(prev), prev.get("finished_epoch"))
+    if problems:
+        more = f" (+{len(problems) - 1} more)" if len(problems) > 1 else ""
+        return False, f"outputs fail the contract: {problems[0]}{more}"
     return True, f"already OK at {prev.get('finished', '?')}"
 
 
@@ -511,28 +547,51 @@ def main() -> int:
             continue
 
         print(f"[{datetime.now():%F %T}] start {nb}  ({why})")
+        # Whatever its contract declares must come from THIS execution: move the
+        # previous copies aside (a no-op after NB01 archived the whole tree).
+        try:
+            n_prev = oc.clear_outputs(nb, ARCHIVE_DIR / run_id)
+        except oc.ContractError as exc:
+            emit(f"{nb:<44} FAIL  contract is ambiguous: {exc}")
+            publish_summary()
+            return 1
+        if n_prev:
+            prune_archives()
         start = time.time()
         rc, peak, executed = run_one(nb, env_extra, run_dir)
-        secs = time.time() - start
-        status = "OK" if rc == 0 else "FAIL"
+        end = time.time()
+        secs = end - start
+        contract = contract_problems(nb, start, end) if rc == 0 else []
+        extra = oc.undeclared(nb, start, end) if rc == 0 else []
+        status = "OK" if rc == 0 and not contract else "FAIL"
         scan = scan_notebook(executed)
         export_html(executed)
 
         warn = status == "OK" and warn_flag(scan)
         man[nb] = {"status": status, "warn": warn, "seconds": round(secs, 1),
                    "peak_mb": round(peak), "finished": f"{datetime.now():%F %T}",
-                   "finished_epoch": time.time(), "code_digest": code_digest(path),
+                   "started_epoch": start, "finished_epoch": end,
+                   "code_digest": code_digest(path),
                    "inputs_digest": inp_fp, "profile": profile, "mode": mode,
-                   "run_id": run_id, "scan": scan, "thread_env": env_extra}
+                   "run_id": run_id, "scan": scan, "thread_env": env_extra,
+                   "contract": contract, "undeclared_outputs": extra}
         save_manifest(man)
 
         shown = "WARN" if warn else status
-        emit(f"{nb:<44} {shown:<4} {secs:7.0f}s  peak {peak:6.0f} MB")
+        emit(f"{nb:<44} {shown:<4} {secs:7.0f}s  peak {peak:6.0f} MB"
+             + (f"  ({n_prev} previous output(s) archived)" if n_prev else ""))
         for ln in scan.splitlines():
             emit("    " + ln)
+        for p in contract:
+            emit("    CONTRACT: " + p)
+        if extra:
+            emit(f"    contract: {len(extra)} output(s) not declared in output_contract.py: "
+                 + ", ".join(extra))
 
-        if rc != 0 and fatal:
-            emit(f"FATAL: {nb} failed -- see {run_dir / (path.stem + '.log')}; stopping.")
+        if status != "OK" and fatal:
+            cause = ("its outputs break the contract (CONTRACT lines above)" if rc == 0
+                     else f"see {run_dir / (path.stem + '.log')}")
+            emit(f"FATAL: {nb} failed -- {cause}; stopping.")
             emit("Fix the cause, then re-run; valid results will be reused.")
             publish_summary()
             return 1

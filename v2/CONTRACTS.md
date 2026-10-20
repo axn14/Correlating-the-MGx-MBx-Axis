@@ -261,7 +261,7 @@ every prevalence and variance filter.
 asserted), `tables/polyamine_cohort_coverage_v2.csv`, QC/DA figures.
 Pickle keys: `transformed_species`, `transformed_mtb`, `filtered_species`, `filtered_mtb`,
 `harmonized_meta`, `polyamine_columns`, `polyamine_proxies`, `mtb_kegg_map`,
-`da_results_spc`, `da_results_mtb`, `mtb_prescaled`, `excluded_study_groups`,
+`da_results_spc`, `da_results_mtb`, `mtb_prescaled`, `mtb_normalisation`, `excluded_study_groups`,
 `sensitivity_groups`, `stage_group_order`, `sensitivity_stage_groups`, `datasets`,
 `dataset_discovery`, `datasets_validation`.
 All 3 cohorts, 307 Yachida rows (MP already dropped). Asserts every metabolite matrix is
@@ -611,11 +611,22 @@ Candidate targets come from the robust-hit tables, not a nominal-p screen.
 
 | Group | Asserts |
 |---|---|
-| **A** group policy | MP excluded, HS quarantined, PostSurgery NaN on every ordinal scale, exact counts (307/277/30/150), primary ∪ sensitivity partitions the cohort, `apply_mask` filters by Sample ID |
+| **A** group policy | MP excluded, HS quarantined, PostSurgery NaN on every ordinal scale, exact counts (307/277/30/150), primary ∪ sensitivity partitions the cohort, `apply_mask` filters by Sample ID; every validation case survives `primary_mask` (A6); the cross-cohort genus basis is fixed before the CLR, with prevalence applied to the training cohort only (A8/A9); the opt-in severity scale cannot touch the primary encoding (A10) |
 | **B** leakage | default confounders carry no tumour column; `include_tumor_location=True` raises on the full cohort / Healthy-only / PostSurgery-only / CRC+1-Healthy; succeeds CRC-only with exact site counts; `Tumor.Location.Site` is NaN for every non-cancer sample |
-| **C** statistics | `MeanDiff`/`CliffsD` sign conventions; `clr_lm_da` recovers a planted effect with the right sign, is calibrated on null data, refuses a too-small arm, drops constant covariates; progression FDR corrects each marginal test once |
-| **D** biology | `POLYAMINE_EC` contains the required producers and no consumers; the pathway set excludes the universal precursors; proxies are pre-specified and non-overlapping; Kim/Sinha lookups find the expected direct+proxy sets; every polyamine has ≥1 AGORA2-annotated EC |
-| **E** hygiene | no notebook uses `SMOTE`, `TumorLoc_`, `Precursor`, or `'Adenoma'`/`'MP'` as a code-level group label; no notebook asserts the old HS-exclusion invariant; this file documents the policy |
+| **C** statistics | `MeanDiff`/`CliffsD` sign conventions; `clr_lm_da` recovers a planted effect with the right sign, is calibrated on null data, refuses a too-small arm, drops constant covariates; progression FDR corrects each marginal test once; metabolite normalisation is blind to non-detects outside its reference set (C6); `partial_spearman_grid` reproduces pingouin exactly (C7); transfer features harmonise detection depth and share one CLR delta (C8); replication keeps "not measurable" apart from "not replicated" and flags contradictions (C9) |
+| **D** biology | `POLYAMINE_EC` lists producing reactions only; the pathway set excludes the universal precursors; proxies are pre-specified and non-overlapping; Kim/Sinha lookups find the expected direct+proxy sets; AGORA2 evidence is disabled and no notebook calls its helpers (D5); the curated EC map survives for re-enabling (D6) |
+| **E** hygiene | no notebook uses `SMOTE`, `TumorLoc_`, `Precursor`, or `'Adenoma'`/`'MP'` as a code-level group label; no notebook asserts the old HS-exclusion invariant; this file documents the policy; no active generator (E4); no blanket warning suppression (E5); no notebook-local genus/CLR helper (E6); the cohort counts quoted here match the data (E7); every output named here is declared in `output_contract.py` or listed as not produced (E8); every `utils` function an A–D check guards is reached by an executed notebook (E9) |
+
+**Post-run output contract (`output_contract.py`).** `checks.py` runs before anything
+executes; the output contract runs after each notebook. Every output a notebook declares
+must exist, be written by that execution, and — for a CSV — carry a header row, the
+required columns, enough rows and any required values (e.g. `differential_abundance_v2.csv`
+must hold all three grouped comparisons for both assays); a pickle must hold its required
+keys. Numbers this document quotes from results (NB05's shared-genus counts and transfer
+statistics) are re-read from the run's tables and must match at the quoted precision. A
+violation turns the notebook's OK into FAIL, and the same check gates reuse of an earlier
+result. An output may be declared empty-able or optional only with a stated reason. Translate
+Methods text only from outputs this check has confirmed.
 
 ---
 
@@ -629,8 +640,9 @@ python run_pipeline.py --dry-run       # shows every reuse decision and its reas
 # NB10 (MICOM) is not runnable in the pinned environment (section 8).
 ```
 
-Fatal if they fail: 01, 02, 03, 06, 08, 09. Non-fatal: 01b, 05. Executed notebooks, HTML,
+Fatal if they fail: 01, 02, 03, 06, 08, 09. Non-fatal: 01b, 05. A notebook that exits
+cleanly but breaks its output contract (§10) has failed. Executed notebooks, HTML,
 logs and `provenance.json` land in `Results/runs/<run_id>/`; tracked notebooks are never
-modified.
+modified. Outputs replaced by a run are kept in `Results/_archive/<run_id>/` (newest three).
 Status and peak memory per notebook: `Results/logs/summary_v2.txt`.
 NB03 live progress: `Results/logs/nb03_progress_v2.txt`.
