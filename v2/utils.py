@@ -1819,6 +1819,46 @@ def spearman_grid(X, Y):
     return partial_spearman_grid(X, Y, np.empty((X.shape[0], 0)))
 
 
+def sequential_permutation_p(observed, null_batch, h=10, b_max=1000, batch_size=64):
+    """Besag-Clifford sequential Monte Carlo p-value (Besag & Clifford 1991, Biometrika).
+
+    `null_batch(start, stop)` must return the null statistics of permutation indices
+    start..stop-1, deterministically (fixed per-index seeds). Draws are taken in index
+    order and the procedure stops at the h-th EXCEEDANCE (null >= observed): p = h / L,
+    with L the number drawn by then. Otherwise it runs to b_max and p = (x + 1) /
+    (b_max + 1) with x < h exceedances. A non-finite null statistic (a failed fit)
+    counts as an exceedance, so failures can only make p larger.
+
+    Why: NB03 ran a fixed 100 permutations and then applied BH, so the smallest q a
+    target could reach was about m / 101 for m targets -- with 14 targets, any
+    rejection needed at least three of them at the p floor, and the predictive evidence
+    source was structurally starved. Null-like targets now stop after about h / p
+    draws, and the budget goes to targets whose p is small; b_max >= 20 m lets a single
+    target among m pass BH at 0.05. Valid under the null (checks.py C11), and the
+    result does not depend on batch_size.
+
+    Returns (p, n_drawn, n_exceed, stopped_early, null_draws).
+    """
+    if not np.isfinite(observed):
+        raise ValueError("sequential_permutation_p: the observed statistic is not finite")
+    if h < 1 or b_max < 1 or batch_size < 1:
+        raise ValueError("sequential_permutation_p: h, b_max and batch_size must be >= 1")
+    draws = np.empty(0, dtype=float)
+    while draws.size < b_max:
+        start, stop = draws.size, min(draws.size + batch_size, b_max)
+        vals = np.asarray(null_batch(start, stop), dtype=float).ravel()
+        if vals.size != stop - start:
+            raise ValueError(f"sequential_permutation_p: null_batch({start}, {stop}) returned "
+                             f"{vals.size} values")
+        draws = np.concatenate([draws, vals])
+        exceed = np.flatnonzero(~np.isfinite(draws) | (draws >= observed))
+        if exceed.size >= h:
+            n_drawn = int(exceed[h - 1]) + 1
+            return h / n_drawn, n_drawn, h, True, draws[:n_drawn]
+    x = int(np.sum(~np.isfinite(draws) | (draws >= observed)))
+    return (x + 1) / (b_max + 1), int(b_max), x, False, draws
+
+
 def residualise_on_confounders(y, Z):
     """OLS residual of the target `y` on an intercept and the confounders `Z` (n x k).
 

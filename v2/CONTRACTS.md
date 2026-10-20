@@ -322,9 +322,14 @@ Cross-cohort replication is **genus level** (species names cannot match between 
 `logs/nb03_progress_v2.txt`.
 Targets: `Robust == True` metabolites (≤ 8 elevated + 7 depleted per comparison) **plus** the
 7 pre-specified polyamines. Protocol: nested CV for `AUC_nested`; fixed-parameter permutation
-test (`N_PERM`, default 100, `NB03_N_PERM` overrides) for `Perm_pvalue` → BH `Perm_qvalue`
-(the p-value refers to `AUC_fixed`, not `AUC_nested`); signed OOF SHAP with `Direction` and
-bootstrap rank CIs. No oversampling (a median split is balanced by construction). Minority
+test for `Perm_pvalue` → BH `Perm_qvalue` (the p-value refers to `AUC_fixed`, not
+`AUC_nested`); signed OOF SHAP with `Direction` and bootstrap rank CIs. **Sequential
+p-values** (Besag–Clifford, `utils.sequential_permutation_p`, `checks.py` C11): a target
+stops at its 10th exceedance (p = 10/L), otherwise runs to `N_PERM` = max(1000, 20 × targets)
+(`NB03_N_PERM` overrides the cap) and p = (x + 1)/(`N_PERM` + 1); `N_perm`,
+`Perm_exceedances` and `Perm_stopped_early` record what each target used. **Errata:** a fixed
+100 permutations floored p at 1/101 and q near m/101, so with 14 targets a rejection needed at
+least three of them at the floor. No oversampling (a median split is balanced by construction). Minority
 class < 20 → skipped and logged. Verifies the tumour-location guard is live.
 
 **Species given confounders (2026-10-20).** Features are the species only; each target is

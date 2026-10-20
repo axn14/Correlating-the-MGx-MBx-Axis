@@ -640,6 +640,7 @@ def c10():
     kept = np.corrcoef(s_true, utils.residualise_on_confounders(y_alt, Z))[0, 1]
     assert kept > 0.4, f"a direct species effect did not survive adjustment (rho {kept:.2f})"
     # Rank-deficient Z (a duplicated and a constant column) gives the same residual.
+    # (C11 below covers the permutation p-values these targets are tested with.)
     Zd = np.column_stack([Z, Z[:, 0], np.ones(n)])
     assert np.allclose(utils.residualise_on_confounders(y_null, Zd), r, atol=1e-8)
     try:
@@ -648,6 +649,38 @@ def c10():
         pass
     else:
         raise AssertionError("missing confounder values were accepted")
+
+
+@check("C11 sequential permutation p-values are valid and spend draws where p is small")
+def c11():
+    """NB03's Besag-Clifford p-values (utils.sequential_permutation_p), checked with a
+    cheap statistic whose null draws are fixed per index, like NB03's seeded permutations."""
+    rng = np.random.default_rng(11)
+    seq = utils.sequential_permutation_p
+
+    def nulls(seed, n=400):
+        v = np.random.default_rng(seed).standard_normal(n)
+        return lambda a, b: v[a:b]
+
+    # Valid under the null: P(p <= a) <= a, within Monte Carlo error.
+    reps = 600
+    ps = np.array([seq(rng.standard_normal(), nulls(1000 + r), h=10, b_max=200,
+                       batch_size=16)[0] for r in range(reps)])
+    for a in (0.05, 0.1, 0.25, 0.5):
+        assert np.mean(ps <= a) <= a + 3 * np.sqrt(a * (1 - a) / reps), \
+            f"P(p <= {a}) = {np.mean(ps <= a):.3f} under the null"
+    # A strong effect never meets h exceedances: full budget, p at the floor.
+    p, n, x, early, _ = seq(10.0, nulls(1), h=10, b_max=200)
+    assert (n, x, early) == (200, 0, False) and abs(p - 1 / 201) < 1e-15
+    # A null-like effect stops early, at p = h / L exactly.
+    p, n, x, early, _ = seq(0.0, nulls(2), h=10, b_max=200)
+    assert early and x == 10 and n < 60 and abs(p - 10 / n) < 1e-15
+    # The answer does not depend on how the draws are batched.
+    assert seq(0.8, nulls(3), h=10, b_max=300, batch_size=7)[:4] == \
+        seq(0.8, nulls(3), h=10, b_max=300, batch_size=64)[:4]
+    # A failed null fit (non-finite) counts against the observed statistic.
+    p, n, x, early, _ = seq(10.0, lambda a, b: np.full(b - a, np.nan), h=3, b_max=50)
+    assert early and n == 3 and p == 1.0
 
 
 # ---------------------------------------------------------------------------
