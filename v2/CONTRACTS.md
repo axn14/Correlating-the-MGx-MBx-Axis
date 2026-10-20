@@ -513,6 +513,10 @@ would otherwise read as "no edges".
   missing from the font is an error (E11). Seaborn's style alone resolved to system Arial on
   Windows, which has no subscript digits ("−log₁₀" rendered as boxes) and cannot be
   redistributed.
+- **One figure writer.** Every figure goes through `viz.save_figure` (`checks.py` E12): a
+  300-dpi PNG plus a vector PDF twin with no CreationDate, so two renders are byte-identical.
+  The output contract requires the PDF twin of every declared PNG and rejects any PDF that
+  embeds Type 3 fonts. Before 2026-10-20, 42 call sites wrote 150-dpi PNG only.
 - **Imputation never sees a target or a held-out fold.** Where confounders are model
   features (NB05), their imputation is a pipeline step refit per CV fold. Where they adjust
   a target (NB03), they are imputed once from the confounders alone — no target, no species

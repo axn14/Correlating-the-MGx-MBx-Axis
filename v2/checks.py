@@ -1119,6 +1119,23 @@ def e10():
     assert not hits, "figure styling outside viz.apply_theme:\n  " + "\n  ".join(hits)
 
 
+@check("E12 figures are written only through viz.save_figure (300-dpi PNG + PDF twin)")
+def e12():
+    # 42 call sites typed their own savefig arguments: 150-dpi PNG only, no vector copy,
+    # most without the theme's facecolor. viz.save_figure is the one writer; the output
+    # contract then requires the PDF twin of every declared PNG.
+    rx = re.compile(r"\.savefig\(")
+    hits = [f"{name} cell {idx} line {k}"
+            for name, idx, ctype, text in _notebook_sources() if ctype == "code"
+            for k, line in enumerate(text.splitlines(), 1)
+            if rx.search(line) and not line.strip().startswith("#")]
+    hits += [f"utils.py line {k}"
+             for k, line in enumerate((NB_DIR / "utils.py").read_text(encoding="utf-8")
+                                      .splitlines(), 1)
+             if rx.search(line) and not line.strip().startswith("#")]
+    assert not hits, "raw savefig (use viz.save_figure): " + ", ".join(hits)
+
+
 @check("E11 the theme renders subscript labels in DejaVu Sans with editable PDF fonts")
 def e11():
     # Under seaborn's whitegrid alone, Arial resolved and "-log10" with subscript digits

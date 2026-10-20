@@ -23,6 +23,8 @@ projection), NB09 "OK" while documented to raise without one of them, and two
 Paths are relative to Results/. A '*' declares a family (one file per cohort, target or
 comparison); min_files sets how many it must match. min_rows=0 and min_files=0 are
 allowed only with a `note` saying when the output is legitimately empty or absent.
+Figures are declared by their PNG; the PDF twin viz.save_figure writes beside it is
+declared with it and must exist, be fresh, and embed no Type 3 font.
 """
 from __future__ import annotations
 
@@ -161,7 +163,6 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("tables/CRC_progression_metabolite_overlap_10A_10B_v2.csv",
             cols=("Metabolite_overlap",), min_rows=0, note=_HITS),
         Out("figures/qc/residual_diagnostics_*_v2.png", min_files=3),
-        Out("figures/qc/residual_diagnostics_*_v2.pdf", min_files=3),
         Out("figures/differential/*_mtb_volcano_v2.png", min_files=3),
         Out("figures/differential/*_spc_volcano_v2.png", min_files=3),
         Out("figures/differential/da_results_dashboard_v2.png"),
@@ -217,7 +218,6 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("tables/two_stage_shap_*_v2.csv", cols=("Feature", "Mean_SHAP")),
         Out("figures/ml/nb05_external_transfer_roc_v2.png"),
         Out("figures/ml/nb05_severity_transfer_v2.png"),
-        Out("figures/ml/nb05_severity_transfer_v2.pdf"),
         Out("figures/ml/two_stage_shap_*_v2.png"),
     ),
     # Method must be MOFA+ on every row: NB06's PCA fallback (opt-in only) labels its
@@ -375,10 +375,17 @@ def _matches(rel: str, pattern: str) -> bool:
     return (rel.count("/") == pattern.count("/")) and fnmatch.fnmatchcase(rel, pattern)
 
 
+def _png_twin_of(rel: str) -> str | None:
+    """A declared PNG's PDF twin is declared with it (viz.save_figure writes both)."""
+    return rel[:-4] + ".png" if rel.lower().endswith(".pdf") else None
+
+
 def owners(rel: str) -> list[str]:
-    """Notebooks whose contract declares this Results-relative path."""
+    """Notebooks whose contract declares this Results-relative path (a PDF counts as
+    declared when its PNG twin is)."""
+    cands = [rel] + ([_png_twin_of(rel)] if _png_twin_of(rel) else [])
     return [nb for nb, outs in CONTRACT_OUTPUTS.items()
-            if any(_matches(rel, o.path) for o in outs)]
+            if any(_matches(c, o.path) for c in cands for o in outs)]
 
 
 def _files(o: Out, results: Path) -> list[Path]:
@@ -405,16 +412,30 @@ def _csv_shape(path: Path, want: dict) -> tuple[list[str], int, dict]:
     return header, n, seen
 
 
-def _check_file(path: Path, o: Out, rel: str, since: float | None,
-                until: float | None) -> list[str]:
-    st = path.stat()
-    out = []
-    if since is not None and st.st_mtime < since - MTIME_SLACK_S:
+def _fresh(path: Path, rel: str, since: float | None, until: float | None) -> list[str]:
+    mt, out = path.stat().st_mtime, []
+    if since is not None and mt < since - MTIME_SLACK_S:
         out.append(f"{rel}: stale -- last written before this notebook started")
-    if until is not None and st.st_mtime > until + MTIME_SLACK_S:
+    if until is not None and mt > until + MTIME_SLACK_S:
         out.append(f"{rel}: modified after its notebook finished (edited by hand, or "
                    "written by another notebook)")
-    if st.st_size == 0:
+    return out
+
+
+def _check_pdf(path: Path, rel: str) -> list[str]:
+    data = path.read_bytes()
+    if not data.startswith(b"%PDF-"):
+        return [f"{rel}: not a PDF file"]
+    if b"/Type3" in data:
+        return [f"{rel}: embeds Type 3 fonts -- figure text is not editable "
+                "(the theme sets pdf.fonttype 42; was viz.apply_theme bypassed?)"]
+    return []
+
+
+def _check_file(path: Path, o: Out, rel: str, since: float | None,
+                until: float | None) -> list[str]:
+    out = _fresh(path, rel, since, until)
+    if path.stat().st_size == 0:
         return out + [f"{rel}: empty file"]
     suffix = path.suffix.lower()
     if suffix == ".csv":
@@ -450,10 +471,15 @@ def _check_file(path: Path, o: Out, rel: str, since: float | None,
         with open(path, "rb") as fh:
             if fh.read(8) != b"\x89PNG\r\n\x1a\n":
                 out.append(f"{rel}: not a PNG file")
+        # Every figure is written as PNG + vector PDF (viz.save_figure).
+        twin, trel = path.with_suffix(".pdf"), rel[:-4] + ".pdf"
+        if not twin.is_file():
+            out.append(f"{trel}: missing -- figures are saved as PNG + PDF through "
+                       "viz.save_figure")
+        else:
+            out += _fresh(twin, trel, since, until) + _check_pdf(twin, trel)
     elif suffix == ".pdf":
-        with open(path, "rb") as fh:
-            if fh.read(5) != b"%PDF-":
-                out.append(f"{rel}: not a PDF file")
+        out += _check_pdf(path, rel)
     return out
 
 
@@ -519,15 +545,17 @@ def clear_outputs(nb: str, archive_dir: Path, results: Path = RESULTS) -> int:
     moved = 0
     for o in CONTRACT_OUTPUTS.get(nb, ()):
         for f in _files(o, results):
-            rel = f.relative_to(results).as_posix()
-            who = owners(rel)
-            if who != [nb]:
-                raise ContractError(f"{rel} is declared by {who}; contract patterns must "
-                                    "not overlap")
-            dest = archive_dir / rel
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(f), str(dest))
-            moved += 1
+            twin = f.with_suffix(".pdf") if f.suffix.lower() == ".png" else None
+            for g in [f] + ([twin] if twin is not None and twin.is_file() else []):
+                rel = g.relative_to(results).as_posix()
+                who = owners(rel)
+                if who != [nb]:
+                    raise ContractError(f"{rel} is declared by {who}; contract patterns "
+                                        "must not overlap")
+                dest = archive_dir / rel
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(g), str(dest))
+                moved += 1
     return moved
 
 

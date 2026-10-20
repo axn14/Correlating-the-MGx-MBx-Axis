@@ -2640,6 +2640,14 @@ def _draw_confidence_ellipse(ax, x, y, color, n_std=1.96, **kwargs):
     ax.add_patch(ellipse)
 
 
+def _save_figure(fig, save_path):
+    """The plotting helpers below save through viz.save_figure: a 300-dpi PNG plus a
+    PDF twin (checks.py E12 forbids raw savefig). Imported lazily so loading utils does
+    not install the figure theme's machinery."""
+    from viz import save_figure
+    save_figure(fig, save_path)
+
+
 def plot_pca(df, meta, title, color_col="Study.Group", n_components=2,
              figsize=(12, 8), save_path=None, show_ellipses=True,
              show_variance_bar=True):
@@ -2706,7 +2714,7 @@ def plot_pca(df, meta, title, color_col="Study.Group", n_components=2,
 
     plt.tight_layout()
     if save_path:
-        fig.savefig(save_path, dpi=150, bbox_inches="tight")
+        _save_figure(fig, save_path)
     return fig, ax
 
 
@@ -2749,7 +2757,7 @@ def volcano_plot(results_df, title, fc_thresh=1.0, q_thresh=0.05,
     if _standalone:
         plt.tight_layout()
         if save_path:
-            fig.savefig(save_path, dpi=150, bbox_inches="tight")
+            _save_figure(fig, save_path)
     return fig, ax
 
 
@@ -2782,7 +2790,7 @@ def plot_correlation_heatmap(corr_df, title, top_n=20, figsize=(14, 10), save_pa
     ax.set_title(title)
     plt.tight_layout()
     if save_path:
-        fig.savefig(save_path, dpi=150, bbox_inches="tight")
+        _save_figure(fig, save_path)
     return fig, ax
 
 
@@ -2827,7 +2835,7 @@ def plot_stage_trend(species_name, metabolite_name,
     fig.suptitle(f"{species_name[:35]}  <->  {metabolite_name[:35]}", fontsize=10, y=1.01)
     plt.tight_layout()
     if save_path:
-        fig.savefig(save_path, dpi=150, bbox_inches="tight")
+        _save_figure(fig, save_path)
     return fig, axes
 
 

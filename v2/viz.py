@@ -174,7 +174,7 @@ def apply_theme(context: str = "notebook", dpi: int = 110) -> None:
                            f"not {THEME_FONT_FILE}")
     mpl.rcParams.update({
         "figure.dpi":        dpi,
-        "savefig.dpi":       150,
+        "savefig.dpi":       FIGURE_DPI,
         "figure.facecolor":  SURFACE,
         "axes.facecolor":    SURFACE,
         "savefig.facecolor": SURFACE,
@@ -345,28 +345,29 @@ def despine(ax, keep=("left", "bottom")) -> None:
     ax.tick_params(colors=MUTED)
 
 
-def save_figure(fig, path, also_pdf: bool = True, close: bool = True) -> None:
-    """Save a figure consistently, and in vector form alongside the raster.
+FIGURE_DPI = 300   # raster resolution journals ask for (most require >= 300 dpi)
 
-    Supersedes `dpi=150, bbox_inches='tight'` typed out ~45 times, only two of which
-    also passed `facecolor=fig.get_facecolor()` -- so every other figure lost the
-    off-white canvas. `also_pdf` exists because the pipeline emitted nothing but
-    150 dpi PNG, leaving no figure re-typesettable for a journal.
 
-    Only a couple of call sites use this so far (`edits_nb02a.py`, NB05 stage 6);
-    the rest still call `fig.savefig(...)` directly -- see the plan's W4.
+def save_figure(fig, path, also_pdf: bool = True, close: bool = False) -> None:
+    """The one way the pipeline writes a figure: a PNG at FIGURE_DPI and, beside it,
+    a vector PDF with the same stem. checks.py E12 forbids raw `.savefig(` anywhere
+    else, and the output contract requires the PDF twin of every declared PNG.
 
-    Closes the figure by default: the notebooks previously `savefig`'d AND
-    `plt.show()`ed every figure, and `nbconvert --execute --inplace` then wrote a
-    second base64 copy of each one back into the .ipynb on disk.
+    Every call site used to type `dpi=150, bbox_inches='tight'` itself, only a few
+    passed `facecolor=` (the rest lost the off-white canvas), and nothing but 150 dpi
+    PNG was written, so no figure could be re-typeset for a journal.
+
+    Deterministic: the PDF carries no CreationDate, and the theme's fonts are embedded
+    as TrueType (Type 42), so two runs write identical bytes. The figure is NOT closed
+    by default: under the inline backend a closed figure never reaches the executed
+    notebook or its HTML export, which are the run's record. Callers keep their own
+    `plt.show()` / `plt.close()`.
     """
-    from pathlib import Path
-
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, dpi=150, bbox_inches="tight", facecolor=fig.get_facecolor())
+    kw = dict(bbox_inches="tight", facecolor=fig.get_facecolor())
+    fig.savefig(path, dpi=FIGURE_DPI, **kw)
     if also_pdf:
-        fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight",
-                    facecolor=fig.get_facecolor())
+        fig.savefig(path.with_suffix(".pdf"), metadata={"CreationDate": None}, **kw)
     if close:
         plt.close(fig)
