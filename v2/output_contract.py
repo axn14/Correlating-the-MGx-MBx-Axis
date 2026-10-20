@@ -53,6 +53,7 @@ class Out:
     min_rows: int = 1                           # CSV: data rows required per file
     min_files: int = 1                          # files the path must match
     values: dict = field(default_factory=dict)  # CSV: {column: values that must occur}
+    allowed: dict = field(default_factory=dict) # CSV: {column: the only values permitted}
     note: str = ""                              # why min_rows/min_files may be 0
 
     def __post_init__(self):
@@ -68,6 +69,7 @@ VALIDATION = ("SINHA_CRC_2016", "Kim_adenomas_2020")
 _HITS = "a significance-filtered hit table; empty is a valid result"
 _NO_GENOMIC = ("needs a genomic reference index, which is unavailable "
                "(utils.AGORA2_ENABLED is False; gutSMASH pending)")
+_MOFA_ONLY = {"Method": ("MOFA+",)}
 
 CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
     "01_preprocessing.ipynb": (
@@ -217,13 +219,18 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("figures/ml/nb05_severity_transfer_v2.pdf"),
         Out("figures/ml/two_stage_shap_*_v2.png"),
     ),
+    # Method must be MOFA+ on every row: NB06's PCA fallback (opt-in only) labels its
+    # outputs Method=PCA, and PCA axes are never MOFA evidence.
     "06_multiomics_factors.ipynb": (
-        Out("tables/mofa_factor_loadings_v2.csv", cols=("Factor", "View", "Feature", "Weight")),
-        Out("tables/mofa_factor_scores_v2.csv", cols=("Sample", "Factor1", "Stage.Group")),
+        Out("tables/mofa_factor_loadings_v2.csv",
+            cols=("Factor", "View", "Feature", "Weight", "Method"), allowed=_MOFA_ONLY),
+        Out("tables/mofa_factor_scores_v2.csv",
+            cols=("Sample", "Factor1", "Stage.Group", "Method"), allowed=_MOFA_ONLY),
         Out("tables/mofa_factor_stage_association_v2.csv",
-            cols=("Factor", "KW_pval", "KW_qval", "Spearman_rho", "Spearman_qval")),
+            cols=("Factor", "KW_pval", "KW_qval", "Spearman_rho", "Spearman_qval", "Method"),
+            allowed=_MOFA_ONLY),
         Out("tables/mofa_postsurgery_projection_v2.csv",
-            cols=("Sample", "Factor1", "Projected")),
+            cols=("Sample", "Factor1", "Projected", "Method"), allowed=_MOFA_ONLY),
         Out("figures/multiomics/mofa_variance_explained_v2.png"),
         Out("figures/multiomics/mofa_factor_scores_by_stage_v2.png"),
         Out("figures/multiomics/mofa_factor_biplot_v2.png"),
@@ -410,7 +417,7 @@ def _check_file(path: Path, o: Out, rel: str, since: float | None,
         return out + [f"{rel}: empty file"]
     suffix = path.suffix.lower()
     if suffix == ".csv":
-        header, n, seen = _csv_shape(path, o.values)
+        header, n, seen = _csv_shape(path, {**o.values, **o.allowed})
         if not header or all(not h.strip() for h in header):
             return out + [f"{rel}: no header row (a column-less DataFrame was written; "
                           "build empty tables with explicit columns)"]
@@ -423,6 +430,11 @@ def _check_file(path: Path, o: Out, rel: str, since: float | None,
             absent = [v for v in required if v not in seen.get(col, set())]
             if absent:
                 out.append(f"{rel}: column {col!r} lacks {absent}")
+        for col, permitted in o.allowed.items():
+            extra = sorted(seen.get(col, set()) - set(permitted))
+            if extra:
+                out.append(f"{rel}: column {col!r} holds {extra}; only {list(permitted)} "
+                           "is permitted")
     elif suffix == ".pkl":
         if o.keys:
             with open(path, "rb") as fh:

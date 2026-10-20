@@ -418,6 +418,11 @@ factor sign canonicalised so **higher = more advanced disease**. PostSurgery is 
 afterwards**, never used in fitting, so comparing it against the axes is not circular.
 Undetected metabolites → `NaN` via NB02's `undetected_mtb` mask, for MOFA+'s native
 missing-value handling.
+**No silent substitute (2026-10-20).** Every factor table carries `Method`, and the output
+contract requires `MOFA+` on every row. A failed MOFA+ fit fails NB06; the PCA fallback runs
+only with `KI_ALLOW_PCA_FALLBACK=1`, writes `Method = PCA`, and NB08/NB09 refuse it.
+**Errata:** the fallback used to run on *any* exception and write the same `mofa_*` tables
+with nothing recording the method, which NB08/NB09 would have read as MOFA evidence.
 
 ### NB07 `07_mediation.ipynb`
 Markdown only — documents why mediation is excluded: circular mediator selection, a
@@ -480,7 +485,10 @@ then counts **five independent sources** and applies pre-declared tiers: `Strong
 `Moderate` = 2, `Weak` = 1, `Statistical only` = 0. The statistical association is **not**
 counted; it is how a pair was nominated, so counting it would give every row a free point.
 GLASSO edges use a **Westfall–Young max-T** permutation FWER test (per-edge BH on a precision
-matrix was structurally unable to reach significance).
+matrix was structurally unable to reach significance). A GLASSO fit that is not numerically
+sound (non-finite CV scores, penalty at the grid edge, non-convergence) fails NB09; skipping
+Module D is opt-in (`KI_ALLOW_GLASSO_SKIP=1`), because the empty edge table a skip writes
+would otherwise read as "no edges".
 
 ### NB10 `10_micom_flux.ipynb` *(separate run — see §8)*
 
