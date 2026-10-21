@@ -9,8 +9,11 @@ Canonical form, applied to every notebook:
   - code cells: outputs emptied, execution_count null;
   - per-cell volatile metadata dropped: nbclient's "execution" timings, "ExecuteTime";
   - kernelspec.display_name fixed to "Python 3" (the editor writes the venv name);
-  - language_info.version dropped (it records whichever interpreter ran it last);
-  - every source stored as nbformat's list of lines.
+  - language_info reduced to its name (the rest records whichever front end saved it);
+  - every source stored as nbformat's list of lines;
+  - keys sorted, as Jupyter and VS Code write them. Without this, a notebook saved
+    from the editor differed from one written by a script only in key order, and
+    git reported it modified.
 
 Invalid JSON exits non-zero, so a half-written notebook cannot be committed silently.
 
@@ -43,7 +46,9 @@ def canonicalise(nb: dict) -> dict:
     if isinstance(meta.get("kernelspec"), dict):
         meta["kernelspec"]["display_name"] = "Python 3"
     if isinstance(meta.get("language_info"), dict):
-        meta["language_info"].pop("version", None)
+        # Only the language name is kept: the rest (version, codemirror mode, file
+        # extension, ...) depends on which front end last saved the file.
+        meta["language_info"] = {"name": meta["language_info"].get("name", "python")}
     return nb
 
 
@@ -54,7 +59,7 @@ def main() -> int:
     except json.JSONDecodeError as exc:
         sys.stderr.write(f"nbstrip: not valid notebook JSON ({exc}); refusing to stage it\n")
         return 1
-    out = json.dumps(canonicalise(nb), indent=1, ensure_ascii=False) + "\n"
+    out = json.dumps(canonicalise(nb), indent=1, ensure_ascii=False, sort_keys=True) + "\n"
     sys.stdout.buffer.write(out.encode("utf-8"))
     return 0
 
