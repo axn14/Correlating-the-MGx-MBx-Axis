@@ -69,8 +69,6 @@ VALIDATION = ("SINHA_CRC_2016", "Kim_adenomas_2020")
 # Selected-hit tables (significance-filtered) can be empty in a valid run; test tables
 # (one row per feature or pair tested) cannot.
 _HITS = "a significance-filtered hit table; empty is a valid result"
-_NO_GENOMIC = ("needs a genomic reference index, which is unavailable "
-               "(utils.AGORA2_ENABLED is False; gutSMASH pending)")
 _MOFA_ONLY = {"Method": ("MOFA+",)}
 
 CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
@@ -241,12 +239,16 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
     "08_pathway_analysis.ipynb": (
         Out("tables/r1_agora2_producer_enrichment_v2.csv",
             cols=("Species", "Polyamine", "Rank", "KEGG_ID", "Encodes_Enzyme",
-                  "AGORA2_Model_Available"),
+                  "AGORA2_Model_Available", "AGORA2_match"),
             min_rows=0, note="one row per NB03 positive-direction producer; none if NB03 "
                              "found none"),
         Out("tables/r1_agora2_enrichment_test_v2.csv",
             cols=("Polyamine", "KEGG_ID", "n_universe", "OddsRatio", "PValue", "QValue"),
-            min_rows=0, note="no polyamine is testable: the test " + _NO_GENOMIC),
+            min_rows=0, note="a polyamine is testable only when NB03 has producers for it "
+                             "that have an AGORA2 model"),
+        Out("tables/r1_agora2_base_rates_v2.csv",
+            cols=("Polyamine", "KEGG_ID", "Producing_ECs", "N_modelled_species", "Base_rate",
+                  "Informative")),
         Out("tables/r3_scfa_polyamine_enrichment_v2.csv",
             cols=("Test", "OddsRatio", "PValue", "QValue", "Significant"),
             min_rows=0, note="no producers to test"),
@@ -275,26 +277,27 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
             min_rows=0, note="GLASSO may select no species-metabolite edge"),
         Out("tables/final_evidence_synthesis_v2.csv",
             cols=("Species", "Polyamine", "KEGG_ID", "Rho_partial", "QValue_partial",
+                  "Source_B_AGORA2_Available", "Source_B_AGORA2_Support",
+                  "Source_B_AGORA2_Base_rate", "Source_B_AGORA2_Counted",
                   "N_Sources_Available", "N_Sources_Supporting", "Evidence_Level")),
         Out("tables/c_pathway_mapping_v2.csv", cols=("Feature", "KEGG_ID", "Reactome_ID")),
         Out("tables/c_species_pathway_correlations_v2.csv",
             cols=("Pathway", "Species", "Rho", "PValue", "QValue")),
-        Out("tables/g_guild_members_v2.csv", cols=("Guild", "Species"),
-            min_rows=0, note="guild membership " + _NO_GENOMIC),
+        Out("tables/g_guild_members_v2.csv", cols=("Guild", "Species")),
         Out("tables/g_pathway_enrichment_scores_v2.csv", cols=("Sample", "Stage.Group")),
         Out("tables/g_pathway_factor_correlations_v2.csv",
-            cols=("Pathway", "Factor", "Rho", "PValue", "QValue", "Significant"),
-            min_rows=0, note="no guild scores to correlate: guild membership " + _NO_GENOMIC),
-        Out("tables/b_agora2_producer_enzyme_profile_v2.csv", min_files=0,
-            note="Module B " + _NO_GENOMIC),
+            cols=("Pathway", "Factor", "Rho", "PValue", "QValue", "Significant")),
+        Out("tables/b_agora2_producer_enzyme_profile_v2.csv",
+            cols=("Species", "Genus", "Total_AGORA2_Encoded", "AGORA2_Model_Available",
+                  "AGORA2_match"),
+            min_files=0, note="Module B is written only when NB03 has positive-direction "
+                              "producer rows"),
         Out("figures/pathway_network/d_glasso_network_v2.png"),
         Out("figures/pathway_network/c_species_pathway_heatmap_v2.png"),
         Out("figures/pathway_network/final_evidence_synthesis_heatmap_v2.png", min_files=0,
             note="drawn only when some pair has >= 2 supporting sources"),
-        Out("figures/pathway_network/g_pathway_mofa_factor_heatmap_v2.png", min_files=0,
-            note="drawn only when guild scores exist"),
-        Out("figures/pathway_network/g_pathway_stage_boxplots_v2.png", min_files=0,
-            note="drawn only when guild scores exist"),
+        Out("figures/pathway_network/g_pathway_mofa_factor_heatmap_v2.png"),
+        Out("figures/pathway_network/g_pathway_stage_boxplots_v2.png"),
     ),
 }
 

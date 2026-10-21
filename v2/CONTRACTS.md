@@ -226,9 +226,9 @@ C01672 Cadaverine, C00077 Ornithine, C00062 Arginine.
 `POLYAMINE_EC` lists **producing** reactions only. The pre-v2 map listed enzymes that
 *consume* ornithine and arginine as their producers, which inverted the producer call for
 those compounds. `checks.py` D1 asserts both the required producers and the forbidden
-consumers; D5 asserts each compound has at least one EC that AGORA2 actually annotates.
-Known gap: EC 4.1.1.96 is absent from AGORA2, so spermidine producer calls rest on 2.5.1.16
-alone.
+consumers. Known gap: EC 4.1.1.96 is absent from AGORA2, so spermidine producer calls rest on
+2.5.1.16 alone; spermine's only producing EC (2.5.1.22) is encoded by 0.5% of AGORA2 models
+and by none of the 151 modelled study species.
 
 `POLYAMINE_PATHWAY_KEGG` excludes ornithine and arginine: their synthesis ECs appear in ~90%
 of AGORA2 species and carry no pathway-membership information.
@@ -475,10 +475,12 @@ list drawn from this cohort's own SHAP output. R4/R5/R8 are **supplementary desc
 indices** and contribute no evidence column.
 
 ### NB09 `09_pathway_network.ipynb`
-> **STATUS (2026-10-20):** as executed, NB09 reads NB02's polyamine partial correlations and
-> NB08's `r1`/`r8` tables directly and scores **three** sources (NB03 SHAP, AGORA2 — always
-> unavailable — and MOFA co-loading). Reading `pair_evidence_nb08_v2.csv` and the five-source
-> count below take effect with the NB08 rebuild.
+> **STATUS (2026-10-21):** as executed, NB09 reads NB02's polyamine partial correlations and
+> NB08's `r1`/`r8` tables directly and scores **three** sources (NB03 SHAP, AGORA2 enzyme
+> evidence, MOFA co-loading). AGORA2 counts toward a tier only for compounds where it is
+> informative (base rate ≤ 0.2, see "AGORA2 genomic evidence" below). Reading
+> `pair_evidence_nb08_v2.csv` and the five-source count below take effect with the NB08
+> rebuild.
 
 **Reads** `pair_evidence_nb08_v2.csv` (**required** — raises if absent and never recomputes
 it), plus the reduced pickle and MOFA loadings.
@@ -504,9 +506,11 @@ would otherwise read as "no edges".
 - **FDR:** `utils.FDR_THRESHOLD = 0.05`, Benjamini-Hochberg. One family per table;
   `bh_family()` corrects several p-columns jointly and emits `Q_<col>`.
 - **Missing coverage is never negative evidence.** `None`/`NaN` means "not assessable".
-- **No live network calls.** AGORA2 enzyme evidence comes from the local index at
-  `Results/tables/agora2_species_ec_index.json`, rebuilt from `Data/micom/agora2_extracted/`
-  by `utils.build_agora2_ec_index` (~40 s, 1439 species).
+- **No live network calls.** AGORA2 enzyme evidence comes from the local index
+  `Data/reference/agora2_species_ec_index.json`, an input built once from
+  `Data/micom/agora2_extracted/` by `python tools/build_agora2_index.py` (28 s, 1,439
+  species) with a sidecar recording the source fingerprint (`checks.py` D5). Notebooks only
+  load it; the runner hashes it as a shared input.
 - **One figure theme.** Every notebook that draws calls `viz.apply_theme()` and nothing
   else restyles (`checks.py` E10): DejaVu Sans, bundled with matplotlib, for text and
   mathtext; TrueType (Type 42) fonts in PDF/PS so figure text stays editable; a glyph
@@ -575,28 +579,46 @@ then `MICOM_status == 'pending'`.
 
 ### Attainable evidence ceiling — read this before interpreting any `Tier`
 
-**As executed today, NB09 counts three sources** — NB03 SHAP, AGORA2 genomic and MOFA
-co-loading — and genomic is disabled, so the attainable maximum is **2 of 3** and its
-`Strong (3/3)` tier is **unreachable**. In the smoke run every supported row was `Weak (1/3)`,
-and those came from MOFA co-loading alone, which the integrity review measured firing near
-its chance rate (council item C11). The five-source design below applies after the NB08
-rebuild.
+**As executed today, NB09 counts three sources** — NB03 SHAP, AGORA2 enzyme evidence and
+MOFA co-loading. AGORA2 counts only where informative, which among the polyamines is spermine
+alone (and no modelled species encodes its producing EC), so for every other polyamine the
+attainable maximum is **2 of 3** and `Strong (3/3)` is **unreachable**. `N_Sources_Available`
+states the ceiling per row. MOFA co-loading still counts although the integrity review
+measured it firing near its chance rate (council item C11, open). The five-source design
+below applies after the NB08 rebuild.
 
-The five-source design (§7) has two sources currently unavailable:
+The five-source design (§7):
 
 | Source | State |
 |---|---|
 | `predictive` (NB03 SHAP) | available |
 | `replication` (NB02, genus level) | available |
-| MOFA same-sign co-loading (NB09) | available |
-| `genomic` (AGORA2) | **DISABLED** — `utils.AGORA2_ENABLED is False`, enforced by `checks.py` D5 |
+| MOFA same-sign co-loading (NB09) | available (C11: base rate not yet gated) |
+| `genomic` (AGORA2) | available for 151 of 500 reduced species; counted only where its base rate ≤ 0.2 |
 | `mechanistic` (MICOM, NB10) | **pending** until the decoupled batch runs |
 
-So the attainable maximum is **3 of 5**, not 4 of 5. `Strong` (≥ 3) is therefore reachable
-only when *all three* available sources fire on the same pair — a far more fragile tier than
-"3 of 5" suggests, and `Moderate`/`Weak` cannot be read as "failed to reach 5".
-**Running MICOM restores a fourth source and makes `Strong` 3-of-4 rather than 3-of-3.**
 State the ceiling alongside any table or figure that carries a `Tier`.
+
+### AGORA2 genomic evidence (re-enabled 2026-10-21)
+
+Disabled 2026-10-07 because building the index (a 1.8 GB scan) overloaded the old 2-core
+server; every lookup returned `None`, so NB08 R1/R3, NB09 Modules B/G and synthesis Source B
+were empty. Re-enabled once that server was retired, with the build moved out of the pipeline
+(see §7).
+- **Match rule** (`utils.agora2_species_id`): the exact GTDB name first, then — only if
+  exactly one model agrees — the name with GTDB placeholder suffixes (`_A`, `_B`, …) dropped.
+  Of the 500 reduced Yachida species, **124 match exactly and 27 after suffix normalisation;
+  349 have no model** and carry no genomic evidence (`None`, never `False`).
+- **What it means:** the species' draft reconstruction contains a reaction with a producing EC
+  for the compound. Reconstructions include gap-filled reactions, so this is **capability, not
+  production**.
+- **Base rates** (`r1_agora2_base_rates_v2.csv`; fraction of the 151 modelled species encoding
+  a producing EC): arginine 0.974, ornithine 0.901, putrescine 0.874, agmatine 0.702,
+  cadaverine 0.623, spermidine 0.576, spermine 0.000. For six of seven polyamines nearly every
+  modelled species "encodes" the enzyme, so the call cannot single out a producer. Rule
+  (pre-declared, council D7): a source counts toward a tier only where its base rate is
+  ≤ `utils.EVIDENCE_MAX_BASE_RATE` = 0.2; the raw call is kept in the table either way
+  (`Source_B_AGORA2_Support`, `_Base_rate`, `_Counted`).
 
 Inputs: `Data/micom/agora2_gtdb_species.qza` (GTDB-native, so Yachida's names match without
 renaming), `Data/micom/western_diet_gut.csv`, and — when present —
@@ -655,7 +677,7 @@ Candidate targets come from the robust-hit tables, not a nominal-p screen.
 | **A** group policy | MP excluded, HS quarantined, PostSurgery NaN on every ordinal scale, exact counts (307/277/30/150), primary ∪ sensitivity partitions the cohort, `apply_mask` filters by Sample ID; every validation case survives `primary_mask` (A6); the cross-cohort genus basis is fixed before the CLR, with prevalence applied to the training cohort only (A8/A9); the opt-in severity scale cannot touch the primary encoding (A10) |
 | **B** leakage | default confounders carry no tumour column; `include_tumor_location=True` raises on the full cohort / Healthy-only / PostSurgery-only / CRC+1-Healthy; succeeds CRC-only with exact site counts; `Tumor.Location.Site` is NaN for every non-cancer sample |
 | **C** statistics | `MeanDiff`/`CliffsD` sign conventions; `clr_lm_da` recovers a planted effect with the right sign, is calibrated on null data, refuses a too-small arm, drops constant covariates; progression FDR corrects each marginal test once; metabolite normalisation is blind to non-detects outside its reference set (C6); `partial_spearman_grid` reproduces pingouin exactly (C7); transfer features harmonise detection depth and share one CLR delta (C8); replication keeps "not measurable" apart from "not replicated" and flags contradictions (C9) |
-| **D** biology | `POLYAMINE_EC` lists producing reactions only; the pathway set excludes the universal precursors; proxies are pre-specified and non-overlapping; Kim/Sinha lookups find the expected direct+proxy sets; AGORA2 evidence is disabled and no notebook calls its helpers (D5); the curated EC map survives for re-enabling (D6) |
+| **D** biology | `POLYAMINE_EC` lists producing reactions only; the pathway set excludes the universal precursors; proxies are pre-specified and non-overlapping; Kim/Sinha lookups find the expected direct+proxy sets; AGORA2 evidence comes from the prebuilt index, which matches the reconstructions on disk, and no notebook builds it (D5); the EC maps cover every compound and guild (D6); AGORA2 lookups are tri-state, match names safely and index producing reactions only (D7) |
 | **E** hygiene | no notebook uses `SMOTE`, `TumorLoc_`, `Precursor`, or `'Adenoma'`/`'MP'` as a code-level group label; no notebook asserts the old HS-exclusion invariant; this file documents the policy; no active generator (E4); no blanket warning suppression (E5); no notebook-local genus/CLR helper (E6); the cohort counts quoted here match the data (E7); every output named here is declared in `output_contract.py` or listed as not produced (E8); every `utils` function an A–D check guards is reached by an executed notebook (E9) |
 
 **Post-run output contract (`output_contract.py`).** `checks.py` runs before anything

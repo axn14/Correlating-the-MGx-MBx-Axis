@@ -2408,37 +2408,27 @@ def find_consistent_correlations(corr_dicts, kegg_map=None, min_datasets=2, q_th
 
 
 # ============================================================================
-# AGORA2 SPECIES-LEVEL ENZYME PRESENCE  —  *** DISABLED IN v2.1 ***
+# AGORA2 SPECIES-LEVEL ENZYME PRESENCE (genomic capability evidence)
 # ----------------------------------------------------------------------------
-# These helpers are retained but NOT used by the v2.1 pipeline. Genome-scale
-# evidence was removed from the analysis because it cannot be produced on the
-# available hardware: building the EC index needs the 1.7 GB of AGORA2
-# reconstructions on disk, and MICOM community flux modelling needs ~100 MB of
-# model per sample (307 samples) — on a 2-core / 1500 MiB box the latter
-# saturated the machine to the point where it stopped responding.
+# History: disabled 2026-10-07 (v2.1). Building the EC index scans 1,439 AGORA2
+# reconstructions (1.8 GB), which overloaded the 2-core / 1.5 GB analysis server;
+# every lookup returned None and NB08 R1/R3, NB09 Modules B/G and synthesis Source B
+# were empty. Re-enabled 2026-10-21: that server is gone and the reconstructions are
+# still on disk.
 #
-# Consequences, stated so they are not forgotten:
-#   * there is NO "genomic" evidence column (can this species make the
-#     compound?) and no "mechanistic" (MICOM flux) column;
-#   * NB08's R1 (enzyme evidence) and R3 (SCFA guild) are removed, and NB09's
-#     Modules B and G with them;
-#   * the final evidence synthesis rests on three statistical/predictive
-#     sources — SHAP, external replication and MOFA co-loading — none of which
-#     demonstrates metabolic capability.
+# The index is an INPUT, built ONCE outside the pipeline:
+#     python tools/build_agora2_index.py
+# which writes AGORA2_INDEX_CACHE plus a sidecar recording the source fingerprint
+# (checks.py D5 verifies it). Notebooks only LOAD it (load_agora2_ec_index); none may
+# trigger the scan.
 #
-# POLYAMINE_EC / SCFA_EC / PURINE_CATAB_EC are deliberately KEPT: the curation
-# is correct (it fixes a map that previously listed CONSUMING enzymes as
-# producers) and checks.py D1 keeps guarding it, so re-enabling this evidence
-# later starts from a verified map rather than the broken one.
-#
-# To re-enable: restore Data/micom/agora2_extracted, call
-# build_agora2_ec_index(find_agora2_data_dir(), cache_path=AGORA2_INDEX_CACHE,
-# force_rebuild=True) ONCE with nothing else running (~41 s, 1439 species),
-# keep the resulting JSON, and delete the reconstructions again. The JSON alone
-# is enough for every enzyme lookup below.
+# What it is evidence of: a species' draft reconstruction contains a reaction with
+# that EC producing the compound. Reconstructions carry gap-filled reactions, so this
+# is CAPABILITY, never production; a species without a model is None (no evidence),
+# never False. POLYAMINE_EC lists producing reactions only (checks.py D1).
 # ============================================================================
 
-AGORA2_ENABLED = False
+AGORA2_ENABLED = True
 
 _EC_RE = re.compile(r"\d+\.\d+\.\d+\.(?:n?\d+|-)")
 
@@ -2519,6 +2509,35 @@ def build_agora2_ec_index(agora2_data_dir: Path, cache_path: Path | None = None,
     return index
 
 
+_GTDB_SUFFIX_RE = re.compile(r"_[A-Z]{1,2}(?=_|$)")
+
+
+def agora2_species_id(species: str, agora2_ec_index: dict):
+    """Map a study species name to its AGORA2 model id: (id, match_type).
+
+    match_type is "exact" when "s__" + the name with non-word characters as "_" is a
+    model; otherwise "suffix_normalised" when the two agree after GTDB placeholder
+    suffixes (_A, _B, ...) are dropped from both and exactly ONE model matches; else
+    (None, None). Ambiguous suffix matches are refused rather than guessed.
+    """
+    exact = "s__" + re.sub(r"[^\w]", "_", str(species).strip())
+    if exact in agora2_ec_index:
+        return exact, "exact"
+    key = _GTDB_SUFFIX_RE.sub("", exact)
+    held = _AGORA2_NORMALISED.get(id(agora2_ec_index))
+    if held is None or held[0] is not agora2_ec_index:      # ids are reused after GC
+        memo = {}
+        for sid in agora2_ec_index:
+            memo.setdefault(_GTDB_SUFFIX_RE.sub("", sid), []).append(sid)
+        held = (agora2_ec_index, memo)
+        _AGORA2_NORMALISED[id(agora2_ec_index)] = held
+    cands = held[1].get(key, [])
+    return (cands[0], "suffix_normalised") if len(cands) == 1 else (None, None)
+
+
+_AGORA2_NORMALISED: dict = {}
+
+
 def species_encodes_enzyme(species: str, kegg_id: str, agora2_ec_index: dict):
     """Does `species` (a plain binomial, e.g. "Sutterella wadsworthensis_A")
     encode a terminal biosynthetic enzyme for `kegg_id`, per its AGORA2
@@ -2527,14 +2546,30 @@ def species_encodes_enzyme(species: str, kegg_id: str, agora2_ec_index: dict):
     Returns True/False if the species has an AGORA2 model, None if it
     doesn't (no evidence -- not the same as False).
     """
-    species_id = "s__" + re.sub(r"[^\w]", "_", str(species).strip())
-    if species_id not in agora2_ec_index:
+    species_id, _ = agora2_species_id(species, agora2_ec_index)
+    if species_id is None:
         return None
     species_kegg_ecs = agora2_ec_index[species_id].get(kegg_id, [])
     required = POLYAMINE_EC.get(kegg_id)
     if required is not None:
         return any(ec in species_kegg_ecs for ec in required)
     return len(species_kegg_ecs) > 0
+
+
+# An evidence source counts toward an evidence tier only where it is informative: its
+# base rate -- how often it fires for an arbitrary modelled species -- must be at most
+# this (council review, D7). AGORA2 "encodes the enzyme" fires for 87% of modelled
+# study species for putrescine and 97% for arginine, so for those compounds it cannot
+# distinguish a producer from any other species.
+EVIDENCE_MAX_BASE_RATE = 0.20
+
+
+def agora2_base_rate(species, kegg_id: str, agora2_ec_index: dict):
+    """(base rate, n modelled): the fraction of `species` that HAVE an AGORA2 model and
+    encode a producing enzyme for `kegg_id`. Species without a model are left out."""
+    calls = [species_encodes_enzyme(s, kegg_id, agora2_ec_index) for s in species]
+    known = [c for c in calls if c is not None]
+    return (float(np.mean(known)) if known else float("nan")), len(known)
 
 
 def species_has_any_ec(species: str, ecs, agora2_ec_index: dict):
@@ -2545,42 +2580,41 @@ def species_has_any_ec(species: str, ecs, agora2_ec_index: dict):
 
     Returns True/False if the species has an AGORA2 model, None if not.
     """
-    species_id = "s__" + re.sub(r"[^\w]", "_", str(species).strip())
-    if species_id not in agora2_ec_index:
+    species_id, _ = agora2_species_id(species, agora2_ec_index)
+    if species_id is None:
         return None
     wanted = set(ecs)
     return any(wanted.intersection(v) for v in agora2_ec_index[species_id].values())
 
 
-AGORA2_INDEX_CACHE = RESULTS_DIR / "tables" / "agora2_species_ec_index.json"
+# An INPUT, built once by tools/build_agora2_index.py. Not under Results/: a run that
+# recomputes NB01 archives Results/tables, which would take the index with it.
+AGORA2_INDEX_CACHE = DATA_DIR / "reference" / "agora2_species_ec_index.json"
+AGORA2_INDEX_SIDECAR = AGORA2_INDEX_CACHE.with_suffix(".build.json")
 
 
 _AGORA2_INDEX_MEMO: dict | None = None
 
 
 def load_agora2_ec_index() -> dict:
-    """AGORA2 species->EC index from its JSON cache.
+    """AGORA2 species->EC index from its JSON cache (an input, see the section header).
 
-    DISABLED in v2.1 (see the section header): raises unless the cached JSON
-    already exists. It deliberately does NOT fall back to rebuilding from
-    Data/micom, because that rebuild is what overloaded the analysis server —
-    a silent 1.7 GB scan triggered from inside a notebook is exactly the
-    failure mode this guard exists to prevent.
+    Raises if the cache is absent. It never falls back to building the index from the
+    1.8 GB of reconstructions: a scan triggered from inside a notebook is what
+    overloaded the old server, and the build belongs to tools/build_agora2_index.py.
 
-    Memoised per process: the parsed index is a few hundred MB, so repeated
-    calls within one notebook must not load extra copies.
+    Memoised per process: the parsed index is large, so repeated calls within one
+    notebook must not load extra copies.
     """
     global _AGORA2_INDEX_MEMO
     if _AGORA2_INDEX_MEMO is not None:
         return _AGORA2_INDEX_MEMO
+    if not AGORA2_ENABLED:
+        raise RuntimeError("AGORA2 evidence is disabled (utils.AGORA2_ENABLED is False)")
     if not AGORA2_INDEX_CACHE.exists():
         raise RuntimeError(
-            "AGORA2 enzyme evidence is disabled in v2.1 and its index cache is absent "
-            f"({AGORA2_INDEX_CACHE}). No notebook in the v2.1 pipeline should call this. "
-            "If you are deliberately re-enabling genome-scale evidence, build the index "
-            "ONCE with nothing else running (see the AGORA2 section header in utils.py) "
-            "and keep only the resulting JSON."
-        )
+            f"the AGORA2 EC index is absent ({AGORA2_INDEX_CACHE}). Build it once, outside "
+            "the pipeline:  python tools/build_agora2_index.py")
     _AGORA2_INDEX_MEMO = build_agora2_ec_index(None, cache_path=AGORA2_INDEX_CACHE)
     return _AGORA2_INDEX_MEMO
 
@@ -2594,6 +2628,18 @@ def find_agora2_data_dir(data_dir=DATA_DIR):
     if not manifests:
         raise FileNotFoundError(f"No AGORA2 manifest.csv found under {root}")
     return manifests[0].parent
+
+
+def agora2_source_fingerprint(agora2_data_dir) -> dict:
+    """Identity of the reconstructions an index was built from: file count and a
+    sha256 over the sorted (name, size) list. Cheap (no file contents read); the
+    sidecar records it and checks.py D5 compares it with what is on disk."""
+    import hashlib as _hashlib
+    files = sorted(Path(agora2_data_dir).glob("*.json"))
+    h = _hashlib.sha256()
+    for p in files:
+        h.update(f"{p.name}\t{p.stat().st_size}\n".encode("utf-8"))
+    return {"n_files": len(files), "names_sizes_sha256": h.hexdigest()}
 
 
 # ============================================================================

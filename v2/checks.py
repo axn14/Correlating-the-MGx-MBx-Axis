@@ -753,52 +753,68 @@ def d4():
         assert set(proxy) == exp_proxy, f"{ds} proxy: {set(proxy)} != {exp_proxy}"
 
 
-@check("D5 AGORA2 genome-scale evidence is disabled and nothing silently re-enables it")
+@check("D5 AGORA2 evidence comes from the prebuilt index, which matches the reconstructions")
 def d5():
-    # v2.1 removed genome-scale evidence: the EC-index build needs 1.7 GB of
-    # reconstructions on disk and MICOM needs ~100 MB of model per sample, which
-    # overloaded the analysis server. This check makes the removal verifiable
-    # rather than a claim, and it is the guard that stops a notebook from
-    # triggering a 1.7 GB scan from inside a pipeline run.
-    assert utils.AGORA2_ENABLED is False, \
-        "utils.AGORA2_ENABLED is True -- v2.1 does not support genome-scale evidence"
-
-    # The loader must refuse rather than rebuild when the cache is absent.
-    if not utils.AGORA2_INDEX_CACHE.exists():
-        utils._AGORA2_INDEX_MEMO = None
-        try:
-            utils.load_agora2_ec_index()
-        except RuntimeError:
-            pass
-        else:
-            raise AssertionError(
-                "load_agora2_ec_index() did not refuse with the index cache absent -- it "
-                "may still fall back to scanning Data/micom, which is what overloaded "
-                "the server."
-            )
-
-    # No notebook may call the AGORA2 helpers.
-    banned = (r"load_agora2_ec_index|species_encodes_enzyme|species_has_any_ec|"
-              r"build_agora2_ec_index|find_agora2_data_dir|agora2_evidence")
-    hits = []
-    for name, idx, ctype, text in _notebook_sources():
-        if ctype != "code":
-            continue
-        for lineno, line in enumerate(text.splitlines(), 1):
-            if line.strip().startswith("#"):
-                continue
-            if re.search(banned, line):
-                hits.append(f"{name} cell {idx} line {lineno}")
-    assert not hits, ("notebook(s) still call AGORA2 enzyme helpers, which cannot run in "
-                      "v2.1: " + ", ".join(hits))
+    # Disabled 2026-10-07 because building the index (a 1.8 GB scan) from inside a run
+    # overloaded the old server; re-enabled 2026-10-21 with the build moved to
+    # tools/build_agora2_index.py. Notebooks may LOAD the index, never build it.
+    assert utils.AGORA2_ENABLED is True, "AGORA2 evidence is disabled in utils"
+    cache, side = utils.AGORA2_INDEX_CACHE, utils.AGORA2_INDEX_SIDECAR
+    assert cache.exists() and side.exists(), (
+        f"AGORA2 index or its build record is missing ({cache}); build it once with "
+        "python tools/build_agora2_index.py")
+    built = json.loads(side.read_text(encoding="utf-8"))
+    try:
+        src = utils.find_agora2_data_dir()
+    except FileNotFoundError:
+        src = None          # reconstructions removed after the build: the index stands alone
+    if src is not None:
+        now = utils.agora2_source_fingerprint(src)
+        assert all(built.get(k) == v for k, v in now.items()), (
+            "the AGORA2 index was built from different reconstructions than those on "
+            "disk; rebuild: python tools/build_agora2_index.py --force")
+    banned = r"build_agora2_ec_index|find_agora2_data_dir"
+    hits = [f"{name} cell {idx} line {k}"
+            for name, idx, ctype, text in _notebook_sources() if ctype == "code"
+            for k, line in enumerate(text.splitlines(), 1)
+            if not line.strip().startswith("#") and re.search(banned, line)]
+    assert not hits, ("notebook(s) build the AGORA2 index (the scan that overloaded the "
+                      "old server); load it with utils.load_agora2_ec_index: "
+                      + ", ".join(hits))
 
 
-@check("D6 the curated polyamine EC map is preserved for future re-enabling")
+@check("D7 AGORA2 lookups are tri-state, match names safely and index producing reactions only")
+def d7():
+    import tempfile
+    idx = {"s__Alpha_beta": {"C00134": ["4.1.1.17"]},
+           "s__Gamma_D_delta": {"C00134": ["1.1.1.1"]},
+           "s__Eps_A_zeta": {}, "s__Eps_B_zeta": {}}
+    sid = utils.agora2_species_id
+    assert sid("Alpha beta", idx) == ("s__Alpha_beta", "exact")
+    assert sid("Gamma delta", idx) == ("s__Gamma_D_delta", "suffix_normalised")
+    assert sid("Eps zeta", idx) == (None, None), "an ambiguous suffix match was guessed"
+    enc = utils.species_encodes_enzyme
+    assert enc("Alpha beta", "C00134", idx) is True
+    assert enc("Gamma delta", "C00134", idx) is False, "a non-producing EC counted"
+    assert enc("Unknown sp", "C00134", idx) is None, "no model must be None, not False"
+    assert utils.species_has_any_ec("Unknown sp", ["4.1.1.17"], idx) is None
+    rate, n = utils.agora2_base_rate(["Alpha beta", "Gamma delta", "Unknown sp"], "C00134", idx)
+    assert (rate, n) == (0.5, 2), "base rate must leave out species without a model"
+    # The builder indexes an EC under a compound only when the reaction PRODUCES it.
+    with tempfile.TemporaryDirectory() as d:
+        model = {"metabolites": [{"id": "put_c", "annotation": {"kegg.compound": "C00134"}},
+                                 {"id": "orn_c", "annotation": {"kegg.compound": "C00077"}}],
+                 "reactions": [{"annotation": {"ec-code": "['4.1.1.17']"},
+                                "metabolites": {"orn_c": -1, "put_c": 1}}]}
+        Path(d, "s__Toy_species.json").write_text(json.dumps(model), encoding="utf-8")
+        built = utils.build_agora2_ec_index(Path(d))
+    assert built == {"s__Toy_species": {"C00134": ["4.1.1.17"]}}, built
+
+
+@check("D6 the curated polyamine and SCFA EC maps cover every compound and guild")
 def d6():
-    # POLYAMINE_EC is unused while AGORA2 is disabled, but the curation is the
-    # thing that was previously WRONG (consuming enzymes listed as producers), so
-    # it is kept and still guarded by D1. This check only asserts it survives, so
-    # a future re-enable starts from the corrected map.
+    # The curation was previously WRONG (consuming enzymes listed as producers); D1
+    # guards its content, this its coverage.
     assert utils.POLYAMINE_EC and set(utils.POLYAMINE_EC) == set(utils.POLYAMINE_KEGG)
     assert utils.SCFA_EC and set(utils.SCFA_EC) == {"butyrate", "propionate"}
 
@@ -1033,7 +1049,9 @@ def e8():
 # utils functions a behavioural check exercises although no executed notebook may reach
 # them -- each a guard on NOT calling the function.
 _GUARD_ONLY = {
-    "load_agora2_ec_index": "D5 asserts it refuses while AGORA2 is disabled",
+    "build_agora2_ec_index": "run only by tools/build_agora2_index.py; D5 forbids notebooks",
+    "find_agora2_data_dir": "run only by tools/build_agora2_index.py; D5 forbids notebooks",
+    "agora2_source_fingerprint": "the build tool and D5 compare it; no notebook needs it",
 }
 
 

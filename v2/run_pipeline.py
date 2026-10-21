@@ -17,8 +17,8 @@ Reuse rule. A previous result is reused only if ALL hold:
   - it succeeded;
   - the notebook's CODE cells are byte-identical (outputs and markdown are not part
     of the key);
-  - the shared inputs are identical: utils.py, viz.py, requirements.txt and every
-    Data/*.tsv, by sha256;
+  - the shared inputs are identical: utils.py, viz.py, requirements.txt, every
+    Data/*.tsv and the prebuilt Data/reference index, by sha256;
   - the result-affecting profile (NB03_* knobs) is identical;
   - it finished after every upstream notebook's latest run.
 The first version of this runner keyed reuse on the notebook file's size+mtime only,
@@ -72,6 +72,8 @@ ARCHIVES_KEPT = 3
 # Inputs every notebook depends on. A change to any of them invalidates every result.
 SHARED_CODE = ("utils.py", "viz.py", "requirements.txt", "requirements.lock")
 DATA_GLOB = "*.tsv"                      # flat cohort tables in Data/ (not Data/micom)
+# Prebuilt reference inputs (tools/build_agora2_index.py writes the AGORA2 EC index).
+DATA_REFERENCE = ("reference/agora2_species_ec_index.json",)
 
 # 8 physical cores / 16 logical on the Ryzen 7 6800H. Compute-bound tree building
 # does not benefit much from SMT, so the budget is physical cores.
@@ -159,6 +161,9 @@ def shared_inputs() -> dict[str, str]:
     out = {f"v2/{name}": _sha256_file(HERE / name) for name in SHARED_CODE}
     for p in sorted((ROOT / "Data").glob(DATA_GLOB)):
         out[f"Data/{p.name}"] = _sha256_file(p)
+    for rel in DATA_REFERENCE:
+        p = ROOT / "Data" / rel
+        out[f"Data/{rel}"] = _sha256_file(p) if p.exists() else "absent"
     return out
 
 
