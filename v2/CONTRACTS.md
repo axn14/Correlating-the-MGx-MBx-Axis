@@ -572,10 +572,15 @@ would otherwise read as "no edges".
 
 ## 8. MICOM (NB10) — decoupled run
 
-**Not runnable in the current environment:** `micom`/`cobra` are not in the pinned
-environment and `run_micom.sh` (a bash runner for the retired server) refuses to start. Once
-NB10 is redesigned and run, **re-run NB08 and NB09** so the mechanistic column fills; until
-then `MICOM_status == 'pending'`.
+**Runs outside the pipeline, in the editor.** `run_pipeline.py` never executes NB10; micom
+and its solvers are pinned separately in `requirements-micom.txt`, outside the pipeline lock,
+and `run_micom.sh` (a bash runner for the retired server) still refuses to start. Every run
+switch is in NB10's first code cell (`RUN_BATCH`, off by default; `N_THREADS`, from CPU count
+and free memory; `KEEP_MODELS`, on by default).
+
+**No consumer yet.** NB08 as executed does not read NB10's tables, so the `mechanistic`
+source stays `pending` until the NB08 rebuild, whatever NB10 produces. After that rebuild,
+re-run NB08 and NB09 once NB10 has finished.
 
 ### Attainable evidence ceiling — read this before interpreting any `Tier`
 
@@ -621,34 +626,84 @@ were empty. Re-enabled once that server was retired, with the build moved out of
   (`Source_B_AGORA2_Support`, `_Base_rate`, `_Counted`).
 
 Inputs: `Data/micom/agora2_gtdb_species.qza` (GTDB-native, so Yachida's names match without
-renaming), `Data/micom/western_diet_gut.csv`, and — when present —
-`Data/micom/models_agora2/` (**347 pre-built AGORA2 community models + `manifest.csv`,
-covering all 277 primary Yachida samples**). NB10 uses that set in place as a **read-only
-input**, skips the build, and never deletes it (`MODELS_ARE_PREBUILT`); move it aside to
-force a rebuild. It is ~36 GB and hours of solver time already spent — do not prune it.
-Outputs: `intermediate/micom_v2/` per-sample checkpoints,
-`tables/nb10_micom_sample_coverage_v2.csv`, `tables/nb10_micom_community_flux_v2.csv`,
-`tables/nb10_micom_species_flux_pairs_v2.csv` (**read by NB08**).
+renaming; pre-extracted to `Data/micom/agora2_extracted/`), `Data/micom/western_diet_gut.csv`
+and the reduced pickle. NB10 builds its own community models in
+`intermediate/micom_v2/models_agora2/` (277 samples, ~28 GB, ~10 h with 2 workers) and
+refuses to reuse a model set whose per-sample taxon counts differ from the current abundance
+table, or whose pickles are missing. Median abundance coverage is **64.6%** (73 of 277
+samples below 50%).
+
+The older pre-built set in `Data/micom/models_agora2/` (347 models, built 2026-09-18) is
+**not used**: it came from an earlier abundance table (coverage differs in all 277 primary
+samples, taxon counts in 91). It was documented here as a read-only input
+(`MODELS_ARE_PREBUILT`), but that logic lived only in the retired generator and never reached
+the notebook. Leave it in place; nothing reads or deletes it.
+
+Outputs: `intermediate/micom_v2/` checkpoints (manifest, models, tradeoff sweep, smoke result,
+batch chunks with the parameters they were solved with, and the samples micom could not
+solve), `tables/nb10_micom_sample_coverage_v2.csv`, `tables/nb10_micom_community_flux_v2.csv`
+(per sample and polyamine: net community exchange and abundance-weighted taxon secretion and
+uptake), `tables/nb10_micom_species_flux_pairs_v2.csv` (per species and polyamine, with the
+coverage sensitivity in the `*_cov_ok` columns).
+
+What micom does to the data, encoded once in `micom_tools.py` and tested by `checks.py` D8:
+taxon ids come back rewritten (`Dialister hominis` → `Dialister_hominis`) and are mapped back;
+a taxon's flux is per gram of that taxon, so its contribution to the lumen is abundance × flux
+(the lumen balance holds only in that form, and NB10 asserts it); `grow()` silently drops a
+sample whose solve failed, which NB10 records and leaves out rather than reading as zero.
+E13 requires presolve on every solve and forbids local copies of these rules.
 
 Fixes relative to the earlier MICOM attempts (publication NB09 and the Git notebook):
 
 | Earlier problem | NB10 |
 |---|---|
-| AGORA103, ~42% abundance coverage | AGORA2 GTDB (~56% median) |
+| AGORA103, ~42% abundance coverage | AGORA2 GTDB (64.6% median) |
 | GTDB strains collapsed to NCBI binomials and summed | no collapsing; a taxon matches exactly or is reported unmatched |
-| tradeoff hardcoded at 0.5 | chosen by a `tradeoff` sweep on 10 stratified pilot samples; value and sweep saved |
+| tradeoff hardcoded at 0.5 | chosen by a `tradeoff` sweep on 10 coverage-passing pilot samples split 4/3/3 by group: the largest tradeoff at which the most taxa grow (0.5); value and sweep saved |
 | `strategy="none"` → non-unique fluxes reaching 98+ | `strategy="pFBA"` |
 | growth rates discarded; fluxes ≥ 80 deleted | growth rates kept; extreme fluxes flagged, never deleted |
-| statistics on positive fluxes only (so the check was true by construction) | all samples, zeros included |
-| equal-abundance control silently reused the weighted models | separate directory per run |
+| statistics on positive fluxes only (so the check was true by construction) | all solved samples, zeros included |
+| equal-abundance control silently reused the weighted models | no equal-abundance control in NB10 yet |
 | HS→Early, MP→Advanced grouping | v2.1 groups |
-| diet-file duplicates ignored | duplicates removed and logged; medium checked against model exchanges |
-| hand-patched `community.py` | stock `micom` with OSQP/HiGHS from pip |
+| diet-file duplicates ignored | identical duplicates dropped and listed; conflicting ones raise |
+| hand-patched `community.py` | stock `micom` with OSQP/HiGHS from pip, pinned in `requirements-micom.txt` |
 
-Per-sample budget: < 1.2 GB, < 15 min, enforced by a smoke gate on one sample before the
-batch. Models this notebook *builds* are deleted after their fluxes are saved, so disk use
-stays small; a pre-built input set is exempt (see above). Coverage < 0.5 is flagged and
-excluded in a sensitivity analysis.
+Fixed in the 2026-10-23 debugging pass, each of which had stopped a run or would have
+corrupted its result without an error:
+
+| Fault | Fix |
+|---|---|
+| numeric sample ids (pickle) joined to string ids (micom): merge error, or all-zero flux on reindex | ids are strings throughout |
+| tradeoff sweep without presolve: one pilot sample unsolved after 22 h | every solve presolves (E13) |
+| tradeoff picked as the first tie (0.1) on a pilot with 7 of 10 samples below 50% coverage | `micom_tools.choose_tradeoff` (D8), coverage-passing pilot |
+| micom's rewritten taxon ids would never join NB08's species names | mapped back; an unmapped id raises |
+| taxon fluxes summed per gram of each taxon; "community export" summed incompatible units | abundance-weighted; lumen balance asserted |
+| solves micom dropped read as zero production | recorded, retried, left out |
+| resumed chunks overwrote earlier chunk files; cached results reused whatever parameters made them | unique chunk names; parameters recorded and checked |
+| models deleted after every batch (a 10 h rebuild for any re-run) | kept unless `KEEP_MODELS = False` |
+| smoke gate counted the diet's own polyamine supply as "exchanges present" | reports secreting taxa per compound and asserts the lumen balance |
+| micom returned infeasible tradeoff/pFBA solutions without an error (zero growth, hundreds of spurious exchanges, unbalanced lumen); they were the only source of putrescine and spermidine "secretion" | every sample checked (`micom_tools.solution_quality`, D8): community growth > 0 and the lumen balanced over all metabolites; a failing sample is recorded with the reason and left out |
+
+**Open before the full batch (2026-10-23).** Measured on 12 samples with the batch's exact
+settings (tradeoff 0.5, pFBA, presolve, the open-source HiGHS + OSQP hybrid solver):
+
+- **5 of 12 samples end infeasible** at the pFBA step. Looser growth tolerances (1e-3) do not
+  help; the same samples solve validly without pFBA (`strategy="none"`, whose fluxes are not
+  unique), so the failure is that step under this solver, not the community models. micom
+  recommends a commercial QP solver (Gurobi, free for academic use, or CPLEX).
+- **No taxon secretes putrescine or spermidine** in any of the 7 valid solutions: the diet file
+  supplies both at 1.0 mmol/gDW/h (about 7× most nutrients) and every community takes them up.
+  Ornithine is secreted (24 species across 7 samples), arginine by 4; agmatine, spermine and
+  cadaverine are never exchanged. With putrescine and spermidine removed from the diet, the
+  one sample that solved showed secretion of both, but 3 of 4 samples became infeasible.
+
+So the full batch as configured would exclude roughly 40% of samples and give no species-level
+evidence for putrescine or spermidine. The solver and the diet are decisions to take first;
+NB10 stops after its smoke gate until `RUN_BATCH` is set.
+
+The smoke gate solves one sample exactly as the batch does (measured 7–9 min and ~1.3–1.6 GB
+per sample) and prints a batch-time estimate. Coverage < 0.5 is flagged and left out of the
+sensitivity test (`*_cov_ok` columns).
 
 ---
 
@@ -700,7 +755,7 @@ python checks.py                       # must pass
 python run_pipeline.py                 # 01, 01b, 02, 03, 05, 06, 08, 09; reuses valid results
 python run_pipeline.py --smoke         # fast shake-out pass -- NOT publication output
 python run_pipeline.py --dry-run       # shows every reuse decision and its reason
-# NB10 (MICOM) is not runnable in the pinned environment (section 8).
+# NB10 (MICOM) runs separately, in the editor, after pip install -r requirements-micom.txt (section 8).
 ```
 
 Fatal if they fail: 01, 02, 03, 06, 08, 09. Non-fatal: 01b, 05. A notebook that exits

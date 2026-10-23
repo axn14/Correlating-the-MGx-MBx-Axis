@@ -310,7 +310,8 @@ NOT_PRODUCED = {
     "*_vs_*_DA_v2.csv": "retired per-comparison DA family, replaced by "
                         "differential_abundance_v2.csv (the Stage I-II vs III-IV "
                         "contrast is declared under NB02)",
-    "nb10_*_v2.csv": "NB10 (MICOM) is not runnable in the pinned environment",
+    "nb10_*_v2.csv": "NB10 (MICOM) runs outside run_pipeline (hours; micom is pinned "
+                     "separately in requirements-micom.txt) and no notebook reads its tables yet",
     "nb04_*": "NB04 is discarded",
 }
 

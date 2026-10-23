@@ -811,6 +811,65 @@ def d7():
     assert built == {"s__Toy_species": {"C00134": ["4.1.1.17"]}}, built
 
 
+@check("D8 MICOM helpers: taxon ids map back, fluxes are abundance-weighted, tradeoff rule, failed solves")
+def d8():
+    # Each assertion is a fact about micom 0.39.1 output that NB10 once got wrong.
+    import micom_tools as mt
+    # micom rewrites taxon ids (community.py); the names must map back, collisions refused
+    assert mt.micom_taxon_id("CAG-110 sp003525905") == "CAG_110_sp003525905"
+    assert mt.micom_taxon_id("Prevotella copri_A") == "Prevotella_copri_A"
+    assert mt.taxon_name_map(["Dialister hominis", "CAG-110 sp003525905"]) == {
+        "Dialister_hominis": "Dialister hominis", "CAG_110_sp003525905": "CAG-110 sp003525905"}
+    try:
+        mt.taxon_name_map(["Genus sp-1", "Genus sp 1"])
+        raise AssertionError("two species sharing one micom id were accepted")
+    except ValueError:
+        pass
+    # metabolite ids in every form micom writes
+    for m in ("ptrc[e]", "ptrc_m", "EX_ptrc(e)", "EX_ptrc_m", "PTRC[e]"):
+        assert mt.classify_metabolite(m) == ("C00134", "Putrescine"), m
+    assert mt.classify_metabolite("arg_L[e]") == ("C00062", "Arginine")
+    assert mt.classify_metabolite("co2[e]") == (None, None)
+    # tradeoff: low values tie at "every taxon grows"; the rule takes the LARGEST tie
+    sweep = pd.DataFrame({"tradeoff": [np.nan] * 2 + [0.1] * 2 + [0.5] * 2 + [0.9] * 2,
+                          "growth_rate": [0, 0, .01, .01, .1, .1, .3, 0]})
+    assert mt.choose_tradeoff(sweep)[0] == 0.5, "first tie (idxmax) picked, not the largest"
+    # a two-taxon lumen: A (abundance .25) secretes putrescine at 2 per gram of A, B (.75)
+    # takes up 1 per gram of B; the community imports the difference, .5 - .75 = -.25
+    ex = pd.DataFrame({
+        "taxon": ["A_x", "B_y", "medium", "A_x"], "sample_id": ["1"] * 4,
+        "reaction": ["EX_ptrc(e)", "EX_ptrc(e)", "EX_ptrc_m", "EX_co2(e)"],
+        "metabolite": ["ptrc[e]", "ptrc[e]", "ptrc_m", "co2[e]"],
+        "flux": [2.0, -1.0, -0.25, 1.0], "abundance": [0.25, 0.75, np.nan, 0.25],
+        "direction": ["export", "import", "import", "export"]})
+    names = {"A_x": "A x", "B_y": "B y"}
+    pa = mt.polyamine_exchanges(ex, names)
+    assert set(pa["Species"]) == {"A x", "B y"}, "taxon ids were not mapped back to names"
+    sp = mt.species_export(pa)
+    assert sp[["Species", "export_community", "export_specific"]].values.tolist() == [["A x", 0.5, 2.0]], \
+        "export must be abundance-weighted and secretion-only"
+    bal = mt.community_balance(ex, pa).iloc[0]
+    assert np.isclose(bal["Net_medium_flux"], bal["Gross_export"] - bal["Gross_uptake"]), \
+        "lumen balance: medium flux = sum of abundance-weighted taxon fluxes"
+    assert (bal["N_exporting_taxa"], bal["N_uptaking_taxa"]) == (1, 1)
+    try:
+        mt.polyamine_exchanges(ex, {"A_x": "A x"})
+        raise AssertionError("a taxon without a species name was dropped silently")
+    except KeyError:
+        pass
+    assert mt.missing_samples(["1", "2"], ex) == ["2"], "a failed solve went unnoticed"
+    # micom returns an infeasible point without an error: zero growth, unbalanced lumen
+    ok = pd.DataFrame({"taxon": ["A_x", "B_y", "medium"], "sample_id": "1",
+                       "metabolite": ["ptrc[e]", "ptrc[e]", "ptrc_m"], "flux": [2.0, -1.0, -0.25],
+                       "abundance": [.25, .75, np.nan], "tolerance": 1e-6})
+    bad = ok.assign(sample_id="2", flux=[2.0, -1.0, 7.0])
+    growth = pd.DataFrame({"taxon": ["A_x", "B_y"] * 2, "sample_id": ["1", "1", "2", "2"],
+                           "abundance": [.25, .75, .25, .75], "growth_rate": [.4, .2, 0., 0.]})
+    q = mt.solution_quality(pd.concat([ok, bad]), growth).set_index("sample_id")
+    assert q.loc["1", "valid"] and not q.loc["2", "valid"], \
+        "an infeasible solution (no growth, unbalanced lumen) passed as solved"
+
+
 @check("D6 the curated polyamine and SCFA EC maps cover every compound and guild")
 def d6():
     # The curation was previously WRONG (consuming enzymes listed as producers); D1
@@ -1010,7 +1069,7 @@ def e7():
 # Files CONTRACTS.md names that are pipeline INPUTS, not outputs (paths under Data/ are
 # inputs by location and need no entry).
 _DOC_INPUTS = {
-    "manifest.csv": "NB10 input: the MICOM model manifest in Data/micom/models_agora2/",
+    "manifest.csv": "the MICOM model manifest of the unused pre-built set in Data/micom/models_agora2/",
 }
 
 
@@ -1152,6 +1211,23 @@ def e12():
                                       .splitlines(), 1)
              if rx.search(line) and not line.strip().startswith("#")]
     assert not hits, "raw savefig (use viz.save_figure): " + ", ".join(hits)
+
+
+@check("E13 NB10 presolves every micom solve and keeps no local copy of micom_tools' rules")
+def e13():
+    # Without presolve the tradeoff sweep ran >22 h on one sample; local copies of the
+    # flux/id rules are how unweighted fluxes and raw taxon ids reached the outputs.
+    doc = json.loads((NB_DIR / "10_micom_flux.ipynb").read_text(encoding="utf-8"))
+    src = "\n".join("".join(c["source"]) for c in doc["cells"] if c["cell_type"] == "code")
+    code = "\n".join(ln for ln in src.splitlines() if not ln.strip().startswith("#"))
+    calls = re.findall(r"\b(?:grow|micom_tradeoff)\((?!\))(?:[^()]|\([^()]*\))*\)", code, re.S)
+    assert calls, "no grow()/tradeoff() call found in NB10"
+    bad = [c.split("(")[0] for c in calls if "presolve=True" not in c]
+    assert not bad, f"micom solve(s) without presolve=True: {bad}"
+    local = re.findall(r"^\s*def (classify_metabolite|micom_taxon_id|taxon_name_map|choose_tradeoff|"
+                       r"species_export|community_balance|polyamine_exchanges)\b", code, re.M)
+    assert not local, f"NB10 redefines micom_tools helpers: {local}"
+    assert "idxmax()" not in code, "tradeoff picked with idxmax (first tie) instead of mt.choose_tradeoff"
 
 
 @check("E11 the theme renders subscript labels in DejaVu Sans with editable PDF fonts")
