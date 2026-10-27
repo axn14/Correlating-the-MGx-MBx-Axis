@@ -225,7 +225,22 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
                   "AUC_nested", "AUC_fixed", "N", "Perm_statistic", "Perm_pvalue",
                   "Perm_qvalue", "N_perm", "N_perm_max", "Perm_exceedances",
                   "Perm_stopped_early", "R2_confounders", "AUC_confounders_raw",
-                  "AUC_confounders_adjusted")),
+                  "AUC_confounders_adjusted"),
+            # Target_type is this table's provenance claim: it says which pre-specified
+            # criterion put each target on the list, and so which targets the
+            # anti-circularity argument of CONTRACTS.md section 5b has to cover. It is
+            # enumerated here because it was previously built by a fall-through that
+            # labelled every non-polyamine 'robust_DA', including the 9 targets the
+            # decarboxylation class alone contributed. Every admissible value names each
+            # criterion the target met, in this order.
+            values={"Target_type": (
+                "robust_DA",
+                "prespecified_polyamine",
+                "prespecified_decarboxylation",
+                "robust_DA+prespecified_polyamine",
+                "robust_DA+prespecified_decarboxylation",
+                "prespecified_polyamine+prespecified_decarboxylation",
+                "robust_DA+prespecified_polyamine+prespecified_decarboxylation")}),
         Out("tables/polyamine_producer_candidates_v2.csv",
             cols=("Polyamine", "Species", "Mean_SHAP_OOF", "Direction", "Rank",
                   "Rank_stable", "Model_AUC_nested", "Model_perm_q"),
