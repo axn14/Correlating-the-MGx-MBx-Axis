@@ -77,11 +77,12 @@ Yachida's raw `Study.Group` values and their v2.1 treatment:
 | `Stage_I_II` | 69 | primary → `Early_CRC` |
 | `Stage_III_IV` | 54 | primary → `Advanced_CRC` |
 | `HS` ("healthy after surgery") | 30 | **sensitivity only** → `PostSurgery` |
-| `MP` (multiple polypoid adenomas) | 40 | **excluded from the study** |
+| `MP` (multiple polypoid adenomas) | 40 | **early axis only** → `Adenoma` (§2b) |
 
-- **MP is dropped at load** by `utils.load_all_datasets()` via `EXCLUDED_STUDY_GROUPS`, before
-  any QC step, so no downstream notebook can see an adenoma sample. Kim's own `Adenoma` arm
-  (102 samples) is dropped for the same reason, leaving Control vs Carcinoma.
+- **Nothing is dropped at load any more (v2.2, 2026-10-26).** `EXCLUDED_STUDY_GROUPS` is
+  empty. MP and Kim's `Adenoma` arm (102 samples) were dropped there until 2026-10-26; that
+  removed the only pre-malignant samples in the study, which are the substrate of the
+  early-detection question. They are now **loaded and quarantined** (§2b).
 - **HS is loaded but quarantined** (`SENSITIVITY_GROUPS`). Those patients had colorectal
   cancer resected and are currently cancer-free: a resected gut is neither a clean control
   nor an active tumour, so pooling it either way biases the comparison. NB01b measures how
@@ -90,7 +91,8 @@ Yachida's raw `Study.Group` values and their v2.1 treatment:
   `CRC_STAGE_NUMERIC['HS']` and `STUDY_GROUP_MAP['HS']` are all `NaN`, so it cannot enter a
   trend test even if a caller forgets to mask it.
 
-Counts: **307 loaded, 277 primary, 30 sensitivity, 150 carcinomas.**
+Counts: **347 loaded, 277 primary, 30 sensitivity, 150 carcinomas.** (40 adenomas make up
+the rest; the primary set is unchanged to the sample by their admission — `checks.py` A3.)
 
 Earlier pipelines were wrong in different ways: the `publication/` pipeline put HS in
 Early_CRC and MP in Advanced_CRC; the first v2 run dropped HS and called MP "Adenoma".
@@ -100,10 +102,20 @@ Early_CRC and MP in Advanced_CRC; the first v2 run dropped HS and called MP "Ade
 
 | Helper | Selects | Used by |
 |---|---|---|
-| `primary_mask(meta)` | Healthy + Early_CRC + Advanced_CRC | every primary analysis |
-| `sensitivity_mask(meta)` | PostSurgery only | NB01b §4b, NB06 §14 |
+| `primary_mask(meta)` | Healthy + Early_CRC + Advanced_CRC (n=277) | every primary analysis |
+| `sensitivity_mask(meta)` | PostSurgery only (n=30) | NB01b §4b, NB06 §14 |
+| `early_axis_mask(meta)` | primary + Adenoma (n=317) | the early axis only (§2b) |
+| `adenoma_mask(meta)` | Adenoma only (n=40) | the early axis only (§2b) |
 | `crc_only_mask(meta)` | Early_CRC + Advanced_CRC (n=150) | NB05 stage 2 |
 | `apply_mask(mask, *frames, meta_df=)` | filters frames **by Sample ID**, not row position | all of the above |
+
+`primary_mask` **excludes** `NON_PRIMARY_STAGE_GROUPS` (`PostSurgery`, `Adenoma`) rather
+than enumerating the primary groups, so a group that is loaded but unmapped would count as
+primary. Admitting the adenoma arms therefore required giving them a real `Stage.Group`
+(`MP`/`Adenoma` → `Adenoma`) that is `NaN` on the primary ordinal scale — leaving them
+unmapped would have walked them into every primary analysis. `checks.py` A1 asserts the
+mapping, A3 asserts the three sets partition the cohort and that the primary set is still
+277.
 
 **NB02 performs the primary split once**, so `preprocessed_data_reduced_v2.pkl` holds primary
 samples under its normal keys and the sensitivity rows under `sensitivity_species` /
@@ -117,7 +129,49 @@ forgetting is absence, not contamination.
 |---|---|
 | `COMPARISONS_GROUP` | Healthy vs Early_CRC, Healthy vs Advanced_CRC, Early_CRC vs Advanced_CRC |
 | `COMPARISONS_SENSITIVITY` | Healthy vs PostSurgery — **its own FDR family**, never merged |
+| `COMPARISONS_EARLY` | Yachida: Healthy vs Adenoma, Adenoma vs Early_CRC, Adenoma vs Advanced_CRC; Kim: Healthy vs Adenoma, Adenoma vs CRC — **its own FDR family** (§2b) |
 | `COMPARISONS` (fine-grained) | Healthy vs Stage_0 / Stage_I_II / Stage_III_IV; validation cohorts: Healthy vs CRC |
+
+## 2b. The early-detection axis (v2.2)
+
+The primary axis asks whether a **diagnosed carcinoma** differs from a control. Its earliest
+arm is already cancer, so it cannot answer an early-detection question. The early axis
+admits the pre-malignant arms and asks the tumourigenesis question instead:
+
+| Cohort | Axis | n |
+|---|---|---|
+| `YACHIDA-CRC-2019` (discovery) | Healthy 127 → **Adenoma 40** → Early_CRC 96 → Advanced_CRC 54 | 317 |
+| `Kim_adenomas_2020` (validation) | Healthy 102 → **Adenoma 102** → CRC 36 | 240 |
+| `SINHA_CRC_2016` | **no adenoma arm — not scored on this axis** | — |
+
+`DATASETS_EARLY_AXIS` names the two cohorts that carry it. Sinha is excluded by constant,
+not by convention: scoring it would return a silently empty result rather than an honest
+"not measurable".
+
+**Kim is the only external cohort with a pre-malignant arm**, so it is the only place an
+early signal is falsifiable outside the discovery cohort. That is the whole reason the axis
+exists. It is a question, not a result: NB05 stage 6 already measured the carcinoma-severity
+version of this transfer and it **failed** (within-Yachida ρ +0.190 → Kim ρ −0.059,
+permutation p = 0.33, cohort separability AUC 1.000). An early-axis result that does not
+transfer is reported as such.
+
+**Two label columns, because Kim has no staging column at all.** Yachida is ordered on
+`Stage.Group` (4 levels, `EARLY_AXIS_NUMERIC`); Kim's cases are `Study.Group == "CRC"` with
+`Stage.Group` `NaN`, so Kim is ordered on `Study.Group` (3 levels,
+`EARLY_AXIS_NUMERIC_EVAL`, which collapses Early/Advanced onto `CRC` — the finest level Kim
+can confirm). `EARLY_AXIS_GROUP_COL` records which column each cohort uses; `checks.py` A11
+asserts every admitted label has an ordinal code in the column its cohort actually reads.
+
+**Separation from the primary axis** is enforced, not documented: `Adenoma` is `NaN` in
+`STAGE_GROUP_NUMERIC`, `MP` is `NaN` in `CRC_STAGE_NUMERIC` (it has no TNM stage — its raw
+`Stage` column is `"-"` for all 40), `Adenoma` is in `NON_PRIMARY_STAGE_GROUPS`, and
+`COMPARISONS_EARLY` shares no contrast with `COMPARISONS_GROUP` (A11). Every early-axis
+comparison must involve the adenoma arm, or it belongs in another family.
+
+**One label-blind consequence of admitting 142 more samples:** NB01's prevalence filter runs
+over all loaded samples, so the surviving feature set shifts slightly and the primary
+results move at the margin. The filter never sees a label, so this is not leakage — but
+numbers quoted from runs before 2026-10-26 are not comparable at full precision.
 
 ### Differential abundance output — one tidy table (v2.1)
 
@@ -281,12 +335,19 @@ exceeds 0.7 and the old `|MeanDiff| > 1.0` gate silently zeroed every comparison
 and tables:
 `differential_abundance_v2.csv` (tidy; `Robust`/`Agreement`/`*_adj`; replaces the
 per-comparison `{ds}_{g1}_vs_{g2}_{species|metabolites}_DA_v2.csv` family),
-`da_robust_hit_summary_v2.csv`, `{ds}_polyamine_partial_correlations_v2.csv`,
+`da_robust_hit_summary_v2.csv`,
+`early_axis_differential_abundance_v2.csv` + `early_axis_hit_summary_v2.csv` (Step 6C, the
+early-detection axis — **its own FDR family**, §2b; both early-axis cohorts required),
+`{ds}_polyamine_partial_correlations_v2.csv`,
 `consistent_polyamine_correlations_genus_v2.csv`, `{ds}_genus_polyamine_correlations_v2.csv`,
 `polyamine_DA_summary_v2.csv`, `replication_genus_metabolome_v2.csv`, plus progression and
 network tables.
-**Performs the primary split.** Feature reduction: top-500 species by variance, computed on
-primary samples only. **Metabolites are not capped** — every metabolite surviving NB01's
+**Performs the three-way split** (primary / adenoma / sensitivity, v2.2): the primary
+samples sit under the normal keys, the pre-malignant arm under `adenoma_species` /
+`adenoma_mtb` / `adenoma_meta`, PostSurgery under `sensitivity_*`. Feature reduction:
+top-500 species by variance, computed on **primary samples only**, so neither off-axis arm
+influences which features the pipeline keeps; the adenoma and sensitivity tables are then
+put on that same basis. **Metabolites are not capped** — every metabolite surviving NB01's
 label-blind prevalence filter is kept (Yachida 279, Sinha 530, Kim 462; asserted).
 **Errata (2026-10-20):** a `MAX_MTB_REDUCED=150` variance cap used to apply here. It was the
 only filter on the pre-scaled Sinha/Kim metabolomes (discarding ~70%), it left only 15/113 and

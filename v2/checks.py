@@ -80,15 +80,36 @@ def _synthetic_cohort(n=120, p=60, effect_feature=0, effect=6.0, seed=0):
 # A. Group policy
 # ---------------------------------------------------------------------------
 
-@check("A1 MP is excluded, HS is a sensitivity group (not excluded, not primary)")
+@check("A1 nothing is dropped at load; HS and the adenoma arms are quarantined")
 def a1():
-    assert utils.EXCLUDED_STUDY_GROUPS["YACHIDA-CRC-2019"] == ["MP"], \
-        f"expected MP excluded, got {utils.EXCLUDED_STUDY_GROUPS['YACHIDA-CRC-2019']}"
+    """v2.2: the adenoma arms are LOADED and quarantined rather than excluded.
+
+    The dangerous way to re-admit them would be to leave them unmapped, because
+    primary_mask() excludes rather than enumerates -- an unmapped group counts as
+    primary (see A7). So the invariant is no longer "MP has no Stage.Group" but
+    "MP has a Stage.Group that is NaN on the primary ordinal scale and is listed
+    in NON_PRIMARY_STAGE_GROUPS".
+    """
+    assert utils.EXCLUDED_STUDY_GROUPS == {}, \
+        f"nothing should be dropped at load, got {utils.EXCLUDED_STUDY_GROUPS}"
     assert utils.SENSITIVITY_GROUPS["YACHIDA-CRC-2019"] == ["HS"]
-    assert "HS" not in utils.EXCLUDED_STUDY_GROUPS["YACHIDA-CRC-2019"], \
-        "HS must be loaded, not dropped"
     assert utils.STAGE_GROUP_MAP["HS"] == "PostSurgery"
-    assert "MP" not in utils.STAGE_GROUP_MAP, "MP must have no Stage.Group mapping"
+
+    # The adenoma arms are declared, mapped, and off the primary axis.
+    assert utils.ADENOMA_GROUPS["YACHIDA-CRC-2019"] == ["MP"]
+    assert utils.ADENOMA_GROUPS["Kim_adenomas_2020"] == ["Adenoma"]
+    assert utils.STAGE_GROUP_MAP["MP"] == "Adenoma"
+    assert utils.STAGE_GROUP_MAP["Adenoma"] == "Adenoma"
+    assert "Adenoma" not in utils.STAGE_GROUP_ORDER, \
+        "Adenoma must not be on the primary ordered axis"
+    assert np.isnan(utils.STAGE_GROUP_NUMERIC["Adenoma"]), \
+        "Adenoma must be NaN on the PRIMARY scale so it cannot enter a primary trend test"
+    assert np.isnan(utils.CRC_STAGE_NUMERIC["MP"]), \
+        "MP has no TNM stage; it must be NaN on the carcinoma-staging scale"
+    assert "Adenoma" in utils.NON_PRIMARY_STAGE_GROUPS, \
+        "Adenoma must be excluded by primary_mask"
+    # ...and it is NOT filed as a sensitivity group: it is its own axis.
+    assert "Adenoma" not in utils.SENSITIVITY_STAGE_GROUPS
 
 
 @check("A2 PostSurgery is absent from the ordinal severity axis")
@@ -105,22 +126,39 @@ def a2():
     assert codes == sorted(codes) and len(set(codes)) == len(codes), codes
 
 
-@check("A3 real cohort counts: 307 loaded, 277 primary, 30 PostSurgery, 150 CRC-only")
+@check("A3 real counts: 347 loaded, 277 primary, 317 early, 40 adenoma, 30 PS, 150 CRC")
 def a3():
     y = _yachida_meta()
-    assert len(y) == 307, f"expected 307 rows after dropping MP, got {len(y)}"
-    assert not y["Study.Group"].eq("MP").any(), "MP leaked into the harmonized metadata"
+    assert len(y) == 347, f"expected 347 rows loaded (nothing dropped), got {len(y)}"
     counts = y["Stage.Group"].value_counts().to_dict()
     assert counts.get("Healthy") == 127, counts
     assert counts.get("Early_CRC") == 96, counts
     assert counts.get("Advanced_CRC") == 54, counts
+    assert counts.get("Adenoma") == 40, counts
     assert counts.get("PostSurgery") == 30, counts
-    assert int(utils.primary_mask(y).sum()) == 277
-    assert int(utils.sensitivity_mask(y).sum()) == 30
+
+    pm = utils.primary_mask(y)
+    sm = utils.sensitivity_mask(y)
+    am = utils.adenoma_mask(y)
+    em = utils.early_axis_mask(y)
+    # THE invariant of the v2.2 change: admitting the adenoma arm must not move
+    # the primary set by a single sample.
+    assert int(pm.sum()) == 277, f"primary set moved to {int(pm.sum())}"
+    assert int(sm.sum()) == 30
+    assert int(am.sum()) == 40
+    assert int(em.sum()) == 317, f"early axis is {int(em.sum())}, expected 317"
     assert int(utils.crc_only_mask(y).sum()) == 150
-    # Primary and sensitivity must be disjoint and jointly cover everything.
-    assert not (utils.primary_mask(y) & utils.sensitivity_mask(y)).any()
-    assert (utils.primary_mask(y) | utils.sensitivity_mask(y)).all()
+
+    # The three sets partition the cohort: disjoint, and jointly exhaustive.
+    assert not (pm & sm).any() and not (pm & am).any() and not (sm & am).any(), \
+        "primary / sensitivity / adenoma overlap"
+    assert (pm | sm | am).all(), "a loaded row belongs to no analysis set"
+    # The early axis is exactly primary + adenoma, and excludes PostSurgery.
+    assert (em == (pm | am)).all(), "early axis is not primary + adenoma"
+    assert not (em & sm).any(), "PostSurgery leaked onto the early axis"
+    # No adenoma may carry a primary ordinal code.
+    assert y.loc[am, "Stage.Group"].map(utils.STAGE_GROUP_NUMERIC).isna().all()
+    assert y.loc[am, "CRC.Stage.Numeric"].isna().all()
 
 
 @check("A4 no comparison mixes PostSurgery into the primary family")
@@ -157,18 +195,24 @@ def a6():
     partially NaN and the include-list silently dropped every case:
     Sinha 131 -> 89, Kim 138 -> 102. Nothing downstream raised.
     """
-    expected = {"SINHA_CRC_2016": (131, 42), "Kim_adenomas_2020": (138, 36)}
-    for ds, (n_total, n_cases) in expected.items():
+    # (n_loaded, n_primary, n_cases_in_primary). v2.2: Kim loads its adenoma arm
+    # too, so 240 rows come in and 138 of them are primary.
+    expected = {"SINHA_CRC_2016": (131, 131, 42), "Kim_adenomas_2020": (240, 138, 36)}
+    for ds, (n_loaded, n_primary, n_cases) in expected.items():
         raw = pd.read_csv(utils.DATA_DIR / f"{ds} metadata.tsv", sep="\t")
         drop = utils.EXCLUDED_STUDY_GROUPS.get(ds, [])
         raw = raw[~raw["Study.Group"].isin(drop)].reset_index(drop=True)
         meta = utils.harmonize_metadata(raw, ds)
+        assert len(meta) == n_loaded, f"{ds}: loaded {len(meta)}, expected {n_loaded}"
         pm = utils.primary_mask(meta)
-        assert int(pm.sum()) == n_total, \
-            f"{ds}: primary_mask kept {int(pm.sum())} of {n_total} samples"
+        assert int(pm.sum()) == n_primary, \
+            f"{ds}: primary_mask kept {int(pm.sum())} of {n_loaded} samples, expected {n_primary}"
         kept_cases = int((meta.loc[pm, "Study.Group"] == "CRC").sum())
         assert kept_cases == n_cases, \
             f"{ds}: primary set holds {kept_cases} cases, expected {n_cases}"
+        # No adenoma may reach a primary analysis through the back door.
+        assert not (meta.loc[pm, "Study.Group"] == "Adenoma").any(), \
+            f"{ds}: an adenoma survived primary_mask"
         # The comparison COMPARISONS[ds] asks for must be runnable at all.
         for g1, g2 in utils.COMPARISONS[ds]:
             for g in (g1, g2):
@@ -279,11 +323,13 @@ def a9():
 
 @check("A10 severity-transfer scale is separate from the primary stage encoding")
 def a10():
-    """The opt-in adenoma analysis must not be able to disturb the primary set."""
-    # MP must still have NO Stage.Group mapping: that is what keeps adenomas out of
-    # primary_mask(), which now EXCLUDES sensitivity groups rather than enumerating.
-    assert "MP" not in utils.STAGE_GROUP_MAP, \
-        "MP gained a Stage.Group mapping -- adenomas can now enter the primary set"
+    """The opt-in adenoma analysis must not be able to disturb the primary set.
+
+    v2.2: MP now HAS a Stage.Group ("Adenoma"), which is what A1 requires -- an
+    unmapped group would count as primary. What keeps adenomas out of the primary
+    set is NON_PRIMARY_STAGE_GROUPS plus the NaN primary ordinal code, both
+    asserted in A1/A3. This check keeps its original subject: the severity scale.
+    """
     assert "Adenoma" not in utils.STAGE_GROUP_ORDER
 
     # The parallel scales must be ordered and cover both cohorts' vocabularies.
@@ -312,9 +358,63 @@ def a10():
         "harmonize_metadata's Kim remap must include 'Adenoma': 'Adenoma'."
     )
     assert hm["Study.Group"].notna().all(), "a Kim label became NaN in the remap"
-    # And the default must still drop them, so the primary pipeline is untouched.
-    assert "Adenoma" not in set(
-        utils.harmonize_metadata(raw, "Kim_adenomas_2020")["Study.Group"])
+    # v2.2: the default no longer DROPS them -- it quarantines them. What must hold
+    # is that the default load keeps the primary set untouched.
+    default = utils.harmonize_metadata(raw, "Kim_adenomas_2020")
+    assert int((default["Study.Group"] == "Adenoma").sum()) == 102, \
+        "Kim's adenomas must be loaded under the default policy, not dropped"
+    assert int(utils.primary_mask(default).sum()) == 138, \
+        "Kim's primary set must stay 138 with the adenomas quarantined"
+
+
+@check("A11 the early axis is pre-specified, ordered, and its own FDR family")
+def a11():
+    """The early-detection axis (v2.2). It must be ordered, fully mapped on every
+    cohort that carries it, never merged with the primary comparison family, and
+    never claimed for a cohort that has no pre-malignant arm."""
+    assert utils.EARLY_AXIS_ORDER == ["Healthy", "Adenoma", "Early_CRC", "Advanced_CRC"]
+    assert utils.EARLY_AXIS_ORDER_EVAL == ["Healthy", "Adenoma", "CRC"]
+    codes = [utils.EARLY_AXIS_NUMERIC[g] for g in utils.EARLY_AXIS_ORDER]
+    assert codes == sorted(codes) and len(set(codes)) == len(codes), codes
+    assert np.isnan(utils.EARLY_AXIS_NUMERIC["PostSurgery"]), \
+        "PostSurgery must have no position on the early axis either"
+    # Yachida's two carcinoma arms must collapse onto one cross-cohort level.
+    assert (utils.EARLY_AXIS_NUMERIC_EVAL["Early_CRC"]
+            == utils.EARLY_AXIS_NUMERIC_EVAL["Advanced_CRC"]
+            == utils.EARLY_AXIS_NUMERIC_EVAL["CRC"]), \
+        "the eval axis must merge Early/Advanced into CRC -- the finest level Kim can confirm"
+    assert utils.EARLY_AXIS_NUMERIC_EVAL["MP"] == utils.EARLY_AXIS_NUMERIC_EVAL["Adenoma"]
+
+    # Sinha has no adenoma arm: claiming it here would yield a silently empty result.
+    assert "SINHA_CRC_2016" not in utils.DATASETS_EARLY_AXIS, \
+        "Sinha has no pre-malignant arm and must not be scored on the early axis"
+    assert set(utils.DATASETS_EARLY_AXIS) == {"YACHIDA-CRC-2019", "Kim_adenomas_2020"}
+
+    # Its own FDR family: no early comparison may appear in the primary family.
+    primary_pairs = {p for ps in utils.COMPARISONS_GROUP.values() for p in ps}
+    early_pairs = {p for ps in utils.COMPARISONS_EARLY.values() for p in ps}
+    assert not (primary_pairs & early_pairs), \
+        f"these contrasts sit in both FDR families: {primary_pairs & early_pairs}"
+    # Every early comparison must involve the adenoma arm -- that is the point.
+    for ds, comps in utils.COMPARISONS_EARLY.items():
+        assert ds in utils.DATASETS_EARLY_AXIS, ds
+        for g1, g2 in comps:
+            assert "Adenoma" in (g1, g2), f"{ds}: {g1} vs {g2} does not test the adenoma arm"
+
+    # Each cohort's labels must be fully mapped in the column the axis reads.
+    for ds, col in utils.EARLY_AXIS_GROUP_COL.items():
+        raw = pd.read_csv(utils.DATA_DIR / f"{ds} metadata.tsv", sep="\t")
+        meta = utils.harmonize_metadata(raw, ds)
+        sub = meta.loc[utils.early_axis_mask(meta), col]
+        amap = (utils.EARLY_AXIS_NUMERIC if ds == utils.DATASET_DISCOVERY
+                else utils.EARLY_AXIS_NUMERIC_EVAL)
+        unmapped = sorted(set(sub[sub.map(amap).isna()].astype(str)))
+        assert not unmapped, f"{ds}: early-axis labels with no ordinal code: {unmapped}"
+        # Each arm of each declared comparison must be large enough to test.
+        for g1, g2 in utils.COMPARISONS_EARLY[ds]:
+            for g in (g1, g2):
+                n = int((sub == g).sum())
+                assert n >= 3, f"{ds}: early-axis group {g!r} has {n} samples"
 
 
 # ---------------------------------------------------------------------------
@@ -906,29 +1006,44 @@ def _is_guard_line(line):
                ("assert", "startswith", "_banned", "raise ", "LEAK GUARD", "not any("))
 
 
-@check("E1 no notebook USES a removed construct (SMOTE / TumorLoc_ / Adenoma or MP as a group / Precursor)")
+@check("E1 no notebook USES a removed construct (SMOTE / TumorLoc_ / Precursor / a pooled adenoma)")
 def e1():
-    # Banned everywhere: never a legitimate use in v2.1.
+    """v2.2 narrowed this check.
+
+    It used to ban a quoted 'Adenoma' or 'MP' anywhere in code, because under v2.1
+    those arms were dropped at load and any mention of them as data was stale. They
+    are now the early-detection axis (CONTRACTS section 2b), so the blanket ban
+    would forbid the correct code.
+
+    What is still banned is the thing the old check was really aiming at: an adenoma
+    POOLED INTO a primary disease group, which is what the pre-v2 pipeline did
+    (MP -> Advanced_CRC). The stronger guarantees are in code, not in this grep:
+    A1 (Adenoma is NaN on the primary ordinal scale and sits in
+    NON_PRIMARY_STAGE_GROUPS), A3 (the three analysis sets partition the cohort and
+    the primary set is still 277) and A11 (the early axis is its own FDR family).
+    """
+    # Banned everywhere: never a legitimate use.
     banned_any = {
         "SMOTE":     r"\bSMOTE\b",
         "TumorLoc_": r"TumorLoc_",     # the leaking dummy prefix; TumorSite_ replaced it
         "Precursor": r"\bPrecursor\b",
     }
-    # Banned in CODE only: a *quoted* group label, i.e. the stale grouping used as
-    # data. Prose may still explain why MP and Kim's Adenoma arm are excluded.
+    # Banned in CODE only: an adenoma arm mapped onto a PRIMARY group label. That is
+    # the pre-v2 grouping (MP -> Advanced_CRC, HS -> Early_CRC) and it is what made
+    # the old results uninterpretable.
     banned_code = {
-        "'Adenoma' as a group label": r"""['"]Adenoma['"]""",
-        "'MP' as a group label":      r"""['"]MP['"]""",
-    }
-    # Banned in MARKDOWN only: phrasing that asserts the stale MP->Adenoma scheme.
-    banned_md = {
-        "MP described as the Adenoma group":
-            r"Adenoma\s*\(MP|MP\s*(?:=|->|→)\s*(?:the\s*)?[`'\"]?Adenoma",
+        "an adenoma arm pooled into a primary group":
+            r"""['"](?:MP|Adenoma)['"]\s*:\s*['"](?:Healthy|Early_CRC|Advanced_CRC)['"]""",
+        "HS pooled into a primary group":
+            r"""['"]HS['"]\s*:\s*['"](?:Healthy|Early_CRC|Advanced_CRC)['"]""",
+        "an off-axis group appended to the primary ordered axis":
+            r"""STAGE_GROUP_ORDER\s*\+\s*\[\s*['"](?:Adenoma|MP|PostSurgery)['"]""",
     }
     hits = []
     for name, idx, ctype, text in _notebook_sources():
         patterns = dict(banned_any)
-        patterns.update(banned_code if ctype == "code" else banned_md)
+        if ctype == "code":
+            patterns.update(banned_code)
         for lineno, line in enumerate(text.splitlines(), 1):
             if ctype == "code" and _is_guard_line(line):
                 continue          # defensive code may name what it rejects

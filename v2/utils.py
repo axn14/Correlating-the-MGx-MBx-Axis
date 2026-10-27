@@ -250,16 +250,32 @@ COMPARISONS = {
 # run dropped HS and called MP "Adenoma".
 # ----------------------------------------------------------------------
 
-EXCLUDED_STUDY_GROUPS = {
-    "YACHIDA-CRC-2019": ["MP"],
-    # Kim's adenoma arm is dropped for the same reason MP is: adenomas are out of
-    # scope for v2.1, so the validation cohort is Control vs Carcinoma only.
-    "Kim_adenomas_2020": ["Adenoma"],
-}
+# v2.2 (2026-10-26): NOTHING is excluded at load any more.
+#
+# The adenoma arms (Yachida MP n=40, Kim Adenoma n=102) used to be dropped here.
+# That removed the only pre-malignant samples in the study -- i.e. the actual
+# substrate of an early-detection claim -- and left "early" meaning
+# Stage_0+Stage_I_II vs Healthy, with no cohort anywhere able to validate it.
+#
+# They are now LOADED AND QUARANTINED, exactly like HS: mapped to the
+# Stage.Group "Adenoma", NaN on the primary ordinal scale, and excluded by
+# primary_mask() so the primary set stays n=277 to the sample. They enter an
+# analysis only through early_axis_mask(), which a step must call on purpose.
+#
+# Dropping them at load was the safe move while nothing could use them. Keeping
+# them unmapped would NOT be safe: primary_mask() excludes rather than
+# enumerates, so an unmapped group counts as primary (see A7) and adenomas would
+# walk into every primary analysis. Hence the explicit quarantine below.
+EXCLUDED_STUDY_GROUPS: dict[str, list[str]] = {}
 
 # Groups that are LOADED and kept in the tables, but excluded from every primary
 # analysis; a step must opt in explicitly (see primary_mask / sensitivity_mask).
 SENSITIVITY_GROUPS = {"YACHIDA-CRC-2019": ["HS"]}
+
+# Pre-malignant groups: loaded, quarantined off the primary axis, and admitted
+# only by early_axis_mask(). Kept apart from SENSITIVITY_GROUPS because they are
+# not a sensitivity analysis -- they are the early-detection axis itself.
+ADENOMA_GROUPS = {"YACHIDA-CRC-2019": ["MP"], "Kim_adenomas_2020": ["Adenoma"]}
 
 CRC_STAGE_ORDER = ["Healthy", "Stage_0", "Stage_I_II", "Stage_III_IV"]
 CRC_STAGE_NUMERIC = {
@@ -269,6 +285,10 @@ CRC_STAGE_NUMERIC = {
     "Stage_III_IV": 3,
     # HS has no position on a severity axis — see the policy note above.
     "HS":           np.nan,
+    # MP is pre-malignant: it has no TNM stage (its raw `Stage` column is "-" for
+    # all 40). It is ordered on the EARLY axis (EARLY_AXIS_NUMERIC), not on this
+    # carcinoma-staging scale.
+    "MP":           np.nan,
 }
 
 # Fine-grained order INCLUDING the sensitivity group, for descriptive plots and
@@ -302,13 +322,29 @@ STAGE_GROUP_MAP = {
     "Stage_I_II":   "Early_CRC",
     "Stage_III_IV": "Advanced_CRC",
     "HS":           "PostSurgery",
+    # v2.2: the adenoma arms get a real Stage.Group so they cannot be mistaken for
+    # unmapped (= primary) rows. One entry covers both cohorts: Yachida's raw label
+    # is "MP", Kim's is "Adenoma" and harmonize_metadata maps it to itself.
+    "MP":           "Adenoma",
+    "Adenoma":      "Adenoma",
 }
-# Primary, ordered severity axis. PostSurgery is intentionally absent.
+# Primary, ordered severity axis. PostSurgery and Adenoma are intentionally absent.
 STAGE_GROUP_ORDER = ["Healthy", "Early_CRC", "Advanced_CRC"]
-STAGE_GROUP_NUMERIC = {"Healthy": 0, "Early_CRC": 1, "Advanced_CRC": 2, "PostSurgery": np.nan}
+STAGE_GROUP_NUMERIC = {
+    "Healthy": 0, "Early_CRC": 1, "Advanced_CRC": 2,
+    "PostSurgery": np.nan,
+    # NaN on the PRIMARY scale on purpose: an adenoma cannot enter a primary trend
+    # test even if a caller forgets to mask it. Its order lives in
+    # EARLY_AXIS_NUMERIC, which is a separate map read only by early-axis steps.
+    "Adenoma": np.nan,
+}
 
 # Groups that exist in the data but are not on the primary axis.
 SENSITIVITY_STAGE_GROUPS = ["PostSurgery"]
+# Pre-malignant Stage.Group(s): on the early axis, never on the primary one.
+EARLY_AXIS_ONLY_STAGE_GROUPS = ["Adenoma"]
+# What primary_mask() excludes. Everything loaded is either primary or named here.
+NON_PRIMARY_STAGE_GROUPS = SENSITIVITY_STAGE_GROUPS + EARLY_AXIS_ONLY_STAGE_GROUPS
 STAGE_GROUP_ORDER_WITH_SENSITIVITY = STAGE_GROUP_ORDER + SENSITIVITY_STAGE_GROUPS
 
 # Convenience: fine-grained Study.Group -> grouped numeric directly
@@ -331,6 +367,82 @@ COMPARISONS_SENSITIVITY = {
         ("Healthy", "PostSurgery"),      # does a resected gut look like a control?
     ]
 }
+
+# -----------------------------------------------------------------------
+# EARLY-DETECTION AXIS (v2.2 — pre-specified, parallel to the primary axis)
+# -----------------------------------------------------------------------
+# The primary axis (Healthy -> Early_CRC -> Advanced_CRC, n=277) answers "does a
+# diagnosed carcinoma differ from a control". It cannot answer the early-detection
+# question, because its earliest arm is already a diagnosed cancer.
+#
+# The early axis admits the pre-malignant arms and asks the tumourigenesis
+# question instead:
+#
+#   Yachida (discovery, 4 levels, n=317):
+#       Healthy 127 -> Adenoma 40 -> Early_CRC 96 -> Advanced_CRC 54
+#   Kim (external validation, 3 levels, n=240):
+#       Healthy 102 -> Adenoma 102 -> CRC 36
+#   Sinha: NO adenoma arm. Binary only, so it is NOT scored on this axis.
+#
+# This is the one axis on which an early signal is externally falsifiable: Kim is
+# the only cohort outside Yachida with a pre-malignant arm. NB05 stage 6 already
+# measured the carcinoma-severity version of this transfer and it FAILED
+# (rho -0.059, p=0.33, cohort separability AUC 1.000). The early axis is a
+# testable question, not an assumed result.
+#
+# Kept rigorously apart from the primary encoding:
+#   * Adenoma is NaN in STAGE_GROUP_NUMERIC, so no primary trend test can see it.
+#   * primary_mask() excludes it (NON_PRIMARY_STAGE_GROUPS), so n=277 is unchanged.
+#   * COMPARISONS_EARLY is its OWN FDR family, never merged with COMPARISONS_GROUP.
+#   * Yachida is ordered on Stage.Group; Kim has no staging column at all, so its
+#     cases are "CRC" with Stage.Group NaN and it is ordered on Study.Group.
+#     EARLY_AXIS_GROUP_COL records which column each cohort uses.
+EARLY_AXIS_ORDER = ["Healthy", "Adenoma", "Early_CRC", "Advanced_CRC"]
+EARLY_AXIS_NUMERIC = {
+    "Healthy":      0,
+    "Adenoma":      1,   # pre-malignant
+    "Early_CRC":    2,
+    "Advanced_CRC": 3,
+    # Never on a severity axis.
+    "PostSurgery":  np.nan,
+}
+
+# The cross-cohort (coarse) early axis. Yachida's two carcinoma arms collapse to
+# "CRC" at scoring time because that is the finest distinction Kim can confirm.
+EARLY_AXIS_ORDER_EVAL = ["Healthy", "Adenoma", "CRC"]
+EARLY_AXIS_NUMERIC_EVAL = {
+    "Healthy": 0, "Adenoma": 1, "CRC": 2,
+    "Early_CRC": 2, "Advanced_CRC": 2,
+    "Control": 0, "Carcinoma": 2,          # Kim's raw labels, as a safety net
+    "MP": 1,                                 # Yachida's raw label
+    "HS": np.nan, "PostSurgery": np.nan,
+}
+
+# Which column each cohort's early-axis labels live in.
+EARLY_AXIS_GROUP_COL = {
+    "YACHIDA-CRC-2019":  "Stage.Group",   # fully mapped, 4 levels
+    "Kim_adenomas_2020": "Study.Group",   # no staging column; Healthy/Adenoma/CRC
+}
+
+# Early-axis comparisons — ONE FDR FAMILY OF THEIR OWN, never merged into
+# COMPARISONS_GROUP. Healthy-vs-Adenoma is the early-detection contrast proper;
+# Adenoma-vs-carcinoma asks whether the adenoma sits between the two states.
+COMPARISONS_EARLY = {
+    "YACHIDA-CRC-2019": [
+        ("Healthy", "Adenoma"),
+        ("Adenoma", "Early_CRC"),
+        ("Adenoma", "Advanced_CRC"),
+    ],
+    "Kim_adenomas_2020": [
+        ("Healthy", "Adenoma"),
+        ("Adenoma", "CRC"),
+    ],
+}
+
+# Cohorts scored on the early axis. Sinha has no adenoma arm, so including it
+# would silently produce an empty result rather than an honest "not measurable".
+DATASETS_EARLY_AXIS = ["YACHIDA-CRC-2019", "Kim_adenomas_2020"]
+
 
 # CRC-only groups: the one context where tumour location is a legitimate covariate
 # (every sample in these groups has, or had, a located tumour).
@@ -424,11 +536,16 @@ def primary_mask(meta_df, group_col="Stage.Group"):
     instead of enumerating the primary ones cannot fail that way.
 
     Because unmapped rows now count as primary, a staged cohort must have a fully
-    mapped Stage.Group; checks.py B1 asserts that for Yachida.
+    mapped Stage.Group; checks.py A7 asserts that for Yachida.
+
+    v2.2 (2026-10-26): the adenoma arms are loaded now, so this excludes
+    NON_PRIMARY_STAGE_GROUPS (PostSurgery AND Adenoma), not just the sensitivity
+    groups. The primary set is still exactly Healthy + Early_CRC + Advanced_CRC,
+    n=277 of 347 loaded Yachida rows.
     """
     if group_col not in meta_df.columns:
         return pd.Series(True, index=meta_df.index)
-    return ~meta_df[group_col].isin(SENSITIVITY_STAGE_GROUPS)
+    return ~meta_df[group_col].isin(NON_PRIMARY_STAGE_GROUPS)
 
 
 def sensitivity_mask(meta_df, group_col="Stage.Group"):
@@ -436,6 +553,31 @@ def sensitivity_mask(meta_df, group_col="Stage.Group"):
     if group_col not in meta_df.columns:
         return pd.Series(False, index=meta_df.index)
     return meta_df[group_col].isin(SENSITIVITY_STAGE_GROUPS)
+
+
+def early_axis_mask(meta_df, group_col="Stage.Group"):
+    """Boolean mask for the EARLY-DETECTION analysis set: the primary set plus the
+    pre-malignant (Adenoma) arm, i.e. everything except the sensitivity group.
+
+    Yachida: 127 Healthy + 40 Adenoma + 96 Early_CRC + 54 Advanced_CRC = 317.
+    Kim:     102 Healthy + 102 Adenoma + 36 CRC = 240 (its Stage.Group is NaN for
+             cases, which is why unmapped rows must count as IN here, exactly as
+             they do for primary_mask).
+    Sinha:   has no adenoma arm; it is not on DATASETS_EARLY_AXIS at all.
+
+    A step must call this on purpose. Nothing reaches the adenoma rows by default:
+    primary_mask() excludes them and NB02 writes them under their own pickle keys.
+    """
+    if group_col not in meta_df.columns:
+        return pd.Series(True, index=meta_df.index)
+    return ~meta_df[group_col].isin(SENSITIVITY_STAGE_GROUPS)
+
+
+def adenoma_mask(meta_df, group_col="Stage.Group"):
+    """Boolean mask selecting ONLY the pre-malignant (Adenoma) arm."""
+    if group_col not in meta_df.columns:
+        return pd.Series(False, index=meta_df.index)
+    return meta_df[group_col].isin(EARLY_AXIS_ONLY_STAGE_GROUPS)
 
 
 def crc_only_mask(meta_df, group_col="Stage.Group"):

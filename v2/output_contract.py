@@ -114,9 +114,11 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("intermediate/preprocessed_data_reduced_v2.pkl", keys=(
             "transformed_species", "transformed_mtb", "harmonized_meta",
             "sensitivity_species", "sensitivity_mtb", "sensitivity_meta",
+            "adenoma_species", "adenoma_mtb", "adenoma_meta",
             "polyamine_columns", "polyamine_proxies", "mtb_kegg_map", "undetected_mtb",
             "mtb_prescaled", "datasets", "dataset_discovery", "datasets_validation",
-            "stage_group_order", "sample_scope", "feature_reduction")),
+            "datasets_early_axis", "stage_group_order", "early_axis_order",
+            "sample_scope", "feature_reduction")),
         Out("tables/differential_abundance_v2.csv",
             cols=("Dataset", "Comparison", "Scheme", "Assay", "Feature", "MeanDiff",
                   "PValue", "CliffsD", "QValue", "Coef_adj", "QValue_adj", "Agreement",
@@ -129,11 +131,34 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
                                    "Early_CRC_vs_Advanced_CRC")}),
         Out("tables/da_robust_hit_summary_v2.csv",
             cols=("Comparison", "Type", "N_tested", "N_robust")),
+        # v2.2 early-detection axis (CONTRACTS.md section 2b). Its own FDR family, so
+        # its own table: these contrasts must never appear in differential_abundance_v2
+        # and vice versa (checks.py A11 asserts the families are disjoint).
+        Out("tables/early_axis_differential_abundance_v2.csv",
+            cols=("Dataset", "Comparison", "Scheme", "Assay", "Group_col", "Feature",
+                  "MeanDiff", "PValue", "CliffsD", "QValue", "Coef_adj", "QValue_adj",
+                  "Agreement", "Robust"),
+            values={"Scheme": ("early_axis",),
+                    "Assay": ("species", "metabolites"),
+                    # Both early-axis cohorts must be present: Kim is the only external
+                    # cohort with a pre-malignant arm, so a table missing it is not a
+                    # validated early-detection result at all.
+                    "Dataset": ("YACHIDA-CRC-2019", "Kim_adenomas_2020"),
+                    "Comparison": ("Healthy_vs_Adenoma", "Adenoma_vs_Early_CRC",
+                                   "Adenoma_vs_Advanced_CRC", "Adenoma_vs_CRC")}),
+        Out("tables/early_axis_hit_summary_v2.csv",
+            cols=("Dataset", "Comparison", "Type", "N_tested", "N_robust"),
+            values={"Dataset": ("YACHIDA-CRC-2019", "Kim_adenomas_2020")}),
         Out("tables/polyamine_DA_summary_v2.csv",
             cols=("Dataset", "Comparison", "Polyamine", "QValue")),
         Out("tables/*_polyamine_partial_correlations_v2.csv", min_files=3,
             cols=("Species", "Metabolite", "Polyamine", "Rho_partial", "PValue_partial",
                   "QValue_partial", "N", "Covariates")),
+        # v2.2: the metabolome-wide grid -- the SHAP-independent candidate pool the
+        # evidence assembler reads. One FDR family per cohort over the whole grid.
+        Out("tables/*_metabolome_partial_correlations_v2.csv", min_files=3,
+            cols=("Species", "Metabolite", "Rho_partial", "PValue_partial",
+                  "QValue_partial", "N", "KEGG", "Covariates", "Candidate_producer")),
         Out("tables/*_genus_polyamine_correlations_v2.csv", min_files=3,
             cols=("Genus", "Metabolite", "Rho", "PValue", "QValue", "Parent_KEGG")),
         Out("tables/consistent_polyamine_correlations_genus_v2.csv",
@@ -177,8 +202,17 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
     ),
     "03_ml_benchmarking.ipynb": (
         Out("intermediate/ml_results_v2.pkl", keys=(
-            "top15_early", "top15_advanced", "benchmark_df", "pa_producers",
+            "top15_early", "top15_advanced", "benchmark_df",
+            # v2.2: the metabolome-wide attribution table; pa_producers is its
+            # polyamine-only slice, kept because NB08's R3/R6 read it by that name.
+            "species_attribution", "pa_producers",
             "oof_shap_store", "polyamine_targets", "n_perm")),
+        Out("tables/species_attribution_shap_v2.csv",
+            cols=("Metabolite", "Metabolite_column", "Is_polyamine", "Species",
+                  "Mean_SHAP_OOF", "Mean_SHAP_signed", "SHAP_dir_rho", "Direction",
+                  "Rank", "CI_lower", "CI_upper", "Rank_stable", "Model_AUC_nested",
+                  "Model_perm_q"),
+            min_rows=0, note="empty only if Section 2 benchmarked nothing"),
         Out("tables/ml_benchmark_dysregulated_metabolites_v2.csv",
             cols=("Metabolite", "Classifier", "Target_type", "Target_definition",
                   "AUC_nested", "AUC_fixed", "N", "Perm_statistic", "Perm_pvalue",
@@ -196,8 +230,11 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("figures/ml/benchmark_auc_bars_v2.png"),
         Out("figures/ml/polyamine_producer_heatmap_v2.png", min_files=0,
             note="drawn only when producer candidates exist"),
-        Out("figures/ml/polyamine_*_oof_shap_producers_v2.png", min_files=0,
-            note="one per benchmarked polyamine with producer candidates"),
+        # v2.2: one per benchmarked target whose model BEAT its permutation null. A
+        # chance-level model's SHAP ranking is not interpretable, so no figure is drawn
+        # for it; the table keeps every row either way.
+        Out("figures/ml/attribution_*_oof_shap_v2.png", min_files=0,
+            note="one per benchmarked target whose model beat its permutation null"),
     ),
     "05_two_stage_model.ipynb": (
         Out("tables/nb05_stage2_early_vs_advanced_v2.csv",
