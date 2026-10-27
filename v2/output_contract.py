@@ -149,6 +149,29 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("tables/early_axis_hit_summary_v2.csv",
             cols=("Dataset", "Comparison", "Type", "N_tested", "N_robust"),
             values={"Dataset": ("YACHIDA-CRC-2019", "Kim_adenomas_2020")}),
+        # v2.2 Step 6D: what the early axis COULD have detected. The adenoma arm shows
+        # 0 robust hits in both cohorts and both assays, which is a finding only if the
+        # design had power; these two tables are what makes that statement checkable.
+        Out("tables/early_axis_power_curve_v2.csv",
+            cols=("Dataset", "Comparison", "Assay", "Effect_model", "Effect_size",
+                  "N_group1", "N_group2", "N_features_applicable", "N_evaluations",
+                  "Frac_evaluable", "Power_robust", "Power_mw_bh"),
+            # Both effect models must be present. A curve for the location shift alone
+            # would silently exclude the floor-heavy metabolites, which are 189 of 277
+            # in Yachida -- the majority of that assay.
+            values={"Comparison": ("Healthy_vs_Adenoma",),
+                    "Assay": ("species", "metabolites"),
+                    "Effect_model": ("location_shift", "prevalence_shift"),
+                    "Dataset": ("YACHIDA-CRC-2019", "Kim_adenomas_2020")}),
+        Out("tables/early_axis_power_summary_v2.csv",
+            cols=("Dataset", "Comparison", "Assay", "N_group1", "N_group2",
+                  "N_features", "N_features_floor_heavy",
+                  "N_shift_unreachable_at_min_delta", "Covariates",
+                  "Observed_max_abs_CliffsD", "N_robust_observed", "N_proof_cases",
+                  "MDE_CliffsD_80pct", "MDE_delta_prevalence_80pct",
+                  "Power_at_observed_max_effect", "Null_informative"),
+            values={"Dataset": ("YACHIDA-CRC-2019", "Kim_adenomas_2020")}),
+        Out("figures/differential/early_axis_power_curves_v2.png"),
         Out("tables/polyamine_DA_summary_v2.csv",
             cols=("Dataset", "Comparison", "Polyamine", "QValue")),
         Out("tables/*_polyamine_partial_correlations_v2.csv", min_files=3,

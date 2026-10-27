@@ -210,6 +210,59 @@ because a reader filtering on `Comparison` would otherwise double-count the same
 
 ---
 
+## 2c. What the early axis could have detected (v2.2)
+
+Step 6C reports **0 robust Healthy-vs-Adenoma hits in both cohorts and both assays**. A
+null is a finding only if the design could have seen something, so Step 6D bounds it.
+**Every statement about the adenoma arm must be read against this section**; the result
+is that the null is *not* informative, and the write-up may not present it as evidence
+that no early signal exists.
+
+**Method.** One feature is perturbed at a time, every other feature keeps its observed
+values, and the project's own criterion is re-run at the real multiplicity
+(Mann-Whitney + BH, LinDA-adjusted, robust = both at q<0.05 in the same direction,
+§4). The perturbed data keep each feature's real dispersion and zero-inflation, so no
+distributional assumption enters, and the perturbation is deterministic, so there is no
+Monte Carlo error. `utils.RobustDASensitivity` scores the rule through
+`utils.robust_da_call`, and Step 6D asserts on real baseline data that this reproduces
+`merge_da`'s `Robust` column — the analysis must bound the test that was actually used.
+
+**Two effect models, because one does not fit every feature.**
+
+| model | effect applied | applies to |
+|---|---|---|
+| `location_shift` | adenoma arm shifted to a target \|Cliff's δ\| | features not concentrated at the detection floor |
+| `prevalence_shift` | *k* adenoma samples moved off the floor to the median detected value — a metabolite that newly **appears** | floor-heavy features |
+
+Cliff's δ is a **step function** of a location shift wherever values are tied, so a
+metabolite sitting mostly at the detection floor cannot be given a small δ by shifting
+it at all. Such cases are reported unevaluable (`SENSITIVITY_DELTA_TOL`), never scored
+at whatever δ the search reached: scoring them reported an apparent **26% "power" at
+δ=0.05**, which is impossible for a near-null effect. `checks.py` D11 guards this with a
+tied fixture. `N_shift_unreachable_at_min_delta` states the count per assay — 148 of 277
+Yachida metabolites, which is why the prevalence model is not optional.
+
+**Results (2026-10-27).** The reused p-values are exact (Mann-Whitney is per-feature) and
+`verify_against_pipeline` re-runs the real functions on a sample of perturbed cases
+each run; `N_proof_cases` records how many were proven.
+
+| cohort / assay | n (H/A) | MDE \|δ\| at 80% | observed max \|δ\| | power there |
+|---|---|---|---|---|
+| Yachida species | 127 / 40 | 0.487 | 0.324 | **0.000** |
+| Yachida metabolites | 127 / 40 | 0.508 | 0.328 | **0.000** |
+| Kim species | 102 / 102 | 0.444 | 0.239 | **0.000** |
+| Kim metabolites | 102 / 102 | 0.359 | 0.277 | **0.000** |
+
+`Null_informative` is **False** for all four. The criterion had **zero** power at the
+largest effect actually present in either cohort, so "no robust early-stage differences"
+is an absence of evidence. Kim is the better-powered arm throughout despite testing more
+features, because 102/102 beats 127/40: the **40-sample adenoma arm is the binding
+constraint**, not the feature count. Neither cohort reaches 80% power at δ≈0.3, so no
+reanalysis of these two cohorts can settle the question — validating early detection
+needs a prospective cohort with more than 102 adenomas per arm.
+
+---
+
 ## 3. Tumour location — admissible only within cancer
 
 `Tumor location` is `"-"` for **every** non-cancer sample (all 127 Healthy, all 30 HS, all 40
@@ -390,6 +443,8 @@ per-comparison `{ds}_{g1}_vs_{g2}_{species|metabolites}_DA_v2.csv` family),
 `da_robust_hit_summary_v2.csv`,
 `early_axis_differential_abundance_v2.csv` + `early_axis_hit_summary_v2.csv` (Step 6C, the
 early-detection axis — **its own FDR family**, §2b; both early-axis cohorts required),
+`early_axis_power_curve_v2.csv` + `early_axis_power_summary_v2.csv` (Step 6D, §2c — what the
+early axis could have detected; both effect models required),
 `{ds}_polyamine_partial_correlations_v2.csv`,
 `consistent_polyamine_correlations_genus_v2.csv`, `{ds}_genus_polyamine_correlations_v2.csv`,
 `polyamine_DA_summary_v2.csv`, `replication_genus_metabolome_v2.csv`, plus progression and

@@ -1132,6 +1132,68 @@ def d10():
     assert {k for k, (_n, r) in cls.items() if r == "product"} == products
 
 
+@check("D11 the sensitivity engine refuses unreachable effect sizes and scores the real rule")
+def d11():
+    """Step 6D turns "0 robust adenoma hits" into a bounded statement, so its two ways of
+    being silently wrong are guarded here.
+
+    First, Cliff's delta is a STEP function of a location shift wherever values are tied.
+    A metabolite sitting mostly at the detection floor jumps straight past a small target
+    to a large effect, and scoring that case reports power for an effect size that was
+    never applied -- it showed up as 26% "power" at delta=0.05, which is impossible for a
+    near-null effect. evaluate_shift must return None there instead.
+
+    Second, the criterion scored must be the criterion the early axis is scored by. If
+    robust_da_call drifted from merge_da's rule, the analysis would bound the wrong test.
+    """
+    import numpy as _np
+
+    rng = _np.random.default_rng(11)
+
+    # --- the rule: both significant AND same direction, with NaN never counting
+    assert utils.robust_da_call(0.01, 0.01, 1.0, 2.0) is True
+    assert utils.robust_da_call(0.01, 0.01, 1.0, -2.0) is False, "opposite signs"
+    assert utils.robust_da_call(0.20, 0.01, 1.0, 2.0) is False, "rank test not significant"
+    assert utils.robust_da_call(0.01, 0.20, 1.0, 2.0) is False, "adjusted not significant"
+    assert utils.robust_da_call(_np.nan, 0.01, 1.0, 2.0) is False, "NaN must not count"
+    assert utils.robust_da_call(0.01, _np.nan, 1.0, 2.0) is False, "NaN must not count"
+    # the threshold is the project's, not a local 0.05
+    assert utils.robust_da_call(0.04, 0.04, 1.0, 1.0) is (utils.FDR_THRESHOLD > 0.04)
+
+    # --- Cliff's delta sign convention: positive means group1 exceeds group2, which is
+    # the OPPOSITE sign to MeanDiff. Getting this backwards would invert every curve.
+    assert utils.cliffs_delta(_np.array([5.0, 6, 7]), _np.array([1.0, 2, 3])) == 1.0
+    assert utils.cliffs_delta(_np.array([1.0, 2, 3]), _np.array([5.0, 6, 7])) == -1.0
+
+    # --- a continuous feature: the requested delta is reachable and is actually hit
+    x = rng.normal(size=60)
+    y = rng.normal(size=40)
+    for target in (-0.5, -0.2, 0.3):
+        shift, achieved = utils.shift_for_cliffs_delta(x, y, target)
+        assert _np.isfinite(shift), f"continuous data: {target} should be reachable"
+        assert abs(achieved - target) <= utils.SENSITIVITY_DELTA_TOL, \
+            f"continuous data: asked {target}, achieved {achieved}"
+
+    # --- a floor-heavy feature: most values tied at the floor, so delta moves in large
+    # steps and a small target cannot be realised by shifting.
+    floor = -3.0
+    y_tied = _np.concatenate([_np.full(34, floor), rng.normal(2.0, 0.3, 6)])
+    x_tied = _np.concatenate([_np.full(100, floor), rng.normal(2.0, 0.3, 27)])
+    _, achieved = utils.shift_for_cliffs_delta(x_tied, y_tied, -0.02)
+    assert not _np.isfinite(achieved) or abs(achieved - (-0.02)) > utils.SENSITIVITY_DELTA_TOL, \
+        ("this tied feature must NOT be able to realise delta=-0.02; if it can, the "
+         "fixture no longer exercises the step-function trap")
+
+    # --- the gate that uses it, and the prevalence model's applicability rule
+    assert utils.SENSITIVITY_DELTA_TOL > 0
+    assert utils.SENSITIVITY_MIN_FLOOR >= 3 and utils.SENSITIVITY_MIN_DETECTED >= 3
+
+    # --- the engine must expose the proof, not just the shortcut
+    for name in ("evaluate_shift", "evaluate_prevalence", "prevalence_choice",
+                 "verify_against_pipeline", "_verify_baseline"):
+        assert hasattr(utils.RobustDASensitivity, name), f"missing {name}"
+
+
 @check("D6 the curated polyamine and SCFA EC maps cover every compound and guild")
 def d6():
     # The curation was previously WRONG (consuming enzymes listed as producers); D1

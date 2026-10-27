@@ -2454,6 +2454,364 @@ def clr_lm_da(species_df, meta_df, group1, group2, group_col="Stage.Group",
     return out.sort_values("QValue", na_position="last").reset_index(drop=True)
 
 
+# ---------------------------------------------------------------------------
+# Sensitivity of the robust-DA criterion (v2.2)
+#
+# The early axis reports 0 robust Healthy-vs-Adenoma hits in both cohorts and both
+# assays. That is only a finding if the design could have seen something; otherwise it
+# is an absence of evidence. These helpers answer "what effect would we have caught?"
+# by perturbing ONE feature at a time and re-running the project's own criterion.
+# ---------------------------------------------------------------------------
+
+#: A target Cliff's delta counts as realised when the achieved value is this close.
+#: Cliff's delta is a STEP function of a location shift wherever values are tied, so a
+#: feature sitting mostly at the detection floor cannot be given an arbitrary delta this
+#: way. Such cases must be reported unevaluable, not evaluated at whatever delta the
+#: search landed on -- doing the latter produced an apparent 26% "power" at delta=0.05,
+#: because heavily-tied features jumped straight past the target to a large effect.
+SENSITIVITY_DELTA_TOL = 0.02
+
+#: Floor samples needed in the target arm, and detected values needed overall, before
+#: the prevalence model applies to a feature.
+SENSITIVITY_MIN_FLOOR = 5
+SENSITIVITY_MIN_DETECTED = 5
+
+
+def robust_da_call(q_mw, q_adj, mean_diff, coef_adj, fdr=None):
+    """The robust-DA rule: both tests significant, in the same direction.
+
+    One statement of the rule NB02's merge_da() applies, so the sensitivity analysis
+    scores exactly the criterion the early axis is scored by. The new NB02 cell asserts
+    on real baseline data that this reproduces merge_da's Robust column.
+    """
+    fdr = FDR_THRESHOLD if fdr is None else fdr
+    if not (np.isfinite(q_mw) and np.isfinite(q_adj)):
+        return False
+    return bool(q_mw < fdr and q_adj < fdr
+                and np.sign(mean_diff) == np.sign(coef_adj))
+
+
+def cliffs_delta(x, y):
+    """Cliff's delta, exactly as differential_abundance() derives it from U.
+
+    Positive means x (group1) tends to exceed y (group2) -- the opposite sign to
+    MeanDiff, which is mean(group2) - mean(group1).
+    """
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    gt = int((x[:, None] > y[None, :]).sum())
+    eq = int((x[:, None] == y[None, :]).sum())
+    return 2.0 * (gt + 0.5 * eq) / (x.size * y.size) - 1.0
+
+
+def shift_for_cliffs_delta(x, y, target_d, max_iter=200):
+    """Shift to add to y so that cliffs_delta(x, y + shift) == target_d.
+
+    Returns (shift, achieved_delta). Cliff's delta is monotone non-increasing in the
+    shift, so the root is bracketed by doubling and then bisected. achieved_delta can
+    differ from the target where ties make the function a step; the caller compares it
+    against SENSITIVITY_DELTA_TOL rather than trusting the shift.
+    """
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    span = max(float(np.ptp(np.concatenate([x, y]))), 1e-6)
+    lo, hi = -span, span
+    for _ in range(60):
+        if cliffs_delta(x, y + lo) >= target_d:
+            break
+        lo *= 2.0
+    else:
+        return np.nan, np.nan
+    for _ in range(60):
+        if cliffs_delta(x, y + hi) <= target_d:
+            break
+        hi *= 2.0
+    else:
+        return np.nan, np.nan
+    for _ in range(max_iter):
+        mid = 0.5 * (lo + hi)
+        if (hi - lo) < 1e-12:
+            break
+        if cliffs_delta(x, y + mid) > target_d:
+            lo = mid
+        else:
+            hi = mid
+    mid = 0.5 * (lo + hi)
+    return float(mid), cliffs_delta(x, y + mid)
+
+
+class RobustDASensitivity:
+    """What effect would the robust-DA criterion have caught in this comparison?
+
+    Perturbs one feature's group2 arm, leaves every other feature at its observed
+    values, and re-runs the criterion at the real multiplicity. Two effect models,
+    because one does not fit every feature:
+
+    ``evaluate_shift``
+        a location shift calibrated to a target Cliff's delta. Returns None when ties
+        make that delta unreachable (see SENSITIVITY_DELTA_TOL).
+    ``evaluate_prevalence``
+        k samples moved off the detection floor to the feature's median detected value
+        -- a metabolite that newly APPEARS in part of the pre-malignant group, which is
+        the model that actually applies to a floor-heavy feature and the behaviour an
+        early-detection marker would show.
+
+    Mann-Whitney is per-feature, so the unperturbed features' p-values are reused
+    unchanged; this is exact, not an approximation. The LinDA bias offset is the mode
+    over ALL coefficients, so it is recomputed with the perturbed coefficient in place,
+    which also moves every other feature's adjusted coefficient. Both the baseline and
+    a sample of perturbed cases are checked against differential_abundance() and
+    clr_lm_da() themselves -- see ``verify_against_pipeline``.
+    """
+
+    def __init__(self, table, meta_df, group1, group2, group_col, covars,
+                 bias_correct):
+        from scipy.stats import t as _t_dist
+
+        self._t = _t_dist
+        self.group1, self.group2, self.group_col = group1, group2, group_col
+        self.bias_correct = bias_correct
+
+        self.mw0 = differential_abundance(table, meta_df, group1, group2,
+                                          group_col=group_col)
+        self.lm0 = clr_lm_da(table, meta_df, group1, group2, group_col=group_col,
+                             covars=covars, already_clr=True,
+                             bias_correct=bias_correct)
+        if self.mw0.empty or self.lm0.empty:
+            raise ValueError(f"{group1} vs {group2}: both tests must return results")
+        self.features = list(self.mw0["Feature"])
+        if set(self.lm0["Feature"]) != set(self.features):
+            raise ValueError("the rank test and the adjusted model disagree on features")
+        self.lm0 = self.lm0.set_index("Feature").loc[self.features].reset_index()
+        self.index = {f: i for i, f in enumerate(self.features)}
+
+        # --- rank-test side: its own sample set, with no covariate dropout
+        merged = table.merge(meta_df[["Sample", group_col]], on="Sample")
+        g1m = merged[group_col] == group1
+        g2m = merged[group_col] == group2
+        self.mw_x = {f: merged.loc[g1m, f].to_numpy(float) for f in self.features}
+        self.mw_y = {f: merged.loc[g2m, f].to_numpy(float) for f in self.features}
+        # Which SAMPLES the group2 arrays hold, in order. The prevalence model has to
+        # perturb the same patients in both tests; choosing array positions
+        # independently in each test perturbs different people, which is a mismatch
+        # verify_against_pipeline() catches as a LinDA q-value disagreement.
+        self.mw_g2_samples = merged.loc[g2m, "Sample"].to_numpy()
+        self.p_mw = self.mw0["PValue"].to_numpy(float)
+        self.mean_diff = self.mw0["MeanDiff"].to_numpy(float)
+        self.n1 = int(g1m.sum())
+        self.n2 = int(g2m.sum())
+
+        # --- adjusted-model side: the design clr_lm_da builds, rebuilt identically
+        use_covars = list(self.lm0.attrs.get("covariates", []))
+        md = meta_df[["Sample", group_col]
+                     + [c for c in covars if c in meta_df.columns]].copy()
+        md = md[md[group_col].isin([group1, group2])]
+        if "Gender" in md.columns:
+            md["Gender"] = (md["Gender"].astype(str).str.lower() == "male").astype(float)
+        if use_covars:
+            md[use_covars] = md[use_covars].apply(pd.to_numeric, errors="coerce")
+            md = md.dropna(subset=use_covars)
+        m2 = md.merge(table, on="Sample")
+        g = (m2[group_col] == group2).astype(float).to_numpy()
+        self.X = np.column_stack([np.ones(len(m2)), g]
+                                 + [m2[c].to_numpy(float) for c in use_covars])
+        self.dof = self.X.shape[0] - self.X.shape[1]
+        self._pinv = np.linalg.pinv(self.X)
+        self._xtx_inv11 = float(np.linalg.pinv(self.X.T @ self.X)[1, 1])
+        self.lm_Y = m2[self.features].to_numpy(float)
+        self.lm_g2 = g.astype(bool)
+        self.lm_g2_samples = m2.loc[self.lm_g2, "Sample"].to_numpy()
+        B = self._pinv @ self.lm_Y
+        resid = self.lm_Y - self.X @ B
+        self.sigma2 = (resid ** 2).sum(axis=0) / self.dof
+        self.se = np.sqrt(max(self._xtx_inv11, 0.0) * self.sigma2)
+        self.coef_raw = B[1, :].copy()
+        self.covariates = use_covars
+
+        self._verify_baseline()
+
+    # ------------------------------------------------------------------ internals
+    @staticmethod
+    def _bh(p):
+        return multipletests(p, method="fdr_bh")[1]
+
+    def _adjusted(self, coef_raw, se):
+        offset = _coef_mode(coef_raw) if self.bias_correct else 0.0
+        coef = coef_raw - offset
+        with np.errstate(divide="ignore", invalid="ignore"):
+            tstat = np.where(se > 0, coef / se, np.nan)
+        p = 2 * self._t.sf(np.abs(tstat), self.dof)
+        q = np.full(p.shape, np.nan)
+        ok = np.isfinite(p)
+        if ok.any():
+            q[ok] = self._bh(p[ok])
+        return coef, q
+
+    def _verify_baseline(self):
+        """The shortcut must reproduce the real functions before it is trusted."""
+        coef, q = self._adjusted(self.coef_raw, self.se)
+        if not np.allclose(coef, self.lm0["Coef"].to_numpy(float), atol=1e-10):
+            raise AssertionError("sensitivity: adjusted coefficients differ from clr_lm_da")
+        if not np.allclose(q, self.lm0["QValue"].to_numpy(float), atol=1e-10,
+                           equal_nan=True):
+            raise AssertionError("sensitivity: adjusted q-values differ from clr_lm_da")
+        if not np.allclose(self._bh(self.p_mw), self.mw0["QValue"].to_numpy(float),
+                           atol=1e-12):
+            raise AssertionError("sensitivity: BH differs from differential_abundance")
+        for f in self.features[:25]:
+            got = float(self.mw0.loc[self.mw0["Feature"] == f, "CliffsD"].iloc[0])
+            if abs(cliffs_delta(self.mw_x[f], self.mw_y[f]) - got) > 1e-9:
+                raise AssertionError(f"sensitivity: Cliff's delta mismatch on {f}")
+
+    def _call(self, feature, y_new, delta_lm):
+        """Statistics for `feature` with its group2 arm replaced by `y_new`.
+
+        `delta_lm` is the same perturbation expressed as a per-sample change on the
+        adjusted model's group2 rows, which may exclude a sample the rank test keeps.
+        """
+        j = self.index[feature]
+        x = self.mw_x[feature]
+        _, p_new = mannwhitneyu(x, y_new, alternative="two-sided")
+        p_mw = self.p_mw.copy()
+        p_mw[j] = p_new
+        q_mw = self._bh(p_mw)
+
+        y_j = self.lm_Y[:, j].copy()
+        y_j[self.lm_g2] = y_j[self.lm_g2] + delta_lm
+        b = self._pinv @ y_j
+        resid = y_j - self.X @ b
+        se = self.se.copy()
+        se[j] = np.sqrt(max(self._xtx_inv11, 0.0)
+                        * float((resid ** 2).sum() / self.dof))
+        coef_raw = self.coef_raw.copy()
+        coef_raw[j] = b[1]
+        coef, q_adj = self._adjusted(coef_raw, se)
+
+        mean_diff = float(np.mean(y_new) - np.mean(x))
+        return {"Feature": feature,
+                "QValue": float(q_mw[j]),
+                "QValue_adj": float(q_adj[j]),
+                "MeanDiff": mean_diff,
+                "Coef_adj": float(coef[j]),
+                "CliffsD": cliffs_delta(x, y_new),
+                "Significant_mw": bool(q_mw[j] < FDR_THRESHOLD),
+                "Robust": robust_da_call(q_mw[j], q_adj[j], mean_diff, coef[j])}
+
+    # ------------------------------------------------------------------ models
+    def evaluate_shift(self, feature, target_d):
+        """Location shift calibrated to target_d; None when that delta is unreachable."""
+        shift, achieved = shift_for_cliffs_delta(self.mw_x[feature], self.mw_y[feature],
+                                                 target_d)
+        if not np.isfinite(shift) or abs(achieved - target_d) > SENSITIVITY_DELTA_TOL:
+            return None
+        out = self._call(feature, self.mw_y[feature] + shift, shift)
+        out["Shift"] = shift
+        out["Target_CliffsD"] = target_d
+        return out
+
+    def floor_profile(self, feature):
+        """(floor value, floor samples in group2, detected values across both arms)."""
+        x, y = self.mw_x[feature], self.mw_y[feature]
+        allv = np.concatenate([x, y])
+        floor = float(allv.min())
+        return floor, int((y == floor).sum()), allv[allv > floor]
+
+    def prevalence_evaluable(self, feature, k=None):
+        """Does the prevalence model apply to this feature (and reach k samples)?"""
+        _, n_floor, detected = self.floor_profile(feature)
+        if n_floor < SENSITIVITY_MIN_FLOOR or detected.size < SENSITIVITY_MIN_DETECTED:
+            return False
+        return True if k is None else k <= n_floor
+
+    def prevalence_choice(self, feature, k):
+        """The k group2 SAMPLES to move off the floor, chosen once for both tests.
+
+        By sample id in sorted order, so the choice is deterministic and identical in
+        the rank test, the adjusted design and a rebuilt table. A chosen sample the
+        adjusted model drops for a missing covariate is simply absent from its design,
+        which is what perturbing the table and re-running would also do.
+        """
+        floor, _, _ = self.floor_profile(feature)
+        at_floor = self.mw_g2_samples[self.mw_y[feature] == floor]
+        return set(np.sort(at_floor)[:k])
+
+    def evaluate_prevalence(self, feature, k):
+        """Move k floor samples of the group2 arm to the median detected value."""
+        if not self.prevalence_evaluable(feature, k):
+            return None
+        floor, n_floor, detected = self.floor_profile(feature)
+        target_val = float(np.median(detected))
+        chosen = list(self.prevalence_choice(feature, k))
+
+        y = self.mw_y[feature].copy()
+        y[np.isin(self.mw_g2_samples, chosen)] = target_val
+
+        j = self.index[feature]
+        y_lm = self.lm_Y[self.lm_g2, j]
+        delta_lm = np.zeros(y_lm.size)
+        hit = np.isin(self.lm_g2_samples, chosen) & (y_lm == floor)
+        delta_lm[hit] = target_val - floor
+
+        out = self._call(feature, y, delta_lm)
+        out["K_moved"] = int(k)
+        out["Delta_prevalence"] = k / self.n2
+        out["N_floor_group2"] = int(n_floor)
+        out["N_perturbed_adjusted"] = int(hit.sum())
+        return out
+
+    # ------------------------------------------------------------------ the proof
+    def verify_against_pipeline(self, table, meta_df, covars, shift_cases=(),
+                                prevalence_cases=()):
+        """Rebuild each perturbed table and compare with the real functions.
+
+        This is what makes the shortcut trustworthy: the reused p-values and the
+        recomputed bias offset must give the same q-values and the same verdict as
+        running differential_abundance() and clr_lm_da() on the perturbed data.
+        """
+        g2_samples = set(meta_df.loc[meta_df[self.group_col] == self.group2, "Sample"])
+        checked = 0
+        for feature, target_d in shift_cases:
+            fast = self.evaluate_shift(feature, target_d)
+            if fast is None:
+                continue
+            t2 = table.copy()
+            m = t2["Sample"].isin(g2_samples)
+            t2.loc[m, feature] = t2.loc[m, feature] + fast["Shift"]
+            self._compare(t2, meta_df, covars, feature, fast, f"shift d={target_d}")
+            checked += 1
+        for feature, k in prevalence_cases:
+            fast = self.evaluate_prevalence(feature, k)
+            if fast is None:
+                continue
+            _, _, detected = self.floor_profile(feature)
+            t2 = table.copy()
+            t2.loc[t2["Sample"].isin(self.prevalence_choice(feature, k)), feature] = \
+                float(np.median(detected))
+            self._compare(t2, meta_df, covars, feature, fast, f"prevalence k={k}")
+            checked += 1
+        return checked
+
+    def _compare(self, t2, meta_df, covars, feature, fast, what):
+        mw = differential_abundance(t2, meta_df, self.group1, self.group2,
+                                    group_col=self.group_col)
+        lm = clr_lm_da(t2, meta_df, self.group1, self.group2,
+                       group_col=self.group_col, covars=covars, already_clr=True,
+                       bias_correct=self.bias_correct)
+        r_mw = mw.loc[mw["Feature"] == feature].iloc[0]
+        r_lm = lm.loc[lm["Feature"] == feature].iloc[0]
+        if abs(float(r_mw["QValue"]) - fast["QValue"]) > 1e-9:
+            raise AssertionError(f"sensitivity {feature} {what}: rank-test q "
+                                 f"{r_mw['QValue']} vs {fast['QValue']}")
+        if abs(float(r_lm["QValue"]) - fast["QValue_adj"]) > 1e-9:
+            raise AssertionError(f"sensitivity {feature} {what}: adjusted q "
+                                 f"{r_lm['QValue']} vs {fast['QValue_adj']}")
+        real = robust_da_call(r_mw["QValue"], r_lm["QValue"], r_mw["MeanDiff"],
+                              r_lm["Coef"])
+        if real != fast["Robust"]:
+            raise AssertionError(f"sensitivity {feature} {what}: robust "
+                                 f"{real} vs {fast['Robust']}")
+
+
 def progression_correlation_analysis(
     species_df, mtb_df, meta_df,
     stage_col="CRC.Stage.Numeric",
