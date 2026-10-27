@@ -202,6 +202,71 @@ POLYAMINE_PATHWAY_KEGG = ["C00134", "C00315", "C00750", "C00179", "C01672"]
 # in the old pipeline were copied from the same cohort's SHAP top genera).
 # Note 2.8.3.8 (butyryl-CoA:acetate CoA-transferase) also acts on
 # acetoacetate, so it is a strong but not exclusive butyrate marker.
+# ---------------------------------------------------------------------------
+# MICROBIAL AMINO-ACID DECARBOXYLATION (v2.2, pre-specified target class)
+# ---------------------------------------------------------------------------
+# One enzyme family, chosen from the literature, NOT from any statistic computed on this
+# cohort. That independence is the whole point: NB03's permutation test asks "do the
+# species predict this metabolite", so a target list chosen BECAUSE species correlate
+# with it would make the test reject by construction and turn the predictive evidence
+# source into a restatement of the statistical one.
+#
+# It also subsumes rather than discards the polyamine hypothesis: putrescine, cadaverine
+# and agmatine ARE decarboxylation products (of ornithine, lysine and arginine). What the
+# class adds is the rest of the family -- the aromatic and basic amino acids -- and, for
+# every member, the SUBSTRATE as well as the product.
+#
+# Substrate and product are both targets on purpose. A species that drives a
+# decarboxylation should deplete the substrate and elevate the product, so the pair is a
+# directional signature rather than a bare association. All 8 pairs are fully measured in
+# Yachida (verified 2026-10-27).
+#
+# Spermidine and spermine are deliberately ABSENT: they are aminopropyl-transfer products
+# (EC 2.5.1.16 / 2.5.1.22), not decarboxylations. They stay pre-specified polyamines.
+DECARBOXYLATION_SUBSTRATE_PRODUCT = {
+    # substrate KEGG -> (product KEGG, enzyme name, producing EC)
+    "C00077": ("C00134", "ornithine decarboxylase",             "4.1.1.17"),
+    "C00047": ("C01672", "lysine decarboxylase",                "4.1.1.18"),
+    "C00062": ("C00179", "arginine decarboxylase",              "4.1.1.19"),
+    "C00078": ("C00398", "tryptophan decarboxylase",            "4.1.1.105"),
+    "C00079": ("C05332", "aromatic-L-amino-acid decarboxylase", "4.1.1.28"),
+    "C00082": ("C00483", "aromatic-L-amino-acid decarboxylase", "4.1.1.28"),
+    "C00135": ("C00388", "histidine decarboxylase",             "4.1.1.22"),
+    "C00025": ("C00334", "glutamate decarboxylase",             "4.1.1.15"),
+}
+
+# Products only, with their producing EC -- the same contract as POLYAMINE_EC: these
+# reactions PRODUCE the compound. (The pre-v2 polyamine map listed consuming enzymes as
+# producers, which inverted the producer call; `checks.py` D1/D10 guard against a repeat.)
+DECARBOXYLATION_EC: dict[str, list[str]] = {
+    prod: [ec] for (prod, _enz, ec) in DECARBOXYLATION_SUBSTRATE_PRODUCT.values()
+}
+
+DECARBOXYLATION_KEGG = {
+    "C00134": "Putrescine", "C01672": "Cadaverine", "C00179": "Agmatine",
+    "C00398": "Tryptamine", "C05332": "Phenethylamine", "C00483": "Tyramine",
+    "C00388": "Histamine", "C00334": "GABA",
+}
+
+# N-acetylglutamate synthase (EC 2.3.1.1) commits glutamate to the microbial arginine
+# route, which feeds agmatine and putrescine above, so the intermediate belongs to the
+# same pre-specified mechanism. Kept separate from the decarboxylation map because its
+# enzyme is a transferase, not a decarboxylase.
+ARGININE_ROUTE_KEGG = {"C00624": "N-Acetylglutamate"}
+ARGININE_ROUTE_EC: dict[str, list[str]] = {"C00624": ["2.3.1.1"]}
+
+# The full pre-specified target class for NB03: every product, every substrate, and the
+# arginine-route intermediate, as {KEGG: (display name, role)}. Sorted, so the target
+# list a run produces is reproducible and diffable.
+_SUBSTRATE_NAMES = {"C00077": "Ornithine", "C00047": "Lysine", "C00062": "Arginine",
+                    "C00078": "Tryptophan", "C00079": "Phenylalanine",
+                    "C00082": "Tyrosine", "C00135": "Histidine", "C00025": "Glutamate"}
+DECARBOXYLATION_TARGET_KEGG: dict[str, tuple[str, str]] = dict(sorted(
+    {**{k: (v, "substrate") for k, v in _SUBSTRATE_NAMES.items()},
+     **{k: (v, "product") for k, v in DECARBOXYLATION_KEGG.items()},
+     **{k: (v, "arginine_route") for k, v in ARGININE_ROUTE_KEGG.items()}}.items()))
+
+
 SCFA_EC: dict[str, list[str]] = {
     "butyrate":   ["2.8.3.8", "2.7.2.7"],   # butyryl-CoA:acetate CoA-transferase, butyrate kinase
     "propionate": ["2.8.3.1"],              # propionate CoA-transferase

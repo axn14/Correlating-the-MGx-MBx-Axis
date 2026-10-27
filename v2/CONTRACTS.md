@@ -287,6 +287,58 @@ and by none of the 151 modelled study species.
 `POLYAMINE_PATHWAY_KEGG` excludes ornithine and arginine: their synthesis ECs appear in ~90%
 of AGORA2 species and carry no pathway-membership information.
 
+## 5b. The decarboxylation target class (v2.2) — and why target selection must not use correlation
+
+NB03 asks, per target, whether the **species** predict that metabolite, against a label
+permutation null. That question is only meaningful while the target list was chosen
+**independently of how strongly species track the metabolite in this same cohort**. Choose
+the strongest species–metabolite correlations as targets and the test rejects by
+construction, and the `predictive` evidence source in NB08/NB09 stops being independent of
+the `statistical` one — it becomes a restatement of it. `checks.py` **E14** fails if NB03
+reads any within-cohort species × metabolite association table.
+
+NB03 therefore has exactly two admissible criteria, on two different axes:
+
+| Criterion | Axis | Source |
+|---|---|---|
+| robust differential abundance | **disease** (Healthy vs CRC) | `differential_abundance_v2.csv` |
+| a pre-specified class | **enzyme family**, from the literature | `POLYAMINE_KEGG`, `DECARBOXYLATION_TARGET_KEGG` |
+
+**`DECARBOXYLATION_TARGET_KEGG` — microbial amino-acid decarboxylation.** One enzyme
+family, and it *subsumes* the polyamine hypothesis rather than discarding it: putrescine,
+cadaverine and agmatine are themselves decarboxylation products. What the class adds is
+the rest of the family and, for every member, the **substrate as well as the product** —
+all 8 pairs are fully measured in Yachida:
+
+| Substrate | → Product | Enzyme |
+|---|---|---|
+| Ornithine | Putrescine | ornithine decarboxylase (4.1.1.17) |
+| Lysine | Cadaverine | lysine decarboxylase (4.1.1.18) |
+| Arginine | Agmatine | arginine decarboxylase (4.1.1.19) |
+| Tryptophan | **Tryptamine** | tryptophan decarboxylase (4.1.1.105) |
+| Phenylalanine | **Phenethylamine** | aromatic-L-amino-acid decarboxylase (4.1.1.28) |
+| Tyrosine | **Tyramine** | aromatic-L-amino-acid decarboxylase (4.1.1.28) |
+| Histidine | **Histamine** | histidine decarboxylase (4.1.1.22) |
+| Glutamate | GABA | glutamate decarboxylase (4.1.1.15) |
+
+Plus `ARGININE_ROUTE_KEGG` = **N-acetylglutamate** (N-acetylglutamate synthase, 2.3.1.1),
+the committed step of the microbial arginine route that feeds agmatine and putrescine.
+Its enzyme is a transferase, so it is kept out of the decarboxylase map.
+
+Substrate and product are both targets **on purpose**: a species that drives a
+decarboxylation should deplete the substrate and elevate the product, so the pair is a
+directional signature rather than a bare association.
+
+**Spermidine and spermine are deliberately absent** — they are aminopropyl-transfer
+products (2.5.1.16 / 2.5.1.22), not decarboxylations. They remain pre-specified
+polyamines. `checks.py` **D10** asserts the pairing, that every EC is a decarboxylase
+(4.1.1.x), that no compound is both substrate and product, and that the shared polyamine
+ECs agree with `POLYAMINE_EC`.
+
+17 of 17 class members are measured in Yachida; 9 were new targets as of 2026-10-27
+(glutamate, lysine, tryptophan, histidine, histamine, tryptamine, tyramine,
+phenethylamine, N-acetylglutamate), taking NB03 from 27 to 36 targets.
+
 ### Proxies
 
 Cohort coverage (`tables/polyamine_cohort_coverage_v2.csv`):

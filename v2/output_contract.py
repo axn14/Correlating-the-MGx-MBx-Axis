@@ -207,6 +207,13 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
             # polyamine-only slice, kept because NB08's R3/R6 read it by that name.
             "species_attribution", "pa_producers",
             "oof_shap_store", "polyamine_targets", "n_perm")),
+        # v2.2: the pre-specified decarboxylation class (CONTRACTS.md section 5b). Chosen
+        # from an enzyme family, so it is independent of any within-cohort species x
+        # metabolite statistic (checks.py E14) and of the disease axis.
+        Out("tables/nb03_prespecified_decarboxylation_targets_v2.csv",
+            cols=("Feature", "KEGG", "Compound", "Class_role", "Target_type",
+                  "Already_selected"),
+            values={"Target_type": ("prespecified_decarboxylation",)}),
         Out("tables/species_attribution_shap_v2.csv",
             cols=("Metabolite", "Metabolite_column", "Is_polyamine", "Species",
                   "Mean_SHAP_OOF", "Mean_SHAP_signed", "SHAP_dir_rho", "Direction",
@@ -274,6 +281,36 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
         Out("figures/multiomics/mofa_postsurgery_projection_v2.png"),
     ),
     "08_pathway_analysis.ipynb": (
+        # v2.2 PRIMARY OUTPUT: the metabolome-wide evidence assembler, read by NB09.
+        # Each source carries an explicit _available flag, so a source that could not be
+        # assessed can never be read as evidence against a pair.
+        Out("tables/pair_evidence_nb08_v2.csv",
+            cols=("Species", "Genus", "Metabolite", "KEGG", "Is_polyamine",
+                  "Rho_partial", "PValue_partial", "QValue_partial", "N", "Covariates",
+                  "Candidate_producer",
+                  "Mean_SHAP_OOF", "Mean_SHAP_signed", "Direction", "Rank", "Rank_stable",
+                  "Model_AUC_nested", "Model_perm_q", "Confounder_unattributable",
+                  "Source_predictive_available", "Source_predictive_support",
+                  "AGORA2_model_available", "AGORA2_match_type",
+                  "AGORA2_producer_call", "AGORA2_producer_base_rate",
+                  "Source_genomic_producer_available", "Source_genomic_producer_support",
+                  "AGORA2_capability_call", "AGORA2_capability_base_rate",
+                  "Source_genomic_capability_available",
+                  "Source_genomic_capability_support",
+                  "Replication_row_found", "Replication_n_measurable",
+                  "Replication_n_replicated", "Replication_cohorts",
+                  "Replication_mean_rho", "Replication_contradicted",
+                  "Source_replication_available", "Source_replication_support",
+                  "MICOM_flux_rho", "MICOM_flux_q", "MICOM_status",
+                  "Source_mechanistic_available", "Source_mechanistic_support",
+                  "N_sources_available_nb08", "N_sources_supporting_nb08",
+                  "Evidence_sources_nb08", "Tier_nb08_partial"),
+            # MICOM is pending, so every row must say so rather than leaving a blank that
+            # reads as "assessed and found nothing".
+            values={"MICOM_status": ("pending",)}),
+        Out("tables/pair_evidence_agora2_base_rates_v2.csv",
+            cols=("Metabolite", "KEGG", "Has_producer_EC_map", "Producer_base_rate",
+                  "Producer_counted", "Capability_base_rate", "Capability_counted")),
         Out("tables/r1_agora2_producer_enrichment_v2.csv",
             cols=("Species", "Polyamine", "Rank", "KEGG_ID", "Encodes_Enzyme",
                   "AGORA2_Model_Available", "AGORA2_match"),
@@ -341,8 +378,8 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
 # Outputs CONTRACTS.md names that no executed notebook produces. checks.py E8 fails on
 # any other name the document mentions without a declaration above.
 NOT_PRODUCED = {
-    "pair_evidence_nb08_v2.csv": "design target of the NB08 rebuild; the executed NB08 "
-                                 "does not write it (CONTRACTS.md NB08 status banner)",
+    # pair_evidence_nb08_v2.csv moved OUT of this list on 2026-10-27: the v2.2 assembler
+    # section in NB08 writes it, declared above.
     "analysis_results_v2.pkl": "retired: zero readers, duplicated the CSVs",
     "*_vs_*_DA_v2.csv": "retired per-comparison DA family, replaced by "
                         "differential_abundance_v2.csv (the Stage I-II vs III-IV "

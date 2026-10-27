@@ -970,6 +970,168 @@ def d8():
         "an infeasible solution (no growth, unbalanced lumen) passed as solved"
 
 
+@check("D9 evidence_tools: tri-state calls, base-rate gate, attributability, source counting")
+def d9():
+    """The assembler's rules. Each assertion is a way the evidence synthesis has been, or
+    could silently be, wrong."""
+    import evidence_tools as et
+
+    # 1. Genus derivation must use the SHARED normaliser, or a species-level pair will not
+    #    join the genus-level replication table for any GTDB-suffixed genus.
+    assert et.species_to_genus("Veillonella parvula_A") == "Veillonella"
+    assert et.species_to_genus("Blautia_A sp900066165") == "Blautia"
+    assert et.species_to_genus("CAG-110 sp003525905") == "CAG-110"
+    assert et.species_to_genus("") == utils.normalise_genus_name("")
+
+    # 2. AGORA2 capability is TRI-STATE: no model means None, never False.
+    idx = {"s__Fake_species": {"C00134": ["4.1.1.17"], "C00077": []}}
+    assert et.species_touches_compound("Fake species", "C00134", idx) is True
+    assert et.species_touches_compound("Fake species", "C00077", idx) is False, \
+        "a compound present with no reactions must be False, not True"
+    assert et.species_touches_compound("Fake species", "C99999", idx) is False
+    assert et.species_touches_compound("Absent species", "C00134", idx) is None, \
+        "a species with no AGORA2 model must carry NO evidence, not negative evidence"
+
+    # 3. Base rate excludes unmodelled species from the DENOMINATOR. Counting them as
+    #    negatives would deflate the rate and make an uninformative source look selective.
+    idx2 = {"s__A": {"C1": ["x"]}, "s__B": {"C1": ["x"]}, "s__C": {}}
+    rate, n = et.compound_base_rate("C1", ["A", "B", "C", "Unmodelled"], idx2)
+    assert (rate, n) == (2 / 3, 3), (rate, n)
+    rate_none, n_none = et.compound_base_rate("C1", ["Unmodelled"], idx2)
+    assert np.isnan(rate_none) and n_none == 0
+
+    # 4. The base-rate gate: a source nearly every species satisfies earns no point, and
+    #    an unassessable one (NaN) can never pass.
+    assert et.counts_toward_tier(0.10) and et.counts_toward_tier(0.20)
+    assert not et.counts_toward_tier(0.21)
+    assert not et.counts_toward_tier(float("nan")), "NaN must not count as informative"
+    assert not et.counts_toward_tier(None)
+    # The measured polyamine base rates: only spermine is informative.
+    measured = {"arginine": 0.974, "ornithine": 0.901, "putrescine": 0.874,
+                "agmatine": 0.702, "cadaverine": 0.623, "spermidine": 0.576,
+                "spermine": 0.000}
+    informative = {k for k, v in measured.items() if et.counts_toward_tier(v)}
+    assert informative == {"spermine"}, informative
+
+    # 5. Attributability: the confounders alone must not match the species model.
+    #    Measured on the 2026-10-26 run; both failures are polyamines.
+    assert et.confounder_unattributable(0.633, 0.823) is True, "spermine must be excluded"
+    assert et.confounder_unattributable(0.577, 0.741) is True, "N1-acetylspermine likewise"
+    assert et.confounder_unattributable(0.787, 0.484) is False, "Phe must survive"
+    assert et.confounder_unattributable(0.735, 0.602) is False, "Ser must survive"
+    assert et.confounder_unattributable(0.70, None) is False, "missing data is not a verdict"
+
+    # 6. Predictive support needs direction, rank stability, a model better than chance,
+    #    AND attributability. Each omission is a way a non-finding becomes a tier.
+    base = {"Direction": "positive", "Rank_stable": True, "Model_perm_q": 0.01,
+            "Confounder_unattributable": False}
+    assert et.predictive_support(base)
+    assert not et.predictive_support({**base, "Direction": "negative"}), \
+        "a negative-direction species is not a candidate producer"
+    assert not et.predictive_support({**base, "Rank_stable": False})
+    assert not et.predictive_support({**base, "Model_perm_q": 0.20}), \
+        "a chance-level model's ranking is not evidence"
+    assert not et.predictive_support({**base, "Confounder_unattributable": True}), \
+        "a model whose advantage belongs to the confounders is not species evidence"
+    assert not et.predictive_support({**base, "Model_perm_q": float("nan")})
+
+    # 7. Replication keeps "not measurable" apart from "not replicated" (cf. C9) and
+    #    reports a contradiction as its own outcome.
+    cohorts = ["SINHA_CRC_2016", "Kim_adenomas_2020"]
+    none_row = et.replication_summary(None, cohorts)
+    assert not none_row["Replication_available"] and not none_row["Replication_support"]
+    unmeasurable = et.replication_summary(
+        {"In_SINHA_CRC_2016": False, "In_Kim_adenomas_2020": False}, cohorts)
+    assert not unmeasurable["Replication_available"], \
+        "an unmeasurable pair must be unavailable, never a failed replication"
+    good = et.replication_summary(
+        {"In_SINHA_CRC_2016": True, "Rho_SINHA_CRC_2016": 0.3,
+         "Replicated_SINHA_CRC_2016": True, "Contradicted_SINHA_CRC_2016": False,
+         "In_Kim_adenomas_2020": True, "Rho_Kim_adenomas_2020": 0.4,
+         "Replicated_Kim_adenomas_2020": False,
+         "Contradicted_Kim_adenomas_2020": False}, cohorts)
+    assert good["Replication_available"] and good["Replication_support"]
+    assert good["Replication_n_measurable"] == 2 and good["Replication_n_replicated"] == 1
+    assert good["Replication_cohorts"] == "SINHA_CRC_2016"
+    assert np.isclose(good["Replication_mean_rho"], 0.35)
+    contra = et.replication_summary(
+        {"In_Kim_adenomas_2020": True, "Rho_Kim_adenomas_2020": -0.4,
+         "Replicated_Kim_adenomas_2020": False,
+         "Contradicted_Kim_adenomas_2020": True}, cohorts)
+    assert contra["Replication_contradicted"] and not contra["Replication_support"]
+
+    # 8. Source counting: an unavailable source can never supply a point, however its
+    #    support column reads.
+    srcs = [("predictive", "P_avail", "P_sup"), ("genomic", "G_avail", "G_sup"),
+            ("replication", "R_avail", "R_sup")]
+    n_av, n_sup, names = et.count_sources(
+        {"P_avail": True, "P_sup": True, "G_avail": False, "G_sup": True,
+         "R_avail": True, "R_sup": False}, srcs)
+    assert (n_av, n_sup) == (2, 1), (n_av, n_sup)
+    assert names == "predictive", names
+
+    # 9. Tiers state the attainable ceiling, because 1-of-1 is not the claim 1-of-4 is.
+    assert et.tier(3, 4).startswith("Strong")
+    assert et.tier(2, 4).startswith("Moderate")
+    assert et.tier(1, 4).startswith("Weak")
+    assert et.tier(0, 4).startswith("Statistical only")
+    assert "1/4" in et.tier(1, 4) and "1/1" in et.tier(1, 1)
+
+
+@check("D10 the decarboxylation target class is pre-specified, paired, and producing-only")
+def d10():
+    """The v2.2 target class. Its validity rests on being chosen from an enzyme family
+    rather than from this cohort's statistics -- E14 enforces that NB03 cannot read the
+    correlation table -- and on substrate/product being paired, which is what makes it a
+    directional signature rather than a bare association."""
+    sp = utils.DECARBOXYLATION_SUBSTRATE_PRODUCT
+    assert len(sp) == 8, f"expected 8 substrate->product pairs, got {len(sp)}"
+
+    # Every pair must be substrate -> product with a producing EC, and no compound may be
+    # both a substrate and a product of this family (that would double-count a target).
+    substrates, products = set(sp), {p for p, _e, _ec in sp.values()}
+    assert not (substrates & products), \
+        f"compound is both substrate and product: {substrates & products}"
+    assert products == set(utils.DECARBOXYLATION_KEGG), \
+        "DECARBOXYLATION_KEGG must be exactly the products of the pairs"
+    assert set(utils.DECARBOXYLATION_EC) == products
+
+    # Every EC must be a decarboxylase (EC 4.1.1.x). A transferase or a consuming enzyme
+    # here would invert the producer call, which is the pre-v2 polyamine-map error.
+    for prod, ecs in utils.DECARBOXYLATION_EC.items():
+        assert ecs, prod
+        for ec in ecs:
+            assert ec.startswith("4.1.1."), \
+                f"{prod}: EC {ec} is not a decarboxylase (4.1.1.x)"
+
+    # The polyamine products that ARE decarboxylations must agree with POLYAMINE_EC, and
+    # the aminopropyl-transfer products must NOT be in this class.
+    for shared in ("C00134", "C01672", "C00179"):
+        assert shared in utils.DECARBOXYLATION_EC and shared in utils.POLYAMINE_EC
+        assert set(utils.DECARBOXYLATION_EC[shared]) <= set(utils.POLYAMINE_EC[shared]), \
+            f"{shared}: the decarboxylase must already be a curated producing EC"
+    for transfer in ("C00315", "C00750"):
+        assert transfer not in utils.DECARBOXYLATION_KEGG, \
+            f"{transfer} is an aminopropyl-transfer product, not a decarboxylation"
+
+    # The arginine-route intermediate is kept apart: its enzyme is a transferase.
+    assert set(utils.ARGININE_ROUTE_EC) == {"C00624"}
+    assert utils.ARGININE_ROUTE_EC["C00624"] == ["2.3.1.1"]
+    assert not (set(utils.ARGININE_ROUTE_KEGG) & products)
+
+    # The assembled target class: every substrate, every product, the intermediate; each
+    # tagged with its role so a table can say why a target is in the list.
+    cls = utils.DECARBOXYLATION_TARGET_KEGG
+    assert len(cls) == 8 + 8 + 1 == 17, f"expected 17 class members, got {len(cls)}"
+    roles = {r for _n, r in cls.values()}
+    assert roles == {"substrate", "product", "arginine_route"}, roles
+    for kegg, (name, role) in cls.items():
+        assert re.fullmatch(r"C\d{5}", kegg), kegg
+        assert name and isinstance(name, str), kegg
+    assert {k for k, (_n, r) in cls.items() if r == "substrate"} == substrates
+    assert {k for k, (_n, r) in cls.items() if r == "product"} == products
+
+
 @check("D6 the curated polyamine and SCFA EC maps cover every compound and guild")
 def d6():
     # The curation was previously WRONG (consuming enzymes listed as producers); D1
@@ -1326,6 +1488,51 @@ def e12():
                                       .splitlines(), 1)
              if rx.search(line) and not line.strip().startswith("#")]
     assert not hits, "raw savefig (use viz.save_figure): " + ", ".join(hits)
+
+
+@check("E14 NB03 never selects its targets from a within-cohort species-metabolite statistic")
+def e14():
+    """The anti-circularity guard for NB03's target list (v2.2).
+
+    NB03 asks, per target, whether the SPECIES predict that metabolite, against a label
+    permutation null. That question is only meaningful while the target list was chosen
+    independently of how strongly species track the metabolite in this same cohort. Choose
+    the strongest species-metabolite correlations as targets and the test rejects by
+    construction, and the predictive evidence source in NB08/NB09 stops being independent
+    of the statistical one -- it becomes a restatement of it.
+
+    So NB03's two admissible criteria are:
+      * robust DIFFERENTIAL ABUNDANCE (disease axis -- a different axis from species
+        association), via differential_abundance_v2.csv; and
+      * a PRE-SPECIFIED class, from an enzyme family in the literature
+        (utils.POLYAMINE_KEGG, utils.DECARBOXYLATION_TARGET_KEGG).
+
+    Every table banned below carries a within-cohort species x metabolite association, so
+    reading any of them in NB03 would reintroduce the circularity. (NB08 and NB09 read
+    them freely -- that is where evidence is combined, not where targets are chosen.)
+    """
+    banned = (
+        "metabolome_partial_correlations",     # the metabolome-wide grid (NB02 7.2b)
+        "polyamine_partial_correlations",      # the polyamine grid (NB02 7.2)
+        "CRC_binary_stage_correlations",
+        "CRC_progression_ordinal_correlations",
+        "replication_genus_metabolome",        # rows conditioned on Yachida significance
+        "pair_evidence_nb08",
+    )
+    doc = json.loads((NB_DIR / "03_ml_benchmarking.ipynb").read_text(encoding="utf-8"))
+    hits = []
+    for i, cell in enumerate(doc.get("cells", [])):
+        if cell.get("cell_type") != "code":
+            continue
+        for lineno, line in enumerate("".join(cell["source"]).splitlines(), 1):
+            if line.strip().startswith("#"):
+                continue                       # prose may name what it must not read
+            for name in banned:
+                if name in line:
+                    hits.append(f"cell {i} ({cell.get('id')}) line {lineno}: {name}")
+    assert not hits, (
+        "NB03 reads a within-cohort species-metabolite association table, which would "
+        "make its permutation test circular:\n  " + "\n  ".join(hits))
 
 
 @check("E13 NB10 presolves every micom solve and keeps no local copy of micom_tools' rules")
