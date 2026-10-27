@@ -233,7 +233,12 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
             # labelled every non-polyamine 'robust_DA', including the 9 targets the
             # decarboxylation class alone contributed. Every admissible value names each
             # criterion the target met, in this order.
-            values={"Target_type": (
+            #
+            # 'allowed', not 'values': the point is that NO label outside this set can be
+            # written, not that each one occurs. Which labels occur depends on how many
+            # targets are benchmarked, so a 'values' requirement would fail every smoke
+            # run -- and would fail a full run too, since no target is all three.
+            allowed={"Target_type": (
                 "robust_DA",
                 "prespecified_polyamine",
                 "prespecified_decarboxylation",
