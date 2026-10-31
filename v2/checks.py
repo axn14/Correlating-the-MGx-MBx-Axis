@@ -1597,6 +1597,61 @@ def e14():
         "make its permutation test circular:\n  " + "\n  ".join(hits))
 
 
+@check("E15 NB09's synthesis reads NB08's assembler and re-derives none of its sources")
+def e15():
+    """The final tier must be assigned on ONE table, not a second weaker synthesis.
+
+    Until v2.2 this section scored three sources over the seven polyamines only, and its
+    genomic source used utils.species_encodes_enzyme -- which means curated producing ECs
+    where POLYAMINE_EC has an entry and "any reaction indexed under this compound"
+    everywhere else, two different claims under one name. NB08 separates those into
+    genomic_producer and genomic_capability over the whole metabolome. Scoring both would
+    leave two different answers to one question under near-identical filenames, which is
+    the failure CONTRACTS section 2 records for the retired per-comparison DA family.
+
+    So the synthesis cells must read pair_evidence_nb08_v2.csv and must not recompute a
+    source NB08 owns. Module B may still call AGORA2 directly -- it profiles producer
+    enzymes rather than scoring a pair -- so this is scoped to the synthesis cells.
+    """
+    SYNTH_CELLS = {"synthesis-build", "synthesis-score", "synthesis-fig"}
+    REDERIVED = ("species_encodes_enzyme", "species_touches_compound",
+                 "agora2_base_rate", "load_agora2_ec_index",
+                 "genus_metabolite_replication")
+    doc = json.loads((NB_DIR / "09_pathway_network.ipynb").read_text(encoding="utf-8"))
+    cells = {c.get("id"): "".join(c["source"])
+             for c in doc.get("cells", []) if c.get("cell_type") == "code"}
+
+    missing = SYNTH_CELLS - set(cells)
+    assert not missing, f"NB09 lost its synthesis cell(s): {sorted(missing)}"
+
+    all_code = "\n".join(ln for ln in "\n".join(cells.values()).splitlines()
+                         if not ln.strip().startswith("#"))
+    assert "pair_evidence_nb08_v2.csv" in all_code, \
+        "NB09 does not read pair_evidence_nb08_v2.csv -- the final tier would be scored " \
+        "on a different, weaker candidate pool than the one NB08 assembled"
+
+    hits = []
+    for cid in sorted(SYNTH_CELLS):
+        for lineno, line in enumerate(cells[cid].splitlines(), 1):
+            if line.strip().startswith("#"):
+                continue               # prose may name what it must not recompute
+            for name in REDERIVED:
+                if name in line:
+                    hits.append(f"{cid} line {lineno}: {name}")
+    assert not hits, (
+        "NB09's synthesis re-derives a source NB08 already scored, so the two could "
+        "disagree:\n  " + "\n  ".join(hits))
+
+    # The one source NB09 legitimately adds, and the gate it must face like the others.
+    score = cells["synthesis-score"] + cells["synthesis-build"]
+    assert "mofa_coloading" in score, "Source F (MOFA co-loading) is not scored"
+    assert "counts_toward_tier" in score, (
+        "the MOFA source does not face the base-rate gate; a source firing for most "
+        "pairs cannot discriminate and would raise every tier for free")
+    assert "evidence_tools.tier" in score, \
+        "the tier must come from evidence_tools.tier, which states the ceiling"
+
+
 @check("E13 NB10 presolves every micom solve and keeps no local copy of micom_tools' rules")
 def e13():
     # Without presolve the tradeoff sweep ran >22 h on one sample; local copies of the

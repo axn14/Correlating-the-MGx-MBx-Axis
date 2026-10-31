@@ -643,22 +643,48 @@ list drawn from this cohort's own SHAP output. R4/R5/R8 are **supplementary desc
 indices** and contribute no evidence column.
 
 ### NB09 `09_pathway_network.ipynb`
-> **STATUS (2026-10-21):** as executed, NB09 reads NB02's polyamine partial correlations and
-> NB08's `r1`/`r8` tables directly and scores **three** sources (NB03 SHAP, AGORA2 enzyme
-> evidence, MOFA co-loading). AGORA2 counts toward a tier only for compounds where it is
-> informative (base rate ≤ 0.2, see "AGORA2 genomic evidence" below). Reading
-> `pair_evidence_nb08_v2.csv` and the five-source count below take effect with the NB08
-> rebuild.
-
 **Reads** `pair_evidence_nb08_v2.csv` (**required** — raises if absent and never recomputes
 it), plus the reduced pickle and MOFA loadings.
-**Writes** `tables/final_evidence_synthesis_v2.csv`,
+**Writes** `tables/final_evidence_synthesis_metabolome_v2.csv` (**primary**),
+`tables/final_evidence_synthesis_v2.csv` (the polyamine *slice* of it),
 `tables/d_glasso_partial_correlation_edges_v2.csv`, Module B/C/G tables,
 `figures/pathway_network/*` (including `final_evidence_synthesis_heatmap_v2.png`).
-Adds the one source NB08 cannot compute — **MOFA same-sign co-loading** (|weight| > 0.10) —
-then counts **five independent sources** and applies pre-declared tiers: `Strong` ≥ 3,
-`Moderate` = 2, `Weak` = 1, `Statistical only` = 0. The statistical association is **not**
-counted; it is how a pair was nominated, so counting it would give every row a free point.
+
+Adds the one source NB08 cannot compute — **MOFA+ same-sign co-loading** (|weight| > 0.10;
+NB06's loadings are not an NB08 input) — then counts **six declared sources** and applies
+pre-declared tiers: `Strong` ≥ 3 supporting, `Moderate` = 2, `Weak` = 1, `Statistical only`
+= 0. The statistical association is **not** counted; it is how a pair was nominated, so
+counting it would give every row a free point.
+
+**Same sign is required**, not merely a shared factor: opposite signs mean the two features
+move *against* each other, which does not corroborate a positive association.
+
+**Source F faces the same base-rate gate as every other source** (`EVIDENCE_MAX_BASE_RATE`
+= 0.20). Measured 2026-10-27: co-loading supports 2,480 of 18,858 available pairs, a base
+rate of **0.132**, so it counts. Had it exceeded the gate the call would still be reported
+and simply not counted — how the producer call is already treated (informative for 1 of 7
+compounds). `checks.py` E15 fails if the gate is removed.
+
+**Every tier carries its ceiling.** `evidence_tools.tier` prints the number of sources
+*available* for that pair, because `Weak (1/1)` and `Weak (1/4)` are different claims — the
+pre-v2.2 synthesis reported `Weak (1/3)` for rows whose attainable maximum was 2.
+`mechanistic` (MICOM) is `pending` for every row, so **no pair in this run can exceed 5 of
+6**; the most available for any pair is 4. Results: **8 pairs reach 3 supporting sources**
+(tryptamine–*Erysipelatoclostridium ramosum*; N-acetylglutamate across five species; the
+imidazole pair), 136 reach 2.
+
+**One computation, two views.** NB09 is now the *only* place the final tier is assigned.
+Until v2.2 it scored three sources over the seven polyamines alone, with a genomic source
+built on `utils.species_encodes_enzyme` — which silently means curated producing ECs where
+`POLYAMINE_EC` has an entry and "any reaction indexed under this compound" everywhere else.
+NB08 separates those into `genomic_producer` and `genomic_capability`. Keeping both would
+leave two different answers to one question under near-identical filenames, the failure §2
+records for the retired per-comparison DA family, so the polyamine table is now **derived as
+a slice** of the metabolome-wide one. Its candidate pool therefore comes from the
+**metabolome-wide** partial-correlation family (138,500 tests), which is stricter than the
+polyamine-only family the v2.1 table used; `benchmark/compare_frameworks.py` reads it by the
+v2.1 column names, which are preserved. `checks.py` E15 fails if the synthesis re-derives a
+source NB08 owns, or stops reading the assembler.
 GLASSO edges use a **Westfall–Young max-T** permutation FWER test (per-edge BH on a precision
 matrix was structurally unable to reach significance). A GLASSO fit that is not numerically
 sound (non-finite CV scores, penalty at the grid edge, non-convergence) fails NB09; skipping

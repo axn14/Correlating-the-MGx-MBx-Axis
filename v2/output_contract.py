@@ -392,11 +392,36 @@ CONTRACT_OUTPUTS: dict[str, tuple[Out, ...]] = {
             cols=("Species", "Metabolite", "PartialCorr", "P_maxT_FWER", "Significant",
                   "Alpha", "Alpha_at_grid_edge", "N_permutations", "N_perm_failed"),
             min_rows=0, note="GLASSO may select no species-metabolite edge"),
+        # v2.2: the final tier. NB09 reads NB08's metabolome-wide assembler, adds the one
+        # source NB08 cannot compute (MOFA+ co-loading, whose inputs are not NB08 inputs)
+        # and assigns the tier. This is the PRIMARY evidence table.
+        Out("tables/final_evidence_synthesis_metabolome_v2.csv",
+            cols=("Species", "Metabolite", "KEGG", "Rho_partial", "QValue_partial",
+                  "Source_predictive_available", "Source_predictive_support",
+                  "Source_genomic_producer_available", "Source_genomic_producer_support",
+                  "Source_genomic_capability_available",
+                  "Source_genomic_capability_support",
+                  "Source_replication_available", "Source_replication_support",
+                  "Source_mechanistic_available", "Source_mechanistic_support",
+                  "MOFA_in_factor_model", "MOFA_coloading_call",
+                  "MOFA_coloading_base_rate", "MOFA_coloading_counted",
+                  "Source_mofa_coloading_available", "Source_mofa_coloading_support",
+                  "N_sources_declared", "N_sources_available_nb09",
+                  "N_sources_supporting_nb09", "Evidence_sources_nb09", "Tier_final",
+                  "MICOM_status"),
+            # MICOM is pending, so no row may claim a mechanistic source: a blank here
+            # would read as "assessed and found nothing".
+            values={"MICOM_status": ("pending",)}),
+        # The polyamine VIEW of that same computation, not a second synthesis -- derived
+        # as a slice so the polyamine numbers cannot disagree with the headline ones.
+        # benchmark/compare_frameworks.py reads this file by these column names.
         Out("tables/final_evidence_synthesis_v2.csv",
             cols=("Species", "Polyamine", "KEGG_ID", "Rho_partial", "QValue_partial",
-                  "Source_B_AGORA2_Available", "Source_B_AGORA2_Support",
-                  "Source_B_AGORA2_Base_rate", "Source_B_AGORA2_Counted",
-                  "N_Sources_Available", "N_Sources_Supporting", "Evidence_Level")),
+                  "N_Sources_Available", "N_Sources_Supporting", "Evidence_Sources",
+                  "Evidence_Level"),
+            min_rows=0, note="empty if no polyamine pair survives the metabolome-wide "
+                             "partial-correlation family, which is stricter than the "
+                             "polyamine-only family the v2.1 table used"),
         Out("tables/c_pathway_mapping_v2.csv", cols=("Feature", "KEGG_ID", "Reactome_ID")),
         Out("tables/c_species_pathway_correlations_v2.csv",
             cols=("Pathway", "Species", "Rho", "PValue", "QValue")),
