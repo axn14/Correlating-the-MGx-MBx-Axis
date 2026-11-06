@@ -258,8 +258,30 @@ largest effect actually present in either cohort, so "no robust early-stage diff
 is an absence of evidence. Kim is the better-powered arm throughout despite testing more
 features, because 102/102 beats 127/40: the **40-sample adenoma arm is the binding
 constraint**, not the feature count. Neither cohort reaches 80% power at δ≈0.3, so no
-reanalysis of these two cohorts can settle the question — validating early detection
-needs a prospective cohort with more than 102 adenomas per arm.
+reanalysis of these two cohorts can settle the question.
+
+**How large a cohort would (2026-11-06).** `required_n_curve.py` subsamples the balanced
+Kim arms, re-runs this whole analysis at each size and fits the scaling. It is a
+**standalone script, deliberately not a notebook cell**: a cell would change NB02 and so
+invalidate NB03's reuse key (~5 h plus a full reconciliation of the manuscript). It reads
+NB02's pickle read-only and writes to `Results/extensions/`, which the runner does **not**
+archive — unlike `Results/{tables,intermediate,figures}`. At 102 per arm it reproduces the
+table above exactly (0.359, 0.444), which is its internal check.
+
+| target \|δ\| | metabolites | species |
+|---|---|---|
+| 0.35 | 107 | 250 |
+| 0.30 | **149** | 420 |
+| 0.25 | 220 | 775 |
+| 0.20 | 357 | 1,640 |
+
+Metabolites scale as *n*<sup>−0.464</sup> (R² 0.971), near the *n*<sup>−1/2</sup> expected
+of a rank statistic; species as *n*<sup>−0.297</sup> (R² 0.948). **The assay gap therefore
+widens with cohort size** (1.2× at 102/arm, 2.8× at the size needed for δ=0.30, 4.6× at
+δ=0.20): a larger cohort favours the metabolome more, not less. Every figure beyond 102 is
+extrapolated, multiplicity is held at this cohort's feature count (so a targeted panel
+needs fewer), and subsampling cannot create heterogeneity the cohort lacks, so a
+multi-site prospective cohort should expect to need more.
 
 ---
 
