@@ -320,8 +320,40 @@ was negative.
 `Robust == True` ⟺ q < 0.05 in **both** tests **and** matching direction. `Agreement` labels
 the alternatives: `both_q_same_dir`, `both_q_opposite_dir`, `mw_only`, `lm_only`, `neither`.
 **NB03 selects targets only from `Robust == True`.** `mw_only` features are reported, never
-modelled — in this cohort the median Brinkman index is 100 in Healthy vs 196–390 in the CRC
-groups, so they are the prime suspects for confounding.
+modelled.
+
+**Corrected 2026-11-06 — smoking is not the reason they are excluded.** This section
+previously named the Brinkman index as the prime suspect, on the strength of its median
+being 100 in Healthy against 196–390 in the CRC groups. A direct test does not support
+that: Brinkman is heavily right-skewed with substantial overlap, and it does **not** differ
+between Healthy and Advanced_CRC (*p* = 0.87, Cliff's δ = −0.015) or Healthy and Early_CRC
+(*p* = 0.069). Dropping it from the model changes the robust count in
+`Healthy_vs_Advanced_CRC` metabolites not at all (21 → 21).
+
+Two things actually produce the `mw_only` class. Most of it is the **agreement requirement
+itself**: fitting the compositional model with no covariates still gives 25 robust of the
+28 rank-test hits in `Healthy_vs_Advanced_CRC`, and in `Healthy_vs_Early_CRC` covariates
+change nothing (21 with and without). The rest is **age**, which differs between Healthy
+and Advanced_CRC (*p* = 0.0023, δ = +0.287) and accounts for 3 of the 4 features that
+adjustment removes there.
+
+Smoking matters on the **early axis** instead: the Adenoma arm is the cohort's heaviest
+smoking group (median Brinkman 540) and the only group differing from Healthy
+(*p* = 0.0024, δ = −0.310). Removing smoking and alcohol manufactures 5 robust metabolite
+hits in `Adenoma_vs_Advanced_CRC`. Any expansion of the early axis to samples lacking
+smoking data would therefore be confounded; §2b's counts must not be enlarged that way.
+
+**The two cannot be separated, and alcohol is not inert** (verified 2026-11-06). Dropping
+Brinkman alone gives 1 robust hit in that contrast, dropping Alcohol alone gives 1, both
+give 5 and no covariates at all gives 8 — non-additive for the same bias-correction reason
+as above. Alcohol does not differ between most group pairs (*p* ≥ 0.12) but does differ
+between Adenoma and Advanced_CRC (*p* = 0.0138), which is the contrast at issue, and is
+marginal for Healthy vs Advanced_CRC (*p* = 0.093). An earlier revision of this section
+stated that alcohol differed between no pair of groups; that was wrong.
+
+The interpretation printed at the end of NB02's Step 6B still carries the old wording. It
+is a `print()` string, so correcting it re-runs NB02 and therefore NB03 (~5 h); fix it at
+the next full run rather than on its own.
 
 ---
 
