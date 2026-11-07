@@ -332,8 +332,13 @@ Likely mechanism: tied values carry no rank information, so in a sparse table ex
 add mostly more ties and buy less. Predicts the direction, the monotonicity and the
 saturation seen between 0.25 and 0.50.
 
-**The multiplicity exclusion is specific to low sparsity** (~4%), because that experiment
-held sparsity constant by construction. Its interaction with sparsity is untested.
+**The multiplicity exclusion is GENERAL, not regime-specific** (`test_count_at_high_sparsity.py`,
+2026-11-08). Censoring Kim metabolites to floor 0.50 and subsampling features *within* the
+censored table — so sparsity is identical by construction, not matched after the fact —
+gives p = 0.542 / 0.598 / 0.581 at 108 / 231 / 462 features. The 0.056 spread is
+non-monotone and, refitting each independent draw separately, the WITHIN-arm replicate
+spread reaches 0.099, so it sits inside the noise. The 2×2 is complete and no
+sparsity×count interaction survives.
 
 **Corollary for targeted panels, revised.** The exponent is indifferent to feature COUNT, so
 a panel starts from a better position and needs fewer samples (cutting the metabolome to 108
@@ -341,6 +346,17 @@ features moved MDE at 102/arm from 0.359 to 0.314, exponent unchanged) — §2.1
 right about that. But since sparsity DOES set the exponent, a panel of rarely-detected
 compounds would be a sparse table and scale like the species assay. **Panel selection must
 weight detection frequency, not only effect size.**
+
+**Design rule, and why it is not free.** Prevalence filtering is the only lever on the
+scaling (densifying moved p from 0.534 to 0.914 within one assay). Its threshold benefit is
+much smaller and shrinks with sparsity: cutting 462→108 features improved MDE by 0.045 at
+floor 0.04 but only 0.011 at floor 0.50. **But a discarded feature has zero power**, and the
+features filtering removes are exactly the floor-heavy ones §2c's prevalence model covers —
+a metabolite *newly appearing* in part of the pre-malignant group, the most plausible form
+of an early-detection marker. The pipeline already filters at 15% (metabolites) / 20%
+(species); filtering harder would improve every scaling property here while discarding the
+candidates the early-detection question needs. Not resolvable statistically: a study
+designed on the scaling argument alone would optimise away from its own research question.
 
 **Design-factor equivalence.** (40,40) at D=0.2250 and (60,30) at D=0.2249 agree to 0.9%
 (species) and 5.2% (metabolites, one noisy replicate), so D rather than per-arm n appears
