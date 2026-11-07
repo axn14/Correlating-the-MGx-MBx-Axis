@@ -145,6 +145,7 @@ print(req.round(0).to_string())
 
 print("\n=== THE TEST THAT MATTERS: fit on n<=80, predict n=102 ===")
 print("Extrapolation is what 4.8 relies on, so each model is judged on it.\n")
+held_rows = []
 for assay, g in per_draw.groupby("Assay"):
     g = g.dropna(subset=["MDE"])
     train = g[g["N_per_arm"] <= 80]
@@ -156,6 +157,45 @@ for assay, g in per_draw.groupby("Assay"):
     print(f"  {assay}: measured MDE at n=102 = {truth:.4f}")
     for name, (f, params) in fit_all(nn, yy).items():
         pred = float(f(np.array([102.0]), *params)[0])
+        err_pct = 100 * (pred - truth) / truth
+        held_rows.append({"Assay": assay, "Model": name, "Measured_MDE_102": truth,
+                          "Predicted_MDE_102": pred, "Error_pct": err_pct})
         print(f"    {name} predicts {pred:.4f}   error {pred - truth:+.4f} "
-              f"({100 * (pred - truth) / truth:+.1f}%)")
+              f"({err_pct:+.1f}%)")
     print()
+
+# ---- emit the comparison so the manuscript's claims can be asserted against it -------
+# Discussion 4.8 quotes the ratio diagnostic, the fitted intercepts and these held-out
+# errors as its reasons for withdrawing the species column. Those are claims about THIS
+# comparison, so verify_manuscript_numbers.py needs it as a table rather than as console
+# output that nothing can check.
+diag = []
+for assay, g in per_draw.groupby("Assay"):
+    m = g.groupby("N_per_arm")["MDE"].mean()
+    for n, v in m.items():
+        diag.append({"Assay": assay, "N_per_arm": int(n),
+                     "Design_factor_D": float(design_factor(n)),
+                     "MDE": float(v), "MDE_over_D": float(v / design_factor(n))})
+
+model_rows = []
+for assay, g in per_draw.groupby("Assay"):
+    g = g.dropna(subset=["MDE"])
+    nn, yy = g["N_per_arm"].to_numpy(float), g["MDE"].to_numpy(float)
+    for name, (f, params) in fit_all(nn, yy).items():
+        model_rows.append({
+            "Assay": assay, "Model": name, "R2": r2(f, params, nn, yy),
+            "Intercept": (np.nan if name == "M1" else float(params[0])),
+            "Required_N_020": required_n(name, params, 0.20),
+            "Required_N_030": required_n(name, params, 0.30)})
+
+out = (pd.DataFrame(diag).merge(
+           pd.DataFrame(model_rows), on="Assay", how="outer")
+       .merge(pd.DataFrame(held_rows)[["Assay", "Model", "Error_pct"]],
+              on=["Assay", "Model"], how="left"))
+path = EXT / "early_axis_required_n_models_v2.csv"
+pd.DataFrame(diag).to_csv(EXT / "early_axis_mde_over_d_v2.csv", index=False)
+(pd.DataFrame(model_rows)
+ .merge(pd.DataFrame(held_rows)[["Assay", "Model", "Error_pct"]],
+        on=["Assay", "Model"], how="left")).to_csv(path, index=False)
+print(f"Saved: {EXT / 'early_axis_mde_over_d_v2.csv'}")
+print(f"Saved: {path}")
