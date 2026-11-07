@@ -296,27 +296,51 @@ Which functional form extrapolates best is **not settled across cohorts**: a con
 sweep of Yachida designs ranked the intercept model above the free-exponent one and gave
 140–293 per arm for metabolites at δ=0.30. Report ranges, not winners.
 
-**Why species scales at n^−0.28 and metabolites at n^−0.46** (2026-11-07). Four
-explanations tested, all excluded:
+**Why species scales at n^−0.28 and metabolites at n^−0.46 — SPARSITY** (2026-11-07).
+Four candidates excluded, then the fifth established in both directions.
 
 | candidate | test | result |
 |---|---|---|
 | balanced-design artefact | `required_n_designs.py`, mixed designs | exponents unchanged |
 | the cohort | both assays, same participants and samples | differ ~2× within cohort |
-| multiplicity burden | `test_multiplicity_scaling.py`, features cut 462→231→108 | p flat at 0.96 |
+| multiplicity burden | `test_multiplicity_scaling.py`, features 462→231→108 | p flat at 0.96 |
 | LinDA bias correction | `test_species_scaling_cause.py`, correction off | 0.562 → 0.571 |
+| **sparsity** | `test_sparsity_scaling.py`, both directions | **establishes it** |
 
-Untested and still candidates: the CLR reference (a per-sample geometric mean whose
-variability need not fall at the per-feature rate), zero-inflation of the genus table, and
-genus-level aggregation. **The practical consequence does not depend on which:** a
-prospective study cannot buy its way out of the species assay's insensitivity at the rate a
-power calculation assumes.
+**Sparsity** = fraction of the ANALYSED table at the transform's floor. Recoverable
+exactly: multiplicative replacement ties former zeros within a ROW after CLR; the
+metabolome ties non-detects within a COLUMN. The four tables then order perfectly against
+their exponents (Kim species 0.504/0.56, Yachida mtb 0.382/0.77, Yachida species
+0.271/0.85, Kim mtb 0.042/0.93; Spearman −1.000).
 
-**Corollary for targeted panels.** Because the exponent is indifferent to feature count, a
-panel does not scale differently — it starts from a better position. Cutting the metabolome
-to 108 features lowered MDE at 102/arm from 0.359 to 0.314 with the exponent unchanged. So
-a panel needs fewer samples for a given effect, as §2.15 and §4.8 say, and its required-n
-extrapolation is no less reliable. Measured, not assumed.
+Tested within single tables, so count, assay type and taxonomic level are all held fixed:
+
+| direction | manipulation | floor | p |
+|---|---|---|---|
+| REMOVE | Yachida species, least-sparse 108 features | 0.041 | 0.914 |
+| REMOVE | Yachida species, most-sparse 108 features | 0.539 | 0.534 |
+| INDUCE | Kim mtb, native | 0.042 | 0.943 |
+| INDUCE | Kim mtb, censored to q=0.25 | 0.250 | 0.683 |
+| INDUCE | Kim mtb, censored to q=0.50 | 0.501 | 0.653 |
+
+One table split by prevalence spans the whole range four cohort-assay combinations spanned:
+the sparse subset matches Kim species and the dense subset matches Kim metabolites.
+Censoring and prevalence splitting are **mechanistic probes, not analyses** — no DA result
+from either is used anywhere.
+
+Likely mechanism: tied values carry no rank information, so in a sparse table extra samples
+add mostly more ties and buy less. Predicts the direction, the monotonicity and the
+saturation seen between 0.25 and 0.50.
+
+**The multiplicity exclusion is specific to low sparsity** (~4%), because that experiment
+held sparsity constant by construction. Its interaction with sparsity is untested.
+
+**Corollary for targeted panels, revised.** The exponent is indifferent to feature COUNT, so
+a panel starts from a better position and needs fewer samples (cutting the metabolome to 108
+features moved MDE at 102/arm from 0.359 to 0.314, exponent unchanged) — §2.15 and §4.8 are
+right about that. But since sparsity DOES set the exponent, a panel of rarely-detected
+compounds would be a sparse table and scale like the species assay. **Panel selection must
+weight detection frequency, not only effect size.**
 
 **Design-factor equivalence.** (40,40) at D=0.2250 and (60,30) at D=0.2249 agree to 0.9%
 (species) and 5.2% (metabolites, one noisy replicate), so D rather than per-arm n appears
