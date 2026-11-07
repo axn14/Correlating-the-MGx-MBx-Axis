@@ -268,20 +268,43 @@ NB02's pickle read-only and writes to `Results/extensions/`, which the runner do
 archive — unlike `Results/{tables,intermediate,figures}`. At 102 per arm it reproduces the
 table above exactly (0.359, 0.444), which is its internal check.
 
-| target \|δ\| | metabolites | species |
-|---|---|---|
-| 0.35 | 107 | 250 |
-| 0.30 | **149** | 420 |
-| 0.25 | 220 | 775 |
-| 0.20 | 357 | 1,640 |
+**Superseded 2026-11-07 by `required_n_designs.py` + `test_design_identifiability.py`**,
+which repeat the sweep over **ten designs, five balanced and five not** (D from 0.140 to
+0.371), fit on the six smaller and predict the four largest. A balanced-only family cannot
+identify an intercept, because D and per-arm n are then in one-to-one correspondence and a
+power law in n and a linear-in-D model are both two-parameter curves through the same
+points. Mixed designs settle it.
 
-Metabolites scale as *n*<sup>−0.464</sup> (R² 0.971), near the *n*<sup>−1/2</sup> expected
-of a rank statistic; species as *n*<sup>−0.297</sup> (R² 0.948). **The assay gap therefore
-widens with cohort size** (1.2× at 102/arm, 2.8× at the size needed for δ=0.30, 4.6× at
-δ=0.20): a larger cohort favours the metabolome more, not less. Every figure beyond 102 is
-extrapolated, multiplicity is held at this cohort's feature count (so a targeted panel
-needs fewer), and subsampling cannot create heterogeneity the cohort lacks, so a
-multi-site prospective cohort should expect to need more.
+| target \|δ\| | metabolites (3-model range) | species |
+|---|---|---|
+| 0.35 | 98–110 | *not estimable* |
+| 0.30 | **133–157** | *not estimable* |
+| 0.25 | 192–242 | *not estimable* |
+| 0.20 | 299–423 | *not estimable* |
+
+**Metabolites:** intercept identified and small (+0.044); held-out errors 0.68%
+(free-exponent), 0.75% (intercept), 3.67% (through-origin); spread 1.2× at δ=0.30. ~150 per
+arm stands.
+
+**Species:** fitted exponent in D is 0.53, i.e. about *n*<sup>−0.27</sup>, so the shallow
+scaling is REAL and not a balanced-family artefact — but required n spans 147/470/5,328 at
+δ=0.30 (36×) and the intercept model (+0.272) returns nothing at δ=0.25 or below. The
+through-origin model gives a comfortable 147 and fails the assay outright (R² 0.13 in
+sample, 17.9% out). Not a recommendation at any value.
+
+The model ranking is **cohort-dependent**: a concurrent sweep of Yachida designs ranked the
+intercept model above the free-exponent one and gave 140–293 per arm for metabolites at
+δ=0.30. Report ranges, not winners.
+
+**Design-factor equivalence.** (40,40) at D=0.2250 and (60,30) at D=0.2249 agree to 0.9%
+(species) and 5.2% (metabolites, one noisy replicate), so D rather than per-arm n appears
+to govern sensitivity and a balanced figure can be read onto an unbalanced design by
+matching D. One matched pair per assay; verify before relying on it.
+
+Unchanged caveats: everything beyond the measured range is extrapolated, multiplicity is
+held at this cohort's feature count (a targeted panel needs fewer), and subsampling cannot
+create heterogeneity the cohort lacks, so a multi-site prospective cohort should expect to
+need more.
 
 ---
 
