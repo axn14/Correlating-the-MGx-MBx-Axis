@@ -292,9 +292,31 @@ scaling is REAL and not a balanced-family artefact — but required n spans 147/
 through-origin model gives a comfortable 147 and fails the assay outright (R² 0.13 in
 sample, 17.9% out). Not a recommendation at any value.
 
-The model ranking is **cohort-dependent**: a concurrent sweep of Yachida designs ranked the
-intercept model above the free-exponent one and gave 140–293 per arm for metabolites at
-δ=0.30. Report ranges, not winners.
+Which functional form extrapolates best is **not settled across cohorts**: a concurrent
+sweep of Yachida designs ranked the intercept model above the free-exponent one and gave
+140–293 per arm for metabolites at δ=0.30. Report ranges, not winners.
+
+**Why species scales at n^−0.28 and metabolites at n^−0.46** (2026-11-07). Four
+explanations tested, all excluded:
+
+| candidate | test | result |
+|---|---|---|
+| balanced-design artefact | `required_n_designs.py`, mixed designs | exponents unchanged |
+| the cohort | both assays, same participants and samples | differ ~2× within cohort |
+| multiplicity burden | `test_multiplicity_scaling.py`, features cut 462→231→108 | p flat at 0.96 |
+| LinDA bias correction | `test_species_scaling_cause.py`, correction off | 0.562 → 0.571 |
+
+Untested and still candidates: the CLR reference (a per-sample geometric mean whose
+variability need not fall at the per-feature rate), zero-inflation of the genus table, and
+genus-level aggregation. **The practical consequence does not depend on which:** a
+prospective study cannot buy its way out of the species assay's insensitivity at the rate a
+power calculation assumes.
+
+**Corollary for targeted panels.** Because the exponent is indifferent to feature count, a
+panel does not scale differently — it starts from a better position. Cutting the metabolome
+to 108 features lowered MDE at 102/arm from 0.359 to 0.314 with the exponent unchanged. So
+a panel needs fewer samples for a given effect, as §2.15 and §4.8 say, and its required-n
+extrapolation is no less reliable. Measured, not assumed.
 
 **Design-factor equivalence.** (40,40) at D=0.2250 and (60,30) at D=0.2249 agree to 0.9%
 (species) and 5.2% (metabolites, one noisy replicate), so D rather than per-arm n appears
