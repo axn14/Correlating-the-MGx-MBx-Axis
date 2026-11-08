@@ -1,0 +1,14 @@
+scenario	driver	n_retained	pct_Healthy	pct_Early_CRC	pct_Advanced_CRC	healthy_vs_adv_taxa_gap	n_Healthy	n_Early_CRC	n_Advanced_CRC
+all 277 samples	-	277	45.8	34.7	19.5	2.5	127.0	96.0	54.0
+random 115 dropped: null mean	-	162	45.9	34.6	19.5	2.55			
+random 115 dropped: null 95% band	-	162	40.7 to 50.6	29.6 to 39.5	15.4 to 23.5	-1.00 to 6.00			
+highest n_taxa_modelled dropped	n_taxa_modelled	162	42.0	35.8	22.2	3.0	68.0	58.0	36.0
+lowest n_taxa_modelled dropped	n_taxa_modelled	162	50.0	33.3	16.7	2.0	81.0	54.0	27.0
+highest shannon_modelled dropped	shannon_modelled	162	41.4	35.8	22.8	4.0	67.0	58.0	37.0
+lowest shannon_modelled dropped	shannon_modelled	162	47.5	35.2	17.3	0.5	77.0	57.0	28.0
+highest evenness_modelled dropped	evenness_modelled	162	43.8	35.8	20.4	4.0	71.0	58.0	33.0
+lowest evenness_modelled dropped	evenness_modelled	162	44.4	36.4	19.1	1.0	72.0	59.0	31.0
+highest agora2_coverage dropped	agora2_coverage	162	45.1	33.3	21.6	1.0	73.0	54.0	35.0
+lowest agora2_coverage dropped	agora2_coverage	162	44.4	35.8	19.8	3.5	72.0	58.0	32.0
+highest max_abundance_modelled dropped	max_abundance_modelled	162	44.4	36.4	19.1	0.5	72.0	59.0	31.0
+lowest max_abundance_modelled dropped	max_abundance_modelled	162	45.7	34.6	19.8	3.5	74.0	56.0	32.0

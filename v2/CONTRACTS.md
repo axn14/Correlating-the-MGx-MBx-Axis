@@ -1135,6 +1135,36 @@ near zero.
 So **a Gurobi academic licence (or any QP that is not OSQP) remains the open decision**, and it is
 now the *only* one blocking the batch.
 
+**Dropping the failures instead: the bias risk is bounded and small (2026-11-08).** The alternative
+to a new solver is to run the batch and exclude whatever fails, which is safe only if the dropout is
+independent of stage. `dropout_risk.py` measures that without needing a working QP, on all 277
+primary samples.
+
+- **The premise holds.** Modelled taxon count — the obvious driver of QP size — tracks the stage
+  axis: ρ +0.145 (p 0.016, q 0.080 over five drivers), and **adjusted ρ +0.169, adj-q 0.026** for
+  Age/BMI/Brinkman/Alcohol/sex. Medians 47 → 49 → 49.5 taxa across Healthy → Early → Advanced.
+  Shannon is borderline in the same direction (adj-q 0.062); evenness, AGORA2 coverage and max
+  abundance are flat (q ≥ 0.58).
+- **The consequence does not clear the noise.** Under the worst case — failure perfectly monotone in
+  a driver, so the 115 hardest samples are exactly those lost — the retained cohort is 42.0% Healthy
+  / 35.8% Early / 22.2% Advanced against 45.8 / 34.7 / 19.5 overall. The 95% band from dropping 115
+  **at random, 2,000 times**, is 40.7–50.6 / 29.6–39.5 / 15.4–23.5. Every driver-led scenario, both
+  directions, falls inside it, as does the Healthy-to-Advanced taxon gap (3.0 against a null band of
+  −1.0 to 6.0). A single random draw moves Healthy by ~5 points unaided, which is why the null is a
+  distribution here.
+- **The one observed failure points away from size.** Sample 10091 sits at the 25th percentile of
+  the 8 for reactions (74,676) and taxa (45); the two largest models in the draw (113,354 and
+  110,510 reactions) solved cleanly. Its only distinguishing property is evenness — the driver that
+  tracks stage least. n=1, so indicative only.
+
+**Therefore the justification for the solver is POWER, not validity.** The worst case retains
+68/58/36 against 127/96/54, and a per-taxon secretion analysis with BH over hundreds of taxa feels
+that. A free academic licence is still the right call, but any write-up that defends it by appealing
+to confounding would overstate this evidence. Two limits stay on the record: the point estimates
+move consistently (Healthy down, Advanced up) under both richness and Shannon, so "inside the band"
+means undetectable at n=277 rather than absent; and whether MICOM's *reported* fluxes scale with
+taxon count is untested (p > 0.4 on 7 valid samples, which is close to no information).
+
 **What the diet fix does buy, which is not feasibility (2026-11-08).** Over the 7 samples valid
 under both media, cutting the two polyamines changed only the two compounds whose supply changed:
 putrescine goes from 1 sample with a secretor to **7 of 7** (1 → 4 distinct taxa) and spermidine

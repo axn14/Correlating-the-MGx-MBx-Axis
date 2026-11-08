@@ -25,7 +25,7 @@ for a different reason than the one it was undertaken for — it changes which t
 observed to produce putrescine and spermidine, from 1 sample to 7 and from 0 to 3, while
 leaving every compound the diet does not supply untouched.
 
-## Five findings, in order of how much they change
+## Six findings, in order of how much they change
 
 ### 1. The medium has been supplying no glucose
 
@@ -141,6 +141,68 @@ defensible; the dipeptides and nitrate are more of a judgement call; and every a
 changes the medium for the other 315 species too. That is a scientific decision to take
 deliberately, not a side effect of fixing a typo, so it is reported here and left open.
 `out/diet_gaps_nongrowing.tsv` has the full list.
+
+### 6. Would dropping the failures bias the result? Bounded, and smaller than I claimed
+
+`dropout_risk.py` exists because the alternative to buying a QP is to run the batch and
+drop whatever fails, and that is only safe if the dropout is independent of stage. I had
+warned that it might not be. The measurement is more nuanced than the warning.
+
+**The premise of the worry is confirmed.** Taxon count — the most obvious driver of how
+hard a community QP is — tracks the stage axis across all 277 primary samples, and
+survives adjustment for age, BMI, Brinkman index, alcohol and sex:
+
+| driver | ρ (stage) | p | q | adjusted ρ | adjusted q |
+|---|---|---|---|---|---|
+| **taxa in the model** | **+0.145** | 0.016 | 0.080 | **+0.169** | **0.026** |
+| Shannon | +0.111 | 0.065 | 0.161 | +0.136 | 0.062 |
+| evenness | +0.035 | 0.57 | 0.94 | +0.057 | 0.58 |
+| AGORA2 coverage | −0.003 | 0.96 | 0.96 | −0.031 | 0.61 |
+| max abundance | −0.009 | 0.88 | 0.96 | −0.037 | 0.61 |
+
+Median modelled taxa run 47 (Healthy) → 49 (Early_CRC) → 49.5 (Advanced_CRC). So a
+dropout driven by community size *would* be stage-linked. One BH family over five
+drivers on the three-level axis; the adenoma arm is outside the batch's 277 entirely.
+
+**The consequence is inside the noise.** Take the worst case — failure perfectly monotone
+in a driver, so the 115 hardest samples are exactly the ones lost — and compare it to
+dropping 115 at random, 2,000 times, which is what "safe to drop" actually means:
+
+| scenario | Healthy | Early_CRC | Advanced_CRC | Adv−Healthy taxa gap |
+|---|---|---|---|---|
+| all 277 | 45.8% | 34.7% | 19.5% | 2.5 |
+| **random 115 dropped, 95% band** | **40.7–50.6%** | **29.6–39.5%** | **15.4–23.5%** | **−1.0 to 6.0** |
+| highest taxon count dropped | 42.0% | 35.8% | 22.2% | 3.0 |
+| highest Shannon dropped | 41.4% | 35.8% | 22.8% | 4.0 |
+| highest evenness dropped | 43.8% | 35.8% | 20.4% | 4.0 |
+
+**Every driver-led scenario, in both directions, falls inside the random band.** The
+worst stage-composition shift a richness-linked dropout can produce in this cohort is
+smaller than the ordinary sampling variation of losing 115 samples at all. (A single
+seeded random draw moved Healthy by 4.8 points on its own, which is why the null here is
+2,000 draws and not one — comparing against one draw would have invented a difference.)
+
+**And the one failure we have points away from size.** Sample `10091` is at the *25th*
+percentile of the 8 for both reactions (74,676) and taxa (45). The two largest models in
+the draw — 113,354 and 110,510 reactions, 61 and 60 taxa — both solved cleanly. Its only
+distinguishing feature is evenness, where it is the highest of the 8, and evenness is the
+driver that tracks stage *least* (ρ 0.035, q 0.94). n=1, so this is an indication and not
+a characterisation, but it points at a stage-independent driver rather than a
+stage-linked one.
+
+**So the honest verdict: the bias argument for buying a solver is weak.** What is left is
+a power argument, which is a different claim and a smaller one. The worst case retains
+68 Healthy / 58 Early / 36 Advanced against 127 / 96 / 54 — and a per-taxon secretion
+analysis with BH over hundreds of taxa feels a 40% loss. Against a free academic licence
+that is still an easy trade, but it should be made for the right reason: **the dropout
+costs power, not validity.** Any write-up that justifies the solver choice by appealing to
+confounding would be overstating this evidence.
+
+Two limits worth keeping in view. The point estimates do move consistently (Healthy down,
+Advanced up) under both richness and Shannon, so "inside the band" means undetectable at
+this cohort size, not zero. And whether the quantity MICOM *reports* scales with taxon
+count is untested: on the 7 valid samples, community growth, putrescine and spermidine
+production all give p > 0.4, which at n=7 is close to no information.
 
 ## The reformulated medium
 
@@ -260,12 +322,17 @@ anything, which is why `community_secretion_valid.tsv` exists and is the table t
 | `out/community_check.tsv` | written by `--community`: both media, side by side. Counts over **all** samples, so read it with the caution at the end of finding 5 |
 | `out/community_per_sample.tsv` | the paired per-sample table: validity, growth and lumen imbalance under each medium. This is what settles finding 4 |
 | `out/community_secretion_valid.tsv` | secretion restricted to samples valid under both media, with the taxon names. **The table to quote** |
+| `dropout_risk.py` | finding 6: whether losing ~40% of samples to the solver would bias the progression analysis |
+| `out/dropout_risk.tsv` | per sample: what its community model would contain, plus stage |
+| `out/dropout_risk_association.tsv` | each candidate driver of solver difficulty against the stage axis, adjusted and not |
+| `out/dropout_risk_scenarios.tsv` | the worst-case dropout against a 2,000-draw random null |
 
 ## Reproducing
 
 ```bash
 python v2/micom/diet_screen.py                 # ~4 min, no HPC
 python v2/micom/diet_screen.py --community 8   # adds the community comparison, ~70 min
+python v2/micom/dropout_risk.py                # finding 6, ~1 min, no solver needed
 ```
 
 `--community` caches: `out/community/models/` holds the built community models and
