@@ -529,7 +529,8 @@ ECs agree with `POLYAMINE_EC`.
 
 17 of 17 class members are measured in Yachida; 9 were new targets as of 2026-10-27
 (glutamate, lysine, tryptophan, histidine, histamine, tryptamine, tyramine,
-phenethylamine, N-acetylglutamate), taking NB03 from 27 to 36 targets.
+phenethylamine, N-acetylglutamate), taking NB03 from 27 to 36 targets. Removing the
+robust-DA cap in v2.3 (§5c) took it to 49.
 
 ### Proxies
 
@@ -549,6 +550,52 @@ N-acetylation is an inactivation step, so a derivative tracks its parent loosely
 downstream row records `Measured_as` / `Proxy_used_in`, and a replication resting on a proxy
 is weaker evidence than one on the parent. Polyamines **and** their proxies are exempt from
 every prevalence and variance filter.
+
+## 5c. The trinity target set (v2.3, 2026-11-08) — fixed before any tool runs
+
+MIMOSA2, MICOM (NB10) and MelonnPan each ask which species account for a metabolite. So
+they fall under the rule in §5b: **their targets must not be chosen by how strongly species
+track the metabolite in this cohort**, or agreement between the tools is built in.
+`CRC_progression_top_pairs_v2.csv` and every species × metabolite correlation or SHAP table
+are therefore **inadmissible** as selection inputs.
+
+The set is the union of §5b's two admissible criteria, **uncapped**:
+
+| Criterion | Count on the 2026-11-07 tables |
+|---|---|
+| `Robust == True` metabolites, Yachida, Healthy vs Early_CRC or Healthy vs Advanced_CRC (NB02) | 33 |
+| pre-specified class: `DECARBOXYLATION_TARGET_KEGG` ∪ `POLYAMINE_KEGG`, measured in Yachida | 19 |
+| **union (3 in both)** | **49** |
+
+- **NB03 uses the same set.** Its 8-elevated + 7-depleted cap per comparison was removed in
+  v2.3 (`select_robust_balanced`, `n_up`/`n_down` now default to `None`). The cap had left 13
+  of the 33 robust metabolites without the `predictive` source; NB03 goes from 36 to 49 targets.
+  `N_PERM = max(1000, 20 × targets)` is unchanged at 1,000.
+- **The count is recomputed from each run's own `differential_abundance_v2.csv`.** The 49 is
+  what the 2026-11-07 tables give. The clean baseline may move a borderline `Robust` call;
+  whatever it gives is the set, and it is not edited by hand afterwards.
+- **Scope:** Yachida only. It is the one cohort with paired shotgun species, a measured
+  metabolome and HUMAnN gene families, so all three tools can run there.
+
+### The agreement rule, written down before the results
+
+A (species, metabolite) pair counts as **trinity-supported** when at least **2 of the 3**
+tools call that species a contributor, with the **same sign**:
+- MIMOSA2: a contribution share (`var_shares`) in the direction of the metabolite's DA.
+- MICOM: abundance-weighted net secretion (product) or uptake (substrate), in a sample-level
+  association with stage of the same sign.
+- MelonnPan: a nonzero elastic-net weight, **counted only for metabolites MelonnPan predicts
+  well** (training Spearman reported per metabolite; a poorly predicted metabolite contributes
+  no MelonnPan calls rather than negative ones).
+
+A tool that cannot model a pair (no AGORA2 model, compound absent from MIMOSA2's network,
+metabolite not well predicted) is **not available** for it, never a vote against.
+`N_Sources_Available` states the ceiling per row, as in §8.
+
+**Capability layers, reported alongside but not voting:** reference-genome BGC calls
+(GECCO sweep, antiSMASH on hits; the species' published genome, not the patients' strains)
+and the gene-family attribution in `v2/genes/`. They answer whether the organism *can* make
+the compound. The trinity answers whether its abundance *accounts for* the compound here.
 
 ---
 
@@ -627,8 +674,9 @@ Cross-cohort replication is **genus level** (species names cannot match between 
 `tables/ml_benchmark_dysregulated_metabolites_v2.csv`,
 `tables/polyamine_producer_candidates_v2.csv`, `intermediate/ml_results_v2.pkl`,
 `logs/nb03_progress_v2.txt`.
-Targets: `Robust == True` metabolites (≤ 8 elevated + 7 depleted per comparison) **plus** the
-7 pre-specified polyamines. Protocol: nested CV for `AUC_nested`; fixed-parameter permutation
+Targets: **every** `Robust == True` metabolite (no cap since v2.3; it was ≤ 8 elevated + 7
+depleted per comparison) **plus** the pre-specified class, which is the §5c trinity set: 49 on
+the 2026-11-07 tables. Protocol: nested CV for `AUC_nested`; fixed-parameter permutation
 test for `Perm_pvalue` → BH `Perm_qvalue` (the p-value refers to `AUC_fixed`, not
 `AUC_nested`); signed OOF SHAP with `Direction` and bootstrap rank CIs. **Sequential
 p-values** (Besag–Clifford, `utils.sequential_permutation_p`, `checks.py` C11): a target

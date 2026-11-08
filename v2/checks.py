@@ -1409,6 +1409,7 @@ def e7():
 # inputs by location and need no entry).
 _DOC_INPUTS = {
     "manifest.csv": "the MICOM model manifest of the unused pre-built set in Data/micom/models_agora2/",
+    "western_diet_gut.csv": "the source MICOM medium in Data/micom/, read by diet_screen.py and NB10",
 }
 
 
@@ -1580,6 +1581,7 @@ def e14():
         "CRC_progression_ordinal_correlations",
         "replication_genus_metabolome",        # rows conditioned on Yachida significance
         "pair_evidence_nb08",
+        "CRC_progression_top_pairs",           # ranked species x metabolite pairs (CONTRACTS 5c)
     )
     doc = json.loads((NB_DIR / "03_ml_benchmarking.ipynb").read_text(encoding="utf-8"))
     hits = []
@@ -1595,6 +1597,25 @@ def e14():
     assert not hits, (
         "NB03 reads a within-cohort species-metabolite association table, which would "
         "make its permutation test circular:\n  " + "\n  ".join(hits))
+
+
+@check("E16 NB03 takes every robust DA metabolite: the trinity target set is uncapped")
+def e16():
+    """CONTRACTS 5c (v2.3): the MIMOSA2/MICOM/MelonnPan trinity covers every robust DA
+    metabolite plus the pre-specified class, and NB03 must cover the same set so each
+    target carries the predictive source. Until v2.3, select_robust_balanced kept the
+    8 most elevated + 7 most depleted per comparison, leaving 13 of 33 robust metabolites
+    unmodelled. This fails if a cap comes back, as a default or at a call site."""
+    doc = json.loads((NB_DIR / "03_ml_benchmarking.ipynb").read_text(encoding="utf-8"))
+    src = "\n".join("".join(c["source"]) for c in doc.get("cells", [])
+                    if c.get("cell_type") == "code")
+    assert "def select_robust_balanced(da_df, n_up=None, n_down=None" in src, (
+        "select_robust_balanced must default to no cap (n_up=None, n_down=None)")
+    calls = re.findall(r"select_robust_balanced\(([^)]*)\)", src)
+    calls = [c for c in calls if not c.startswith("da_df, n_up=None")]   # the def itself
+    assert calls, "NB03 no longer calls select_robust_balanced"
+    capped = [c for c in calls if "n_up" in c or "n_down" in c]
+    assert not capped, f"NB03 caps its robust targets at a call site: {capped}"
 
 
 @check("E15 NB09's synthesis reads NB08's assembler and re-derives none of its sources")
