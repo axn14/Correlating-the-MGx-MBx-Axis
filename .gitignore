@@ -46,6 +46,12 @@ v2/dardel/dardel.env
 .stage/
 v2/dardel/slurm-*.out
 
+# The TrEMBL arm of the enzyme probe: 19 MB of sequence that is fully determined by
+# members_trembl.tsv, which IS committed and pins every accession. Rebuild it with
+# `python v2/reads/build_enzyme_db.py --unreviewed`. The Swiss-Prot arm is small and
+# is committed as sequence, because it is the arm that supports a presence claim.
+v2/reads/enzymes/enzymes_trembl.faa
+
 # OS and Office cruft
 Thumbs.db
 desktop.ini
