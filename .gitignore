@@ -82,3 +82,12 @@ desktop.ini
 
 # surgical-edit backups (git is the backup)
 *.bak
+
+# Local archives of lab data and old analysis results (~570 MB and ~400 MB). They
+# are kept on disk but never committed. Ignored so that `git status --porcelain`,
+# which run_pipeline.py uses to certify a clean tree, does not count them.
+Data_files-Saei_lab.zip
+Full_analysis_results.zip
+
+# The author's own working note, deliberately kept out of the repo.
+writeup/read_programme_alternative.md
