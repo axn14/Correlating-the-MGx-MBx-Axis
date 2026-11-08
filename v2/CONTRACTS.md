@@ -1090,7 +1090,9 @@ where a medium question belongs; the three findings are:
   (1,326 carry `EX_glc_D(e)`). A medium is a dictionary lookup, so the largest carbon source in
   the file has been supplying nothing, silently, in every run so far. Seven further lines
   (long-chain fatty acids, AMP, adenosylcobalamin, Fe(III)-dicitrate) reach no model either,
-  which is AGORA2's coverage rather than an error.
+  which is AGORA2's coverage rather than an error. Measured consequence, added below: fixing it
+  changes community growth by a median 0.03%, so the bug was real and cost these models no
+  growth — the communities were not carbon-limited and pFBA routed around the missing sugar.
 - Putrescine and spermidine cannot be withdrawn: **64 and 172 of 315 cohort species respectively
   stop growing without them**, which is the whole explanation of the 3-of-4 infeasibility seen
   on 2026-10-23 and is a property of the medium, not the solver. They can be *reduced*: both are
@@ -1108,10 +1110,43 @@ nothing else, each recorded in its header. Repoint `DIET_FILE` at it (and read i
 `comment='#'`); `BATCH_PARAMS['diet_sha256']` changes, which correctly refuses to mix old and new
 chunks.
 
-The solver decision is still open. The glucose fix is a candidate cure for the pFBA failures — a
-carbon-starved community has a near-zero growth maximum, which is where the tradeoff QP is
-hardest — but single-model LPs cannot establish that. `diet_screen.py --community N` measures it
-on real community models under both media.
+**The solver decision is unchanged, and now measured rather than assumed (2026-11-08).**
+`diet_screen.py --community 8` built 8 real community models and ran micom's own `grow` on each
+under both media at the batch's settings. The prior recorded here — that the glucose fix was a
+candidate cure, because a carbon-starved community has a near-zero growth maximum — **is
+refuted**, and by its own mechanism: restoring glucose moves community growth by a median of
+0.03% (max 2.4%), so these communities were never carbon-limited and the growth maximum was never
+near zero.
+
+- **Validity agrees on 8 of 8 samples.** Both media: 8/8 returned a solution, 7/8 passed
+  `micom_tools.solution_quality`, median community growth 2.0516 vs 2.0502 /h. The *same* sample
+  fails under both. The paired join is what establishes this; the equal 7/8 margin on its own is
+  consistent with the opposite reading, and a marginal 7/8 has a Wilson interval of [0.53, 0.98].
+- **That failure is numerical, not biological.** 0 of the sample's 45 taxa grow, at exactly zero,
+  while every other sample has every taxon growing; none of its taxa is one of the 12 that cannot
+  grow alone; and `max_balance_residual` is 18.3 (new) and 62.5 (old) against a 1e-6 tolerance —
+  micom returning an infeasible point without raising, exactly what D8 exists to catch. Its
+  largest lumen fluxes run through AGORA2's drug-metabolism exchanges with zero growth produced.
+- **The rate is not revised.** 1 of 8 here is 12.5% and the 2026-10-23 figure was 5 of 12 (42%);
+  the Wilson interval contains the old rate, so these do not conflict and n=8 does not refine it.
+  This run identifies the failure mode, not its frequency. The ~40% exclusion above still stands
+  as the batch's expected cost under HiGHS + OSQP.
+
+So **a Gurobi academic licence (or any QP that is not OSQP) remains the open decision**, and it is
+now the *only* one blocking the batch.
+
+**What the diet fix does buy, which is not feasibility (2026-11-08).** Over the 7 samples valid
+under both media, cutting the two polyamines changed only the two compounds whose supply changed:
+putrescine goes from 1 sample with a secretor to **7 of 7** (1 → 4 distinct taxa) and spermidine
+from 0 to **3 of 7** (0 → 2 taxa), while ornithine (7 → 7 samples, 27 → 28 taxa), GABA (2 → 2),
+agmatine (0 → 0) and cadaverine (0 → 0) are unmoved — the specificity control that makes the first
+two readable. Under the old medium this cohort would have been reported as showing no putrescine
+production in 6 of 7 samples and none of spermidine anywhere, which is the wrong answer to the
+question the batch exists to ask. The signal is detectable rather than large (a single taxon at
+0.0002–0.11 mmol/gDW/h in 6 of the 7) and n=7, so the taxa named in
+`out/community_secretion_valid.tsv` demonstrate that the measurement works and are not a cohort
+finding. Note that `community_check.tsv`'s raw 14 → 23 spermidine count spans all 8 samples and
+every old-medium secretor in it sits in the invalid one; the valid-only table is the one to quote.
 
 The smoke gate solves one sample exactly as the batch does (measured 7–9 min and ~1.3–1.6 GB
 per sample) and prints a batch-time estimate. Coverage < 0.5 is flagged and left out of the

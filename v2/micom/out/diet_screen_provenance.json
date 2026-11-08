@@ -1,5 +1,5 @@
 {
-  "built_utc": "2026-11-08T12:32:22Z",
+  "built_utc": "2026-11-08T13:57:09Z",
   "diet_in": {
     "file": "western_diet_gut.csv",
     "reactions": 167,
@@ -2527,6 +2527,34 @@
     "ptrc": 0.00020103324032122064,
     "spmd": 0.003136780823406916
   },
+  "community_check": [
+    {
+      "medium": "western_diet_gut",
+      "samples": 8,
+      "returned_a_solution": 8,
+      "passed_quality_check": 7,
+      "median_community_growth": 2.0515734841509623,
+      "taxa_secreting_ptrc": 16,
+      "taxa_secreting_spmd": 14,
+      "taxa_secreting_agm": 0,
+      "taxa_secreting_15dap": 0,
+      "taxa_secreting_orn": 29,
+      "taxa_secreting_4abut": 6
+    },
+    {
+      "medium": "gut_diet_v2",
+      "samples": 8,
+      "returned_a_solution": 8,
+      "passed_quality_check": 7,
+      "median_community_growth": 2.050241800566604,
+      "taxa_secreting_ptrc": 16,
+      "taxa_secreting_spmd": 23,
+      "taxa_secreting_agm": 0,
+      "taxa_secreting_15dap": 0,
+      "taxa_secreting_orn": 31,
+      "taxa_secreting_4abut": 6
+    }
+  ],
   "software": {
     "python": "3.12.10",
     "pandas": "2.3.0"

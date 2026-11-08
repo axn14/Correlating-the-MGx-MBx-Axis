@@ -10,12 +10,22 @@ decisions, measured on 12 samples with the batch's exact settings:
    1.0 mmol/gDW/h, so every community takes them up and none secretes them. Removing
    both made 1 of 4 test samples show secretion — and 3 of 4 become infeasible.
 
-`diet_screen.py` settles the second and bounds the first. It works on **single-species
-AGORA2 models**, where a medium question is a linear program that takes 0.03 s, rather
-than on community models, where it takes 8 minutes and answers several questions at
-once. 327 models, about four minutes.
+`diet_screen.py` settles both. The diet question it answers on **single-species AGORA2
+models**, where a medium question is a linear program that takes 0.03 s rather than the
+8 minutes a community model takes to answer several questions at once — 327 models, about
+four minutes, no HPC. The solver question needs real communities and gets them under
+`--community N`, which is findings 4 and 5 below and takes about an hour for 8 samples.
 
-## Three findings, in order of how much they change
+**The answer, for a reader who wants it before the reasoning.** The diet had three defects
+and they are fixed. They were not the cause of the infeasibility: the same single sample
+fails under both media, with a lumen imbalance seven orders of magnitude over tolerance
+and every one of its 45 taxa at zero growth, which is a numerical failure and not a
+biological one. **The solver decision is unchanged and still open.** The diet fix matters
+for a different reason than the one it was undertaken for — it changes which taxa are
+observed to produce putrescine and spermidine, from 1 sample to 7 and from 0 to 3, while
+leaving every compound the diet does not supply untouched.
+
+## Five findings, in order of how much they change
 
 ### 1. The medium has been supplying no glucose
 
@@ -43,6 +53,17 @@ Seven further lines reach no cohort model either — `EX_arachd_e`, `EX_hdcea_e`
 chain fatty acids, adenosylcobalamin, Fe(III)-dicitrate and AMP, which AGORA2 genuinely
 does not exchange. They are left in place and named in the new file's header, because
 that is AGORA2's coverage rather than an error in the diet.
+
+**What fixing it is worth, measured (added 2026-11-08).** Nothing, in growth terms. On
+the 8 community models of finding 4, restoring glucose moves community growth by a median
+of **0.03%** and at most 2.4% (`out/community_per_sample.tsv`). So the bug is real, the
+id is wrong, and the fix belongs in the file — but the communities were not
+carbon-limited: this medium has 166 other lines and the pFBA optimum simply routed around
+the missing sugar. Any claim that the missing glucose was *costing* these models anything
+is unsupported, and the first version of this section implied it by calling glucose "the
+single largest carbon source" without saying what its absence did. The honest statement is
+narrower: a nutrient the file believed it was supplying was not being supplied, which
+would have mattered for any question about carbon source, and did not matter for growth.
 
 ### 2. Putrescine and spermidine are oversupplied by 300–5,000×
 
@@ -140,19 +161,91 @@ NB10 reads it with `pd.read_csv`, so the `#` header lines need `comment='#'` the
 `BATCH_PARAMS['diet_sha256']` changes — which is the mechanism that correctly refuses to
 mix old and new chunks.
 
-## What this cannot settle
+### 4. The remaining infeasibility is the solver, and the diet does not touch it
 
-Whether the **remaining** infeasibility is the solver. Single-model LPs are not the
-community QP: a sample can fail for reasons no single model shows, because the tradeoff
-constraint couples every taxon through a shared lumen. What the screen bounds is the
-medium's contribution. `diet_screen.py --community N` measures the rest directly —
-it builds N community models once and runs micom's own `grow` on them under both media,
-counting solutions returned, solutions that pass `micom_tools.solution_quality`, and
-taxa secreting each compound.
+`--community 8` builds 8 real community models (151 distinct taxa, 14 min) and runs
+micom's own `grow` on each twice — `tradeoff=0.5`, `strategy="pFBA"`, the batch's
+settings — once under each medium, 26 min a side. **The prior stated here before it ran
+was wrong, and this is the refutation.**
 
-The honest prior before that runs: the glucose fix is a real candidate cure for the pFBA
-failures, because a carbon-starved community has a near-zero growth maximum and the
-tradeoff QP is at its worst there. It is a hypothesis until the numbers come back.
+| | `western_diet_gut` | `gut_diet_v2` |
+|---|---|---|
+| returned a solution | 8/8 | 8/8 |
+| passed `solution_quality` | 7/8 | 7/8 |
+| median community growth | 2.0516 /h | 2.0502 /h |
+
+The margin is identical, and a margin cannot be read: 7-of-8 twice is equally consistent
+with "the same sample fails both times" and with "a different sample fails each time". The
+**paired** join settles it, and being paired it says something at n=8 that the rate never
+could — a marginal 7/8 has a Wilson interval from 0.53 to 0.98 and excludes nothing.
+**Validity agrees on 8 of 8 samples.** The same sample, `10091`, fails under both media,
+and every other sample passes under both.
+
+That failure is not biological:
+
+- **0 of its 45 taxa grow**, at exactly zero — while all 8 other samples have *every*
+  taxon growing (61/61, 60/60, 57/57 …). The single-model screen found 315 of 327 species
+  grow on this medium alone, so a 45-taxon community on the same medium in which nothing
+  grows is not a statement about biology.
+- **None of its 45 taxa is one of the 12** that cannot grow alone, so finding 3 does not
+  explain it either.
+- The returned point **is not mass-balanced**: `max_balance_residual` is 18.3 under the
+  new medium and 62.5 under the old, against a tolerance of 1e-6 — seven orders of
+  magnitude over. micom returns infeasible points without raising, and this is one.
+- Its largest lumen fluxes are through AGORA2's drug-metabolism exchanges
+  (`EX_bilr_M12_m`, `EX_chlphncl_glc_m`, `EX_1hibup_S_m`, `EX_Tn_antigen_m`) at 5–18
+  units, with 255 compounds being taken up and zero growth produced. That is a solver in
+  a garbage corner of the polytope, which is the characteristic numerical failure of
+  HiGHS + OSQP on a badly scaled QP.
+
+**So the solver decision stands as it was on 2026-10-23, and the diet was not a
+confounder of it.** The glucose fix is not the cure, for the reason finding 1 now records:
+the communities were never carbon-limited, so the growth maximum was never near zero, so
+the mechanism the prior proposed did not exist. A Gurobi academic licence (or another QP
+that is not OSQP) remains the open item for the batch.
+
+What this draw does **not** establish is the *rate*. 1 of 8 here is 12.5%; the 2026-10-23
+measurement was 5 of 12, 42%. With n=8 the Wilson interval on 7/8 is [0.53, 0.98], which
+contains the old rate comfortably — these two numbers are not in conflict and this run
+does not revise the 42%. It identifies the failure mode, not its frequency.
+
+### 5. The diet change does not alter growth. It alters the answer.
+
+The point of cutting putrescine and spermidine was never growth — it was to stop flooding
+the lumen so that production becomes observable. Over the **7 samples valid under both
+media** (`out/community_secretion_valid.tsv`):
+
+| compound | in the diet? | samples with a secretor | distinct taxa |
+|---|---|---|---|
+| putrescine | yes, cut 4,974× | **1 → 7** | **1 → 4** |
+| spermidine | yes, cut 319× | **0 → 3** | **0 → 2** |
+| ornithine | no | 7 → 7 | 27 → 28 |
+| GABA (`4abut`) | no | 2 → 2 | 3 → 3 |
+| agmatine | no | 0 → 0 | 0 → 0 |
+| cadaverine (`15dap`) | no | 0 → 0 | 0 → 0 |
+
+The last four rows are the control, and they are why the first two can be believed: the
+only compounds that moved are the two whose supply changed, and nothing was lost anywhere.
+Under the old medium this cohort would have been reported as showing **no putrescine
+production in 6 of 7 samples and no spermidine production in any of them** — not because
+nobody makes them, but because the medium supplied 1.0 mmol/gDW/h of each and every taxon
+was a net consumer at that concentration. That is the result the batch exists to produce,
+and the old medium would have produced the wrong one.
+
+Two cautions, both load-bearing. First, **the signal is detectable, not large**: in 6 of
+the 7 samples putrescine production is a single taxon at 0.0002–0.11 mmol/gDW/h, and only
+`10335` carries a big flux (16.5) that was already there under the old medium. Spermidine
+is one taxon in each of 3 samples. Second, **n = 7 samples**; the taxa named here
+(*E. coli*, *Parasutterella excrementihominis* and *Phocaeicola vulgatus* for putrescine;
+*Enterocloster bolteae* and *E. coli* for spermidine) are a demonstration that the
+measurement now works, not a finding about the cohort. The full 277-sample batch is what
+would make them one, and it is still behind the solver.
+
+A third caution about reading the raw counts: `community_check.tsv` reports 14 → 23
+spermidine secretors across all 8 samples, which is larger than the 0 → 2 above. Every
+spermidine secretor under the old medium sits in sample `10091` — the invalid one. A
+secretor count read off a point with an 18-unit mass imbalance is not evidence of
+anything, which is why `community_secretion_valid.tsv` exists and is the table to quote.
 
 ## Files
 
@@ -164,14 +257,21 @@ tradeoff QP is at its worst there. It is a hypothesis until the numbers come bac
 | `out/cohort_species_agora2.tsv` | the 1,562 cohort species, which 327 are in AGORA2, and their abundances |
 | `out/diet_gaps_nongrowing.tsv` | the 12 species that cannot grow, and what each is missing |
 | `out/diet_screen_provenance.json` | every number above, including the dose–response curves |
-| `out/community_check.tsv` | written by `--community`: both media, side by side |
+| `out/community_check.tsv` | written by `--community`: both media, side by side. Counts over **all** samples, so read it with the caution at the end of finding 5 |
+| `out/community_per_sample.tsv` | the paired per-sample table: validity, growth and lumen imbalance under each medium. This is what settles finding 4 |
+| `out/community_secretion_valid.tsv` | secretion restricted to samples valid under both media, with the taxon names. **The table to quote** |
 
 ## Reproducing
 
 ```bash
 python v2/micom/diet_screen.py                 # ~4 min, no HPC
-python v2/micom/diet_screen.py --community 8   # adds a real community comparison, hours
+python v2/micom/diet_screen.py --community 8   # adds the community comparison, ~70 min
 ```
+
+`--community` caches: `out/community/models/` holds the built community models and
+`out/community/grow_*.pkl` the two solves, so a re-run re-does only the analysis in
+seconds. Both are gitignored (hundreds of MB) and rebuild from the flag; the three small
+tables they produce are committed. Delete `out/community/` to force a genuine rebuild.
 
 Inputs are `Results/intermediate/preprocessed_data_v2.pkl` (the abundance table NB10
 uses), `Data/micom/agora2_extracted/` (AGORA2 pre-extracted by NB10 cell 5) and

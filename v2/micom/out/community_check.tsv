@@ -1,0 +1,3 @@
+medium	samples	returned_a_solution	passed_quality_check	median_community_growth	taxa_secreting_ptrc	taxa_secreting_spmd	taxa_secreting_agm	taxa_secreting_15dap	taxa_secreting_orn	taxa_secreting_4abut
+western_diet_gut	8	8	7	2.0515734841509623	16	14	0	0	29	6
+gut_diet_v2	8	8	7	2.050241800566604	16	23	0	0	31	6

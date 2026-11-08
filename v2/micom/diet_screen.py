@@ -458,6 +458,26 @@ def write_diet(diet: pd.DataFrame, supply: dict[str, float], notes: dict,
 # main
 # ===========================================================================
 
+# What the community solves are interrogated for. The first two are the compounds whose
+# supply the new medium cuts, so they are the test. The rest are controls: agm, 15dap and
+# 4abut are targets the diet never supplied, and orn is a precursor it never supplied
+# either, so NONE of them should move when only ptrc and spmd change. A diet edit that
+# shifted those too would mean the edit had done something other than what it says.
+PROBE = TARGETS_IN_DIET + ["agm", "15dap", "orn", "4abut"]
+
+
+def _secretors(ex: pd.DataFrame, base: str) -> pd.DataFrame:
+    """Taxon-level rows with net POSITIVE flux for `base`, i.e. production into the lumen.
+
+    Matches all three exchange dialects because community exchange frames carry taxon
+    rows named `(e)`/`[e]` beside the lumen's `_m`. `taxon != "medium"` is what makes it
+    production BY an organism rather than the medium's own supply line.
+    """
+    m = (ex["reaction"].str.contains(f"{base}_m|{base}\\(e\\)|{base}\\[e\\]", regex=True)
+         & (ex["taxon"] != "medium") & (ex["flux"] > 0))
+    return ex.loc[m, ["sample_id", "taxon", "reaction", "flux"]]
+
+
 def community_check(n_samples: int, diet_old: pd.DataFrame, diet_new: pd.DataFrame,
                     abund: pd.DataFrame, matched: pd.DataFrame, seed: int = 42):
     """Solve the same samples under both media and compare what actually happens.
@@ -508,7 +528,7 @@ def community_check(n_samples: int, diet_old: pd.DataFrame, diet_new: pd.DataFra
         print(f"         built in {time.time() - t0:.0f}s")
     manifest["sample_id"] = manifest["sample_id"].astype(str)
 
-    rows = []
+    rows, store = [], {}
     for label, d in (("western_diet_gut", diet_old), ("gut_diet_v2", diet_new)):
         med = d[["reaction", "flux"]].copy()
         # NB10's convention: the community lumen exchange is `_m`, not `_e`.
@@ -529,14 +549,16 @@ def community_check(n_samples: int, diet_old: pd.DataFrame, diet_new: pd.DataFra
 
         ex = res.exchanges.copy()
         ex["sample_id"] = ex["sample_id"].astype(str)
+        gr = res.growth_rates.copy()
+        gr["sample_id"] = gr["sample_id"].astype(str)
         returned = set(ex["sample_id"])
         q = mt.solution_quality(ex, res.growth_rates)
-        valid = set(q.loc[q["valid"], "sample_id"].astype(str))
+        q["sample_id"] = q["sample_id"].astype(str)
+        valid = set(q.loc[q["valid"], "sample_id"])
+        store[label] = (ex, q, gr)
         secreting = {}
-        for b in TARGETS_IN_DIET + ["agm", "15dap", "orn"]:
-            m = (ex["reaction"].str.contains(f"{b}_m|{b}\\(e\\)|{b}\\[e\\]", regex=True)
-                 & (ex["taxon"] != "medium") & (ex["flux"] > 0))
-            secreting[b] = int(ex.loc[m, "taxon"].nunique())
+        for b in PROBE:
+            secreting[b] = int(_secretors(ex, b)["taxon"].nunique())
         rows.append({
             "medium": label,
             "samples": len(manifest),
@@ -550,6 +572,80 @@ def community_check(n_samples: int, diet_old: pd.DataFrame, diet_new: pd.DataFra
               f"{q['community_growth'].median():.4f}/h, secreting taxa {secreting}")
     out = pd.DataFrame(rows)
     out.to_csv(OUT / "community_check.tsv", sep="\t", index=False)
+
+    # ---- the counts above are a margin, and a margin cannot be read -------------
+    #
+    # Both media give the same count here, and that is consistent with two opposite
+    # readings: the same sample fails twice (the medium has nothing to do with
+    # feasibility) or a different sample fails each time (the medium moves it, and the
+    # equal count is a coincidence). Only the PAIRED per-sample join separates them,
+    # and being paired it says something at n=8 that the rate never could -- a marginal
+    # 7/8 has a Wilson interval from 0.53 to 0.98 and excludes nothing.
+    per = (store["western_diet_gut"][1].set_index("sample_id")
+           [["valid", "community_growth", "max_balance_residual"]]
+           .join(store["gut_diet_v2"][1].set_index("sample_id")
+                 [["valid", "community_growth", "max_balance_residual"]],
+                 lsuffix="_old", rsuffix="_new", how="outer"))
+    per["validity_agrees"] = per["valid_old"] == per["valid_new"]
+    per["growth_ratio"] = per["community_growth_new"] / per["community_growth_old"]
+    for label, (_, _, gr) in store.items():
+        g = gr.groupby("sample_id")["growth_rate"]
+        per[f"n_taxa_{'old' if 'western' in label else 'new'}"] = g.size()
+        per[f"n_taxa_growing_{'old' if 'western' in label else 'new'}"] = (
+            g.apply(lambda s: int((s > GROWTH_FLOOR).sum())))
+    per.to_csv(OUT / "community_per_sample.tsv", sep="\t")
+    agree = int(per["validity_agrees"].sum())
+    print(f"         PAIRED: validity agrees on {agree}/{len(per)} samples; "
+          f"community growth ratio new/old median "
+          f"{per['growth_ratio'].median():.4f}, min {per['growth_ratio'].min():.4f}")
+
+    # A failing sample is only worth a solver verdict if its failure does not look
+    # biological. Two things make that call: whether its taxa are drawn from the 12 that
+    # cannot grow alone (biology), and whether the returned point is even mass-balanced
+    # (not biology -- micom returns infeasible points without raising).
+    dead_species = set()
+    gaps = OUT / "diet_gaps_nongrowing.tsv"
+    if gaps.exists():
+        dead_species = {s.replace("_", " ")
+                        for s in pd.read_csv(gaps, sep="\t")["species"]}
+    for s in per.index[~per["valid_new"].fillna(False).astype(bool)]:
+        _, _, gr = store["gut_diet_v2"]
+        g = gr[gr["sample_id"] == s]
+        from_dead = int(g["taxon"].str.replace("_", " ").isin(dead_species).sum())
+        print(f"         sample {s} fails: {len(g)} taxa, {int((g['growth_rate'] > GROWTH_FLOOR).sum())} "
+              f"growing, {from_dead} of them among the 12 that cannot grow alone; "
+              f"lumen imbalance {per.loc[s, 'max_balance_residual_new']:.3g} against a "
+              f"tolerance of {store['gut_diet_v2'][1].set_index('sample_id').loc[s, 'tolerance']:.0g}")
+
+    # ---- secretion, over the samples that are valid under BOTH media -------------
+    #
+    # This is the comparison the whole diet change exists to make, and it has to be
+    # restricted to usable solutions: under the old medium every spermidine secretor in
+    # this draw sits in the one sample whose solution fails the quality check, and a
+    # secretor count read off an infeasible point is not evidence of anything.
+    both = sorted(set(store["western_diet_gut"][1].query("valid")["sample_id"])
+                  & set(store["gut_diet_v2"][1].query("valid")["sample_id"]))
+    srows = []
+    for label, (ex, _, _) in store.items():
+        e = ex[ex["sample_id"].isin(both)]
+        for b in PROBE:
+            s = _secretors(e, b)
+            srows.append({"medium": label, "compound": b,
+                          "n_valid_samples": len(both),
+                          "distinct_taxa": int(s["taxon"].nunique()),
+                          "samples_with_a_secretor": int(s["sample_id"].nunique()),
+                          "total_flux": float(s["flux"].sum()),
+                          "taxa": ";".join(sorted(s["taxon"].unique()))})
+    sec = pd.DataFrame(srows)
+    sec.to_csv(OUT / "community_secretion_valid.tsv", sep="\t", index=False)
+    print(f"         secretion over the {len(both)} samples valid under both media:")
+    for b in PROBE:
+        o = sec[(sec["medium"] == "western_diet_gut") & (sec["compound"] == b)].iloc[0]
+        n = sec[(sec["medium"] == "gut_diet_v2") & (sec["compound"] == b)].iloc[0]
+        flag = "  <-- in the diet, supply cut" if b in TARGETS_IN_DIET else ""
+        print(f"           {b:>6}: samples with a secretor "
+              f"{o['samples_with_a_secretor']} -> {n['samples_with_a_secretor']}, "
+              f"distinct taxa {o['distinct_taxa']} -> {n['distinct_taxa']}{flag}")
     return out
 
 
