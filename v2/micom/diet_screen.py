@@ -445,9 +445,13 @@ def write_diet(diet: pd.DataFrame, supply: dict[str, float], notes: dict,
             f"the worst sample's abundance-weighted community demand is "
             f"{n.get('demand_max', float('nan')):.4g}, and this is {SAFETY:g}x that.")
     header.append("#")
+    # LF throughout, on every OS. On Windows, pandas' to_csv defaults to os.linesep (CRLF)
+    # and write_text turns "\n" into CRLF, so the file came out with LF header lines and
+    # CRLF rows (CR-CR-LF on disk). .gitattributes says eol=lf, so a fresh checkout on Dardel
+    # always showed the file as modified, and run_pipeline.py marked every run there dirty.
     DIET_OUT.write_text("\n".join(header) + "\n" +
-                        d[["reaction", "flux", "dilution"]].to_csv(index=False),
-                        encoding="utf-8")
+                        d[["reaction", "flux", "dilution"]].to_csv(index=False, lineterminator="\n"),
+                        encoding="utf-8", newline="\n")
 
 
 # ===========================================================================
