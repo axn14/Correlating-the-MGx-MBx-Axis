@@ -60,6 +60,14 @@ v2/reads/enzymes/enzymes_trembl.faa
 # their numbers and a reader should not need Dardel access to check them.
 v2/genes/out/rownames_index.txt.gz
 
+# The background set's raw abundances: 4.4 MB of (row, sample, abundance) triples for
+# 6,335 non-target gene families. Same reasoning as the row-name index -- it is an
+# input to a control, not a result, and background.R regenerates it exactly (the draw
+# is seeded, SEED = 20261108, and background_matching.tsv records the decile-by-decile
+# counts it produced). What the chapter cites is background_trend.tsv, which IS
+# committed at 1 MB along with the matching table and provenance.
+v2/genes/out/gf_background_long.tsv.gz
+
 # OS and Office cruft
 Thumbs.db
 desktop.ini

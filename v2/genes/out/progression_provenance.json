@@ -1,0 +1,461 @@
+{
+  "built_utc": "2026-11-08T11:51:56Z",
+  "inputs": {
+    "YACHIDA-CRC-2019 metadata.tsv": {
+      "bytes": 81067
+    },
+    "YachidaS_2019_sample.tsv": {
+      "bytes": 196746
+    },
+    "gf_targets_long.tsv.gz": {
+      "bytes": 2006906
+    },
+    "gf_background_long.tsv.gz": {
+      "bytes": 4492594
+    },
+    "gf_targets_summary.tsv": {
+      "bytes": 518794
+    },
+    "target_clusters.tsv": {
+      "bytes": 2030488
+    },
+    "curated_clusters.tsv": {
+      "bytes": 21312
+    },
+    "sample_normalization.tsv": {
+      "bytes": 33328
+    }
+  },
+  "normalization": {
+    "status": "relative_abundance",
+    "community_sum_min": 0.99999947741452,
+    "community_sum_max": 1.00000057709522,
+    "stratified_share_median": 0.8347890550802399,
+    "stratified_share_min": 0.6123301025803,
+    "nonzero_community_median": 270282.0,
+    "n_samples": 616,
+    "renormalized": false
+  },
+  "crosswalk": {
+    "n_samples": 347,
+    "groups": {
+      "Healthy": 127,
+      "Early_CRC": 96,
+      "Advanced_CRC": 54,
+      "Adenoma": 40,
+      "PostSurgery": 30
+    }
+  },
+  "row_kinds": {
+    "n_long": 118450,
+    "n_community": 50699,
+    "n_unclassified": 26229,
+    "n_species": 41522
+  },
+  "features": {
+    "clusters": 1181,
+    "species_rows": 1039,
+    "enzyme_aggregates": 16,
+    "multi_ec_memberships": 434
+  },
+  "detection_floor_samples": 28,
+  "fdr": 0.05,
+  "blind_spot_ecs": [
+    "4.1.1.105",
+    "4.1.1.25",
+    "4.1.1.28"
+  ],
+  "pairwise": {
+    "primary_tested": 994,
+    "primary_q_lt_fdr": 0,
+    "primary_min_q": 0.1853802232925108
+  },
+  "trend": {
+    "primary_tested": 455,
+    "primary_q_lt_fdr": 12,
+    "primary_q_adj_lt_fdr": 4,
+    "hits": [
+      {
+        "feature": "UniRef90_A8SL35",
+        "ecs": "4.1.1.15",
+        "top_species": "g__Parvimonas.s__Parvimonas_micra",
+        "rho": 0.3148,
+        "q": 3.836869249201791e-05,
+        "rho_adj": 0.3041,
+        "q_adj": 0.00013837604959623432
+      },
+      {
+        "feature": "UniRef90_Q8RG18",
+        "ecs": "4.1.1.17",
+        "top_species": "g__Fusobacterium.s__Fusobacterium_nucleatum",
+        "rho": 0.2455,
+        "q": 0.007926698866256035,
+        "rho_adj": 0.2608,
+        "q_adj": 0.002891171791345879
+      },
+      {
+        "feature": "UniRef90_R5HT10",
+        "ecs": "2.3.1.1;2.3.1.35",
+        "top_species": "",
+        "rho": 0.2375,
+        "q": 0.00959686507648093,
+        "rho_adj": 0.2298,
+        "q_adj": 0.01931445808774814
+      },
+      {
+        "feature": "UniRef90_A0A174QH87",
+        "ecs": "4.1.1.19",
+        "top_species": "",
+        "rho": 0.2312,
+        "q": 0.011355665329890255,
+        "rho_adj": 0.2138,
+        "q_adj": 0.04225770400715627
+      },
+      {
+        "feature": "UniRef90_R5P0Y5",
+        "ecs": "4.1.1.19",
+        "top_species": "g__Butyricimonas.s__Butyricimonas_virosa",
+        "rho": 0.2218,
+        "q": 0.014517310880723796,
+        "rho_adj": 0.2074,
+        "q_adj": 0.0508895959783451
+      },
+      {
+        "feature": "UniRef90_E5Y860",
+        "ecs": "4.1.1.19",
+        "top_species": "g__Bilophila.s__Bilophila_wadsworthia",
+        "rho": 0.2027,
+        "q": 0.02756238063886274,
+        "rho_adj": 0.1763,
+        "q_adj": 0.13314291976560508
+      },
+      {
+        "feature": "UniRef90_A0A174M373",
+        "ecs": "4.1.1.19",
+        "top_species": "g__Lachnospira.s__Lachnospira_pectinoschiza",
+        "rho": -0.1952,
+        "q": 0.040141093883776145,
+        "rho_adj": -0.185,
+        "q_adj": 0.10672954421865026
+      },
+      {
+        "feature": "UniRef90_A0A0M6WRA6",
+        "ecs": "2.3.1.1;2.3.1.35",
+        "top_species": "g__Roseburia.s__Roseburia_faecis",
+        "rho": -0.2052,
+        "q": 0.02596886480110483,
+        "rho_adj": -0.1729,
+        "q_adj": 0.13314291976560508
+      },
+      {
+        "feature": "UniRef90_A0A173T3V0",
+        "ecs": "4.1.1.19",
+        "top_species": "g__Roseburia.s__Roseburia_faecis",
+        "rho": -0.2053,
+        "q": 0.02596886480110483,
+        "rho_adj": -0.173,
+        "q_adj": 0.13314291976560508
+      },
+      {
+        "feature": "UniRef90_A0A174GRE2",
+        "ecs": "4.1.1.19",
+        "top_species": "g__Lachnospira.s__Lachnospira_pectinoschiza",
+        "rho": -0.2139,
+        "q": 0.018470839425388196,
+        "rho_adj": -0.1944,
+        "q_adj": 0.06986307891733047
+      },
+      {
+        "feature": "UniRef90_R6K290",
+        "ecs": "2.3.1.1;2.3.1.35",
+        "top_species": "g__Lachnospira.s__Lachnospira_pectinoschiza",
+        "rho": -0.2168,
+        "q": 0.01746561654361809,
+        "rho_adj": -0.201,
+        "q_adj": 0.06275245879357465
+      },
+      {
+        "feature": "UniRef90_D4L1D2",
+        "ecs": "4.1.1.18",
+        "top_species": "g__Roseburia.s__Roseburia_intestinalis",
+        "rho": -0.2238,
+        "q": 0.014517310880723796,
+        "rho_adj": -0.198,
+        "q_adj": 0.06436542829476372
+      }
+    ]
+  },
+  "background_control": {
+    "status": "measured",
+    "axis": "primary",
+    "n_target": 455,
+    "n_background": 2107,
+    "thresholds": [
+      0.05,
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "unadjusted": {
+      "tail": [
+        {
+          "threshold": 0.05,
+          "target_n": 39,
+          "target_rate": 0.08571428571428572,
+          "background_n": 281,
+          "background_rate": 0.13336497389653537,
+          "ratio": 0.6427046263345195,
+          "fisher_p": 0.004786750222173803
+        },
+        {
+          "threshold": 0.01,
+          "target_n": 20,
+          "target_rate": 0.04395604395604396,
+          "background_n": 81,
+          "background_rate": 0.03844328429046037,
+          "ratio": 1.1433998100664768,
+          "fisher_p": 0.5949948473728566
+        },
+        {
+          "threshold": 0.001,
+          "target_n": 11,
+          "target_rate": 0.024175824175824177,
+          "background_n": 18,
+          "background_rate": 0.00854295206454675,
+          "ratio": 2.82991452991453,
+          "fisher_p": 0.011189090437407317
+        },
+        {
+          "threshold": 0.0001,
+          "target_n": 3,
+          "target_rate": 0.006593406593406593,
+          "background_n": 3,
+          "background_rate": 0.0014238253440911248,
+          "ratio": 4.630769230769231,
+          "fisher_p": 0.07308033520092941
+        }
+      ],
+      "min_p_target": 8.720157384549524e-08,
+      "min_p_background": 1.4289312667143444e-05,
+      "median_abs_rho_target": 0.038360674084954006,
+      "median_abs_rho_background": 0.05064310877075956,
+      "mannwhitney_p_abs_rho_target_greater": 0.9999985424554029
+    },
+    "adjusted": {
+      "tail": [
+        {
+          "threshold": 0.05,
+          "target_n": 33,
+          "target_rate": 0.07252747252747253,
+          "background_n": 230,
+          "background_rate": 0.10915994304698623,
+          "ratio": 0.6644147157190636,
+          "fisher_p": 0.02114426916251335
+        },
+        {
+          "threshold": 0.01,
+          "target_n": 14,
+          "target_rate": 0.03076923076923077,
+          "background_n": 52,
+          "background_rate": 0.024679639297579496,
+          "ratio": 1.2467455621301777,
+          "fisher_p": 0.4188281211171495
+        },
+        {
+          "threshold": 0.001,
+          "target_n": 6,
+          "target_rate": 0.013186813186813187,
+          "background_n": 8,
+          "background_rate": 0.0037968675842429997,
+          "ratio": 3.4730769230769227,
+          "fisher_p": 0.025300052155328094
+        },
+        {
+          "threshold": 0.0001,
+          "target_n": 2,
+          "target_rate": 0.004395604395604396,
+          "background_n": 2,
+          "background_rate": 0.0009492168960607499,
+          "ratio": 4.63076923076923,
+          "fisher_p": 0.14728275461243306
+        }
+      ],
+      "min_p_target": 3.144910218096234e-07,
+      "min_p_background": 3.559170705371788e-05,
+      "median_abs_rho_target": 0.041599600793907954,
+      "median_abs_rho_background": 0.05037498650606517,
+      "mannwhitney_p_abs_rho_target_greater": 0.9999273299894131
+    }
+  },
+  "carrier_control": {
+    "status": "measured",
+    "requested": 7,
+    "matched": 6,
+    "unmatched": [
+      "g__Roseburia.s__Roseburia_faecis"
+    ],
+    "gtdb_columns_used": {
+      "g__Bilophila.s__Bilophila_wadsworthia": 1,
+      "g__Butyricimonas.s__Butyricimonas_virosa": 1,
+      "g__Fusobacterium.s__Fusobacterium_nucleatum": 4,
+      "g__Lachnospira.s__Lachnospira_pectinoschiza": 1,
+      "g__Parvimonas.s__Parvimonas_micra": 1,
+      "g__Roseburia.s__Roseburia_intestinalis": 1
+    },
+    "samples_joined": 347,
+    "testable": 8,
+    "surviving_q_lt_fdr": 4,
+    "per_feature": [
+      {
+        "feature": "UniRef90_A0A0M6WRA6",
+        "carrier_species": "g__Roseburia.s__Roseburia_faecis",
+        "carrier_available": false,
+        "reason": "carrier has no GTDB counterpart in the cohort species table",
+        "n": null,
+        "rho_carrier_adj": null,
+        "p_carrier_adj": null,
+        "carrier_rho_vs_stage": null,
+        "carrier_p_vs_stage": null,
+        "q_carrier_adj": null
+      },
+      {
+        "feature": "UniRef90_A0A173T3V0",
+        "carrier_species": "g__Roseburia.s__Roseburia_faecis",
+        "carrier_available": false,
+        "reason": "carrier has no GTDB counterpart in the cohort species table",
+        "n": null,
+        "rho_carrier_adj": null,
+        "p_carrier_adj": null,
+        "carrier_rho_vs_stage": null,
+        "carrier_p_vs_stage": null,
+        "q_carrier_adj": null
+      },
+      {
+        "feature": "UniRef90_A0A174GRE2",
+        "carrier_species": "g__Lachnospira.s__Lachnospira_pectinoschiza",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": -0.1371562655471875,
+        "p_carrier_adj": 0.02393803057957892,
+        "carrier_rho_vs_stage": -0.26562033242213223,
+        "carrier_p_vs_stage": 7.409369317881682e-06,
+        "q_carrier_adj": 0.04787606115915784
+      },
+      {
+        "feature": "UniRef90_A0A174M373",
+        "carrier_species": "g__Lachnospira.s__Lachnospira_pectinoschiza",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": -0.15692731346917396,
+        "p_carrier_adj": 0.009668665772336583,
+        "carrier_rho_vs_stage": -0.26562033242213223,
+        "carrier_p_vs_stage": 7.409369317881682e-06,
+        "q_carrier_adj": 0.038674663089346334
+      },
+      {
+        "feature": "UniRef90_A0A174QH87",
+        "carrier_species": "",
+        "carrier_available": false,
+        "reason": "no species-stratified row for this cluster",
+        "n": null,
+        "rho_carrier_adj": null,
+        "p_carrier_adj": null,
+        "carrier_rho_vs_stage": null,
+        "carrier_p_vs_stage": null,
+        "q_carrier_adj": null
+      },
+      {
+        "feature": "UniRef90_A8SL35",
+        "carrier_species": "g__Parvimonas.s__Parvimonas_micra",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": 0.10722960310547941,
+        "p_carrier_adj": 0.07804453443933403,
+        "carrier_rho_vs_stage": 0.386757028661375,
+        "carrier_p_vs_stage": 2.573190834510328e-11,
+        "q_carrier_adj": 0.12487125510293444
+      },
+      {
+        "feature": "UniRef90_D4L1D2",
+        "carrier_species": "g__Roseburia.s__Roseburia_intestinalis",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": -0.09779351144095978,
+        "p_carrier_adj": 0.10820903420981637,
+        "carrier_rho_vs_stage": -0.2027694710271244,
+        "carrier_p_vs_stage": 0.0006867136816178271,
+        "q_carrier_adj": 0.14427871227975517
+      },
+      {
+        "feature": "UniRef90_E5Y860",
+        "carrier_species": "g__Bilophila.s__Bilophila_wadsworthia",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": 0.09232951065292073,
+        "p_carrier_adj": 0.1294813926197504,
+        "carrier_rho_vs_stage": 0.16219987464884178,
+        "carrier_p_vs_stage": 0.0068248164206329755,
+        "q_carrier_adj": 0.14797873442257187
+      },
+      {
+        "feature": "UniRef90_Q8RG18",
+        "carrier_species": "g__Fusobacterium.s__Fusobacterium_nucleatum",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": 0.07681028797011338,
+        "p_carrier_adj": 0.20749803685915919,
+        "carrier_rho_vs_stage": 0.3665645896422081,
+        "carrier_p_vs_stage": 3.1000754788053625e-10,
+        "q_carrier_adj": 0.20749803685915919
+      },
+      {
+        "feature": "UniRef90_R5HT10",
+        "carrier_species": "",
+        "carrier_available": false,
+        "reason": "no species-stratified row for this cluster",
+        "n": null,
+        "rho_carrier_adj": null,
+        "p_carrier_adj": null,
+        "carrier_rho_vs_stage": null,
+        "carrier_p_vs_stage": null,
+        "q_carrier_adj": null
+      },
+      {
+        "feature": "UniRef90_R5P0Y5",
+        "carrier_species": "g__Butyricimonas.s__Butyricimonas_virosa",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": 0.2152679579894564,
+        "p_carrier_adj": 0.000357916909855535,
+        "carrier_rho_vs_stage": 0.061532872698255435,
+        "carrier_p_vs_stage": 0.30751635829730284,
+        "q_carrier_adj": 0.00286333527884428
+      },
+      {
+        "feature": "UniRef90_R6K290",
+        "carrier_species": "g__Lachnospira.s__Lachnospira_pectinoschiza",
+        "carrier_available": true,
+        "reason": "",
+        "n": 277.0,
+        "rho_carrier_adj": -0.14282652347847893,
+        "p_carrier_adj": 0.018651398272405667,
+        "carrier_rho_vs_stage": -0.26562033242213223,
+        "carrier_p_vs_stage": 7.409369317881682e-06,
+        "q_carrier_adj": 0.04787606115915784
+      }
+    ]
+  },
+  "software": {
+    "python": "3.12.10",
+    "numpy": "2.3.1",
+    "pandas": "2.3.0",
+    "matplotlib": "3.10.3"
+  }
+}

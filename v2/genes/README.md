@@ -74,9 +74,29 @@ contribution, applied to gene families.
 
 The extraction ran on 2026-11-08 (job 27319804, 5m09s, 14 cores, MaxRSS 5.5 GiB). The
 object asserts its own name — `2021-10-14.YachidaS_2019.gene_families` — and is a
-`dgCMatrix`, 8,930,907 × 616, 379,029,747 nonzeros at 6.89% density. **2,371,507 rows
-(26.6%) are species-stratified**, not the 5,351,296 quoted in
-`writeup/read_programme_alternative.md`; that figure should be corrected there.
+`dgCMatrix`, 8,930,907 × 616, 379,029,747 nonzeros at 6.89% density.
+
+The row counts need stating precisely, because two different true numbers get called
+"the stratified rows" and an earlier draft of this file called one of them wrong:
+
+| row kind | count | share |
+|---|---|---|
+| community total, `UniRef90_X` | 3,579,611 | 40.1% |
+| species-stratified, `UniRef90_X\|g__G.s__S` | 2,371,507 | 26.6% |
+| `UniRef90_X\|unclassified` | 2,979,789 | 33.4% |
+| **rows containing a pipe** | **5,351,296** | **59.9%** |
+
+So the 5,351,296 in `writeup/read_programme_alternative.md` is correct for "rows below
+the community level", and 2,371,507 is correct for "rows naming a species". They are not
+interchangeable: anything that treats *not community-level* as *attributed to a species*
+double-counts, because the community total is the sum of the species rows **plus** the
+unclassified row. `progression_axis.py` splits on the row name for exactly this reason.
+Measured by `colsums.R`, job 27324295.
+
+Those column sums also settle the units: the community-level rows sum to **1.000000 in
+every one of the 616 samples**, so these are relative abundances and no renormalization
+applies to any comparison below. Between 61% and 93% of each sample's gene pool
+(median 83%) is attributable to a named species.
 
 3,516 rows matched, over **1,267 of the 17,100 target clusters**, 1,164 of them
 species-stratified.
@@ -119,6 +139,130 @@ routes (283 species) and the aromatic decarboxylases (10). The §4.6 base-rate p
 applies here too and any producer call must be read against the column of species counts,
 not in isolation.
 
+## On the progression axis: `progression_axis.py`
+
+The extraction above says whether a gene is there and whose it is. It says nothing about
+disease, because the gene matrix carries no clinical labels. `progression_axis.py` joins
+the two and asks whether biosynthetic capacity moves along the CRC axis.
+
+**The join needs its own file.** The gene matrix is keyed by DDBJ BioSample accession
+(`SAMD00114718`); every cohort table in this project is keyed by Yachida's own sample
+number (`10021`). The bridge is curatedMetagenomicData's curation table, where
+`subject_id` is literally `sub_` + the cohort number — committed here as
+`ref/YachidaS_2019_sample.tsv` rather than fetched at run time, because a silent change
+upstream would silently re-label every sample in every figure. All 347 cohort samples
+resolve, all 347 accessions are columns of the matrix, and the 616 subject ids are
+unique, so the mapping is a function. Each of those is asserted; any failure raises.
+
+Groups come from `v2/utils.py` unchanged: primary Healthy 127 → Early_CRC 96 →
+Advanced_CRC 54 (n=277), early axis adding Adenoma 40 (n=317), PostSurgery 30 as a
+sensitivity group that is never pooled. Each axis is its own BH family.
+
+### Nothing separates two stages
+
+| level | features tested | q < 0.05 | smallest q |
+|---|---|---|---|
+| per cluster, community level | 994 | **0** | 0.185 |
+| per species-stratified row | 748 | **0** | 0.204 |
+| per-EC aggregate, both routes | 39 | **0** | 0.825 |
+
+The per-EC aggregates are flat on every contrast and on the trend. Whatever happens
+along this axis, it is not a change in the total gene pool devoted to these activities.
+
+### What does move is which copy is present
+
+Spearman against the ordinal scale finds **12 of 455 features at BH q < 0.05**, and
+**4 survive adjustment for age, BMI, Brinkman index, alcohol and sex** (all five complete
+for all 347 samples, so nothing is imputed). Within a single EC they move in **opposite
+directions**, split by the organism carrying them:
+
+| cluster | EC | carrier | ρ | q | ρ adj | ρ carrier-adj |
+|---|---|---|---|---|---|---|
+| `UniRef90_A8SL35` | 4.1.1.15 glutamate dc | *P. micra* | +0.31 | 3.8e-05 | +0.30 | +0.11 (p 0.08) |
+| `UniRef90_Q8RG18` | 4.1.1.17 ornithine dc | *F. nucleatum* | +0.25 | 7.9e-03 | +0.26 | +0.08 (p 0.21) |
+| `UniRef90_R5HT10` | 2.3.1.1/35 ArgA | unattributed | +0.24 | 9.6e-03 | +0.23 | — |
+| `UniRef90_A0A174QH87` | 4.1.1.19 arginine dc | unattributed | +0.23 | 1.1e-02 | +0.21 | — |
+| `UniRef90_R5P0Y5` | 4.1.1.19 arginine dc | *B. virosa* | +0.22 | 1.5e-02 | +0.21 | **+0.22 (q 0.003)** |
+| `UniRef90_E5Y860` | 4.1.1.19 arginine dc | *B. wadsworthia* | +0.20 | 2.8e-02 | +0.18 | +0.09 (ns) |
+| `UniRef90_A0A174M373` | 4.1.1.19 arginine dc | *L. pectinoschiza* | −0.20 | 4.0e-02 | −0.19 | **−0.16 (q 0.039)** |
+| `UniRef90_A0A0M6WRA6` | 2.3.1.1/35 ArgA | *R. faecis* | −0.21 | 2.6e-02 | −0.17 | — |
+| `UniRef90_A0A173T3V0` | 4.1.1.19 arginine dc | *R. faecis* | −0.21 | 2.6e-02 | −0.17 | — |
+| `UniRef90_A0A174GRE2` | 4.1.1.19 arginine dc | *L. pectinoschiza* | −0.21 | 1.8e-02 | −0.19 | **−0.14 (q 0.048)** |
+| `UniRef90_R6K290` | 2.3.1.1/35 ArgA | *L. pectinoschiza* | −0.22 | 1.7e-02 | −0.20 | **−0.14 (q 0.048)** |
+| `UniRef90_D4L1D2` | 4.1.1.18 lysine dc | *R. intestinalis* | −0.22 | 1.5e-02 | −0.20 | −0.10 (ns) |
+
+Six clusters of arginine decarboxylase trend, three up and three down. The EC 4.1.1.19
+aggregate over all 295 observed clusters does not move at all (ρ −0.03, q 0.91). The
+same holds for ArgA. **The capacity is conserved while its source is replaced** — commensal
+Lachnospiraceae copies fall, *Fusobacterium*, *Parvimonas*, *Bilophila* and
+*Butyricimonas* copies rise. `figs/fig1_source_turnover.png` is that result in one
+picture.
+
+### Two controls, and both of them bite
+
+**Is trending with stage rare?** `background.R` draws five non-target community-level
+gene families per observed target, matched decile by decile on prevalence — the thing a
+rank test's power actually depends on. The matching holds: medians 65 and 67 detected of
+277, Mann–Whitney p = 0.39. Comparison is on raw p, because BH's q depends on family
+size and the two families differ fivefold by construction.
+
+| threshold | target (n=455) | background (n=2,107) | ratio | Fisher p |
+|---|---|---|---|---|
+| p < 0.05 | 7.3% | 10.9% | **0.66×** | 0.021 |
+| p < 0.01 | 3.1% | 2.5% | 1.25× | 0.42 |
+| p < 0.001 | 1.3% | 0.38% | **3.47×** | 0.025 |
+| p < 1e-4 | 0.44% | 0.09% | 4.63× | 0.15 |
+| smallest p | **3.1e-07** | 3.6e-05 | | |
+
+(confounder-adjusted; unadjusted is the same shape, 8.6% against 13.3% at p < 0.05.)
+
+Read at one threshold this says opposite things, so it is reported at four. **These
+enzymes are, as a set, LESS stage-responsive than random gut gene families** — which is
+what you would expect of redundant core metabolism, and which rules out any sentence
+claiming that amine biosynthesis is broadly engaged along the axis. The enrichment is in
+the tail alone: a handful of specific copies move harder than anything in a five-times
+larger background.
+
+**Is the gene moving, or its organism arriving?** A gene's share of the gene pool is
+roughly its carrier's abundance times its share within that carrier, so a rising gene in
+a rising organism is not independent evidence. `progression_axis.py` adds the carrier's
+own relative abundance — from the cohort's GTDB species table, an independent
+measurement, not from this gene matrix — as a sixth covariate.
+
+The two strongest findings collapse. *P. micra*'s glutamate decarboxylase goes from
+ρ 0.31 to 0.11 (p 0.08); *F. nucleatum*'s ornithine decarboxylase from 0.25 to 0.08
+(p 0.21). Both organisms themselves track stage at p = 2.6e-11 and 3.1e-10. Four trends
+survive, led by `UniRef90_R5P0Y5` (*B. virosa* arginine decarboxylase, ρ 0.22 → 0.22,
+q 0.003) **whose carrier does not itself trend** (ρ 0.06, p 0.31).
+
+So the defensible claim is **attribution, not independent gene-level change**: these
+organisms arrive carrying these specific decarboxylase activities. That is the
+"can this organism perform the reaction" evidence §4.6 asks for. It is weaker than
+"capacity increases", which these data do not support.
+
+One carrier, *R. faecis*, has no GTDB counterpart in the cohort's species table (GTDB
+reclassified it), so two clusters are marked untestable rather than tested against the
+wrong organism. *F. nucleatum* matches four GTDB columns, which are summed.
+
+### The chapter's tryptamine claim, answered both ways
+
+`UniRef90_A7B1V0` is **flat**: ρ +0.013 (p 0.83), adjusted +0.008, no pairwise contrast
+near significance. Prevalence runs 78/127 Healthy, 65/96 Early, 30/54 Advanced. The
+presence-and-attribution result above stands; the stage-dependence does not exist.
+`figs/fig4_tryptamine.png` states both on the figure, because a reader shown the
+attribution panels alone will assume a gradient that is not in the data.
+
+### Figures
+
+| | |
+|---|---|
+| `figs/fig1_source_turnover` | one activity, two directions, two sets of organisms; the aggregate underneath, flat |
+| `figs/fig2_trend_forest` | every q<0.05 cluster with its adjusted twin, and the background control |
+| `figs/fig3_stage_profiles` | mean share by stage for all twelve, off-axis groups drawn unconnected |
+| `figs/fig4_tryptamine` | the chapter's lead claim: present, attributed, not stage-dependent |
+| `figs/fig5_enzyme_log2fc` | per-EC aggregate, both routes, blind-spot rows hatched |
+| `figs/fig6_cluster_volcano` | the pairwise negative, drawn so it is not assumed unrun |
+
 ### The *Allisonella* question: not answerable by this route, and we can prove why
 
 Results §3.7 ranks *Allisonella* first for cadaverine while noting the genus is
@@ -160,7 +304,11 @@ data, and it is the reason the control was built in rather than bolted on.
 | `extract_targets.py` | ten ECs → 17,072 UniRef90 clusters. Imports the EC list from `../reads/build_enzyme_db.py` rather than restating it |
 | `validate_mapping.py` | the table above. Resolves every curated accession's UniRef90 cluster and checks it against the map |
 | `extract_gene_families.R` | the one job that loads the 3.26 GB object, with the self-naming assertion |
-| `extract_gene_families.sbatch` | 1 core, 32 GB, ~2 h ceiling |
+| `extract_gene_families.sbatch` | 1 core, 12 GB, 1 h ceiling — sized from the measured 5.5 GiB peak, not from the matrix shape |
+| `colsums.R` | per-sample community/stratified column sums of the full matrix. The job that settled the units and the row-kind counts (27324295) |
+| `background.R` | the prevalence-matched background set: 6,335 non-target clusters, 5 per observed target, matched decile by decile (27324874) |
+| `progression_axis.py` | the join to the clinical axis, every test, both controls, all six figures |
+| `ref/YachidaS_2019_sample.tsv` | curatedMetagenomicData's curation table — the only thing connecting `SAMD…` accessions to Yachida's sample numbers. Committed so the join cannot change under us |
 | `target_clusters.tsv`, `curated_clusters.tsv` | the two target lists |
 | `uniref90_cache.tsv` | accession → UniRef90 cluster, cached so 363 round trips happen once |
 | `mapping_validation.tsv` | per-accession verdicts behind the table |
@@ -171,6 +319,14 @@ data, and it is the reason the control was built in rather than bolted on.
 | `out/gf_targets_summary.tsv` | per-row prevalence and maximum, with route and EC labels |
 | `out/allisonella_genes.tsv` | the full 1,487-gene complement |
 | `out/rownames_index.txt.gz` | all 8.9 M row names. **Gitignored** at 42 MB; regenerate with the batch job. Keeping it means no later question needs a second five-minute load |
+| `out/sample_normalization.tsv` | per-sample community and stratified column sums; the evidence that these are relative abundances |
+| `out/sample_crosswalk.tsv` | the asserted join: cohort sample ↔ accession ↔ group |
+| `out/progression_cluster_tests.tsv` | per cluster × contrast × family, with the untested ones kept and the reason recorded |
+| `out/progression_enzyme_tests.tsv`, `out/progression_species_tests.tsv` | the same at the aggregate and species-row levels |
+| `out/progression_trend.tsv` | Spearman unadjusted and adjusted, both axes, with carrier species and ECs |
+| `out/background_trend.tsv` | the identical trend on the matched background set |
+| `out/progression_carrier_control.tsv` | per hit: trend after holding the carrier organism's abundance fixed |
+| `out/gf_background_long.tsv.gz` | the background set's abundances, 442,566 triples over 6,335 clusters |
 
 ## Provenance of the mappings
 
@@ -213,7 +369,28 @@ perform the reaction" source §4.6 says is missing — no more.
 
 Read-based and profile-based results are also **single-cohort by construction**: only
 Yachida has shotgun data. Kim and Sinha are genus-level amplicon cohorts, so nothing here
-replicates across cohorts.
+replicates across cohorts. Every progression-axis number above is therefore a discovery
+result with no external validation available, and should be written up as one.
+
+Four further limits on the progression analysis specifically:
+
+- **The pairwise contrasts are null and the trends are not a substitute for them.** A
+  monotone rank correlation over 277 samples is a different and more powerful test than
+  Healthy-vs-Advanced over 181, but it also assumes the three stages are equally spaced
+  on the scale `STAGE_GROUP_NUMERIC` gives them. That coding is a modelling choice, not
+  a measurement.
+- **The carrier control is only as good as the carrier assignment.** "Carrier" here means
+  the species-stratified row of that cluster with the highest prevalence, which for a
+  cluster spread across many organisms is a simplification. Two clusters have no
+  stratified row at all and two have a carrier GTDB does not recognise, so eight of the
+  twelve hits are testable and four are not.
+- **`unattributed` is not `absent`.** Two of the twelve trending clusters have no species
+  row, meaning HUMAnN could not assign their reads to a pangenome. They are shown and
+  labelled, not dropped, but nothing here says which organism they belong to.
+- **The background control compares gene families, not pathways.** It establishes that
+  these clusters are not unusually stage-responsive as a set. It does not establish that
+  no amine-biosynthesis pathway responds — a pathway-level test over a matched pathway
+  background is a different experiment and has not been run.
 
 The *Allisonella* question has a third possible answer that must not be collapsed into
 the other two. Results §3.7 ranks the genus first for cadaverine while noting it is
