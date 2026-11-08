@@ -1034,6 +1034,37 @@ So the full batch as configured would exclude roughly 40% of samples and give no
 evidence for putrescine or spermidine. The solver and the diet are decisions to take first;
 NB10 stops after its smoke gate until `RUN_BATCH` is set.
 
+**The diet decision is taken (2026-11-08). See `v2/micom/README.md`.** `diet_screen.py`
+characterises all 327 cohort species as single AGORA2 models in about four minutes, which is
+where a medium question belongs; the three findings are:
+
+- `western_diet_gut.csv` lists glucose as `EX_glc_e`, which **0 of 1,439 AGORA2 models carry**
+  (1,326 carry `EX_glc_D(e)`). A medium is a dictionary lookup, so the largest carbon source in
+  the file has been supplying nothing, silently, in every run so far. Seven further lines
+  (long-chain fatty acids, AMP, adenosylcobalamin, Fe(III)-dicitrate) reach no model either,
+  which is AGORA2's coverage rather than an error.
+- Putrescine and spermidine cannot be withdrawn: **64 and 172 of 315 cohort species respectively
+  stop growing without them**, which is the whole explanation of the 3-of-4 infeasibility seen
+  on 2026-10-23 and is a property of the medium, not the solver. They can be *reduced*: both are
+  biomass precursors, growth saturates far below the diet's value, and the worst sample's
+  abundance-weighted community demand is 1.005e-04 (putrescine) and 1.568e-03 (spermidine). The
+  new file supplies twice those, a factor of 4,974 and 319 less, with no taxon losing growth.
+- **12 species cannot grow on this medium at all** and 142 of 277 samples contain one. They do
+  not cause infeasibility — `Community.cooperative_tradeoff` uses `min_growth=0.0` and bounds a
+  fraction of the *community* rate — but their flux is absent from those samples. They carry a
+  median 0.11% of abundance, so `gut_diet_v2.csv` leaves them alone and names what each is
+  missing (`out/diet_gaps_nongrowing.tsv`) as a separate, deliberate decision.
+
+`v2/micom/gut_diet_v2.csv` is `western_diet_gut.csv` with exactly those three id/flux changes and
+nothing else, each recorded in its header. Repoint `DIET_FILE` at it (and read it with
+`comment='#'`); `BATCH_PARAMS['diet_sha256']` changes, which correctly refuses to mix old and new
+chunks.
+
+The solver decision is still open. The glucose fix is a candidate cure for the pFBA failures — a
+carbon-starved community has a near-zero growth maximum, which is where the tradeoff QP is
+hardest — but single-model LPs cannot establish that. `diet_screen.py --community N` measures it
+on real community models under both media.
+
 The smoke gate solves one sample exactly as the batch does (measured 7–9 min and ~1.3–1.6 GB
 per sample) and prints a batch-time estimate. Coverage < 0.5 is flagged and left out of the
 sensitivity test (`*_cov_ok` columns).

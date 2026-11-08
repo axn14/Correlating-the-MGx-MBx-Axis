@@ -68,6 +68,12 @@ v2/genes/out/rownames_index.txt.gz
 # committed at 1 MB along with the matching table and provenance.
 v2/genes/out/gf_background_long.tsv.gz
 
+# The community models and solved pickles `diet_screen.py --community N` builds to
+# compare the two media on real samples. Hundreds of MB of micom community models plus
+# their GrowthResults, rebuilt by re-running the flag. The comparison itself --
+# out/community_check.tsv -- is small and IS committed.
+v2/micom/out/community/
+
 # OS and Office cruft
 Thumbs.db
 desktop.ini
