@@ -1,0 +1,107 @@
+{
+  "built_utc": "2026-11-08T05:14:43Z",
+  "map": "C:\\Users\\andna\\AppData\\Local\\Temp\\claude\\581c5e97137d1ae5\\e3187ec4-f22a-42ec-9d89-06928b8faca7\\scratchpad\\mappings\\map_level4ec_uniref90.txt.gz",
+  "curated_source": "v2/reads/enzymes/members_sprot.tsv",
+  "definitions": {
+    "recovered": "curated sequence's UniRef90 cluster is mapped to the same EC",
+    "reassigned": "cluster is in the map but under other ECs only",
+    "unmapped": "cluster carries no EC in the map",
+    "no_cluster": "UniProt returned no UniRef90 cross-reference"
+  },
+  "per_ec": {
+    "4.1.1.105": {
+      "curated": 2,
+      "recovered": 0,
+      "reassigned": 0,
+      "unmapped": 2,
+      "no_cluster": 0
+    },
+    "4.1.1.28": {
+      "curated": 1,
+      "recovered": 0,
+      "reassigned": 0,
+      "unmapped": 1,
+      "no_cluster": 0
+    },
+    "4.1.1.25": {
+      "curated": 4,
+      "recovered": 0,
+      "reassigned": 0,
+      "unmapped": 4,
+      "no_cluster": 0
+    },
+    "4.1.1.18": {
+      "curated": 8,
+      "recovered": 3,
+      "reassigned": 0,
+      "unmapped": 5,
+      "no_cluster": 0
+    },
+    "4.1.1.22": {
+      "curated": 19,
+      "recovered": 14,
+      "reassigned": 0,
+      "unmapped": 5,
+      "no_cluster": 0
+    },
+    "4.1.1.15": {
+      "curated": 16,
+      "recovered": 8,
+      "reassigned": 0,
+      "unmapped": 8,
+      "no_cluster": 0
+    },
+    "2.3.1.1": {
+      "curated": 194,
+      "recovered": 145,
+      "reassigned": 0,
+      "unmapped": 49,
+      "no_cluster": 0
+    },
+    "2.3.1.35": {
+      "curated": 130,
+      "recovered": 112,
+      "reassigned": 0,
+      "unmapped": 18,
+      "no_cluster": 0
+    },
+    "4.1.1.17": {
+      "curated": 5,
+      "recovered": 5,
+      "reassigned": 0,
+      "unmapped": 0,
+      "no_cluster": 0
+    },
+    "4.1.1.19": {
+      "curated": 114,
+      "recovered": 92,
+      "reassigned": 0,
+      "unmapped": 22,
+      "no_cluster": 0
+    }
+  },
+  "overall": {
+    "curated": 493,
+    "recovered": 379,
+    "reassigned": 0,
+    "unmapped": 114,
+    "no_cluster": 0
+  },
+  "sensitivity_pct": 76.9,
+  "curated_clusters": 224,
+  "curated_clusters_absent_from_ec_map": 28,
+  "named_loci": {
+    "A7B1V0": {
+      "cluster": "UniRef90_A7B1V0",
+      "cluster_name": "Cluster: Tryptophan decarboxylase",
+      "cluster_size": "20",
+      "map_ecs": []
+    },
+    "J7SZ64": {
+      "cluster": "UniRef90_J7SZ64",
+      "cluster_name": "Cluster: Tryptophan decarboxylase",
+      "cluster_size": "21",
+      "map_ecs": []
+    }
+  }
+}

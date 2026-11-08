@@ -1,0 +1,225 @@
+uniref90	cluster_name	cluster_size	ecs	accessions	in_ec_map
+UniRef90_A0A481NV25	Cluster: L-tyrosine decarboxylase	27	4.1.1.25	A0A481NV25	no
+UniRef90_A0A4W3	Cluster: Biosynthetic arginine decarboxylase	12	4.1.1.19	A0A4W3;Q39X78	yes
+UniRef90_A0KIP8	Cluster: Biosynthetic arginine decarboxylase	169	4.1.1.19	A0KIP8;A4SPD6	yes
+UniRef90_A0KLC8	Cluster: Amino-acid acetyltransferase	160	2.3.1.1	A0KLC8;A4SNY1	yes
+UniRef90_A0KVN8	Cluster: Biosynthetic arginine decarboxylase	62	4.1.1.19	A0KVN8;A1RKK8;A3D3G2;A4Y5Y9;A6WM65;A9KY70;B8EAI2;Q0HJY2;Q0HW78;Q8EFU5	no
+UniRef90_A1AS90	Cluster: Biosynthetic arginine decarboxylase	1	4.1.1.19	A1AS90	yes
+UniRef90_A1S712	Cluster: Biosynthetic arginine decarboxylase	7	4.1.1.19	A1S712	yes
+UniRef90_A1TY02	Cluster: Biosynthetic arginine decarboxylase	11	4.1.1.19	A1TY02	yes
+UniRef90_A2BU00	Cluster: Biosynthetic arginine decarboxylase	1	4.1.1.19	A2BU00	yes
+UniRef90_A2CDK1	Cluster: Biosynthetic arginine decarboxylase	10	4.1.1.19	A2CDK1;Q7TUJ9	yes
+UniRef90_A3M7A4	Cluster: Histidine decarboxylase	124	4.1.1.22	A3M7A4;B0VBU8;B2HVG6;B7GZJ8;B7I459	no
+UniRef90_A3N062	Cluster: Amino-acid acetyltransferase	34	2.3.1.1	A3N062;B0BNY0;B3GXD3	yes
+UniRef90_A3PA96	Cluster: Biosynthetic arginine decarboxylase	28	4.1.1.19	A2BNH3;A3PA96;A8G243;Q31DD8	yes
+UniRef90_A3QDD8	Cluster: Biosynthetic arginine decarboxylase	14	4.1.1.19	A3QDD8	yes
+UniRef90_A4WDZ5	Cluster: Amino-acid acetyltransferase	512	2.3.1.1	A4WDZ5	no
+UniRef90_A4XP61	Cluster: Amino-acid acetyltransferase	55	2.3.1.1	A4XP61	yes
+UniRef90_A5GB52	Cluster: Biosynthetic arginine decarboxylase	7	4.1.1.19	A5GB52	yes
+UniRef90_A5GWM2	Cluster: Biosynthetic arginine decarboxylase	3	4.1.1.19	A5GWM2	yes
+UniRef90_A6L012	Cluster: Biosynthetic arginine decarboxylase	54	4.1.1.19	A6L012	yes
+UniRef90_A6VMR4	Cluster: Amino-acid acetyltransferase	12	2.3.1.1	A6VMR4	yes
+UniRef90_A7B1V0	Cluster: Tryptophan decarboxylase	20	4.1.1.105	A7B1V0	no
+UniRef90_A7MVI6	Cluster: Histidine decarboxylase	25	4.1.1.22	A7MVI6	yes
+UniRef90_A8FWJ3	Cluster: Biosynthetic arginine decarboxylase	16	4.1.1.19	A8FWJ3;B1KRD4	yes
+UniRef90_A8GIG8	Cluster: Amino-acid acetyltransferase	75	2.3.1.1	A8GIG8	yes
+UniRef90_A8H5G3	Cluster: Biosynthetic arginine decarboxylase	14	4.1.1.19	A8H5G3;B0TQX3;B8CR70	yes
+UniRef90_B0U1H6	Cluster: Biosynthetic arginine decarboxylase	16	4.1.1.19	B0U1H6;B2I6M1;Q87F25;Q9PH02	no
+UniRef90_B3EAF3	Cluster: Biosynthetic arginine decarboxylase	6	4.1.1.19	B3EAF3	yes
+UniRef90_B3QWJ5	Cluster: Probable pyruvoyl-dependent arginine decarboxylase	1	4.1.1.19	B3QWJ5	yes
+UniRef90_B4F1A4	Cluster: Biosynthetic arginine decarboxylase	45	4.1.1.19	B4F1A4	yes
+UniRef90_B4F2F5	Cluster: Amino-acid acetyltransferase	60	2.3.1.1	B4F2F5	yes
+UniRef90_B4S6J7	Cluster: Probable pyruvoyl-dependent arginine decarboxylase	9	4.1.1.19	B3ELD9;B4S6J7	no
+UniRef90_B5EIW4	Cluster: Biosynthetic arginine decarboxylase	16	4.1.1.19	B5EIW4;C6E3V4	no
+UniRef90_B7VJZ6	Cluster: Amino-acid acetyltransferase	113	2.3.1.1	B7VJZ6	yes
+UniRef90_B9M6H6	Cluster: Biosynthetic arginine decarboxylase	7	4.1.1.19	B9M6H6	yes
+UniRef90_C1DJG1	Cluster: Amino-acid acetyltransferase	30	2.3.1.1	C1DJG1	yes
+UniRef90_C4K6F4	Cluster: Biosynthetic arginine decarboxylase	6	4.1.1.19	C4K6F4	yes
+UniRef90_C4L9A9	Cluster: Biosynthetic arginine decarboxylase	3	4.1.1.19	C4L9A9	yes
+UniRef90_C5BH95	Cluster: Amino-acid acetyltransferase	5	2.3.1.1	C5BH95	yes
+UniRef90_C6DAG1	Cluster: Amino-acid acetyltransferase	94	2.3.1.1	C6DAG1;Q6D8H5	yes
+UniRef90_I0DFJ0	Cluster: Aromatic-L-amino-acid decarboxylase	31	4.1.1.28	I0DFJ0	no
+UniRef90_J7GQ11	Cluster: L-tyrosine decarboxylase	11	4.1.1.25	J7GQ11	no
+UniRef90_J7SZ64	Cluster: Tryptophan decarboxylase	21	4.1.1.105	J7SZ64	no
+UniRef90_O08319	Cluster: Arginine biosynthesis bifunctional protein ArgJ	84	2.3.1.1;2.3.1.35	O08319	yes
+UniRef90_O30418	Cluster: Glutamate decarboxylase	114	4.1.1.15	O30418;Q9CG20	yes
+UniRef90_O33289	Cluster: Amino-acid acetyltransferase	41	2.3.1.1	O33289	yes
+UniRef90_O50657	Cluster: Lysine/ornithine decarboxylase	7	4.1.1.17;4.1.1.18	O50657	yes
+UniRef90_O66143	Cluster: Amino-acid acetyltransferase	1	2.3.1.1	O66143	yes
+UniRef90_O67100	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	O67100	yes
+UniRef90_O84378	Cluster: Pyruvoyl-dependent arginine decarboxylase AaxB	5	4.1.1.19	O84378;Q3KLY3	yes
+UniRef90_P00862	Cluster: Histidine decarboxylase proenzyme	3	4.1.1.22	P00862	yes
+UniRef90_P00863	Cluster: Histidine decarboxylase small chain (Fragment)	1	4.1.1.22	P00863	yes
+UniRef90_P04193	Cluster: Histidine decarboxylase proenzyme (Fragment)	1	4.1.1.22	P04193	yes
+UniRef90_P05033	Cluster: Lysine decarboxylase	7	4.1.1.18	P05033	yes
+UniRef90_P05034	Cluster: Histidine decarboxylase	38	4.1.1.22	P05034	yes
+UniRef90_P0A0Z9	Cluster: Amino-acid acetyltransferase	821	2.3.1.1	B0KP70;C3K3V3;P0A0Z9;P0A100;Q3K4Z8;Q4K434	no
+UniRef90_P0A6C5	Cluster: Amino-acid acetyltransferase	463	2.3.1.1	A9MS91;B7LW98;P0A6C5;P0A6C6;P0A6C7;P59293;Q8Z421;Q8ZMB8	no
+UniRef90_P0A9H3	Cluster: Inducible lysine decarboxylase	325	4.1.1.18	P0A1Z0;P0A1Z1;P0A9H3;P0A9H4	no
+UniRef90_P0C2E5	Cluster: Histidine decarboxylase proenzyme	26	4.1.1.22	P0C2E5;Q0TU55	yes
+UniRef90_P0C8R4	Cluster: Pyruvoyl-dependent arginine decarboxylase AaxB	16	4.1.1.19	P0C8R4;P0C8R5;Q255I0;Q5L5E7;Q822F3;Q9PK21	yes
+UniRef90_P0DJQ6	Cluster: Arginine biosynthesis bifunctional protein ArgJ 3	4	2.3.1.1;2.3.1.35	P0DJQ5;P0DJQ6	yes
+UniRef90_P21169	Cluster: Constitutive ornithine decarboxylase	240	4.1.1.17	P21169	yes
+UniRef90_P21170	Cluster: Biosynthetic arginine decarboxylase	887	4.1.1.19	A9N4N1;B1LDE8;B4T5J3;B4THH1;B4TV55;B5F5L1;B5FUJ7;B5XUB1;B5YQD6;P21170;P60658;P60659;Q0T0V3;Q57K30;Q83Q93;Q8FE34;Q8XCX9	yes
+UniRef90_P21885	Cluster: Arginine decarboxylase	37	4.1.1.19	P21885	yes
+UniRef90_P22567	Cluster: Amino-acid acetyltransferase	122	2.3.1.1	A6VDY0;B7V594;P22567;Q02EG0	no
+UniRef90_P24169	Cluster: Inducible ornithine decarboxylase	677	4.1.1.17	P24169	yes
+UniRef90_P28577	Cluster: Histidine decarboxylase	18	4.1.1.22	P28577	yes
+UniRef90_P28578	Cluster: Histidine decarboxylase	17	4.1.1.22	P28578;Q8L0Z4	yes
+UniRef90_P28629	Cluster: Biodegradative arginine decarboxylase	421	4.1.1.19	P28629	yes
+UniRef90_P36843	Cluster: Arginine biosynthesis bifunctional protein ArgJ	172	2.3.1.1;2.3.1.35	P36843;Q9ZJ14	no
+UniRef90_P43099	Cluster: Inducible ornithine decarboxylase	3	4.1.1.17	P43099	yes
+UniRef90_P44317	Cluster: Ornithine decarboxylase	35	4.1.1.17	P44317	yes
+UniRef90_P52095	Cluster: Constitutive lysine decarboxylase	400	4.1.1.18	P52095	yes
+UniRef90_P59099	Cluster: Amino-acid acetyltransferase	4	2.3.1.1	P59099	yes
+UniRef90_P59292	Cluster: Amino-acid acetyltransferase	11	2.3.1.1	P59292	yes
+UniRef90_P59294	Cluster: Amino-acid acetyltransferase	17	2.3.1.1	P59294;Q7MIA6	yes
+UniRef90_P59610	Cluster: Arginine biosynthesis bifunctional protein ArgJ	287	2.3.1.1;2.3.1.35	P59610	yes
+UniRef90_P59611	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	P59611	yes
+UniRef90_P59612	Cluster: Arginine biosynthesis bifunctional protein ArgJ	240	2.3.1.1;2.3.1.35	P59612	yes
+UniRef90_P62059	Cluster: Arginine biosynthesis bifunctional protein ArgJ	38	2.3.1.1;2.3.1.35	P62059	yes
+UniRef90_P62060	Cluster: Arginine biosynthesis bifunctional protein ArgJ	4	2.3.1.1;2.3.1.35	P62060	yes
+UniRef90_P62061	Cluster: Arginine biosynthesis bifunctional protein ArgJ	6	2.3.1.1;2.3.1.35	P62061	yes
+UniRef90_P62063	Cluster: Arginine biosynthesis bifunctional protein ArgJ	52	2.3.1.1;2.3.1.35	P62063	yes
+UniRef90_P62064	Cluster: Arginine biosynthesis bifunctional protein ArgJ	19	2.3.1.1;2.3.1.35	P62064	yes
+UniRef90_P62252	Cluster: Arginine biosynthesis bifunctional protein ArgJ 2	5	2.3.1.1;2.3.1.35	P62252	yes
+UniRef90_P63574	Cluster: Arginine biosynthesis bifunctional protein ArgJ	56	2.3.1.1;2.3.1.35	P38434;P63573;P63574;Q5F7I3	no
+UniRef90_P63575	Cluster: Arginine biosynthesis bifunctional protein ArgJ	153	2.3.1.1;2.3.1.35	P63575;P63576;Q5HJJ0;Q6GCU3;Q6GKC3;Q8NYM7	yes
+UniRef90_P69910	Cluster: Glutamate decarboxylase beta	5487	4.1.1.15	P58228;P69908;P69909;P69910;P69911;P69912;Q83PR1;Q8FHG5	no
+UniRef90_P72587	Cluster: Biosynthetic arginine decarboxylase 2	6	4.1.1.19	P72587	yes
+UniRef90_P74122	Cluster: Arginine biosynthesis bifunctional protein ArgJ	10	2.3.1.1;2.3.1.35	P74122	yes
+UniRef90_P74576	Cluster: Biosynthetic arginine decarboxylase 1	8	4.1.1.19	P74576	yes
+UniRef90_P95477	Cluster: Histidine decarboxylase	17	4.1.1.22	P95477	yes
+UniRef90_P96426	Cluster: Arginine biosynthesis bifunctional protein ArgJ	7	2.3.1.1;2.3.1.35	P96426	yes
+UniRef90_P9WPZ3	Cluster: Arginine biosynthesis bifunctional protein ArgJ	96	2.3.1.1;2.3.1.35	P63572;P9WPZ2;P9WPZ3	no
+UniRef90_Q07908	Cluster: Arginine biosynthesis bifunctional protein ArgJ	49	2.3.1.1;2.3.1.35	Q07908;Q5L1V4	yes
+UniRef90_Q083L6	Cluster: Biosynthetic arginine decarboxylase	30	4.1.1.19	Q083L6	yes
+UniRef90_Q0ACK8	Cluster: Biosynthetic arginine decarboxylase	3	4.1.1.19	Q0ACK8	yes
+UniRef90_Q12LW6	Cluster: Biosynthetic arginine decarboxylase	2	4.1.1.19	Q12LW6	yes
+UniRef90_Q1IAK7	Cluster: Histidine decarboxylase	5	4.1.1.22	Q1IAK7	yes
+UniRef90_Q39JW0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	370	2.3.1.1;2.3.1.35	Q39JW0	no
+UniRef90_Q3A246	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	Q3A246	yes
+UniRef90_Q3A9W1	Cluster: Arginine biosynthesis bifunctional protein ArgJ	4	2.3.1.1;2.3.1.35	Q3A9W1	yes
+UniRef90_Q3ASI6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	Q3ASI6	yes
+UniRef90_Q3B5D1	Cluster: Probable pyruvoyl-dependent arginine decarboxylase	14	4.1.1.19	A4SFG2;B3EGI2;B3QM53;Q3B5D1	no
+UniRef90_Q3J7A0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	3	2.3.1.1;2.3.1.35	Q3J7A0	yes
+UniRef90_Q3K7U0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	475	2.3.1.1;2.3.1.35	Q3K7U0	yes
+UniRef90_Q3SMQ9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	Q3SMQ9	yes
+UniRef90_Q3SVN6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	3	2.3.1.1;2.3.1.35	Q3SVN6	yes
+UniRef90_Q3Z731	Cluster: Arginine biosynthesis bifunctional protein ArgJ	16	2.3.1.1;2.3.1.35	Q3Z731;Q3ZYG4	yes
+UniRef90_Q46I07	Cluster: Arginine biosynthesis bifunctional protein ArgJ	10	2.3.1.1;2.3.1.35	Q46I07	yes
+UniRef90_Q46X04	Cluster: Arginine biosynthesis bifunctional protein ArgJ	94	2.3.1.1;2.3.1.35	Q46X04	yes
+UniRef90_Q47AB5	Cluster: Arginine biosynthesis bifunctional protein ArgJ	14	2.3.1.1;2.3.1.35	Q47AB5	yes
+UniRef90_Q47N80	Cluster: Arginine biosynthesis bifunctional protein ArgJ	5	2.3.1.1;2.3.1.35	Q47N80	yes
+UniRef90_Q486G0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	4	2.3.1.1;2.3.1.35	Q486G0	yes
+UniRef90_Q4A0N0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	12	2.3.1.1;2.3.1.35	Q4A0N0	yes
+UniRef90_Q4FSF9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	88	2.3.1.1;2.3.1.35	Q4FSF9	yes
+UniRef90_Q4JW03	Cluster: Arginine biosynthesis bifunctional protein ArgJ	20	2.3.1.1;2.3.1.35	Q4JW03	yes
+UniRef90_Q56581	Cluster: Histidine decarboxylase	11	4.1.1.22	Q56581	yes
+UniRef90_Q59280	Cluster: Arginine biosynthesis bifunctional protein ArgJ	18	2.3.1.1;2.3.1.35	P62058;Q59280	yes
+UniRef90_Q5E5Y7	Cluster: Glutamate decarboxylase	37	4.1.1.15	Q5E5Y7	yes
+UniRef90_Q5E7B6	Cluster: Amino-acid acetyltransferase	36	2.3.1.1	B5FAS8;Q5E7B6	yes
+UniRef90_Q5FQD0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	36	2.3.1.1;2.3.1.35	Q5FQD0	yes
+UniRef90_Q5HP22	Cluster: Arginine biosynthesis bifunctional protein ArgJ	96	2.3.1.1;2.3.1.35	Q5HP22;Q8CSF9	yes
+UniRef90_Q5LIQ3	Cluster: Biosynthetic arginine decarboxylase	15	4.1.1.19	Q5LIQ3;Q64ZT8	yes
+UniRef90_Q5LWL6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	8	2.3.1.1;2.3.1.35	Q5LWL6	yes
+UniRef90_Q5M5L0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	98	2.3.1.1;2.3.1.35	Q5M122;Q5M5L0	yes
+UniRef90_Q5MZY1	Cluster: Arginine biosynthesis bifunctional protein ArgJ	8	2.3.1.1;2.3.1.35	Q5MZY1	yes
+UniRef90_Q5NP13	Cluster: Arginine biosynthesis bifunctional protein ArgJ	7	2.3.1.1;2.3.1.35	Q5NP13	yes
+UniRef90_Q5P706	Cluster: Arginine biosynthesis bifunctional protein ArgJ	5	2.3.1.1;2.3.1.35	Q5P706	yes
+UniRef90_Q5SJ18	Cluster: Arginine biosynthesis bifunctional protein ArgJ	24	2.3.1.1;2.3.1.35	P96137;Q5SJ18	yes
+UniRef90_Q5WEW8	Cluster: Arginine biosynthesis bifunctional protein ArgJ	8	2.3.1.1;2.3.1.35	Q5WEW8	yes
+UniRef90_Q5YYF8	Cluster: Arginine biosynthesis bifunctional protein ArgJ	31	2.3.1.1;2.3.1.35	Q5YYF8	yes
+UniRef90_Q607S6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	5	2.3.1.1;2.3.1.35	Q607S6	yes
+UniRef90_Q62GT9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	22	2.3.1.1;2.3.1.35	Q62GT9	no
+UniRef90_Q63QK7	Cluster: Arginine biosynthesis bifunctional protein ArgJ	102	2.3.1.1;2.3.1.35	Q3JNE9;Q63QK7	yes
+UniRef90_Q65LE9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	40	2.3.1.1;2.3.1.35	Q65LE9	yes
+UniRef90_Q65UJ9	Cluster: Amino-acid acetyltransferase	3	2.3.1.1	Q65UJ9	yes
+UniRef90_Q67KC5	Cluster: Arginine biosynthesis bifunctional protein ArgJ	3	2.3.1.1;2.3.1.35	Q67KC5	yes
+UniRef90_Q6AJL0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	Q6AJL0	yes
+UniRef90_Q6FED8	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q6FED8	yes
+UniRef90_Q6G0Q6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q6G0Q6	yes
+UniRef90_Q6G5T6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	9	2.3.1.1;2.3.1.35	Q6G5T6	yes
+UniRef90_Q6LMZ6	Cluster: Amino-acid acetyltransferase	4	2.3.1.1	Q6LMZ6	yes
+UniRef90_Q7MAC9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	Q7MAC9	yes
+UniRef90_Q7N121	Cluster: Biosynthetic arginine decarboxylase	31	4.1.1.19	Q7N121	yes
+UniRef90_Q7N8S4	Cluster: Amino-acid acetyltransferase	41	2.3.1.1	Q7N8S4	yes
+UniRef90_Q7NE10	Cluster: Biosynthetic arginine decarboxylase	2	4.1.1.19	Q7NE10	yes
+UniRef90_Q7NE46	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q7NE46	yes
+UniRef90_Q7NU27	Cluster: Biosynthetic arginine decarboxylase	28	4.1.1.19	Q7NU27	yes
+UniRef90_Q7P0T8	Cluster: Arginine biosynthesis bifunctional protein ArgJ	35	2.3.1.1;2.3.1.35	Q7P0T8	yes
+UniRef90_Q7U3S0	Cluster: Biosynthetic arginine decarboxylase	27	4.1.1.19	Q7U3S0	yes
+UniRef90_Q7U3S6	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q7U3S6	yes
+UniRef90_Q7UTS2	Cluster: Biosynthetic arginine decarboxylase	11	4.1.1.19	Q7UTS2	yes
+UniRef90_Q7UUJ7	Cluster: Arginine biosynthesis bifunctional protein ArgJ	6	2.3.1.1;2.3.1.35	Q7UUJ7	yes
+UniRef90_Q7V3M5	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q7V3M5	yes
+UniRef90_Q7V3M9	Cluster: Biosynthetic arginine decarboxylase	1	4.1.1.19	Q7V3M9	yes
+UniRef90_Q7V436	Cluster: Arginine biosynthesis bifunctional protein ArgJ	6	2.3.1.1;2.3.1.35	Q7V436	yes
+UniRef90_Q7VEF9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q7VEF9	yes
+UniRef90_Q7VEG4	Cluster: Biosynthetic arginine decarboxylase	1	4.1.1.19	Q7VEG4	yes
+UniRef90_Q7VLN8	Cluster: Amino-acid acetyltransferase	1	2.3.1.1	Q7VLN8	yes
+UniRef90_Q7VSW3	Cluster: Arginine biosynthesis bifunctional protein ArgJ	17	2.3.1.1;2.3.1.35	Q7VSW3;Q7W3S6;Q7WF54	yes
+UniRef90_Q81M96	Cluster: Arginine biosynthesis bifunctional protein ArgJ	214	2.3.1.1;2.3.1.35	P62057;Q635F1;Q6HE29;Q818W0;Q81M96	yes
+UniRef90_Q81MS2	Cluster: Arginine decarboxylase	74	4.1.1.19	Q819L4;Q81MS2	yes
+UniRef90_Q828A5	Cluster: Arginine biosynthesis bifunctional protein ArgJ	3	2.3.1.1;2.3.1.35	Q828A5	yes
+UniRef90_Q82SU1	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q82SU1	yes
+UniRef90_Q838D6	Cluster: L-tyrosine decarboxylase	14	4.1.1.25	P0DTQ4;Q838D6	no
+UniRef90_Q87JS8	Cluster: Biosynthetic arginine decarboxylase	153	4.1.1.19	Q87JS8	yes
+UniRef90_Q87M87	Cluster: Amino-acid acetyltransferase	129	2.3.1.1	Q87M87	yes
+UniRef90_Q87WZ4	Cluster: Arginine biosynthesis bifunctional protein ArgJ	750	2.3.1.1;2.3.1.35	Q48EG7;Q4K7C2;Q4ZNZ9;Q87WZ4	no
+UniRef90_Q88AR2	Cluster: Amino-acid acetyltransferase	109	2.3.1.1	P61919;Q4ZZU5;Q88AR2	no
+UniRef90_Q88QC7	Cluster: Biosynthetic arginine decarboxylase	1023	4.1.1.19	Q87VU3;Q88QC7	yes
+UniRef90_Q8A2B1	Cluster: Biosynthetic arginine decarboxylase	69	4.1.1.19	Q8A2B1	yes
+UniRef90_Q8CK24	Cluster: Arginine biosynthesis bifunctional protein ArgJ	76	2.3.1.1;2.3.1.35	Q8CK24	yes
+UniRef90_Q8CUN1	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q8CUN1	yes
+UniRef90_Q8DA54	Cluster: Biosynthetic arginine decarboxylase	19	4.1.1.19	Q7MK24;Q8DA54	yes
+UniRef90_Q8DHN4	Cluster: Arginine biosynthesis bifunctional protein ArgJ	11	2.3.1.1;2.3.1.35	Q8DHN4	yes
+UniRef90_Q8DHY6	Cluster: Biosynthetic arginine decarboxylase	12	4.1.1.19	Q8DHY6	yes
+UniRef90_Q8DV45	Cluster: Arginine biosynthesis bifunctional protein ArgJ	7	2.3.1.1;2.3.1.35	Q8DV45	yes
+UniRef90_Q8EYV8	Cluster: Arginine biosynthesis bifunctional protein ArgJ	76	2.3.1.1;2.3.1.35	P62062;Q8EYV8	yes
+UniRef90_Q8FTN4	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q8FTN4	yes
+UniRef90_Q8G5F0	Cluster: Arginine biosynthesis bifunctional protein ArgJ	130	2.3.1.1;2.3.1.35	Q8G5F0	yes
+UniRef90_Q8KEX0	Cluster: Probable pyruvoyl-dependent arginine decarboxylase	5	4.1.1.19	Q8KEX0	yes
+UniRef90_Q8P448	Cluster: Biosynthetic arginine decarboxylase	333	4.1.1.19	Q8P448;Q8PFQ5	yes
+UniRef90_Q8R7B9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	6	2.3.1.1;2.3.1.35	Q8R7B9	yes
+UniRef90_Q8UA56	Cluster: Arginine biosynthesis bifunctional protein ArgJ	114	2.3.1.1;2.3.1.35	Q8UA56	yes
+UniRef90_Q8XVJ7	Cluster: Arginine biosynthesis bifunctional protein ArgJ	89	2.3.1.1;2.3.1.35	Q8XVJ7	yes
+UniRef90_Q8XZZ5	Cluster: Amino-acid acetyltransferase	65	2.3.1.1	Q8XZZ5	yes
+UniRef90_Q8Y4K4	Cluster: Probable glutamate decarboxylase gamma	96	4.1.1.15	Q8Y4K4;Q928K4	yes
+UniRef90_Q8Y6U2	Cluster: Arginine biosynthesis bifunctional protein ArgJ	102	2.3.1.1;2.3.1.35	Q71Z77;Q8Y6U2;Q92BB8	yes
+UniRef90_Q8YJF9	Cluster: Arginine biosynthesis bifunctional protein ArgJ	89	2.3.1.1;2.3.1.35	Q57AV8;Q8FYE2;Q8YJF9	no
+UniRef90_Q8YPF9	Cluster: Arginine biosynthesis bifunctional protein ArgJ 2	11	2.3.1.1;2.3.1.35	Q8YPF9	yes
+UniRef90_Q8YRP3	Cluster: Biosynthetic arginine decarboxylase	176	4.1.1.19	Q8YRP3	yes
+UniRef90_Q8YVA8	Cluster: Arginine biosynthesis bifunctional protein ArgJ 1	25	2.3.1.1;2.3.1.35	Q8YVA8	yes
+UniRef90_Q8ZH86	Cluster: Amino-acid acetyltransferase	103	2.3.1.1	A1JPB6;A7FFE9;A9R2Q4;B1JQD9;B2JZ56;Q1CAR0;Q1CFC4;Q667G9;Q8ZH86	no
+UniRef90_Q8ZHG8	Cluster: Biosynthetic arginine decarboxylase	52	4.1.1.19	Q8ZHG8	yes
+UniRef90_Q92MJ1	Cluster: Arginine biosynthesis bifunctional protein ArgJ	86	2.3.1.1;2.3.1.35	Q92MJ1	yes
+UniRef90_Q93EJ3	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q93EJ3	yes
+UniRef90_Q97ET6	Cluster: Arginine biosynthesis bifunctional protein ArgJ 2	1	2.3.1.1;2.3.1.35	Q97ET6	yes
+UniRef90_Q97GH6	Cluster: Arginine biosynthesis bifunctional protein ArgJ 1	1	2.3.1.1;2.3.1.35	Q97GH6	yes
+UniRef90_Q98A07	Cluster: Histidine decarboxylase	2	4.1.1.22	Q98A07	yes
+UniRef90_Q98G72	Cluster: Arginine biosynthesis bifunctional protein ArgJ	335	2.3.1.1;2.3.1.35	Q98G72	yes
+UniRef90_Q9A3Y4	Cluster: Arginine biosynthesis bifunctional protein ArgJ	4	2.3.1.1;2.3.1.35	Q9A3Y4	yes
+UniRef90_Q9CC14	Cluster: Arginine biosynthesis bifunctional protein ArgJ	3	2.3.1.1;2.3.1.35	Q9CC14	yes
+UniRef90_Q9CHD4	Cluster: Arginine biosynthesis bifunctional protein ArgJ	75	2.3.1.1;2.3.1.35	Q9CHD4	yes
+UniRef90_Q9CL60	Cluster: Biosynthetic arginine decarboxylase	17	4.1.1.19	Q9CL60	yes
+UniRef90_Q9CMJ6	Cluster: Amino-acid acetyltransferase	6	2.3.1.1	Q9CMJ6	yes
+UniRef90_Q9EYW9	Cluster: Glutamate decarboxylase beta	97	4.1.1.15	Q928R9;Q9EYW9	yes
+UniRef90_Q9F5P3	Cluster: Glutamate decarboxylase alpha	23	4.1.1.15	Q9F5P3	yes
+UniRef90_Q9HUX1	Cluster: Biosynthetic arginine decarboxylase	132	4.1.1.19	Q9HUX1	yes
+UniRef90_Q9HW04	Cluster: Arginine biosynthesis bifunctional protein ArgJ	105	2.3.1.1;2.3.1.35	Q9HW04	yes
+UniRef90_Q9I2S7	Cluster: Lysine decarboxylase LdcA	43	4.1.1.18	Q9I2S7	no
+UniRef90_Q9JXU9	Cluster: Amino-acid acetyltransferase	100	2.3.1.1	Q9JW21;Q9JXU9	yes
+UniRef90_Q9K0U3	Cluster: Biosynthetic arginine decarboxylase	20	4.1.1.19	Q9JT25;Q9K0U3	yes
+UniRef90_Q9K3D6	Cluster: Bifunctional protein ArgHA	14	2.3.1.1	Q9K3D6	yes
+UniRef90_Q9K3D7	Cluster: Bifunctional protein ArgHA (Fragment)	1	2.3.1.1	Q9K3D7	yes
+UniRef90_Q9K8V3	Cluster: Arginine biosynthesis bifunctional protein ArgJ	3	2.3.1.1;2.3.1.35	Q9K8V3	yes
+UniRef90_Q9K9K5	Cluster: Arginine decarboxylase	1	4.1.1.19	Q9K9K5	yes
+UniRef90_Q9KLD1	Cluster: Biosynthetic arginine decarboxylase	45	4.1.1.19	Q9KLD1	yes
+UniRef90_Q9KPQ0	Cluster: Amino-acid acetyltransferase	102	2.3.1.1	Q9KPQ0	yes
+UniRef90_Q9LCS7	Cluster: Arginine biosynthesis bifunctional protein ArgJ 1	2	2.3.1.1;2.3.1.35	Q9LCS7	yes
+UniRef90_Q9RTQ2	Cluster: Arginine biosynthesis bifunctional protein ArgJ	1	2.3.1.1;2.3.1.35	Q9RTQ2	yes
+UniRef90_Q9RXR4	Cluster: Biosynthetic arginine decarboxylase	14	4.1.1.19	Q9RXR4	yes
+UniRef90_Q9X2A3	Cluster: Arginine biosynthesis bifunctional protein ArgJ	6	2.3.1.1;2.3.1.35	Q9X2A3	yes
+UniRef90_Q9Z4S1	Cluster: Arginine biosynthesis bifunctional protein ArgJ	2	2.3.1.1;2.3.1.35	Q9Z4S1	yes
+UniRef90_Q9Z6M7	Cluster: Pyruvoyl-dependent arginine decarboxylase AaxB	2	4.1.1.19	Q9Z6M7	yes
