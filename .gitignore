@@ -34,12 +34,17 @@ env/
 # Personal and site-specific; dardel.env.example is the tracked template.
 v2/dardel/dardel.env
 
-# Transfer scratch that 02_stage_inputs.sh leaves in the checkout it pushes to. It
-# has to be ignored rather than merely deleted: run_pipeline.py reads `git status
-# --porcelain`, which counts untracked files, so one stray staging directory makes
-# every run on that machine dirty -- and a dirty run keeps Results/SMOKE_RUN.txt and
-# can never become a baseline.
+# Two kinds of litter the Dardel checkout accumulates: the transfer scratch
+# 02_stage_inputs.sh leaves behind, and the SLURM job logs, which land next to the
+# batch script because that is the submission directory. Both have to be ignored
+# rather than deleted: run_pipeline.py reads `git status --porcelain`, which counts
+# untracked files, so either one makes every run on that machine dirty -- and a dirty
+# run keeps Results/SMOKE_RUN.txt and can never become a baseline. The job logs are
+# also the only copy of a run's stdout, so deleting them to get a clean tree would
+# throw away the record. They cannot move into Results/logs/ either: archive_results
+# relocates that tree mid-run, underneath the job still writing to it.
 .stage/
+v2/dardel/slurm-*.out
 
 # OS and Office cruft
 Thumbs.db
