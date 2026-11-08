@@ -1,0 +1,22 @@
+{
+  "built_utc": "2026-11-08T05:46:17Z",
+  "source_rda": "/cfs/klemming/projects/supr/naiss2024-6-169/andnair/profiles/gene_families.rda",
+  "source_bytes": 3262355289,
+  "object_name": "2021-10-14.YachidaS_2019.gene_families",
+  "self_named_assertion": "passed: object name contains YachidaS_2019",
+  "class": "dgCMatrix",
+  "source_dim": [8930907, 616],
+  "subset_dim": [3516, 616],
+  "source_rows_stratified": 2371507,
+  "ec_route_clusters": 17072,
+  "curated_route_clusters": 224,
+  "curated_only_clusters": 28,
+  "union_clusters": 17100,
+  "rows_matched": 3516,
+  "rows_matched_stratified": 1164,
+  "clusters_found": 1267,
+  "nonzero_entries": 207026,
+  "R_version": "R version 4.4.0 (2024-04-24)",
+  "elapsed_s": 304.7
+}
+

@@ -70,6 +70,88 @@ has read the literature for. Both are useful. They are not the same claim.
 This is the same availability-versus-support separation §4.7 claims as a methodological
 contribution, applied to gene families.
 
+## What came out
+
+The extraction ran on 2026-11-08 (job 27319804, 5m09s, 14 cores, MaxRSS 5.5 GiB). The
+object asserts its own name — `2021-10-14.YachidaS_2019.gene_families` — and is a
+`dgCMatrix`, 8,930,907 × 616, 379,029,747 nonzeros at 6.89% density. **2,371,507 rows
+(26.6%) are species-stratified**, not the 5,351,296 quoted in
+`writeup/read_programme_alternative.md`; that figure should be corrected there.
+
+3,516 rows matched, over **1,267 of the 17,100 target clusters**, 1,164 of them
+species-stratified.
+
+### The tryptamine mechanism is now attributed, and only the curated route found it
+
+```
+UniRef90_A7B1V0                                      nonzero in 379/616 samples
+UniRef90_A7B1V0|g__Blautia.s__Ruminococcus_gnavus    nonzero in 378/616 samples
+UniRef90_A7B1V0|unclassified                         nonzero in   8/616 samples
+```
+
+The *R. gnavus* tryptophan decarboxylase that Results §3.7 cites as the mechanistic
+agreement for tryptamine is present in **378 of 616 samples and attributed to
+*R. gnavus* itself**. That is the "can this organism perform the reaction" evidence
+§4.6 says is missing, as a per-sample per-species gene abundance rather than an
+inference from a reference genome.
+
+The EC route would have returned nothing for it. This row exists in the output only
+because `curated_clusters.tsv` asked for the cluster id directly.
+
+`UniRef90_J7SZ64`, the *C. sporogenes* enzyme, is **not present in this cohort** — a
+real negative, since the probe demonstrably detects the homologous cluster.
+
+### Species attribution per activity
+
+| EC | stratified rows | species | most prevalent carrier |
+|---|---|---|---|
+| 2.3.1.1 | 369 | 283 | *F. prausnitzii* (535/616) |
+| 2.3.1.35 | 261 | 230 | *F. prausnitzii* (535/616) |
+| 4.1.1.19 | 333 | 222 | *B. uniformis* (549/616) |
+| 4.1.1.15 | 148 | 103 | *B. uniformis* (560/616) |
+| 4.1.1.17 | 156 | 55 | *H. parainfluenzae* (264/616) |
+| 4.1.1.18 | 142 | 46 | *P. succinatutens* (237/616) |
+| 4.1.1.22 | 12 | 10 | *R. ornithinolytica* (30/616) |
+| 4.1.1.25 | 11 | 10 | *M. smithii* (31/616) |
+
+Note how the base rate differs by two orders of magnitude between the N-acetylglutamate
+routes (283 species) and the aromatic decarboxylases (10). The §4.6 base-rate problem
+applies here too and any producer call must be read against the column of species counts,
+not in isolation.
+
+### The *Allisonella* question: not answerable by this route, and we can prove why
+
+Results §3.7 ranks *Allisonella* first for cadaverine while noting the genus is
+characterised by histidine decarboxylation. The extraction found
+*A. histaminiformans* profiled with **1,487 stratified gene families**, and **none** of
+them in any of the 416 target lysine decarboxylase clusters. That looks like an answer.
+It is not, and the reason is the control.
+
+`resolve_allisonella.py` resolved all 1,487 cluster representatives at UniProtKB
+(they are filed under *Dialister histaminiformans*, the same organism after the genus
+was reassigned). It then asked the positive-control question: a **histidine**
+decarboxylase must be among them, because the organism is named for that activity.
+
+There is none. Nor any lysine decarboxylase. The 11 decarboxylases present are
+ornithine, phosphatidylserine, uroporphyrinogen, oxaloacetate, diaminopimelate,
+S-adenosylmethionine and orotidine-5'-phosphate; the six "histidine" names are tRNA
+ligases, histidine kinases and a HIT-family protein.
+
+So the probe cannot see the one enzyme this organism is defined by, and the diagnosis
+goes one level deeper: **UniProt holds 500+ entries for *histaminiformans* and not one is
+annotated as a histidine decarboxylase** — not by EC 4.1.1.22, not by protein name, not
+by gene `hdcA`. No UniRef90 cluster for that enzyme exists, so HUMAnN could never report
+one, and the control could not have passed by construction.
+
+**The absence of a lysine decarboxylase in *Allisonella* is therefore uninterpretable.**
+Reporting it as a finding would be reporting a gap in UniProt as a fact about the gut.
+§3.7's caveat stands as a caveat — this evidence neither supports nor refutes it.
+Answering it needs assembly and binning of *Allisonella* to recover its actual gene
+complement (§2 of `writeup/dardel_plan.md`, Paper 2), or a targeted experiment.
+
+This is the one result here that is a negative about the method rather than about the
+data, and it is the reason the control was built in rather than bolted on.
+
 ## Files
 
 | | |
@@ -82,6 +164,13 @@ contribution, applied to gene families.
 | `target_clusters.tsv`, `curated_clusters.tsv` | the two target lists |
 | `uniref90_cache.tsv` | accession → UniRef90 cluster, cached so 363 round trips happen once |
 | `mapping_validation.tsv` | per-accession verdicts behind the table |
+| `resolve_allisonella.py` | the *Allisonella* question and its positive control |
+| `allisonella_resolved.tsv` | all 1,487 cluster representatives, named and EC-annotated |
+| `out/species_attribution.tsv` | which species carries which activity, per sample count |
+| `out/gf_targets_long.tsv.gz` | 207,026 nonzero (row, sample, abundance) triples — the join key for the metabolite data |
+| `out/gf_targets_summary.tsv` | per-row prevalence and maximum, with route and EC labels |
+| `out/allisonella_genes.tsv` | the full 1,487-gene complement |
+| `out/rownames_index.txt.gz` | all 8.9 M row names. **Gitignored** at 42 MB; regenerate with the batch job. Keeping it means no later question needs a second five-minute load |
 
 ## Provenance of the mappings
 

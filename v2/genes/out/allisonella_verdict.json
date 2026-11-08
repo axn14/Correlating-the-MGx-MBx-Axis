@@ -1,0 +1,22 @@
+{
+  "built_utc": "2026-11-08T05:38:47Z",
+  "species": [
+    "g__Allisonella.s__Allisonella_histaminiformans"
+  ],
+  "stratified_rows": 1487,
+  "distinct_clusters": 1487,
+  "clusters_resolved": 1487,
+  "clusters_unresolvable": 0,
+  "nominated_by_name": 11,
+  "name_mentions_histidine": 6,
+  "confirmed_histidine_dc": 0,
+  "confirmed_lysine_dc": 0,
+  "other_decarboxylases": 17,
+  "reference_check": {
+    "by_ec": 0,
+    "by_name": 0,
+    "by_gene": 0,
+    "any_entry": 500
+  },
+  "verdict": "unanswerable_reference_lacks_control_enzyme"
+}

@@ -130,8 +130,38 @@ if (!any(hit)) stop("no target cluster appears in this matrix at all -- check th
                     "cluster id spelling against rownames_index.txt.gz")
 
 sub_m <- gf[hit, , drop = FALSE]
+
+# The whole Allisonella gene complement, taken here because `gf` is released below and
+# the genus cannot be revisited without a second five-minute load. Results 3.7 ranks
+# Allisonella first for cadaverine while noting the genus is characterised by histidine
+# decarboxylation, so whether it carries a lysine decarboxylase is a claim the chapter
+# makes and cannot currently support. "Not in our target clusters" is not yet "not a
+# lysine decarboxylase": the EC map is only 38% sensitive for EC 4.1.1.18, so the
+# cluster ids have to be named at UniProt before an absence means anything. Writing the
+# complement out is what makes that possible without reloading.
+alli <- grepl("g__Allisonella", rn, fixed = TRUE)
+say("  Allisonella-stratified rows: %d", sum(alli))
+if (any(alli)) {
+  a_m <- gf[alli, , drop = FALSE]
+  a_dm <- as.matrix(a_m)
+  a_nz <- a_dm != 0
+  write.table(data.frame(
+    row          = rownames(a_m),
+    uniref90     = sub("\\|.*$", "", rownames(a_m)),
+    species      = sub("^.*\\|", "", rownames(a_m)),
+    n_samples_nz = as.integer(rowSums(a_nz)),
+    prevalence   = rowSums(a_nz) / ncol(a_dm),
+    max          = apply(a_dm, 1, max),
+    in_target_set = sub("\\|.*$", "", rownames(a_m)) %in% all_cl,
+    stringsAsFactors = FALSE
+  ), file.path(OUT, "allisonella_genes.tsv"), sep = "\t",
+     quote = FALSE, row.names = FALSE)
+  rm(a_m, a_dm, a_nz)
+  lap("allisonella_genes.tsv")
+}
+
 rm(gf, env); invisible(gc())
-lap("subset taken, full object released")
+lap("subsets taken, full object released")
 
 saveRDS(sub_m, file.path(OUT, "gf_targets.rds"), compress = "gzip")
 lap(sprintf("gf_targets.rds (%s)",
@@ -199,20 +229,41 @@ for (c in c("UniRef90_A7B1V0", "UniRef90_J7SZ64")) {
 say("=== lysine decarboxylase under Allisonella (EC 4.1.1.18) ===")
 ldc <- unique(ec_tab$uniref90[ec_tab$ec == "4.1.1.18"])
 ldc <- union(ldc, cur_tab$uniref90[grepl("4.1.1.18", cur_tab$ecs)])
-alli <- srn[sid %in% ldc & grepl("g__Allisonella", srn, fixed = TRUE)]
-if (length(alli)) {
-  say("  %d Allisonella-stratified lysine decarboxylase row(s):", length(alli))
-  for (r in alli) {
+a_rows <- srn[sid %in% ldc & grepl("g__Allisonella", srn, fixed = TRUE)]
+if (length(a_rows)) {
+  say("  %d Allisonella-stratified lysine decarboxylase row(s):", length(a_rows))
+  for (r in a_rows) {
     v <- dm[r, ]
     say("      %-62s nonzero in %3d/%d samples, max %.3g",
         r, sum(v != 0), length(v), max(v))
   }
 } else {
-  say("  none. Either Allisonella carries no lysine decarboxylase in these samples,")
-  say("  or no Allisonella gene family is stratified at all -- which of the two it is")
-  say("  has to be read off rownames_index.txt.gz, not assumed.")
-  n_alli <- sum(grepl("g__Allisonella", rn, fixed = TRUE))
-  say("  Allisonella-stratified rows anywhere in the matrix: %d", n_alli)
+  say("  none of the %d target lysine decarboxylase clusters is stratified to", length(ldc))
+  say("  Allisonella. The genus IS profiled here (%d stratified rows), so this is not", sum(alli))
+  say("  a coverage gap -- but it is not yet an absence claim either, because the EC")
+  say("  map is 38%% sensitive for 4.1.1.18. allisonella_genes.tsv carries every")
+  say("  cluster id to name at UniProt before the absence is reported as a finding.")
+}
+
+# Which species carry each target activity. This is the attribution step the chapter
+# cannot currently make, so it is written as its own table rather than left implicit in
+# the summary.
+say("=== species attribution per EC ===")
+att <- merge(ec_tab[, c("ec", "uniref90", "activity")],
+             summ[summ$stratified, c("uniref90", "species", "row",
+                                     "n_samples_nz", "prevalence", "max")],
+             by = "uniref90")
+if (nrow(att)) {
+  att <- att[order(att$ec, -att$prevalence), ]
+  write.table(att, file.path(OUT, "species_attribution.tsv"), sep = "\t",
+              quote = FALSE, row.names = FALSE)
+  for (e in unique(att$ec)) {
+    sl <- att[att$ec == e, ]
+    say("  EC %-10s %3d stratified rows over %3d species; top: %s (%d/%d samples)",
+        e, nrow(sl), length(unique(sl$species)),
+        sub("^g__", "", sl$species[1]), sl$n_samples_nz[1], ncol(dm))
+  }
+  lap("species_attribution.tsv")
 }
 
 # ---------------------------------------------------------------------------
@@ -221,12 +272,13 @@ if (length(alli)) {
 prov <- sprintf('{
   "built_utc": "%s",
   "source_rda": "%s",
-  "source_bytes": %d,
+  "source_bytes": %.0f,
   "object_name": "%s",
   "self_named_assertion": "passed: object name contains YachidaS_2019",
   "class": "%s",
-  "dim": [%d, %d],
-  "rows_stratified": %d,
+  "source_dim": [%d, %d],
+  "subset_dim": [%d, %d],
+  "source_rows_stratified": %d,
   "ec_route_clusters": %d,
   "curated_route_clusters": %d,
   "curated_only_clusters": %d,
@@ -239,7 +291,8 @@ prov <- sprintf('{
   "elapsed_s": %.1f
 }
 ', format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"), f, file.size(f),
-   nm[1], paste(class(sub_m), collapse = "/"), nrow(sub_m), ncol(sub_m), sum(strat),
+   nm[1], paste(class(sub_m), collapse = "/"),
+   length(rn), length(cn), nrow(sub_m), ncol(sub_m), sum(strat),
    length(ec_cl), length(cur_cl), length(setdiff(cur_cl, ec_cl)), length(all_cl),
    sum(hit), sum(hit & strat), length(unique(sid)), nrow(long),
    R.version.string, as.numeric(difftime(Sys.time(), t0, units = "secs")))

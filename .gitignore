@@ -52,6 +52,14 @@ v2/dardel/slurm-*.out
 # is committed as sequence, because it is the arm that supports a presence claim.
 v2/reads/enzymes/enzymes_trembl.faa
 
+# The full UniRef90 row-name index: 42 MB, all 8,930,907 row names of
+# gene_families.rda. Kept on disk because having it means no later question needs a
+# second five-minute load of the 3.26 GB object, but it is a mechanical dump of the
+# source matrix and extract_gene_families.sbatch regenerates it byte for byte. The
+# small evidence tables in the same directory ARE committed, because the chapter cites
+# their numbers and a reader should not need Dardel access to check them.
+v2/genes/out/rownames_index.txt.gz
+
 # OS and Office cruft
 Thumbs.db
 desktop.ini

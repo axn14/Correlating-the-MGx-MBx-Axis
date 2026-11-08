@@ -8,18 +8,23 @@
 #SBATCH -p shared
 #SBATCH -n 1
 #SBATCH -c 1
-#SBATCH --mem=32G
-#SBATCH -t 02:00:00
+#SBATCH --mem=12G
+#SBATCH -t 01:00:00
 #SBATCH -o /cfs/klemming/home/a/andnair/.ki-scratch/genes-%j.out
 #
-# Why 32G and not 80G. 8,930,907 x 616 dense doubles would be 41.0 GiB, which is what
-# the row and column counts imply and what a first guess would have asked for. The
-# measured uncompressed serialization is 4.58 GiB -- 0.112 of that -- so the object is
-# not a dense double matrix of that shape, and 32G leaves room for the load plus a
-# dense copy of the subset plus R's own overhead. That measurement cost 0.2 core-hours
-# on one core and saved asking for roughly 90 cores' worth of memory in `shared`,
-# where memory is allocated at about 0.93 GB per core. If this job is OOM-killed, read
-# the reported dim and class from the log before raising the number.
+# Why 12G. 8,930,907 x 616 dense doubles would be 41.0 GiB, which is what the row and
+# column counts imply and what a first guess would have asked for. Streaming the
+# serialization measured 4.58 GiB, 0.112 of that, so the first run asked for 32G -- and
+# `sacct` then reported MaxRSS 5,777,524K, 5.5 GiB, on a dgCMatrix holding 379,029,747
+# nonzeros at 6.89% density. 12G is roughly twice the measured peak, which leaves room
+# for the dense copy of the subset and for R's GC having more slack than it did under a
+# 32G request. The measurement cost 0.2 core-hours and took this from roughly 90 cores'
+# worth of memory in `shared` -- where memory is allocated at about 0.93 GB per core --
+# down to 13. If this is ever OOM-killed, read the reported dim and class from the log
+# before raising the number.
+#
+# Wall time: the first run did everything in 5m26s, of which 288 s was load() alone
+# (bzip2 decompression plus deserialization of 3.26 GB). One hour is ample.
 #
 # One core, because this is a load, a vector match and a write. Nothing here threads.
 set -euo pipefail
