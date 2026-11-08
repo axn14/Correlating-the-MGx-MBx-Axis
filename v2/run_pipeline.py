@@ -262,6 +262,14 @@ def write_provenance(run_dir: Path, run_id: str, mode: str, profile: dict,
             pkgs[name.lower()] = dist.version
     blas = None
     try:
+        # numpy FIRST, deliberately. threadpool_info() only reports libraries already
+        # loaded into the process, and the runner itself never imports numpy -- so
+        # without this the field came back [] on every run that writes provenance
+        # before a notebook has loaded anything, which was most of them. That is the
+        # one field that identifies which BLAS produced the numbers, and CONTRACTS.md
+        # section 12 rests on it: the same version reduces differently on Zen 2 and
+        # Zen 3+, which is why a Dardel run does not reproduce the laptop baseline.
+        import numpy  # noqa: F401
         from threadpoolctl import threadpool_info
         blas = [{k: d.get(k) for k in ("internal_api", "version", "filepath")}
                 for d in threadpool_info()]
