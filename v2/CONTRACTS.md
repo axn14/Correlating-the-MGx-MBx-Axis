@@ -1097,3 +1097,46 @@ logs and `provenance.json` land in `Results/runs/<run_id>/`; tracked notebooks a
 modified. Outputs replaced by a run are kept in `Results/_archive/<run_id>/` (newest three).
 Status and peak memory per notebook: `Results/logs/summary_v2.txt`.
 NB03 live progress: `Results/logs/nb03_progress_v2.txt`.
+
+## 12. Running on an HPC allocation (`dardel/`)
+
+`run_pipeline.py` takes its core budget from two environment variables, separate
+because they differ in what they are allowed to change:
+
+| | default | effect of raising it |
+|---|---|---|
+| `KI_N_CORES` | 8 | wall time, and the adaptive permutation budget. `PROFILE_KEYS` excludes `KI_N_JOBS` because the estimators pin `n_jobs=1` and `random_state`, so a fit is worker-count independent; the permutation loop's early stopping is **not**, because it tests the exceedance count at joblib batch boundaries, and a different worker count moves those boundaries. Measured on Dardel: `N_perm` for the same target differed by up to 557 draws. |
+| `KI_BLAS_THREADS` | 8 | **changes results.** BLAS reduction order depends on thread count, so numbers downstream of NB01 can move in their last digits. Reuse keys do **not** track it: change it only with `--fresh`, and re-verify the manuscript assertions against the new run. The runner prints a warning when it is off baseline. |
+
+Both defaults reproduce the frozen baseline **on the machine that produced it**, and
+`provenance.json` records both alongside `blas_threads_baseline`.
+
+A run on different hardware is a new run, not a reproduction, and the gap is larger
+than last-digit noise. Measured, laptop (Ryzen 7 6800H, Zen 3+) against Dardel
+(EPYC 7742, Zen 2), same commit, same `inputs afb1eebccde3`, same pinned versions
+down to the patch, same bundled OpenBLAS 0.3.29:
+
+- `AUC_nested` moved on **all 36** NB03 targets, by up to **0.041**.
+- One target crossed the `q<0.05` gate: N1,N8-diacetylspermidine, q 0.105 → 0.046,
+  which added two SHAP figures the baseline does not have (252 figures, not 250).
+- The 28 strong targets stayed at q ≈ 0.0016 on both; only the borderline ones moved.
+- `R2_confounders` differed at 2e-16 — a plain ridge fit, no joblib workers involved.
+
+That last line is the mechanism: OpenBLAS dispatches microarchitecture-specific GEMM
+kernels, so the same library version reduces in a different order on Zen 2 and Zen 3+.
+Nested CV then amplifies last-digit differences into percent-level ones, because
+choosing hyperparameters is an argmax over near-tied fold scores and a tie that flips
+selects a different model. Nothing here is a defect to fix; it is what a tree-ensemble
+pipeline with model selection does across architectures. The consequence is procedural:
+**the frozen baseline stays the laptop's**, and a Dardel run is evaluated against it
+with `dardel/compare_to_baseline.py`, not substituted for it.
+
+`dardel/` holds the port: `02_stage_inputs.sh` (laptop → Dardel, code as a git
+bundle plus the 164 MB of inputs the pipeline actually hashes — never `Results/`),
+`01_setup_env.sh` (the pinned environment, in project storage rather than the
+25 GB / 100 K-file home), `run_pipeline.sbatch` (`-p shared`, workers from
+`SLURM_CPUS_PER_TASK`, `KI_BLAS_THREADS` left at baseline), and `pull_results.sh`
+(one-way, additive, per-run, refusing any destination inside `Results/`). The two
+reasons the pull is one-way: `archive_results` moves the output directories and
+`prune_archives` deletes all but the newest three, and the frozen run at `f14c7f9`
+is what the manuscript's assertions are pinned to. `dardel/README.md` has the rest.

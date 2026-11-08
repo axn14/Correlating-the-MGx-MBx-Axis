@@ -77,19 +77,54 @@ DATA_REFERENCE = ("reference/agora2_species_ec_index.json",)
 
 # 8 physical cores / 16 logical on the Ryzen 7 6800H. Compute-bound tree building
 # does not benefit much from SMT, so the budget is physical cores.
-N_CORES = 8
+#
+# Both budgets are overridable, so the same runner drives an HPC allocation
+# (see v2/dardel/). They are SEPARATE knobs because they differ in what they can
+# change, which is the whole point:
+#
+#   KI_N_CORES       worker count (loky/joblib, KI_N_JOBS). Changes wall time only.
+#                    PROFILE_KEYS deliberately excludes KI_N_JOBS: XGBoost output
+#                    was verified byte-identical under 1 vs 8 workers, so this is
+#                    free to raise as far as the allocation allows.
+#   KI_BLAS_THREADS  BLAS threads for the non-joblib notebooks. Raising it reorders
+#                    floating-point reductions inside BLAS, which can move the last
+#                    digits of every number downstream of NB01. It is NOT in
+#                    PROFILE_KEYS, so a change does not invalidate reuse keys on its
+#                    own -- change it only with --fresh, and expect the manuscript
+#                    assertions to need re-freezing against the new run.
+#
+# Both defaults reproduce the frozen baseline exactly.
+BLAS_THREADS_BASELINE = 8
+
+
+def _env_int(name: str, default: int) -> int:
+    raw = os.environ.get(name, "").strip()
+    if not raw:
+        return default
+    try:
+        val = int(raw)
+    except ValueError:
+        raise SystemExit(f"{name}: expected a positive integer, got {raw!r}")
+    if val < 1:
+        raise SystemExit(f"{name}: expected >= 1, got {val}")
+    return val
+
+
+N_CORES = _env_int("KI_N_CORES", 8)
+BLAS_THREADS = _env_int("KI_BLAS_THREADS", BLAS_THREADS_BASELINE)
 
 _DETERMINISM = {
     "PYTHONHASHSEED": "0",
     "SOURCE_DATE_EPOCH": "1767225600",   # 2026-01-01T00:00:00Z
 }
-# Linear-algebra notebooks: give the cores to BLAS.
+# Linear-algebra notebooks: give the cores to BLAS. LOKY_MAX_CPU_COUNT is a worker
+# budget, not a thread count, so it follows N_CORES even in this profile.
 ENV_BLAS = {
     **_DETERMINISM,
-    "OMP_NUM_THREADS": str(N_CORES),
-    "MKL_NUM_THREADS": str(N_CORES),
-    "OPENBLAS_NUM_THREADS": str(N_CORES),
-    "NUMEXPR_MAX_THREADS": str(N_CORES),
+    "OMP_NUM_THREADS": str(BLAS_THREADS),
+    "MKL_NUM_THREADS": str(BLAS_THREADS),
+    "OPENBLAS_NUM_THREADS": str(BLAS_THREADS),
+    "NUMEXPR_MAX_THREADS": str(BLAS_THREADS),
     "LOKY_MAX_CPU_COUNT": str(N_CORES),
 }
 # joblib-parallel notebooks: one thread per fit, cores spent on workers.
@@ -244,6 +279,8 @@ def write_provenance(run_dir: Path, run_id: str, mode: str, profile: dict,
         "processor": platform.processor(),
         "cpu_count_logical": os.cpu_count(),
         "n_cores_budget": N_CORES,
+        "blas_threads": BLAS_THREADS,
+        "blas_threads_baseline": BLAS_THREADS_BASELINE,
         "env_blas": ENV_BLAS,
         "env_joblib": ENV_JOBLIB,
         "inputs_sha256": inputs,
@@ -499,8 +536,15 @@ def main() -> int:
         shutil.copyfile(summary, LATEST_SUMMARY)
 
     emit(f"v2 pipeline run {run_id}  started {datetime.now():%F %T}")
-    emit(f"host: {N_CORES} physical cores, python {sys.version.split()[0]}; "
+    emit(f"host: {N_CORES} worker cores, BLAS {BLAS_THREADS} threads, "
+         f"python {sys.version.split()[0]}; "
          f"commit {git.get('commit') or '?'}  dirty={git['dirty']}")
+    if BLAS_THREADS != BLAS_THREADS_BASELINE:
+        emit(f"!! KI_BLAS_THREADS={BLAS_THREADS} (baseline {BLAS_THREADS_BASELINE}). "
+             "BLAS reduction order changes with thread count, so numbers downstream of "
+             "NB01 may differ in their last digits from the frozen run. Reuse keys do "
+             "NOT track this -- use --fresh, and re-verify the manuscript assertions "
+             "against this run before quoting it. !!")
     emit(f"mode: {mode}   profile: "
          + (", ".join(f"{k}={v}" for k, v in profile.items() if v) or "defaults")
          + f"   inputs {inp_fp[:12]}")

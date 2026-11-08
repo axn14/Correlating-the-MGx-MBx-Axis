@@ -30,6 +30,17 @@ env/
 # Local tooling state (personal, not shared)
 .claude/settings.local.json
 
+# Dardel deployment config: host, username, allocation id and absolute paths.
+# Personal and site-specific; dardel.env.example is the tracked template.
+v2/dardel/dardel.env
+
+# Transfer scratch that 02_stage_inputs.sh leaves in the checkout it pushes to. It
+# has to be ignored rather than merely deleted: run_pipeline.py reads `git status
+# --porcelain`, which counts untracked files, so one stray staging directory makes
+# every run on that machine dirty -- and a dirty run keeps Results/SMOKE_RUN.txt and
+# can never become a baseline.
+.stage/
+
 # OS and Office cruft
 Thumbs.db
 desktop.ini
