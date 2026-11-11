@@ -597,6 +597,76 @@ metabolite not well predicted) is **not available** for it, never a vote against
 and the gene-family attribution in `v2/genes/`. They answer whether the organism *can* make
 the compound. The trinity answers whether its abundance *accounts for* the compound here.
 
+> **SUPERSEDED 2026-11-11 by §5d** before any of the three tools produced a result. The
+> 2-of-3 rule counted MICOM and MIMOSA2 as independent although both read the same AGORA2
+> reconstructions, and called MelonnPan (an elastic-net regressor) "mechanistic". Kept here
+> as the record of what was pre-registered and why it was withdrawn.
+
+## 5d. Evidence classes (v2.4, 2026-11-11) — what "conclusive" means
+
+**Why this replaces the source count.** NB09 counts sources, and the sources are not
+independent. On the 2026-11-08 clean run (`20261108T133844Z_1720a81`) all 8 `Strong` pairs are
+N-acetylglutamate (5), N-acetylhistamine (C05135, 2) and tryptamine (1), and the tryptamine
+pair (*E. ramosum*) is `Strong` with **no genomic evidence at all**: NB03 prediction and MOFA
+co-loading (two readings of the same Yachida association) plus genus-level 16S replication.
+*R. gnavus*, whose tryptamine-decarboxylase reads `v2/genes/` finds in 378 of 616 samples, is
+`Moderate`, because its *genus* did not replicate -- and that sample-level genetic evidence is
+counted nowhere. A tier that rewards correlated layers and ignores the most direct evidence
+is not a measure of confidence.
+
+**The rule.** Every source belongs to one **independence class**. A class supports a pair
+when any member does; a class counts **once** however many members it has.
+
+| Class | Members | What support means | Available when |
+|---|---|---|---|
+| **O** observational | NB03 `predictive` (`evidence_tools.predictive_support`, unchanged); MOFA same-sign co-loading; MelonnPan (predictive benchmark, §5d-iii) | the species co-varies with the metabolite in Yachida | as each member defines it |
+| **R** reference potential | AGORA2 `genomic_producer`, `genomic_capability` (both base-rate gated, §7); MIMOSA2 contribution share in the DA direction; MICOM exchange *present* in the taxon's model | the reference genome can make or export it | the species has an AGORA2 model / is in MIMOSA2's network |
+| **G** sample-level genetic | `v2/genes/` UniRef90 gene families attributed to the species, for a curated **producing** enzyme of the target | attributed reads > 0 in **≥ 10% of Yachida samples** and **≥ 10 samples** | the target has a curated producing enzyme (`target_clusters.tsv` ∪ `curated_clusters.tsv`) |
+| **M** contextual mechanism | MICOM **forced secretion**: per-taxon net export with FVA *minimum* > solver tolerance, at the chosen α (§8), certified gap ≤ 1% | forced in **≥ 20% of the samples containing the taxon**, ≥ 10 such samples, **and** the forced-export base rate among capable taxa ≤ 0.2 (the §7 gate) | the taxon has a model and the target passes the export gate (§5d-ii) |
+| **X** external replication | Erawijantari 2020 (shotgun, same CE-TOFMS platform), the 53 subjects shared with Yachida **excluded**; NB02's CLR + partial Spearman with the same confounders | same sign, BH q < 0.05 within the replication family | species and metabolite (matched by KEGG ID) both measured there |
+
+A class whose members all say "not available" is unavailable, never a vote against. A
+**contradiction** -- X significant with the opposite sign -- is recorded and blocks the top
+tier.
+
+**Tiers** (each label carries `n_classes_available`, as `tier` does now):
+
+| Tier | Rule |
+|---|---|
+| `Conclusive` | ≥ 3 classes support, **at least one of G or M**, no contradiction, target confounder-attributable and export-gated |
+| `Supported` | 2 classes support, at least one of them not O |
+| `Single-class` | exactly 1 class supports and it is not O |
+| `Observational only` | only O supports |
+| `Unsupported` | none |
+
+### 5d-i. What no longer votes
+- **Genus-level replication** (Sinha, Kim; 16S, other metabolomics platforms) cannot support a
+  species claim. It is reported as `Ecological_consistency` (unchanged columns, renamed role).
+- **NB02 association** still nominates pairs and still never counts (§8).
+
+### 5d-ii. Target gates (from the registry, `v2/targets/`)
+- **Label:** each of the 49 targets is `stage_associated` (one of the 33 robust DA) or
+  `a_priori_class` (the 16 class-only members). Every output table carries it.
+- **Export gate:** a target with no AGORA2 exchange reaction in any cohort species has no
+  modelled microbial export route; classes R (MICOM part) and M are unavailable for it, and it
+  is flagged `attribution_requires_lysis`.
+- **Origin flag:** `microbial_only` / `host_and_microbial` / `host_dominant`, from human-enzyme
+  membership of the target's biosynthesis in KEGG/HMDB. An annotation reported beside every
+  tier, not a correction. N-acetylhistamine (C05135, confirmed: Yachida's label is
+  "4-(beta-acetylaminoethyl)imidazole"), N-acetylglutamate and the polyamines are flagged
+  explicitly.
+
+### 5d-iii. MelonnPan and MIMOSA2
+MelonnPan is an elastic-net regressor: class O, a benchmark against NB03, counted only for
+metabolites it predicts well (training Spearman reported per metabolite). MIMOSA2 is class R.
+Neither is "mechanistic"; that word is reserved for class M.
+
+### 5d-iv. Fixed before
+These thresholds are written down before any MIMOSA2, MelonnPan, Erawijantari or MICOM-batch
+output exists. The only MICOM output at this date is the 8-sample solver check
+(`v2/micom/out/solver_check_*`), which covers four probe compounds and no FVA. The
+`Conclusive` count is whatever the rule gives; it is not edited afterwards.
+
 ---
 
 ## 6. Notebook contracts
@@ -964,6 +1034,11 @@ source stays `pending` until the NB08 rebuild, whatever NB10 produces. After tha
 re-run NB08 and NB09 once NB10 has finished.
 
 ### Attainable evidence ceiling — read this before interpreting any `Tier`
+
+> **2026-11-11: superseded by §5d (evidence classes).** The text below describes the source
+> count NB09 used up to run `20261108T133844Z_1720a81`, which actually declares six sources;
+> the "three sources" ceiling was already stale. Tiers from that run are reported as the old
+> rule's output, not as confidence.
 
 **As executed today, NB09 counts three sources** — NB03 SHAP, AGORA2 enzyme evidence and
 MOFA co-loading. AGORA2 counts only where informative, which among the polyamines is spermine
