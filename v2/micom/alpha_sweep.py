@@ -136,7 +136,14 @@ def analyse() -> None:
         q = mt.solution_quality(r["exchanges"], r["growth_rates"]).iloc[0]
         g = r["growth_rates"]
         g = g[g["taxon"].astype(str) != "medium"]
-        base.update({"valid": bool(q["valid"]), "community_growth": float(q["community_growth"]),
+        # Clarification, 2026-11-11, written after the first two solves (alpha 0.1:
+        # 10091 gap 4.4%, 10335 gap 16.9%): a solve counts as valid only if its certified
+        # gap is within the 5% bound solver_check.py fixed as P3. An uncertified optimum
+        # cannot qualify an alpha. Reported, not hidden: `certified` is a column.
+        certified = bool(base["gap_rel"] <= 0.05) if pd.notna(base["gap_rel"]) else False
+        base.update({"certified": certified,
+                     "valid": bool(q["valid"]) and certified,
+                     "community_growth": float(q["community_growth"]),
                      "frac_taxa_growing": float((g["growth_rate"] > mt.GROWTH_FLOOR).mean())})
         rows.append(base)
         sets[(r["sample_id"], r["alpha"])] = exporters(r, targets)
