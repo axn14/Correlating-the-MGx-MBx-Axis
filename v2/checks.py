@@ -1135,6 +1135,30 @@ def d12():
     # 7. The label states the classes available.
     assert "classes" in et.class_tier(full) and "OR" in et.class_tier(full).replace("G", "")
 
+    # 8. attach_class_evidence: inputs join on the right keys, a missing input is
+    #    unavailable, a failed export gate removes class M, genus replication never votes.
+    pairs = pd.DataFrame([
+        {"Species": "A b", "Metabolite": "C1_x", "KEGG": "C1", "Tier_final": "Strong (3/3)",
+         "Source_predictive_available": True, "Source_predictive_support": True,
+         "Source_replication_available": True, "Source_replication_support": True},
+        {"Species": "A b", "Metabolite": "C2_y", "KEGG": "C2", "Tier_final": "Weak (1/1)",
+         "Source_predictive_available": True, "Source_predictive_support": True}])
+    reg = pd.DataFrame([{"target": "C1_x", "label": "stage_associated", "export_gate": True,
+                         "origin_flag": "microbial_only", "attribution_requires_lysis": False},
+                        {"target": "C2_y", "label": "a_priori_class", "export_gate": False,
+                         "origin_flag": "host_and_microbial", "attribution_requires_lysis": True}])
+    g = pd.DataFrame([{"Species": "A b", "kegg": "C1", "Source_gene_level_available": True,
+                       "Source_gene_level_support": True}])
+    m = pd.DataFrame([{"species": "A b", "kegg": "C1", "Source_mechanistic_available": True,
+                       "Source_mechanistic_support": True},
+                      {"species": "A b", "kegg": "C2", "Source_mechanistic_available": True,
+                       "Source_mechanistic_support": True}])
+    out = et.attach_class_evidence(pairs, reg, class_g=g, class_x=None, class_m=m).set_index("Metabolite")
+    assert out.at["C1_x", "Classes_supporting"] == "OGM", out.at["C1_x", "Classes_supporting"]
+    assert out.at["C1_x", "Tier_class"].startswith("Conclusive")
+    assert not out.at["C2_y", "Source_mechanistic_available"], "export gate must remove class M"
+    assert out.at["C2_y", "Classes_supporting"] == "O"
+
 
 @check("D13 the target registry labels every target and states its gates (CONTRACTS 5d-ii)")
 def d13():

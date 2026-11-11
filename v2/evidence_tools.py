@@ -332,6 +332,71 @@ def class_tier(row) -> str:
     return f"Unsupported {tag}"
 
 
+def attach_class_evidence(pairs: pd.DataFrame, registry: pd.DataFrame,
+                          class_g: pd.DataFrame | None = None,
+                          class_x: pd.DataFrame | None = None,
+                          class_m: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Join the class G, X and M sources and the target gates onto NB09's pair table, and
+    tier every pair by `class_tier` (CONTRACTS 5d).
+
+    pairs     NB09's final synthesis (Species, Metabolite, KEGG, Source_* columns)
+    registry  v2/targets/out/target_registry.tsv (target, label, export_gate, origin_flag)
+    class_g   v2/genes/out/class_g.tsv              (Species, kegg, Source_gene_level_*)
+    class_x   v2/replication/out/erawijantari_species_replication.tsv
+                                                    (Species, Metabolite, Source_replication_species_*)
+    class_m   micom batch class_m.tsv               (species, kegg, Source_mechanistic_*)
+
+    A missing input leaves its class unavailable -- never a vote against. NB08's
+    `Source_mechanistic_*` (the hard-coded "pending") is replaced by class M where the
+    batch ran, and forced unavailable for a target that failed the export gate. Pairs
+    whose metabolite is not a registry target keep every class but carry
+    `Target_label = "not_a_target"`: class G/X/M were only ever computed for targets.
+    """
+    out = pairs.copy()
+    reg = registry.rename(columns={"target": "Metabolite", "label": "Target_label",
+                                   "export_gate": "Target_export_gate",
+                                   "origin_flag": "Target_origin_flag",
+                                   "attribution_requires_lysis": "Attribution_requires_lysis"})
+    out = out.merge(reg[["Metabolite", "Target_label", "Target_export_gate",
+                         "Target_origin_flag", "Attribution_requires_lysis"]],
+                    on="Metabolite", how="left")
+    out["Target_label"] = out["Target_label"].fillna("not_a_target")
+
+    def _join(df, frame, keys_left, keys_right, cols):
+        if frame is None:
+            for c in cols:
+                df[c] = False
+            return df
+        f = frame[keys_right + cols].drop_duplicates(keys_right)
+        f = f.rename(columns=dict(zip(keys_right, keys_left)))
+        df = df.drop(columns=[c for c in cols if c in df.columns]).merge(f, on=keys_left, how="left")
+        for c in cols:
+            df[c] = df[c].eq(True)        # unmatched rows (NaN) are unavailable, not support
+        return df
+
+    out = _join(out, class_g, ["Species", "KEGG"], ["Species", "kegg"],
+                ["Source_gene_level_available", "Source_gene_level_support"])
+    out = _join(out, class_x, ["Species", "Metabolite"], ["Species", "Metabolite"],
+                ["Source_replication_species_available", "Source_replication_species_support",
+                 "Replication_species_contradicted"])
+    if class_m is not None:
+        out = _join(out, class_m, ["Species", "KEGG"], ["species", "kegg"],
+                    ["Source_mechanistic_available", "Source_mechanistic_support"])
+        out["MICOM_status"] = "class M (forced secretion)"
+    else:
+        out["Source_mechanistic_available"] = False
+        out["Source_mechanistic_support"] = False
+    gate_failed = out["Target_export_gate"].eq(False)
+    out.loc[gate_failed, ["Source_mechanistic_available", "Source_mechanistic_support"]] = False
+
+    classes = [class_support(r) for r in out.to_dict("records")]
+    out["Classes_available"] = ["".join(a) for a, _ in classes]
+    out["Classes_supporting"] = ["".join(s) for _, s in classes]
+    out["N_classes_supporting"] = [len(s) for _, s in classes]
+    out["Tier_class"] = [class_tier(r) for r in out.to_dict("records")]
+    return out
+
+
 def tier(n_supporting, n_available) -> str:
     """Pre-declared tiers (CONTRACTS section 6/8), with the attainable ceiling stated.
 
