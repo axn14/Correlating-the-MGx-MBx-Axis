@@ -1,0 +1,39 @@
+{
+ "script": "v2/micom/solver_check.py",
+ "run_utc": "2026-11-11T10:59:40+00:00",
+ "solver": {
+  "qp_solver": "OSQP, then exact HiGHS LP repair (v2/micom/highs_qp.py)",
+  "gap_tol": 1e-10,
+  "highspy": "1.15.1",
+  "optlang": "1.9.1"
+ },
+ "tradeoff": 0.5,
+ "strategy": "pFBA",
+ "samples": [
+  "10091",
+  "10092",
+  "10334",
+  "10335",
+  "10570",
+  "10618",
+  "10659",
+  "10723"
+ ],
+ "osqp_reference": "grow_gut_diet_v2.pkl",
+ "criteria": {
+  "P1_all_valid": true,
+  "P2_median_rel_growth_diff": 0.0061457373778828215,
+  "P2_growth_ratio_max_dev": 0.000729566680265914,
+  "P2_secretion_identical_share": 0.7894736842105263,
+  "P3_max_gap_rel": 0.030795376596806208,
+  "P4_median_seconds": 331.1640555858612
+ },
+ "passed": {
+  "P1": true,
+  "P2": false,
+  "P3": "True",
+  "P4": false
+ },
+ "python": "3.12.10",
+ "platform": "Windows-11-10.0.26300-SP0"
+}

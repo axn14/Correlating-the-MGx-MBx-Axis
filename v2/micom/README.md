@@ -25,7 +25,7 @@ for a different reason than the one it was undertaken for — it changes which t
 observed to produce putrescine and spermidine, from 1 sample to 7 and from 0 to 3, while
 leaving every compound the diet does not supply untouched.
 
-## Six findings, in order of how much they change
+## Seven findings, in order of how much they change
 
 ### 1. The medium has been supplying no glucose
 
@@ -204,6 +204,41 @@ this cohort size, not zero. And whether the quantity MICOM *reports* scales with
 count is untested: on the 7 valid samples, community growth, putrescine and spermidine
 production all give p > 0.4, which at n=7 is close to no information.
 
+### 7. The solver, without Gurobi: OSQP, repaired, then certified (2026-11-11)
+
+No Gurobi licence was obtainable, and the project carries no commercial dependency.
+`highs_qp.py` replaces micom's QP step in-process (`highs_qp.install("repair")`):
+
+1. OSQP solves the cooperative-tradeoff QP as before. **It stopped at its 20,000-iteration
+   limit on all 8 samples, including the 7 that `solution_quality` called valid.** That
+   check certifies feasibility, not optimality, and it was the only check we had.
+2. One HiGHS LP *repairs* OSQP's point: the exactly feasible flux state whose taxon growth
+   rates are nearest (L1) to OSQP's. The pFBA step then always has a feasible point.
+3. Wolfe's minimum-norm-point method (HiGHS LPs only) polishes it until the **certified**
+   relative optimality gap (Frank-Wolfe bound, an upper bound and not an estimate) is
+   <= 1%. Each sample's certificate is recorded.
+
+Rejected on the way, each measured on sample 10723 (74,813 columns x 33,155 rows):
+HiGHS's own QP solver ("Unbounded" on a QP bounded below by 0; >30 min), Kelley cutting
+planes (stalled on degenerate cuts), Wolfe from scratch (~2.5 min per iteration), and
+OSQP with more iterations (>10 min without converging).
+
+`solver_check.py` re-solved the 8 `--community` samples, against criteria fixed before it ran:
+
+| | criterion | result | |
+|---|---|---|---|
+| P1 | every sample valid | 8/8, residual ~0; sample 10091 from 0 to 45 taxa growing | PASS |
+| P2 | no meaningful change where OSQP was valid | growth median 0.6%, community growth within 7e-4, **secretion calls identical in 79% (needed 90%)** | FAIL |
+| P3 | certified gap <= 5% | worst 3.1%, 7/8 below 1% | PASS |
+| P4 | median <= 5 min per sample | **5.5 min**; the two ~60-taxon samples took 36 and 57 min | FAIL |
+
+Every secretion disagreement is in 10092 and 10334, the two largest communities, where
+the repair had to move OSQP's "valid" growth rates by up to 11.3 -- OSQP was far from
+optimal there, and the new answers are certified within 3.1% and 0.65%. In 10092 the
+putrescine producer changes from *P. vulgatus* (OSQP) to *E. coli* (certified): **producer
+identity, the paper's output, depends on solver accuracy in large communities.** P2 still
+counts as failed; it is not re-scored.
+
 ## The reformulated medium
 
 `gut_diet_v2.csv` — `western_diet_gut.csv` with exactly three changes, each recorded in
@@ -322,6 +357,10 @@ anything, which is why `community_secretion_valid.tsv` exists and is the table t
 | `out/community_check.tsv` | written by `--community`: both media, side by side. Counts over **all** samples, so read it with the caution at the end of finding 5 |
 | `out/community_per_sample.tsv` | the paired per-sample table: validity, growth and lumen imbalance under each medium. This is what settles finding 4 |
 | `out/community_secretion_valid.tsv` | secretion restricted to samples valid under both media, with the taxon names. **The table to quote** |
+| `highs_qp.py` | finding 7: the Gurobi-free QP step (OSQP, exact HiGHS-LP repair, Wolfe polish to a certified gap) |
+| `solver_check.py` | finding 7: the new solver against OSQP on the 8 `--community` samples, criteria P1-P4 |
+| `out/solver_check_per_sample.tsv` | per sample: validity, growth, certified gap, OSQP status, wall time |
+| `out/solver_check_growth.tsv` / `out/solver_check_secretion.tsv` | per-taxon growth and per-compound secretor sets, OSQP vs new |
 | `dropout_risk.py` | finding 6: whether losing ~40% of samples to the solver would bias the progression analysis |
 | `out/dropout_risk.tsv` | per sample: what its community model would contain, plus stage |
 | `out/dropout_risk_association.tsv` | each candidate driver of solver difficulty against the stage axis, adjusted and not |
