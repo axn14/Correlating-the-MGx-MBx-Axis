@@ -74,6 +74,10 @@ PROJECT_ROOT = (Path(_ENV_ROOT).expanduser().resolve() if _ENV_ROOT
                 else Path(__file__).resolve().parents[1])
 DATA_DIR    = PROJECT_ROOT / "Data"
 RESULTS_DIR = PROJECT_ROOT / "Results"
+# Sequencing-depth proxy per Yachida sample (gzipped FASTQ size from the ENA manifest),
+# written by v2/targets/depth_screen.py. It lives beside the code, not under DATA_DIR,
+# so it travels with the git bundle; see YACHIDA_COMPLETE_CONFOUNDERS for why it is used.
+SEQ_DEPTH_PROXY = Path(__file__).resolve().parent / "targets" / "out" / "sample_depth_proxy.tsv"
 
 if not DATA_DIR.is_dir():
     warnings.warn(
@@ -674,7 +678,14 @@ def apply_mask(mask, *frames, sample_col="Sample", meta_df=None):
 # strongly by group in this cohort (median Brinkman index 100 in Healthy vs
 # 196–540 in the disease groups), so leaving it out would let a smoking effect
 # masquerade as a cancer effect.
-YACHIDA_COMPLETE_CONFOUNDERS = ["Age", "BMI", "Gender", "Brinkman.Index", "Alcohol"]
+#
+# v2.4 (2026-11-11): sequencing depth joins them. Yachida records no read counts; the
+# proxy is log10 of each sample's gzipped FASTQ size. It tracks the stage axis weakly
+# (Spearman rho -0.12, p 0.046, v2/targets/depth_screen.py) and the rule fixed in that
+# script before it ran says p < 0.05 means adjust for it. It matters most where detection
+# depends on depth (the gene layer), but it is adjusted everywhere Yachida's set is used.
+YACHIDA_COMPLETE_CONFOUNDERS = ["Age", "BMI", "Gender", "Brinkman.Index", "Alcohol",
+                                "Seq.Depth.log10"]
 
 # Candidate confounders per cohort -- what each cohort actually records, measured on the
 # harmonised metadata (2026-10-20). Yachida records smoking as the Brinkman index; Kim
@@ -682,7 +693,8 @@ YACHIDA_COMPLETE_CONFOUNDERS = ["Age", "BMI", "Gender", "Brinkman.Index", "Alcoh
 # neither smoking nor alcohol. Applying Yachida's list everywhere left Kim adjusted for
 # age and sex only. Callers still drop any candidate that is <50% populated or constant.
 COHORT_CONFOUNDERS = {
-    "YACHIDA-CRC-2019":  ["Age", "BMI", "Gender", "Brinkman.Index", "Alcohol"],
+    "YACHIDA-CRC-2019":  ["Age", "BMI", "Gender", "Brinkman.Index", "Alcohol",
+                          "Seq.Depth.log10"],
     "SINHA_CRC_2016":    ["Age", "BMI", "Gender"],
     "Kim_adenomas_2020": ["Age", "Gender", "Smoker"],
 }
@@ -1027,7 +1039,14 @@ def harmonize_metadata(meta_df, dataset_name, exclude=None):
         hm["Tumor.Location.Raw"]      = raw_loc.replace("-", np.nan).values
         hm["Tumor.Location.Category"] = encode_tumor_location_category(raw_loc).values
         hm["Tumor.Location.Site"]     = encode_tumor_location(raw_loc).values
+        if SEQ_DEPTH_PROXY.exists():
+            depth = pd.read_csv(SEQ_DEPTH_PROXY, sep="\t", dtype={"Sample": str}) \
+                      .set_index("Sample")["log10_bytes"]
+            hm["Seq.Depth.log10"] = meta_df["Sample"].astype(str).map(depth).values
+        else:
+            hm["Seq.Depth.log10"] = np.nan
     else:
+        hm["Seq.Depth.log10"]         = np.nan
         hm["Brinkman.Index"]          = np.nan
         hm["Alcohol"]                 = np.nan
         hm["Tumor.Location.Raw"]      = np.nan
@@ -1067,6 +1086,9 @@ def build_confounder_matrix(meta_df, include_tumor_location=False):
     """
     out = meta_df[["Sample", "Age", "BMI", "Brinkman.Index", "Alcohol"]].copy()
     out["Gender_enc"] = (meta_df["Gender"].astype(str).str.lower() == "male").astype(float)
+    # v2.4: the depth proxy, wherever the metadata carries it (Yachida only).
+    if "Seq.Depth.log10" in meta_df.columns and meta_df["Seq.Depth.log10"].notna().any():
+        out["Seq.Depth.log10"] = pd.to_numeric(meta_df["Seq.Depth.log10"], errors="coerce").values
 
     if not include_tumor_location:
         return out

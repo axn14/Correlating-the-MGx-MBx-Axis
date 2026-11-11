@@ -425,7 +425,8 @@ def a11():
 def b1():
     y = _yachida_meta()
     cols = [c for c in utils.build_confounder_matrix(y).columns if c != "Sample"]
-    assert cols == ["Age", "BMI", "Brinkman.Index", "Alcohol", "Gender_enc"], cols
+    assert cols[:5] == ["Age", "BMI", "Brinkman.Index", "Alcohol", "Gender_enc"], cols
+    assert set(cols[5:]) <= {"Seq.Depth.log10"}, cols
     assert not any("Tumor" in c or "TumorLoc" in c or "TumorSite" in c for c in cols)
 
 
