@@ -13,9 +13,12 @@ platform matches Yachida's (CE-TOFMS).
 | Zhang et al., *Cancer Med* 2023 ([PMC10417192](https://pmc.ncbi.nlm.nih.gov/articles/PMC10417192)) | No: shotgun on 14 samples, no metabolomics | 50 CRC / 52 controls (16S) | | On request | Not usable. |
 
 ## Next steps (none taken)
-1. **Nofinska overlap check.** Pull the BioSample lists of PRJDB19991 and PRJDB37508 from
-   DDBJ and intersect them with Yachida's accessions in `v2/genes/out/sample_crosswalk.tsv`.
-   This is metadata only, a few MB.
+1. **Nofinska overlap check. Accessions: done, 2026-11-11.** Through ENA, PRJDB19991 has 40
+   samples and PRJDB37508 has 470 (510, the number enrolled). **None of them shares a
+   BioSample accession with Yachida's 347.** That rules out the same deposited samples. It
+   does **not** rule out the same people re-sampled or re-deposited: same group, same
+   ethics approval (2013-244), same protocol. Subject-level confirmation needs their
+   Table S1 or the authors.
 2. If enough independent samples remain, **draft a data request** to the corresponding
    authors for the CE-TOFMS table (to be sent only after the user approves the text).
    The metagenomes would also need profiling against the same GTDB reference as Yachida.
