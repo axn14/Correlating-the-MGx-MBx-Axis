@@ -656,10 +656,14 @@ tier.
   "4-(beta-acetylaminoethyl)imidazole"), N-acetylglutamate and the polyamines are flagged
   explicitly.
 
-### 5d-iii. MelonnPan and MIMOSA2
-MelonnPan is an elastic-net regressor: class O, a benchmark against NB03, counted only for
-metabolites it predicts well (training Spearman reported per metabolite). MIMOSA2 is class R.
-Neither is "mechanistic"; that word is reserved for class M.
+### 5d-iii. MelonnPan and MIMOSA2 — dropped (user decision, 2026-11-11)
+MelonnPan is an elastic-net regressor (class O) and MIMOSA2 reads reference reconstructions
+(class R). Under the class rule each class counts once, and both classes are already
+populated (NB03 for O; AGORA2 capability and MICOM presence for R), so neither tool could
+change a tier except where its class was otherwise absent. They needed R, MIMOSA2's
+reference data and taxonomy matching on an overdrawn allocation, and were **dropped before
+running**. `v2/benchmark/` is kept unrun as the record. The word "mechanistic" belongs to
+class M alone.
 
 ### 5d-iv. Fixed before
 These thresholds are written down before any MIMOSA2, MelonnPan, Erawijantari or MICOM-batch
