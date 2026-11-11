@@ -1,0 +1,23 @@
+{
+ "script": "v2/replication/erawijantari_species.py",
+ "run_utc": "2026-11-11T12:54:21+00:00",
+ "results_root": "D:\\KI Research-dardel\\20261108T133844Z_1720a81",
+ "n_samples": 42,
+ "excluded": "53 Yachida-shared subjects (identical samples) + 1 healthy",
+ "covariates": [
+  "Age",
+  "BMI",
+  "Gender_num",
+  "Ever_smoked",
+  "Alcohol_yes"
+ ],
+ "target_pairs_in_yachida": 4812,
+ "measurable_pairs": 4037,
+ "species_measurable": 457,
+ "metabolites_measurable": 42,
+ "min_detectable_abs_rho_uncorrected": 0.325,
+ "supported": 256,
+ "contradicted": 0,
+ "nominal_p05_same_sign": 671,
+ "sign_agreement_rate": 0.7478325489224672
+}
