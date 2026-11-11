@@ -237,6 +237,101 @@ def count_sources(row, sources) -> tuple:
     return len(available), len(supporting), ",".join(supporting)
 
 
+# ---------------------------------------------------------------------------------------
+# Evidence classes (CONTRACTS section 5d, v2.4, 2026-11-11)
+# ---------------------------------------------------------------------------------------
+#
+# Sources are not independent: NB03 prediction and MOFA co-loading are two readings of the
+# same Yachida association, and AGORA2 capability, MIMOSA2 and a MICOM exchange's mere
+# presence all read the same reference reconstructions. So a source belongs to a class, and
+# a class counts once. Each source is named by the `<name>` in its NB08/NB09 columns
+# `Source_<name>_available` / `Source_<name>_support`.
+
+EVIDENCE_CLASSES = {
+    "O": ("predictive", "mofa_coloading", "melonnpan"),
+    "R": ("genomic_producer", "genomic_capability", "mimosa2", "micom_presence"),
+    "G": ("gene_level",),
+    "M": ("mechanistic",),
+    "X": ("replication_species",),
+}
+CLASS_NAMES = {"O": "observational", "R": "reference potential", "G": "sample-level genetic",
+               "M": "contextual mechanism", "X": "external species-level replication"}
+# Sources that are reported but can never vote for a species claim (section 5d-i).
+NON_VOTING_SOURCES = ("replication",)       # genus-level Sinha/Kim: ecological consistency
+DIRECT_CLASSES = ("G", "M")                  # the top tier needs one of these
+
+
+def source_class(source: str) -> str | None:
+    """The class a source belongs to, or None for a non-voting source.
+
+    Raises on a source no class knows, so a new source cannot slip into a tier unclassified.
+    """
+    if source in NON_VOTING_SOURCES:
+        return None
+    for cls, members in EVIDENCE_CLASSES.items():
+        if source in members:
+            return cls
+    raise KeyError(f"source {source!r} has no evidence class (CONTRACTS 5d)")
+
+
+def class_support(row) -> tuple[list, list]:
+    """(classes available, classes supporting) for one pair, in O, R, G, M, X order.
+
+    A class is available when any member's `Source_<m>_available` is True, and supports
+    when any AVAILABLE member's `Source_<m>_support` is True -- so, as in `count_sources`,
+    a stray True on an unavailable source cannot supply a point. Members whose columns are
+    absent from the row are simply not available (a tool that has not run is not a vote).
+    """
+    available, supporting = [], []
+    for cls, members in EVIDENCE_CLASSES.items():
+        avail = sup = False
+        for m in members:
+            if bool(row.get(f"Source_{m}_available", False)):
+                avail = True
+                if bool(row.get(f"Source_{m}_support", False)):
+                    sup = True
+        if avail:
+            available.append(cls)
+        if sup:
+            supporting.append(cls)
+    return available, supporting
+
+
+def class_tier(row) -> str:
+    """The section 5d tier for one pair, with the number of classes available stated.
+
+    Conclusive          >= 3 classes, at least one of G or M, no contradiction, target
+                        confounder-attributable and export-gated
+    Supported           2 classes, at least one not O
+    Single-class        1 class, not O
+    Observational only  only O
+    Unsupported         none
+
+    Gates read from the row: `Replication_species_contradicted` (X significant with the
+    opposite sign), `Confounder_unattributable`, and `Target_export_gate` (False only when
+    the registry says the target has no modelled export route; missing counts as passed,
+    because the gate removes classes R/M upstream rather than vetoing here).
+    """
+    available, supporting = class_support(row)
+    n_av = len(available)
+    sup = set(supporting)
+    contradicted = bool(row.get("Replication_species_contradicted", False))
+    unattributable = bool(row.get("Confounder_unattributable", False))
+    gated = row.get("Target_export_gate", True)
+    gated = True if gated is None or (isinstance(gated, float) and math.isnan(gated)) else bool(gated)
+    tag = f"({len(sup)}/{n_av} classes: {''.join(supporting) or '-'})"
+    if (len(sup) >= 3 and sup & set(DIRECT_CLASSES) and not contradicted
+            and not unattributable and gated):
+        return f"Conclusive {tag}"
+    if len(sup) >= 2 and sup - {"O"}:
+        return f"Supported {tag}"
+    if len(sup) == 1 and sup != {"O"}:
+        return f"Single-class {tag}"
+    if sup == {"O"}:
+        return f"Observational only {tag}"
+    return f"Unsupported {tag}"
+
+
 def tier(n_supporting, n_available) -> str:
     """Pre-declared tiers (CONTRACTS section 6/8), with the attainable ceiling stated.
 

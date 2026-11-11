@@ -1078,6 +1078,63 @@ def d9():
     assert "1/4" in et.tier(1, 4) and "1/1" in et.tier(1, 1)
 
 
+@check("D12 evidence classes (CONTRACTS 5d): a class counts once, genus replication never votes")
+def d12():
+    import evidence_tools as et
+
+    def row(**kw):
+        r = {}
+        for src, (avail, sup) in kw.items():
+            r[f"Source_{src}_available"] = avail
+            r[f"Source_{src}_support"] = sup
+        return r
+
+    # 1. Every member of every class is classifiable; a non-voting source has no class;
+    #    an unknown source raises rather than slipping into a tier.
+    for cls, members in et.EVIDENCE_CLASSES.items():
+        for m in members:
+            assert et.source_class(m) == cls
+    assert et.source_class("replication") is None
+    try:
+        et.source_class("brand_new_source")
+        raise AssertionError("an unclassified source must raise")
+    except KeyError:
+        pass
+
+    # 2. The worked example that motivated 5d: NB03 + MOFA + genus replication is ONE class.
+    ramosum = row(predictive=(True, True), mofa_coloading=(True, True),
+                  replication=(True, True), genomic_capability=(False, False))
+    av, sup = et.class_support(ramosum)
+    assert sup == ["O"], sup
+    assert et.class_tier(ramosum).startswith("Observational only"), et.class_tier(ramosum)
+
+    # 3. Three classes without G or M is not Conclusive.
+    no_direct = row(predictive=(True, True), genomic_capability=(True, True),
+                    replication_species=(True, True))
+    assert et.class_tier(no_direct).startswith("Supported"), et.class_tier(no_direct)
+
+    # 4. Three classes including G is Conclusive -- unless contradicted, unattributable,
+    #    or the target failed the export gate.
+    full = row(predictive=(True, True), genomic_capability=(True, True),
+               gene_level=(True, True))
+    assert et.class_tier(full).startswith("Conclusive"), et.class_tier(full)
+    assert not et.class_tier({**full, "Replication_species_contradicted": True}).startswith("Conclusive")
+    assert not et.class_tier({**full, "Confounder_unattributable": True}).startswith("Conclusive")
+    assert not et.class_tier({**full, "Target_export_gate": False}).startswith("Conclusive")
+
+    # 5. An unavailable member cannot supply a point, whatever its support column says.
+    stray = row(gene_level=(False, True), predictive=(True, True))
+    assert et.class_support(stray)[1] == ["O"]
+
+    # 6. Two members of one class still count once.
+    double_r = row(genomic_producer=(True, True), mimosa2=(True, True))
+    assert et.class_support(double_r)[1] == ["R"]
+    assert et.class_tier(double_r).startswith("Single-class")
+
+    # 7. The label states the classes available.
+    assert "classes" in et.class_tier(full) and "OR" in et.class_tier(full).replace("G", "")
+
+
 @check("D10 the decarboxylation target class is pre-specified, paired, and producing-only")
 def d10():
     """The v2.2 target class. Its validity rests on being chosen from an enzyme family
