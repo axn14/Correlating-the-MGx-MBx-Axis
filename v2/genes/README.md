@@ -139,7 +139,52 @@ routes (283 species) and the aromatic decarboxylases (10). The §4.6 base-rate p
 applies here too and any producer call must be read against the column of species counts,
 not in isolation.
 
+## Reformulated, 2026-11-11: `compositional.py` (supersedes the "source replacement" wording)
+
+A methodological review raised two problems with the section below, and both were correct.
+First, the gene families are **relative**, so a flat EC total cannot show that capacity
+is "conserved" in absolute terms. Second, a gene is collinear with its carrier, so
+partialling the carrier out is not a clean test. `compositional.py` re-asks both
+questions and adds log10 sequencing depth (`v2/targets/depth_screen.py`) to the confounders.
+
+**1. EC totals as an additive log-ratio to a fixed reference** (5,839 prevalence-matched
+background families, `gf_background_long`). This is scale-invariant, unlike a share.
+**No EC trends with stage** (9 tests, all q > 0.6). Arginine decarboxylase, EC 4.1.1.19:
+ρ −0.015, p 0.80. The flat result holds in compositional form. It is still a statement
+about **relative metagenomic space**: Yachida has no load measurement, so absolute
+capacity per gram of stool is not estimable.
+
+**2. log(gene / clade): the dose per carrier genome**, on samples where both are detected.
+**None of 279 testable gene × species rows changes with stage** (all q > 0.44).
+- **The *Butyricimonas virosa* arginine-decarboxylase result does not survive.** Its gene
+  share trends (ρ 0.15, p 0.013), but per genome it is flat (ρ −0.07, p 0.50). The earlier
+  ρ = 0.22 "carrier-adjusted" figure came from the partial-correlation formulation and
+  **must not be cited**.
+- *Parvimonas micra* glutamate decarboxylase: the share trends strongly (ρ 0.28), the
+  ratio is flat (ρ 0.004).
+
+**What is defensible is taxonomic turnover within a functional group, in relative
+metagenomic space.** The organisms carrying these enzymes change with stage, while each
+organism's own dose of the gene does not. "Source replacement of a conserved capacity" is
+withdrawn as wording.
+
+**3. Class G** (`out/class_g.tsv`, CONTRACTS §5d), for NB09. A (GTDB species, target) pair
+is supported when reads of a curated *producing* enzyme for the target are attributed to
+the species in at least 10% and at least 10 of the Yachida samples.
+- Taxonomy matching: HUMAnN (ChocoPhlAn) names are matched to GTDB after stripping GTDB's
+  suffixes from both genus and epithet. `_match_gtdb` missed genus suffixes, so it never
+  matched *Ruminococcus_B gnavus*.
+- 158 GTDB species match uniquely. 352 are GTDB splits of one HUMAnN species; those are
+  **unavailable**, not credited to every daughter species.
+- 115 (species, target) pairs are supported.
+- **Tryptamine:** *R. gnavus* is supported (UniRef90_A7B1V0 in 214 of the Yachida
+  samples). *E. ramosum* is assessable and has **no** tryptophan-decarboxylase reads
+  attributed to it.
+
 ## On the progression axis: `progression_axis.py`
+
+> **Superseded in part (2026-11-11):** see the section above. The *B. virosa* "survives carrier control" result and the "capacity conserved / source replaced" wording below are withdrawn.
+
 
 The extraction above says whether a gene is there and whose it is. It says nothing about
 disease, because the gene matrix carries no clinical labels. `progression_axis.py` joins
