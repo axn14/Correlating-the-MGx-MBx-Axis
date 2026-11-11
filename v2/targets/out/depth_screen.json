@@ -1,0 +1,14 @@
+{
+ "n_samples": 277,
+ "spearman_rho_stage": -0.1198990251928406,
+ "spearman_p": 0.046185795145195344,
+ "kruskal_H": 6.068803414080321,
+ "kruskal_p": 0.10831035220345024,
+ "median_gb_by_group": {
+  "Healthy": 4.938,
+  "Stage_0": 5.0,
+  "Stage_III_IV": 4.463,
+  "Stage_I_II": 4.481
+ },
+ "verdict": "depth tracks stage: add it to NB03's confounders"
+}

@@ -1135,6 +1135,29 @@ def d12():
     assert "classes" in et.class_tier(full) and "OR" in et.class_tier(full).replace("G", "")
 
 
+@check("D13 the target registry labels every target and states its gates (CONTRACTS 5d-ii)")
+def d13():
+    reg_path = NB_DIR / "targets" / "out" / "target_registry.tsv"
+    if not reg_path.exists():
+        print("        (no registry yet: run v2/targets/build_registry.py after NB03)")
+        return
+    reg = pd.read_csv(reg_path, sep="\t")
+    need = {"target", "kegg", "label", "export_gate", "origin_flag",
+            "confounder_unattributable", "attribution_requires_lysis"}
+    assert need <= set(reg.columns), need - set(reg.columns)
+    assert reg["target"].is_unique, "one row per target"
+    assert set(reg["label"]) <= {"stage_associated", "a_priori_class"}, set(reg["label"])
+    assert set(reg["origin_flag"]) <= {"microbial_only", "host_and_microbial", "host_dominant",
+                                       "unannotated", "unassessable"}, set(reg["origin_flag"])
+    # A stage-associated target must say in which contrast it is robust.
+    sa = reg[reg["label"] == "stage_associated"]
+    assert (sa[["robust_early", "robust_advanced"]].fillna("").ne("").any(axis=1)).all(), \
+        "a stage_associated target with no robust contrast"
+    # The gate and the lysis flag are complements wherever the gate is assessable.
+    g = reg.dropna(subset=["export_gate"])
+    assert (g["export_gate"].astype(bool) != g["attribution_requires_lysis"].astype(bool)).all()
+
+
 @check("D10 the decarboxylation target class is pre-specified, paired, and producing-only")
 def d10():
     """The v2.2 target class. Its validity rests on being chosen from an enzyme family

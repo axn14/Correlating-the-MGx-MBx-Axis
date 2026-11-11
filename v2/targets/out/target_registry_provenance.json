@@ -1,0 +1,44 @@
+{
+ "script": "v2/targets/build_registry.py",
+ "run_utc": "2026-11-11T12:49:01+00:00",
+ "results_root": "D:\\KI Research-dardel\\20261108T133844Z_1720a81",
+ "n_targets": 49,
+ "labels": {
+  "stage_associated": 33,
+  "a_priori_class": 16
+ },
+ "origin_flags": {
+  "host_and_microbial": 33,
+  "unannotated": 5,
+  "host_dominant": 5,
+  "microbial_only": 4,
+  "unassessable": 2
+ },
+ "export_gate_failed": [
+  "C00003_NAD+",
+  "C00179_Agmatine",
+  "C00263_Homoserine",
+  "C00327_Citrulline",
+  "C00624_N-Acetylglutamate",
+  "C00628_2,5-Dihydroxybenzoate",
+  "C00630_Isobutyryl CoA",
+  "C00750_Spermine",
+  "C00785_Urocanate",
+  "C00860_Histidinol",
+  "C01015_Hydroxyproline",
+  "C01026_N,N-Dimethylglycine",
+  "C01046_N-Methylglutamate",
+  "C02115_Alpha-Methylserine",
+  "C02567_N1-Acetylspermine",
+  "C02614_Citramalate",
+  "C02997_N-Acetylhistidine",
+  "C03570_Mannosamine",
+  "C03793_N6,N6,N6-Trimethyllysine",
+  "C04259_N-alpha,N-alpha-Dimethylhistidine",
+  "C05127_1-Methylhistamine",
+  "C05135_4-(beta-Acetylaminoethyl)imidazole",
+  "C16741_5-Hydroxylysine"
+ ],
+ "agora2_cohort_models_read": 327,
+ "kegg_cache": "kegg_cache.json"
+}
