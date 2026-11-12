@@ -1,21 +1,20 @@
 {
  "script": "v2/targets/build_registry.py",
- "run_utc": "2026-11-11T12:49:01+00:00",
- "results_root": "D:\\KI Research-dardel\\20261108T133844Z_1720a81",
- "n_targets": 49,
+ "run_utc": "2026-11-12T16:30:06+00:00",
+ "results_root": "D:\\KI Research-dardel\\20261112T100147Z_fb7bf68",
+ "n_targets": 47,
  "labels": {
-  "stage_associated": 33,
-  "a_priori_class": 16
+  "stage_associated": 30,
+  "a_priori_class": 17
  },
  "origin_flags": {
-  "host_and_microbial": 33,
-  "unannotated": 5,
+  "host_and_microbial": 32,
   "host_dominant": 5,
   "microbial_only": 4,
+  "unannotated": 4,
   "unassessable": 2
  },
  "export_gate_failed": [
-  "C00003_NAD+",
   "C00179_Agmatine",
   "C00263_Homoserine",
   "C00327_Citrulline",
@@ -28,7 +27,6 @@
   "C01015_Hydroxyproline",
   "C01026_N,N-Dimethylglycine",
   "C01046_N-Methylglutamate",
-  "C02115_Alpha-Methylserine",
   "C02567_N1-Acetylspermine",
   "C02614_Citramalate",
   "C02997_N-Acetylhistidine",
