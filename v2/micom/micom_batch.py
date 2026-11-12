@@ -85,14 +85,46 @@ def _medium() -> pd.Series:
     return d.set_index(d["reaction"].str.replace(r"_e$", "_m", regex=True))["flux"]
 
 
+def _samples() -> list[str]:
+    """The batch's sample order: sorted ids from taxonomy.tsv, so an array index means
+    the same sample on every machine and in every resubmission."""
+    tax = pd.read_csv(BATCH / "taxonomy.tsv", sep="\t", dtype={"sample_id": str})
+    return sorted(tax["sample_id"].unique())
+
+
+def _build_one(sid: str) -> tuple[Path, float]:
+    """Build ONE sample's community model in this process, unless it already exists.
+
+    2026-11-12: the separate 6-worker build job (27475925) sat at 19.3 of 20 GB for 93 min
+    without writing a model -- workers thrashing at the memory ceiling. Building inside the
+    per-sample task needs one model in memory at a time (2.38 GB peak at 61 taxa, measured
+    locally) and isolates a failure to its sample. Each sample gets its own output folder
+    because micom.workflows.build also writes a manifest.csv there, and concurrent tasks
+    must not share one.
+    """
+    from micom.workflows import build as mbuild
+    import diet_screen as ds
+    folder = _scratch() / "models" / sid
+    model = folder / f"{sid}.pickle"
+    if model.exists():
+        return model, 0.0
+    db = os.environ.get("MICOM_MODEL_DB")
+    if not db:
+        raise RuntimeError("set MICOM_MODEL_DB to the extracted AGORA2 folder (manifest.csv)")
+    tax = pd.read_csv(BATCH / "taxonomy.tsv", sep="\t", dtype={"sample_id": str})
+    folder.mkdir(parents=True, exist_ok=True)
+    t0 = time.time()
+    mbuild(tax[tax["sample_id"] == sid], out_folder=str(folder), model_db=db,
+           cutoff=ds.ABUND_CUTOFF, threads=1)
+    return model, time.time() - t0
+
+
 def solve(index: int, alpha: float | None) -> None:
     from micom import load_pickle
     import forced_secretion as fs
     if alpha is None:
         alpha = json.loads(CHOICE.read_text())["chosen_alpha"]
-    man = pd.read_csv(_scratch() / "manifest.csv", dtype={"sample_id": str})
-    row = man.iloc[index]
-    sid = str(row["sample_id"])
+    sid = _samples()[index]
     out = _scratch() / "results" / sid
     if (out / "status.json").exists():
         print(f"{sid}: already solved"); return
@@ -102,7 +134,9 @@ def solve(index: int, alpha: float | None) -> None:
     t0 = time.time()
     status = {"sample_id": sid, "alpha": alpha, "solver": highs_qp.describe()}
     try:
-        com = load_pickle(str(_scratch() / "models" / row["file"]))
+        model, build_s = _build_one(sid)
+        status["build_seconds"] = build_s
+        com = load_pickle(str(model))
         com.solver.configuration.presolve = True
         med = _medium()
         com.medium = med[med.index.isin([r.id for r in com.exchanges])]
@@ -116,22 +150,32 @@ def solve(index: int, alpha: float | None) -> None:
     except Exception as err:
         status.update({"ok": False, "error": repr(err)})
     status["seconds"] = time.time() - t0
+    try:
+        import psutil
+        mi = psutil.Process().memory_info()
+        status["peak_gb"] = round(getattr(mi, "peak_wset", 0) / 1e9, 3) or None
+    except Exception:
+        pass
+    if status.get("peak_gb") is None:
+        import resource
+        status["peak_gb"] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6, 3)
     (out / "status.json").write_text(json.dumps(status, indent=1, default=str))
     print(json.dumps({k: status.get(k) for k in ("sample_id", "ok", "seconds", "n_candidates")}))
 
 
-def arrays(threshold: int = 61) -> None:
-    """SLURM --array index lists for the two memory tiers, from the built manifest.
+def arrays(threshold: int = 59) -> None:
+    """SLURM --array index lists for the two memory tiers, from taxonomy.tsv's sample order.
 
-    Measured (memory_probe.py, one fresh solve at alpha 0.5): 0.84 GB at 20 taxa, 2.22 GB
-    at 61; linear, 0.034 GB per taxon, so the cohort maximum of 77 taxa predicts 2.76 GB.
-    Communities with <= `threshold` taxa run at --mem=2650M (billed 3 cores), the rest at
-    --mem=3500M (billed 4).
+    Measured 2026-11-12, build and solve as SEPARATE processes (the task's peak is the
+    larger of the two): build 1.02 GB at 20 taxa, 2.38 at 61; solve 0.84 and 2.22. With
+    15% headroom, <= 59 taxa fit --mem=2664M (billed 3 cores: 254 samples) and the rest
+    --mem=3552M (billed 4: 23 samples, up to 77 taxa). Estimated 307 billed core-h.
     """
-    man = pd.read_csv(_scratch() / "manifest.csv", dtype={"sample_id": str})
-    n = man["found_taxa"].astype(int)
-    small = man.index[n <= threshold].tolist()
-    large = man.index[n > threshold].tolist()
+    tax = pd.read_csv(BATCH / "taxonomy.tsv", sep="\t", dtype={"sample_id": str})
+    counts = tax.groupby("sample_id").size()
+    n = pd.Series([int(counts[s]) for s in _samples()])
+    small = n.index[n <= threshold].tolist()
+    large = n.index[n > threshold].tolist()
 
     def compact(ix):
         out, i = [], 0
@@ -143,9 +187,9 @@ def arrays(threshold: int = 61) -> None:
             i = j + 1
         return ",".join(out)
     print(f"# {len(small)} samples <= {threshold} taxa, {len(large)} larger")
-    print(f"sbatch -A naiss2026-3-773 --mem=2650M --array={compact(small)}%32 micom_batch.sbatch")
+    print(f"sbatch -A naiss2026-3-773 --mem=2664M --array={compact(small)}%32 micom_batch.sbatch")
     if large:
-        print(f"sbatch -A naiss2026-3-773 --mem=3500M --array={compact(large)} micom_batch.sbatch")
+        print(f"sbatch -A naiss2026-3-773 --mem=3552M --array={compact(large)} micom_batch.sbatch")
 
 
 def collect() -> None:
@@ -191,7 +235,7 @@ def collect() -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["prepare", "build", "solve", "arrays", "collect"])
+    ap.add_argument("step", choices=["prepare", "build", "build-one", "solve", "arrays", "collect"])
     ap.add_argument("--index", type=int, help="solve: row of the manifest (SLURM_ARRAY_TASK_ID)")
     ap.add_argument("--alpha", type=float, help="solve: override the sweep's chosen alpha")
     ap.add_argument("--model-db", help="build: AGORA2 .qza or extracted folder")
@@ -201,6 +245,23 @@ if __name__ == "__main__":
         prepare()
     elif a.step == "build":
         build(a.model_db, a.threads)
+    elif a.step == "build-one":
+        # its own process, so the solve that follows starts clean: measured locally, a
+        # build+solve in ONE process peaks at 3.20 GB (61 taxa) against 2.22 for the
+        # solve alone -- the build's objects are not all released.
+        idx = a.index if a.index is not None else int(os.environ["SLURM_ARRAY_TASK_ID"])
+        sid = _samples()[idx]
+        model, secs = _build_one(sid)
+        try:
+            import psutil
+            pk = getattr(psutil.Process().memory_info(), "peak_wset", 0) / 1e9
+        except Exception:
+            pk = 0
+        if not pk:
+            import resource
+            pk = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6
+        print(json.dumps({"sample_id": sid, "build_seconds": round(secs, 1),
+                          "build_peak_gb": round(pk, 3), "model": str(model)}))
     elif a.step == "arrays":
         arrays()
     elif a.step == "solve":

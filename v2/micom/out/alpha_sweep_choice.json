@@ -1,0 +1,16 @@
+{
+ "run_utc": "2026-11-12T08:58:37+00:00",
+ "rule": "largest alpha with median frac growing >= 0.95 and stability >= 0.8; else 0.5",
+ "qualifying": [
+  0.4,
+  0.5
+ ],
+ "chosen_alpha": 0.5,
+ "fallback_used": false,
+ "solver": {
+  "qp_solver": "OSQP, then exact HiGHS LP repair and Wolfe polish to a certified gap <= CERT_TOL (v2/micom/highs_qp.py)",
+  "gap_tol": 1e-10,
+  "highspy": "1.15.1",
+  "optlang": "1.9.1"
+ }
+}
