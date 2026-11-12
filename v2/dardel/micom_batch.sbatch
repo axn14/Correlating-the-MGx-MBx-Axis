@@ -6,16 +6,21 @@
 #
 #   sbatch -A naiss2026-3-773 --array=0-276%32 micom_batch.sbatch
 #
-# Sizing (measured on the laptop, see v2/micom/README.md finding 7 and the FVA benchmark):
-# one sample is ONE process using ONE core, peak ~2.4 GB. The shared partition bills
-# max(cores, mem / 888 MB), so --mem=2650M is billed as 3 cores; 3 GB would bill 4.
-# 90 min covers the slowest sample measured (57 min). A task that times out leaves no
-# status.json and is re-submitted once by index, then reported as failed by `collect`.
+# Sizing (measured 2026-11-12, v2/micom/memory_probe.py, one fresh solve at alpha 0.5):
+# ONE process, ONE core; peak 0.84 GB at 20 taxa, 2.22 GB at 61 taxa (0.034 GB/taxon;
+# 2.76 GB predicted at the cohort max of 77). The alpha sweep's 6-13 GB workers were
+# accumulation over ten solves in one process, which a batch task never does.
+# Two memory tiers: `python v2/micom/micom_batch.py arrays` prints both sbatch lines
+# (<= 61 taxa at --mem=2650M, billed 3 cores; the 13 larger at 3500M, billed 4).
+# Time: the largest test community took 41 min fresh; highs_qp now caps every LP at
+# 900 s and the polish at 2400 s, so a stalled sample ends inside 90 min with its
+# certified gap recorded. A task that still times out leaves no status.json and is
+# re-submitted once by index, then reported as failed by `collect`.
 #SBATCH -J ki-micom
 #SBATCH -p shared
 #SBATCH -n 1
 #SBATCH -c 1
-#SBATCH --mem=2650M
+#SBATCH --mem=2650M     # overridden per tier on the sbatch line
 #SBATCH -t 01:30:00
 #SBATCH -o slurm-ki-micom-%A_%a.out
 set -euo pipefail

@@ -53,6 +53,20 @@ DEBUG = bool(os.environ.get("HIGHS_QP_DEBUG"))
 GAP_TOL = 1e-10       # stop when <w,w> - min_p <w,p>  <=  GAP_TOL * max(<w,w>, 1e-12)
 MAX_MAJOR = 500
 LAST_RUN: dict = {}   # diagnostics from the most recent solve
+# Wall-clock guards (2026-11-12). In the alpha sweep, two solves ran for 8 h and 14+ h
+# against a typical 5-70 min, with a core fully busy -- an LP that HiGHS could not finish.
+# A batch task must fail fast instead: every HiGHS LP here gets LP_TIME_LIMIT, and the
+# Wolfe polish stops after POLISH_SECONDS with its best point and its (larger) certified
+# gap, reported as ITERATION_LIMIT -- never silently as optimal.
+LP_TIME_LIMIT = 900.0
+POLISH_SECONDS = 2400.0
+
+
+def _cap(options):
+    """Apply LP_TIME_LIMIT unless the caller set a tighter one."""
+    if not (0 < float(options.time_limit) <= LP_TIME_LIMIT):
+        options.time_limit = LP_TIME_LIMIT
+    return options
 
 
 def _affine_min(B: np.ndarray) -> np.ndarray:
@@ -67,7 +81,8 @@ def _affine_min(B: np.ndarray) -> np.ndarray:
     return np.linalg.lstsq(K, rhs, rcond=None)[0][:m]
 
 
-def min_norm_point(sp, options, x_start=None, cert_tol=None, max_major=MAX_MAJOR):
+def min_norm_point(sp, options, x_start=None, cert_tol=None, max_major=MAX_MAJOR,
+                   max_seconds=None):
     """Wolfe's minimum-norm point for  min 0.5 x'Px  (P diagonal PSD, q = 0) over sp's LP.
 
     x_start: an exactly feasible flux vector to start from (e.g. a repaired OSQP point);
@@ -92,7 +107,7 @@ def min_norm_point(sp, options, x_start=None, cert_tol=None, max_major=MAX_MAJOR
     nv, nc, k = sp.vbounds.shape[0], sp.bounds.shape[0], len(J)
 
     env = hs.Highs()
-    env.passOptions(options)
+    env.passOptions(_cap(options))
     model = hs.HighsModel()
     lp = model.lp_
     lp.sense_ = hs.ObjSense.kMinimize
@@ -147,6 +162,9 @@ def min_norm_point(sp, options, x_start=None, cert_tol=None, max_major=MAX_MAJOR
     gap = np.inf
     best_lb = -np.inf
     while major < max_major:
+        if max_seconds is not None and time.time() - t0 > max_seconds:
+            status = "Time limit reached"
+            break
         major += 1
         status, wq, xq = oracle(w)
         if status != "Optimal":
@@ -184,7 +202,12 @@ def min_norm_point(sp, options, x_start=None, cert_tol=None, max_major=MAX_MAJOR
     f = 0.5 * float(w @ w)
     cert = (f - best_lb) / max(f, 1e-12) if np.isfinite(best_lb) else np.inf
     target = cert_tol if cert_tol is not None else 2e-6
-    if status != "Optimal":
+    if status == "Time limit reached" and np.isfinite(cert):
+        # a timed-out polish (or one of its LPs) still holds a feasible point with a
+        # certified gap: hand it back as ITERATION_LIMIT, which micom accepts, with the
+        # gap recorded, rather than TIME_LIMIT, which would make micom drop the sample
+        final = "Iteration limit reached"
+    elif status != "Optimal":
         final = status
     elif cert <= target:
         final = "Optimal"
@@ -232,7 +255,7 @@ def repair(sp, x_hat, options):
     nv, nc, k = sp.vbounds.shape[0], sp.bounds.shape[0], len(J)
     t0 = time.time()
     env = hs.Highs()
-    env.passOptions(options)
+    env.passOptions(_cap(options))
     model = hs.HighsModel()
     lp = model.lp_
     lp.sense_ = hs.ObjSense.kMinimize
@@ -281,7 +304,7 @@ def certificate(sp, x, options):
     nv, nc = sp.vbounds.shape[0], sp.bounds.shape[0]
     t0 = time.time()
     env = hs.Highs()
-    env.passOptions(options)
+    env.passOptions(_cap(options))
     model = hs.HighsModel()
     lp = model.lp_
     lp.sense_ = hs.ObjSense.kMinimize
@@ -337,7 +360,8 @@ def _solve_osqp_repaired(self) -> None:
     pol = None
     if res["x"] is not None:
         pol = min_norm_point(sp, self.highs_settings(), x_start=res["x"],
-                             cert_tol=CERT_TOL, max_major=POLISH_MAX)
+                             cert_tol=CERT_TOL, max_major=POLISH_MAX,
+                             max_seconds=POLISH_SECONDS)
     LAST_RUN.clear()
     LAST_RUN.update(mode="osqp+repair+polish", osqp_status=str(osqp_status),
                     osqp_seconds=t_osqp, repair_status=res["status"],
@@ -376,6 +400,8 @@ MODE = "exact"   # "exact": Wolfe min-norm point; "repair": OSQP then exact LP r
 def _solve(self) -> None:
     if len(self.obj_quadratic_coefs) == 0:
         t0 = time.time()
+        if not (0 < float(self.settings.get("time_limit") or 0) <= LP_TIME_LIMIT):
+            self.settings["time_limit"] = LP_TIME_LIMIT     # micom's own LPs too
         self.solve_highs()
         if DEBUG:
             print(f"[highs_qp] LP: {self.status}, {time.time() - t0:.1f}s",

@@ -120,6 +120,34 @@ def solve(index: int, alpha: float | None) -> None:
     print(json.dumps({k: status.get(k) for k in ("sample_id", "ok", "seconds", "n_candidates")}))
 
 
+def arrays(threshold: int = 61) -> None:
+    """SLURM --array index lists for the two memory tiers, from the built manifest.
+
+    Measured (memory_probe.py, one fresh solve at alpha 0.5): 0.84 GB at 20 taxa, 2.22 GB
+    at 61; linear, 0.034 GB per taxon, so the cohort maximum of 77 taxa predicts 2.76 GB.
+    Communities with <= `threshold` taxa run at --mem=2650M (billed 3 cores), the rest at
+    --mem=3500M (billed 4).
+    """
+    man = pd.read_csv(_scratch() / "manifest.csv", dtype={"sample_id": str})
+    n = man["found_taxa"].astype(int)
+    small = man.index[n <= threshold].tolist()
+    large = man.index[n > threshold].tolist()
+
+    def compact(ix):
+        out, i = [], 0
+        while i < len(ix):
+            j = i
+            while j + 1 < len(ix) and ix[j + 1] == ix[j] + 1:
+                j += 1
+            out.append(f"{ix[i]}-{ix[j]}" if j > i else f"{ix[i]}")
+            i = j + 1
+        return ",".join(out)
+    print(f"# {len(small)} samples <= {threshold} taxa, {len(large)} larger")
+    print(f"sbatch -A naiss2026-3-773 --mem=2650M --array={compact(small)}%32 micom_batch.sbatch")
+    if large:
+        print(f"sbatch -A naiss2026-3-773 --mem=3500M --array={compact(large)} micom_batch.sbatch")
+
+
 def collect() -> None:
     import utils
     res = _scratch() / "results"
@@ -163,7 +191,7 @@ def collect() -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["prepare", "build", "solve", "collect"])
+    ap.add_argument("step", choices=["prepare", "build", "solve", "arrays", "collect"])
     ap.add_argument("--index", type=int, help="solve: row of the manifest (SLURM_ARRAY_TASK_ID)")
     ap.add_argument("--alpha", type=float, help="solve: override the sweep's chosen alpha")
     ap.add_argument("--model-db", help="build: AGORA2 .qza or extracted folder")
@@ -173,6 +201,8 @@ if __name__ == "__main__":
         prepare()
     elif a.step == "build":
         build(a.model_db, a.threads)
+    elif a.step == "arrays":
+        arrays()
     elif a.step == "solve":
         solve(a.index if a.index is not None else int(os.environ["SLURM_ARRAY_TASK_ID"]), a.alpha)
     else:
