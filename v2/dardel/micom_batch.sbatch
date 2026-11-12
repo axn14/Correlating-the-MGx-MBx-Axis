@@ -27,6 +27,7 @@ set -euo pipefail
 : "${PDC_STORAGE:=/cfs/klemming/projects/supr/naiss2024-6-169/andnair}"
 export MICOM_SCRATCH="${MICOM_SCRATCH:-/cfs/klemming/scratch/a/andnair/micom}"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export TMPDIR="${MICOM_SCRATCH}/tmp"; mkdir -p "$TMPDIR"   # not the memory-backed /tmp
 source "${PDC_STORAGE}/venv-micom/bin/activate"
 cd "${PDC_STORAGE}/ki"
 python v2/micom/micom_batch.py solve --index "${SLURM_ARRAY_TASK_ID}"
