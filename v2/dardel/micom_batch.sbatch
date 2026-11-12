@@ -4,7 +4,7 @@
 # Submit from v2/dardel/ AFTER the build job has written $MICOM_SCRATCH/manifest.csv and
 # AFTER v2/micom/out/alpha_sweep_choice.json exists (the alpha is read from it):
 #
-#   sbatch -A naiss2026-3-773 --array=0-276%32 micom_batch.sbatch
+#   python v2/micom/micom_batch.py arrays    # prints the two tiered sbatch lines to run
 #
 # Sizing (measured 2026-11-12, v2/micom/memory_probe.py, one fresh solve at alpha 0.5):
 # ONE process, ONE core; peak 0.84 GB at 20 taxa, 2.22 GB at 61 taxa (0.034 GB/taxon;
