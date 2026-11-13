@@ -671,6 +671,34 @@ output exists. The only MICOM output at this date is the 8-sample solver check
 (`v2/micom/out/solver_check_*`), which covers four probe compounds and no FVA. The
 `Conclusive` count is whatever the rule gives; it is not edited afterwards.
 
+### 5d-v. Class G for the stage-associated targets (v2.5, 2026-11-13)
+**Why.** Under v2.4, class G was available only for targets with a curated producing enzyme,
+which in practice meant the a-priori class targets. It was unavailable for all 30
+stage-associated targets, so "no class-G support" there is a coverage gap, not a negative
+result. This amendment closes the gap. It is written, and `v2/genes/stage_enzymes.tsv` is
+committed, **before any read of these enzymes is counted**. The only stage-target outputs
+already seen are classes O, R, M and X (run `20261112T100147Z_fb7bf68`).
+
+1. **Producing enzymes (stage-associated targets).** An EC produces target T if, in at least
+   one of the 1,440 AGORA2 reconstructions, a reaction annotated with that complete EC can
+   net-produce T in an allowed direction (positive coefficient and upper bound > 0, or
+   negative coefficient and lower bound < 0). Exchange, demand, sink and transport reactions
+   and partial ECs are excluded (`v2/genes/stage_enzymes.py`). KEGG was rejected because its
+   links carry no direction. This route is EC-only: there is no curated Swiss-Prot arm for
+   these enzymes, so the HUMAnN EC-map blind spot (`v2/genes/README.md`) applies unmitigated.
+   The a-priori targets keep their curated lists unchanged.
+2. **Base-rate gate on G, all targets.** Council D7 (§7) says a source counts toward a tier
+   only where its base rate is ≤ `utils.EVIDENCE_MAX_BASE_RATE` = 0.2; v2.4 never applied this
+   to G. From v2.5 the class-G base rate of a target is the fraction of uniquely matched GTDB
+   species that meet the G read threshold. Where it exceeds 0.2, G is **available but not
+   supporting** for every species on that target, and the raw call is kept
+   (`gene_level_raw_support`, `gene_level_base_rate`). At v2.4 every gated target had a G base
+   rate ≤ 0.18, so this changes no existing call; it exists for ubiquitous enzymes such as
+   aminotransferases and peptidases.
+3. Read thresholds, taxonomy matching and the tier rule are unchanged (§5d).
+4. Targets with no producing EC in AGORA2 (11 of the 28 with a KEGG id) stay unavailable for
+   G. That is reported as a finding about the reference, never as a negative.
+
 ---
 
 ## 6. Notebook contracts

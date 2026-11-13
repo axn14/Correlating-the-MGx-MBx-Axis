@@ -60,6 +60,9 @@ import progression_axis as pa  # noqa: E402
 OUT = HERE / "out"
 DEPTH = HERE.parent / "targets" / "out" / "sample_depth_proxy.tsv"
 G_MIN_FRACTION, G_MIN_SAMPLES = 0.10, 10      # CONTRACTS 5d, class G
+STAGE_ENZ = HERE / "stage_enzymes.tsv"                       # CONTRACTS 5d-v
+STAGE_CLUSTERS = OUT / "stage_clusters.tsv"                  # from extract_stage_clusters.R
+STAGE_ROWS = OUT / "gf_stage_rows.tsv.gz"                    # (Dardel)
 
 # EC -> KEGG compounds that EC PRODUCES, from the pre-specified maps in utils, plus the
 # two the HUMAnN EC map misses (4.1.1.105, 4.1.1.25; see README "blind spot").
@@ -224,6 +227,25 @@ def main() -> None:
     n_all = len(all_yachida)
     humann_taxa = set(sp_long["humann_species"]) | set(
         bg_sp.columns.str.split("|").str[1]) if len(bg_sp.columns) else set(sp_long["humann_species"])
+    # Stage-associated targets (CONTRACTS 5d-v): producing ECs from stage_enzymes.tsv, the
+    # EC route only; per-row cohort prevalence counted on Dardel (extract_stage_clusters.R).
+    stage_enz = pd.read_csv(STAGE_ENZ, sep="\t", dtype=str)
+    stage_targets: set[str] = set()
+    stage_support_rows = []
+    if STAGE_ROWS.exists() and STAGE_CLUSTERS.exists():
+        ec_to_kegg = stage_enz.groupby("ec")["kegg"].apply(set).to_dict()
+        scl = pd.read_csv(STAGE_CLUSTERS, sep="\t", dtype=str)
+        stage_ecs_of = scl.groupby("uniref90")["ec"].apply(set).to_dict()
+        srows = pd.read_csv(STAGE_ROWS, sep="\t", dtype={"n_nz_cohort": int})
+        humann_taxa |= set(srows["species"])
+        stage_targets = set(stage_enz["kegg"])
+        for u, s, n_nz in zip(srows["uniref90"], srows["species"], srows["n_nz_cohort"]):
+            for ec in stage_ecs_of.get(u, ()):
+                for k in ec_to_kegg.get(ec, ()):
+                    stage_support_rows.append((s, k, u, ec, int(n_nz)))
+    else:
+        print("WARNING: no stage-target extraction in out/; class G covers the a-priori "
+              "targets only (CONTRACTS 5d-v)")
     humann_by_norm: dict[str, set[str]] = {}
     for t in humann_taxa:
         if t and t != "unclassified":
@@ -233,7 +255,7 @@ def main() -> None:
     gtdb_count_by_norm: dict[str, int] = {}
     for g in gtdb_species:
         gtdb_count_by_norm[norm_gtdb(g)] = gtdb_count_by_norm.get(norm_gtdb(g), 0) + 1
-    targets_with_enzyme = sorted({k for ks in EC_PRODUCTS.values() for k in ks})
+    targets_with_enzyme = sorted({k for ks in EC_PRODUCTS.values() for k in ks} | stage_targets)
 
     support: dict[tuple[str, str], list] = {}
     for r in strat_rows:
@@ -244,6 +266,10 @@ def main() -> None:
         for ec in ecs_of.get(u, ()):
             for k in EC_PRODUCTS.get(ec, ()):
                 support.setdefault((norm_humann(s), k), []).append((u, ec, n_nz))
+    for s, k, u, ec, n_nz in stage_support_rows:          # same thresholds, 5d-v item 3
+        if n_nz < G_MIN_SAMPLES or n_nz < G_MIN_FRACTION * n_all:
+            continue
+        support.setdefault((norm_humann(s), k), []).append((u, ec, n_nz))
 
     grow = []
     for g in gtdb_species:
@@ -266,6 +292,18 @@ def main() -> None:
                          "clusters": ";".join(sorted({h[0] for h in hits})),
                          "max_samples_detected": max((h[2] for h in hits), default=0)})
     gcls = pd.DataFrame(grow)
+    # Base-rate gate (CONTRACTS 5d-v item 2, council D7): the share of uniquely matched
+    # species meeting the read threshold. Above utils.EVIDENCE_MAX_BASE_RATE, the call
+    # cannot single out a producer, so G is available but does not support; raw kept.
+    uniq = gcls[gcls["match_type"] == "unique"]
+    base_rate = uniq.groupby("kegg")["Source_gene_level_support"].mean()
+    gcls["gene_level_raw_support"] = gcls["Source_gene_level_support"]
+    gcls["gene_level_base_rate"] = gcls["kegg"].map(base_rate)
+    gcls["Source_gene_level_support"] = (gcls["gene_level_raw_support"]
+                                         & (gcls["gene_level_base_rate"]
+                                            <= utils.EVIDENCE_MAX_BASE_RATE))
+    gcls["gene_level_route"] = np.where(gcls["kegg"].isin(stage_targets),
+                                        "stage_agora2_ec", "curated_class")
     match_counts = gcls.drop_duplicates("Species")["match_type"].value_counts().to_dict()
     # A species with no HUMAnN counterpart is unavailable for class G by definition, and
     # NB09's join defaults to unavailable, so those ~57k rows are not written.
@@ -283,6 +321,10 @@ def main() -> None:
             "class_g_species": len(gtdb_species),
             "class_g_match_types": match_counts,
             "class_g_supported_pairs": int(gcls["Source_gene_level_support"].sum()),
+            "class_g_raw_supported_pairs": int(gcls["gene_level_raw_support"].sum()),
+            "class_g_base_rate_max": utils.EVIDENCE_MAX_BASE_RATE,
+            "class_g_base_rates": {k: round(float(v), 4) for k, v in base_rate.items()},
+            "class_g_stage_targets_covered": sorted(stage_targets),
             "carrier_report": {k: v for k, v in carrier_report.items() if k != "gtdb_columns_used"}}
     (OUT / "compositional_provenance.json").write_text(json.dumps(prov, indent=1, default=str))
     print(json.dumps(prov, indent=1, default=str))

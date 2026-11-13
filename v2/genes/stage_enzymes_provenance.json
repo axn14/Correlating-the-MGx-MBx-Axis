@@ -1,0 +1,42 @@
+{
+ "script": "v2/genes/stage_enzymes.py",
+ "run_utc": "2026-11-13T07:33:56+00:00",
+ "models_scanned": 1439,
+ "model_dir": "Data/micom/agora2_extracted/c24225a3-d2c2-4f32-b5c9-e03c13a247ca/data",
+ "targets": 28,
+ "targets_with_producing_ec": 17,
+ "targets_without": [
+  "1-Methylhistamine",
+  "4-(beta-Acetylaminoethyl)imidazole",
+  "Citramalate",
+  "Hydroxyproline",
+  "Mannosamine",
+  "N,N-Dimethylglycine",
+  "N-Acetylhistidine",
+  "N-Methylglutamate",
+  "N-alpha,N-alpha-Dimethylhistidine",
+  "N1-Acetylspermine",
+  "N6,N6,N6-Trimethyllysine"
+ ],
+ "ec_rows": 46,
+ "distinct_ecs": 41,
+ "per_target": {
+  "2,5-Dihydroxybenzoate": 1,
+  "5-Hydroxylysine": 1,
+  "Ala-Ala": 1,
+  "Asp": 8,
+  "Carnosine": 1,
+  "Citrulline": 5,
+  "Histidinol": 1,
+  "Homoserine": 2,
+  "Isobutyryl CoA": 4,
+  "Leu": 3,
+  "N1-Acetylspermidine": 1,
+  "Phe": 2,
+  "Ser": 5,
+  "Tyr": 4,
+  "Urocanate": 1,
+  "Val": 2,
+  "dTMP": 4
+ }
+}
