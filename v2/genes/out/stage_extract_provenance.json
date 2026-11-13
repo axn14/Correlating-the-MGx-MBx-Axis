@@ -1,0 +1,14 @@
+{
+ "script": "v2/genes/extract_stage_clusters.R",
+ "run_utc": "2026-11-13T07:42:39Z",
+ "object": "2021-10-14.YachidaS_2019.gene_families",
+ "ecs_requested": 41,
+ "ecs_in_map": 40,
+ "ecs_missing": ["1.4.1.7"],
+ "clusters": 154390,
+ "stratified_rows_matched": 9530,
+ "rows_with_reads": 8399,
+ "cohort_accessions": 347,
+ "seconds": 302
+}
+

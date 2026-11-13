@@ -181,6 +181,56 @@ the species in at least 10% and at least 10 of the Yachida samples.
   samples). *E. ramosum* is assessable and has **no** tryptophan-decarboxylase reads
   attributed to it.
 
+## Class G for the stage-associated targets, 2026-11-13 (CONTRACTS 5d-v)
+
+Until v2.5, class G could be tested only on the a-priori class targets, because only they
+had curated producing enzymes. It was unavailable for all 30 stage-associated targets, so
+their lack of G support was a coverage gap. The rule for filling it was committed
+(9b487d4) before any of these reads was counted.
+
+**Enzymes.** `stage_enzymes.py` takes every complete EC that, in at least one of the 1,439
+AGORA2 reconstructions, catalyses a reaction able to net-produce the target in an allowed
+direction (bounds respected; no exchange, transport or partial ECs). The result is 41 ECs over
+17 of the 28 stage targets with a KEGG id. **Eleven have no producing EC in any
+reconstruction**: 1-methylhistamine, N-acetylhistamine, trimethyllysine, hydroxyproline,
+N,N-dimethylglycine, N-methylglutamate, N-acetylhistidine, N1-acetylspermine, citramalate,
+mannosamine and N,N-dimethylhistidine. Most of these are host modifications of
+amino acids or polyamines. This is a statement about the reference, not a negative.
+
+**Extraction.** Dardel job 27486045 ran `extract_stage_clusters.R` in 5 min. 40 of the
+41 ECs are in HUMAnN's map (1.4.1.7 is not), giving 154,390 clusters. 9,530
+species-stratified rows match, and 8,399 have reads in the 347 cohort samples. Only
+per-row prevalence (`out/gf_stage_rows.tsv.gz`) left Dardel. EC route only: there is no
+curated Swiss-Prot arm, so the EC-map blind spot above applies.
+
+**Base-rate gate (council D7, now applied to G).** Six targets are gated out: their
+producing enzymes meet the read threshold in more than 20% of uniquely matched species.
+They are Asp (0.27), Ser (0.27), dTMP (0.25), Ala-Ala (0.25), homoserine (0.24) and
+isobutyryl-CoA (0.23). The call cannot single out a producer there. G supports on Phe,
+Tyr, Leu, Val, citrulline (0.185), urocanate, histidinol and N1-acetylspermidine. Every
+a-priori target stays under 0.2, as at v2.4.
+
+**One side effect, by rule.** Reading the new rows exposed a second HUMAnN name for
+*Megamonas funiformis* (`Megamonas_funiformis_CAG_377`, a separate MetaPhlAn species). The
+GTDB species is therefore `ambiguous_humann`, so class G is unavailable for it. It loses
+the G calls it had at v2.4 (ornithine, N-acetylglutamate); neither changed a tier. The
+unique-match set grew from 158 to 216 species, because the new rows name species the old
+target set never saw.
+
+**Result** (run `20261112T100147Z_fb7bf68`):
+
+| | a-priori controls | stage-associated |
+|---|---|---|
+| Class-O pairs where G is testable | 64 of 430 | 33 of 408 |
+| ...of which G supports | 8 (12.5%) | 3 (9%) |
+| Supported or Conclusive | 75 | **7** (was 4) |
+
+Per testable pair, the gene evidence supports stage targets about as often as controls.
+The new Supported links are *Alistipes indistinctus* and *A. onderdonkii* → citrulline
+(both ρ ≈ 0.28) and *R. gnavus* → phenylalanine (ρ 0.29), all O+G. None can reach Conclusive.
+Citrulline fails the export gate, and *R. gnavus* → Phe is not replicated (M and X are
+available there but do not support).
+
 ## On the progression axis: `progression_axis.py`
 
 > **Superseded in part (2026-11-11):** see the section above. The *B. virosa* "survives carrier control" result and the "capacity conserved / source replaced" wording below are withdrawn.

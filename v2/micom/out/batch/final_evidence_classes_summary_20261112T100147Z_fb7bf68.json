@@ -2,10 +2,10 @@
  "pairs": 17251,
  "target_pairs": 4293,
  "class_tiers": {
-  "Unsupported": 3284,
-  "Observational only": 759,
-  "Single-class": 171,
-  "Supported": 78,
+  "Unsupported": 3280,
+  "Observational only": 756,
+  "Single-class": 175,
+  "Supported": 81,
   "Conclusive": 1
  },
  "inputs": {
