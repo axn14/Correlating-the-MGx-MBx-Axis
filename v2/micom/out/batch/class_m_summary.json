@@ -1,0 +1,14 @@
+{
+ "samples": 277,
+ "solved": 276,
+ "failed": [
+  "10212"
+ ],
+ "certified_1pct": 137,
+ "certified_5pct": 197,
+ "exports_unmapped_taxa": 1,
+ "pairs_available": 1528,
+ "pairs_supported": 8,
+ "sens5pct_pairs_available": 1741,
+ "sens5pct_pairs_supported": 9
+}

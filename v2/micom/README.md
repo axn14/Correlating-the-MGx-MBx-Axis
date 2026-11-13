@@ -25,7 +25,7 @@ for a different reason than the one it was undertaken for — it changes which t
 observed to produce putrescine and spermidine, from 1 sample to 7 and from 0 to 3, while
 leaving every compound the diet does not supply untouched.
 
-## Seven findings, in order of how much they change
+## Eight findings, in order of how much they change
 
 ### 1. The medium has been supplying no glucose
 
@@ -238,6 +238,45 @@ optimal there, and the new answers are certified within 3.1% and 0.65%. In 10092
 putrescine producer changes from *P. vulgatus* (OSQP) to *E. coli* (certified): **producer
 identity, the paper's output, depends on solver accuracy in large communities.** P2 still
 counts as failed; it is not re-scored.
+
+### 8. The 277-sample batch: class M, and what it does and does not change (2026-11-13)
+
+Dardel jobs 27477263 and 27477264 ran each sample as its own task. The task built the
+community model (`micom_batch.py build-one`), then ran the certified cooperative tradeoff
+at alpha 0.5 and the forced-secretion FVA (`forced_secretion.py`), in separate processes.
+Before that, a 3-sample pilot (27477054/55) matched the laptop's memory predictions to
+within 5%. Two earlier build jobs were lost to configuration errors, about 40 core-h:
+the `.qza` was unzipped into the memory-backed `/tmp` of every worker, and then the
+workers thrashed at the 20 GB ceiling.
+
+| | |
+|---|---|
+| samples solved | 276 / 277 (10212: the pFBA step did not reach optimal) |
+| certified gap <= 1% (the class M requirement, CONTRACTS 5d) | **137** |
+| certified gap <= 5% (non-voting sensitivity) | 197 |
+| (species, target) pairs assessable | 1,528 (1,741 at 5%) |
+| **class M supported** (forced in >= 20% and >= 10 certified samples; base rate <= 0.2) | **8** (9 at 5%) |
+| billed | 412 core-h against an estimate of 307 (tasks ran longer: median 21 min) |
+
+The 8 pairs:
+- **histidine**: *Anaerobutyricum hallii*, *Eubacterium_G ventriosum*, *Ruminococcus_C callidus*, each forced in 100% of samples;
+- **tyrosine**: *F. prausnitzii_D* and *_G*, 99%;
+- **ornithine**: *Enterocloster* sp001517625, 95%;
+- **spermidine**: *E. bolteae*, 27%;
+- **valine**: *Phascolarctobacterium_A succinatutens*, 31%.
+
+The 1% certification rule costs almost nothing: 8 pairs against 9 at 5%.
+
+**Class M moves no tier.** A pair enters the evidence table only through a significant
+partial correlation in Yachida (NB08), and none of the 8 has one. Four were tested and
+are null (rho -0.12 to +0.13, q 0.14-0.62). The other four involve species outside NB02's
+prevalence-filtered set, so they were never tested. **The organisms the community model
+says must export a target are not the organisms whose abundance tracks it.** That is a
+result in its own right, not a gap to be closed.
+- Some reasons are mechanistic. Amino acids are exported by many taxa, and faecal
+  concentration integrates host, diet and microbial supply.
+- Some are statistical. A forced export at fixed abundance need not co-vary with that
+  taxon's abundance across people.
 
 ## The reformulated medium
 
