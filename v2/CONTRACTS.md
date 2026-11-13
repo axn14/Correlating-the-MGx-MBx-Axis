@@ -699,6 +699,55 @@ already seen are classes O, R, M and X (run `20261112T100147Z_fb7bf68`).
 4. Targets with no producing EC in AGORA2 (11 of the 28 with a KEGG id) stay unavailable for
    G. That is reported as a finding about the reference, never as a negative.
 
+### 5d-vi. Calibration of the tier rule and of class X (v2.6, 2026-11-13)
+**Why.** A *Microbiome* reviewer will ask two things the tiers alone cannot answer:
+1. How many Supported links would the rule produce if the classes agreed only by chance?
+2. Was Erawijantari (n = 42) ever able to replicate the stage-associated pairs?
+
+Both analyses are written down here **before either is run**. They read only the finished
+run `20261112T100147Z_fb7bf68`. Neither changes a tier. Code is in `v2/calibration/`.
+
+1. **Class-agreement null (`class_null.py`).**
+   - Input: the target pairs of `final_evidence_classes_v2.csv`.
+   - Held fixed: class O, every gate (export gate, confounder attribution) and every
+     availability flag.
+   - Within each target metabolite, each non-O class is permuted independently across the
+     pairs where it is available:
+     - R: its member columns, moved as one block;
+     - G: support;
+     - M: support;
+     - X: the Erawijantari (ρ, q) values. Support and contradiction are then recomputed
+       against the row's own Yachida sign, by the rule of
+       `replication/erawijantari_species.py`.
+   - Tiers come from `evidence_tools.class_tier` itself. The script first asserts that an
+     identity "permutation" reproduces every observed `Tier_class`.
+   - B = 1,000, seed 20261113.
+   - Statistics: the counts of Supported-or-better and of Conclusive pairs, overall and per
+     `Target_label`.
+   - Reported: the observed count, null mean, null 2.5–97.5 % interval, empirical
+     p = (1 + #{null ≥ obs}) / (1 + B), and the expected false share = null mean / observed.
+2. **Replication power (`replication_power.py`).**
+   - Family: the 3,535 X-available pairs, as in the original BH step.
+   - Truth: ρ_true = m × Yachida `Rho_partial` for every pair, with m ∈ {1.0, 0.75, 0.5}
+     (none, moderate and strong winner's-curse shrinkage). All three are reported; none is
+     chosen after the fact.
+   - Each replicate draws the Fisher z of every pair as
+     N(atanh ρ_true, 1.06 / (n − k − 3)), with n = 42 and k = 5 covariates (Bonett–Wright
+     variance for Spearman). The p-value comes from t with n − 2 − k df, as in
+     `utils.partial_spearman_grid`. BH is applied across the family.
+   - Support: same sign and q < 0.05.
+   - Pairs are drawn independently. That leaves the expected count unbiased but understates
+     its spread; this is stated wherever it is used.
+   - B = 1,000, seed 20261113.
+   - Reported: expected vs observed supported counts among the O-supported, X-available pairs,
+     per `Target_label` and per metabolite.
+   - **Verdict rule, fixed now:**
+     - If the observed stage-associated count lies at or above the 2.5th percentile of its
+       expectation at m = 0.5, the stage shortfall is attributed to **power**.
+     - If it lies below that percentile even at m = 0.5, the stage pairs replicate **less than
+       their own effect sizes predict**, which points to cohort-specific or inflated Yachida
+       associations. It is reported as that.
+
 ---
 
 ## 6. Notebook contracts
