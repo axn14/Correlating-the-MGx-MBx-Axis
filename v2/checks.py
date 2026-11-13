@@ -1723,6 +1723,26 @@ def e16():
     assert not capped, f"NB03 caps its robust targets at a call site: {capped}"
 
 
+@check("E17 the calibration (CONTRACTS 5d-vi) reuses the tier rule and states its contract")
+def e17():
+    """5d-vi: the tier-rule null must tier through evidence_tools.class_tier (never a copy),
+    and both calibration outputs, where present, must name their contract. A null that
+    re-implemented the rule could drift from the rule it claims to calibrate."""
+    cal = NB_DIR / "calibration"
+    src = (cal / "class_null.py").read_text(encoding="utf-8")
+    assert "et.class_tier(" in src, "class_null.py must tier with evidence_tools.class_tier"
+    assert "def class_tier" not in src, "class_null.py re-defines the tier rule"
+    for name, key in (("class_null_provenance.json", "5d-vi(1)"),
+                      ("replication_power_provenance.json", "5d-vi(2)")):
+        p = cal / "out" / name
+        if p.exists():
+            prov = json.loads(p.read_text(encoding="utf-8"))
+            assert key in prov.get("contract", ""), f"{name} does not name {key}"
+    p = cal / "out" / "class_null_provenance.json"
+    if p.exists():
+        assert json.loads(p.read_text(encoding="utf-8"))["identity_check"] == "passed"
+
+
 @check("E15 NB09's synthesis reads NB08's assembler and re-derives none of its sources")
 def e15():
     """The final tier must be assigned on ONE table, not a second weaker synthesis.

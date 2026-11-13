@@ -1,0 +1,19 @@
+{
+ "script": "v2/calibration/replication_power.py",
+ "contract": "CONTRACTS 5d-vi(2)",
+ "run_utc": "2026-11-13T12:21:07+00:00",
+ "results_root": "D:\\KI Research-dardel\\20261112T100147Z_fb7bf68",
+ "n": 42,
+ "k_covariates": 5,
+ "dof": 35,
+ "fisher_se": 0.1766,
+ "family": 3535,
+ "B": 1000,
+ "seed": 20261113,
+ "shrinkage": [
+  1.0,
+  0.75,
+  0.5
+ ],
+ "stage_verdict_at_m0.5": "power"
+}

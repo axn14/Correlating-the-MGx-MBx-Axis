@@ -452,6 +452,8 @@ NOT_PRODUCED = {
     "*_vs_*_DA_v2.csv": "retired per-comparison DA family, replaced by "
                         "differential_abundance_v2.csv (the Stage I-II vs III-IV "
                         "contrast is declared under NB02)",
+    "final_evidence_classes_v2.csv": "written by v2/assemble_classes.py, the post-NB09 "
+                                     "step (CONTRACTS 5d), outside run_pipeline",
     "gut_diet_v2.csv": "written by v2/micom/diet_screen.py, a standalone script outside "
                        "run_pipeline; it is NB10's medium, and NB10 also runs outside it",
     "nb10_*_v2.csv": "NB10 (MICOM) runs outside run_pipeline (hours; micom is pinned "

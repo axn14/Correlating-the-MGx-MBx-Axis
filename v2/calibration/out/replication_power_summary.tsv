@@ -1,0 +1,10 @@
+shrinkage_m	set	pairs	observed_replicated	expected_mean	expected_lo95	expected_hi95	mean_power_per_pair	p_obs_or_fewer
+1.0	all_O_supported	726	72	76.7	56.0	99.0	0.106	0.3646
+1.0	a_priori_class	347	68	44.1	31.0	58.0	0.127	0.999
+1.0	stage_associated	379	4	32.7	21.0	46.0	0.086	0.001
+0.75	all_O_supported	726	72	8.3	0.0	19.0	0.011	1.0
+0.75	a_priori_class	347	68	5.0	0.0	12.0	0.015	1.0
+0.75	stage_associated	379	4	3.2	0.0	9.0	0.008	0.7303
+0.5	all_O_supported	726	72	0.3	0.0	2.0	0.0	1.0
+0.5	a_priori_class	347	68	0.2	0.0	2.0	0.001	1.0
+0.5	stage_associated	379	4	0.1	0.0	1.0	0.0	1.0
