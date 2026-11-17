@@ -1,5 +1,7 @@
 # Microbial sources of CRC-associated faecal metabolites (v2.0)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24323834.svg)](https://doi.org/10.5281/zenodo.24323834)
+
 This repository asks which gut bacteria produce the faecal metabolites that distinguish
 colorectal cancer (CRC) from health. It uses public paired metagenome and metabolome data
 and an evidence standard that was written down before its results existed.
@@ -76,5 +78,9 @@ preliminary. Earlier summaries of this work, including the 2026 MSc thesis, repo
 
 ## Citing
 
-Please cite the v2.0 release (DOI to follow) and the original data publications: Yachida et
-al. 2019, Erawijantari et al. 2020, Sinha et al. 2016 and Kim et al. 2020.
+Please cite the release you used and the original data publications: Yachida et al. 2019,
+Erawijantari et al. 2020, Sinha et al. 2016 and Kim et al. 2020.
+
+- v2.0: Nair A. Correlating-the-MGx-MBx-Axis, version 2.0. Zenodo; 2026.
+  https://doi.org/10.5281/zenodo.24323835
+- All versions (resolves to the latest release): https://doi.org/10.5281/zenodo.24323834

@@ -2,6 +2,8 @@
 
 ## v2.0 (November 2026)
 
+Archived at Zenodo: https://doi.org/10.5281/zenodo.24323835
+
 v2.0 is a rewrite of the analysis, not an update to it. It changes how samples are grouped,
 how targets are chosen and what counts as evidence. Several results reported with
 `v1.0-thesis` do not survive these changes. They are listed here so that nobody relies on
