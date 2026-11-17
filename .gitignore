@@ -1,36 +1,93 @@
-# Raw data (not tracked)
+# ---------------------------------------------------------------------------
+# Data. ~52 GB: the four cohort TSVs plus the pre-built AGORA2/AGORA103 community
+# models (~36 GB) and MICOM solver artefacts. Source cohorts are cited by
+# accession in the manuscript and the model build is documented, not shipped.
+# ---------------------------------------------------------------------------
 Data/
 
-# Results: track only figures/ and tables/ — exclude large binaries and intermediates
-Results/intermediate/
-Results/gutsmash_runs/
-Results/slurm_scripts/
-Results/mimosa2/
-Results/LabMeet_23022026/
-Results/*.pptx
-Results/*.pkl
+# ---------------------------------------------------------------------------
+# Generated outputs. Every figure and table is reproducible from a pipeline run
+# against a tagged commit; the frozen baseline is archived for deposition
+# separately. Notebooks recreate this tree via mkdir(parents=True, exist_ok=True).
+# ---------------------------------------------------------------------------
+Results/
 
-# Python cache
+# Python
 __pycache__/
-*.pyc
-*.pyo
-.Python
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
 
-# Jupyter checkpoints and backup files
+# joblib / Optuna caches written by ml_workbench
+.joblib_cache/
+*.optuna-journal*
+
+# Jupyter
 .ipynb_checkpoints/
-*.ipynb_checkpoints
-*.bak
-*.bak1
-*.bak2
-*.bak3
-*.bak_*
 
-# IDE / OS
-.vscode/
-*.DS_Store
+# Local tooling state (personal, not shared)
+.claude/settings.local.json
+
+# Dardel deployment config: host, username, allocation id and absolute paths.
+# Personal and site-specific; dardel.env.example is the tracked template.
+v2/dardel/dardel.env
+
+# Two kinds of litter the Dardel checkout accumulates: the transfer scratch
+# 02_stage_inputs.sh leaves behind, and the SLURM job logs, which land next to the
+# batch script because that is the submission directory. Both have to be ignored
+# rather than deleted: run_pipeline.py reads `git status --porcelain`, which counts
+# untracked files, so either one makes every run on that machine dirty -- and a dirty
+# run keeps Results/SMOKE_RUN.txt and can never become a baseline. The job logs are
+# also the only copy of a run's stdout, so deleting them to get a clean tree would
+# throw away the record. They cannot move into Results/logs/ either: archive_results
+# relocates that tree mid-run, underneath the job still writing to it.
+.stage/
+v2/dardel/slurm-*.out
+
+# The TrEMBL arm of the enzyme probe: 19 MB of sequence that is fully determined by
+# members_trembl.tsv, which IS committed and pins every accession. Rebuild it with
+# `python v2/reads/build_enzyme_db.py --unreviewed`. The Swiss-Prot arm is small and
+# is committed as sequence, because it is the arm that supports a presence claim.
+v2/reads/enzymes/enzymes_trembl.faa
+
+# The full UniRef90 row-name index: 42 MB, all 8,930,907 row names of
+# gene_families.rda. Kept on disk because having it means no later question needs a
+# second five-minute load of the 3.26 GB object, but it is a mechanical dump of the
+# source matrix and extract_gene_families.sbatch regenerates it byte for byte. The
+# small evidence tables in the same directory ARE committed, because the chapter cites
+# their numbers and a reader should not need Dardel access to check them.
+v2/genes/out/rownames_index.txt.gz
+
+# The background set's raw abundances: 4.4 MB of (row, sample, abundance) triples for
+# 6,335 non-target gene families. Same reasoning as the row-name index -- it is an
+# input to a control, not a result, and background.R regenerates it exactly (the draw
+# is seeded, SEED = 20261108, and background_matching.tsv records the decile-by-decile
+# counts it produced). What the chapter cites is background_trend.tsv, which IS
+# committed at 1 MB along with the matching table and provenance.
+v2/genes/out/gf_background_long.tsv.gz
+
+# The community models and solved pickles `diet_screen.py --community N` builds to
+# compare the two media on real samples. Hundreds of MB of micom community models plus
+# their GrowthResults, rebuilt by re-running the flag. The comparison itself --
+# out/community_check.tsv -- is small and IS committed.
+v2/micom/out/community/
+
+# OS and Office cruft
 Thumbs.db
+desktop.ini
+.DS_Store
+~$*
 
-# Large model/database files
-*.qza
-*.h5
-*.hdf5
+# surgical-edit backups (git is the backup)
+*.bak
+
+# Local archives of lab data and old analysis results (~570 MB and ~400 MB). They
+# are kept on disk but never committed. Ignored so that `git status --porcelain`,
+# which run_pipeline.py uses to certify a clean tree, does not count them.
+Data_files-Saei_lab.zip
+Full_analysis_results.zip
+
+# The author's own working note, deliberately kept out of the repo.
+writeup/read_programme_alternative.md

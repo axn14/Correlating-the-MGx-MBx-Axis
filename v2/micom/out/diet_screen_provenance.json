@@ -1,0 +1,2562 @@
+{
+  "built_utc": "2026-11-08T13:57:09Z",
+  "diet_in": {
+    "file": "western_diet_gut.csv",
+    "reactions": 167,
+    "renamed": {
+      "EX_glc(e)": "EX_glc_D(e)"
+    },
+    "reaching_no_model": [
+      "EX_arachd_e",
+      "EX_hdcea_e",
+      "EX_lnlnca_e",
+      "EX_octa_e",
+      "EX_adpcbl_e",
+      "EX_fe3dcit_e",
+      "EX_amp_e"
+    ]
+  },
+  "cohort": {
+    "primary_samples": 277,
+    "species": 1562,
+    "in_agora2": 327,
+    "abundance_coverage": 0.6461,
+    "screened": 327
+  },
+  "growth_floor": 1e-06,
+  "safety_factor": 2.0,
+  "non_growing": {
+    "species": [
+      "Acutalibacter timonensis",
+      "Akkermansia muciniphila",
+      "Allisonella pneumosintes",
+      "Alloscardovia omnicolens",
+      "Bacteroides_F pectinophilus",
+      "Coprococcus sp000154245",
+      "Enterococcus_A avium",
+      "Phascolarctobacterium_A succinatutens",
+      "Porphyromonas_A somerae",
+      "Ruminococcus_F champanellensis",
+      "Tractidigestivibacter sp000752675",
+      "Turicibacter sp001543345"
+    ],
+    "samples_containing_one": 142,
+    "samples_total": 277,
+    "fraction_of_samples": 0.5126,
+    "median_per_sample": 1.0,
+    "gaps": [
+      {
+        "species": "Acutalibacter timonensis",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_glyasn(e)"
+      },
+      {
+        "species": "Akkermansia muciniphila",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_glyasp(e)"
+      },
+      {
+        "species": "Allisonella pneumosintes",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_mal_L(e)"
+      },
+      {
+        "species": "Alloscardovia omnicolens",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_alaasp(e)"
+      },
+      {
+        "species": "Bacteroides_F pectinophilus",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_ins(e)"
+      },
+      {
+        "species": "Coprococcus sp000154245",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_nh4(e)"
+      },
+      {
+        "species": "Enterococcus_A avium",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_mal_L(e)"
+      },
+      {
+        "species": "Phascolarctobacterium_A succinatutens",
+        "n_added": 2,
+        "error": "",
+        "added": "EX_anzp(e);EX_succ(e)"
+      },
+      {
+        "species": "Porphyromonas_A somerae",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_lac_L(e)"
+      },
+      {
+        "species": "Ruminococcus_F champanellensis",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_nh4(e)"
+      },
+      {
+        "species": "Tractidigestivibacter sp000752675",
+        "n_added": 1,
+        "error": "",
+        "added": "EX_no3(e)"
+      },
+      {
+        "species": "Turicibacter sp001543345",
+        "n_added": 2,
+        "error": "",
+        "added": "EX_glytyr(e);EX_ins(e)"
+      }
+    ]
+  },
+  "targets_supplied_by_diet": [
+    "ptrc",
+    "spmd"
+  ],
+  "targets_already_absent": [
+    "agm",
+    "15dap",
+    "sprm",
+    "4abut",
+    "trypta",
+    "hista",
+    "tym",
+    "acglu"
+  ],
+  "withdrawal": {
+    "ptrc": {
+      "n_tested": 315,
+      "n_auxotroph": 64,
+      "auxotrophs": [
+        "Actinomyces graevenitzii",
+        "Alistipes timonensis",
+        "Alistipes_A ihumii",
+        "Alloprevotella sp000318095",
+        "Alloprevotella tannerae",
+        "Anaerotignum lactatifermentans",
+        "Bacteroides acidifaciens",
+        "Bacteroides caecimuris",
+        "Bacteroides gallinarum",
+        "Bacteroides neonati",
+        "Bacteroides rodentium",
+        "Bacteroides zhangwenhongi",
+        "Brachyspira aalborgi",
+        "Centipeda periodontii",
+        "Clostridium_AP scindens",
+        "Coprobacter fastidiosus",
+        "Dysosmobacter welbionis",
+        "Eisenbergiella porci",
+        "Eisenbergiella tayi",
+        "Enorma massiliensis",
+        "Erysipelatoclostridium ramosum",
+        "Eubacterium_B sulci",
+        "Faecalibacillus intestinalis",
+        "Faecalimonas sp000209385",
+        "Faecalimonas umbilicata",
+        "Faecalitalea cylindroides",
+        "Fournierella massiliensis",
+        "Fusicatenibacter saccharivorans",
+        "Fusobacterium_A necrogenes",
+        "Gemella morbillorum",
+        "Gemella sanguinis",
+        "Haemophilus_D pittmaniae",
+        "Holdemania massiliensis",
+        "Lawsonibacter asaccharolyticus",
+        "Limosilactobacillus mucosae",
+        "Longibaculum muris",
+        "Longicatena caecimuris",
+        "Mediterraneibacter massiliensis",
+        "Parabacteroides chinchillae",
+        "Parvimonas sp000214475",
+        "Pauljensenia odontolytica_B",
+        "Pauljensenia sp000278725",
+        "Peptostreptococcus anaerobius",
+        "Peptostreptococcus stomatis",
+        "Phocaeicola barnesiae",
+        "Phocaeicola sartorii",
+        "Porphyromonas asaccharolytica",
+        "Porphyromonas endodontalis",
+        "Porphyromonas uenonis",
+        "Porphyromonas uenonis_A",
+        "Prevotella histicola",
+        "Prevotella multiformis",
+        "Prevotella nigrescens",
+        "Prevotella oris",
+        "Ruthenibacterium lactatiformans",
+        "Schaedlerella glycyrrhizinilytica_A",
+        "Sellimonas intestinalis",
+        "Streptococcus infantis_B",
+        "Streptococcus infantis_H",
+        "Streptococcus koreensis",
+        "Streptococcus oralis_S",
+        "Streptococcus pasteurianus",
+        "Streptococcus sobrinus",
+        "Turicibacter sanguinis"
+      ],
+      "max_saturating_supply": 0.00597381591796875,
+      "median_saturating_supply": 0.00066375732421875,
+      "demand_median": 1.2100719204121242e-05,
+      "demand_max": 0.00010051662016061032,
+      "samples_demanding": 274
+    },
+    "spmd": {
+      "n_tested": 315,
+      "n_auxotroph": 172,
+      "auxotrophs": [
+        "Acidaminococcus fermentans",
+        "Acidaminococcus intestini",
+        "Actinomyces graevenitzii",
+        "Adlercreutzia equolifaciens",
+        "Agathobacter faecis",
+        "Aggregatibacter aphrophilus",
+        "Akkermansia sp001580195",
+        "Alistipes finegoldii",
+        "Alistipes onderdonkii",
+        "Alistipes putredinis",
+        "Alistipes senegalensis",
+        "Alistipes shahii",
+        "Alistipes timonensis",
+        "Alistipes_A ihumii",
+        "Alistipes_A indistinctus",
+        "Alloprevotella sp000318095",
+        "Alloprevotella tannerae",
+        "Anaeroglobus micronuciformis",
+        "Anaerostipes caccae",
+        "Anaerostipes hadrus",
+        "Anaerotignum lactatifermentans",
+        "Bacteroides acidifaciens",
+        "Bacteroides caecimuris",
+        "Bacteroides cellulosilyticus",
+        "Bacteroides faecis",
+        "Bacteroides fluxus",
+        "Bacteroides gallinarum",
+        "Bacteroides neonati",
+        "Bacteroides nordii",
+        "Bacteroides oleiciplenus",
+        "Bacteroides pyogenes",
+        "Bacteroides rodentium",
+        "Bacteroides salyersiae",
+        "Bacteroides stercoris",
+        "Bacteroides uniformis",
+        "Bacteroides xylanisolvens",
+        "Bacteroides zhangwenhongi",
+        "Barnesiella intestinihominis",
+        "Bilophila wadsworthia",
+        "Blautia coccoides",
+        "Blautia hansenii",
+        "Blautia_A faecis",
+        "Blautia_A hydrogenotrophica",
+        "Blautia_A luti",
+        "Blautia_A massiliensis",
+        "Blautia_A wexlerae",
+        "Brachyspira aalborgi",
+        "Brachyspira pilosicoli",
+        "Bulleidia moorei",
+        "Butyricimonas virosa",
+        "Centipeda periodontii",
+        "Citrobacter portucalensis",
+        "Cloacibacillus evryensis",
+        "Clostridium_AP scindens",
+        "Clostridium_AQ innocuum",
+        "Collinsella sp000763055",
+        "Collinsella tanakaei",
+        "Coprobacter fastidiosus",
+        "Coprococcus_A catus",
+        "Desulfovibrio fairfieldensis",
+        "Dialister invisus",
+        "Dialister succinatiphilus",
+        "Dysgonomonas gadei",
+        "Dysosmobacter welbionis",
+        "Eggerthella lenta",
+        "Eggerthella sinensis",
+        "Eisenbergiella porci",
+        "Eisenbergiella tayi",
+        "Enorma massiliensis",
+        "Enterocloster citroniae",
+        "Enterocloster clostridioformis",
+        "Enterocloster lavalensis",
+        "Enterocloster sp001517625",
+        "Enterococcus_B faecium",
+        "Enterococcus_B lactis",
+        "Erysipelatoclostridium ramosum",
+        "Escherichia marmotae",
+        "Eubacterium_B sulci",
+        "Eubacterium_I ramulus",
+        "Faecalibacillus intestinalis",
+        "Faecalicoccus pleomorphus",
+        "Faecalimonas sp000209385",
+        "Faecalimonas umbilicata",
+        "Faecalitalea cylindroides",
+        "Flavonifractor plautii",
+        "Frisingicoccus caecimuris",
+        "Fusicatenibacter saccharivorans",
+        "Fusobacterium_A necrogenes",
+        "Fusobacterium_A ulcerans",
+        "Fusobacterium_C necrophorum",
+        "Gemella morbillorum",
+        "Gemella sanguinis",
+        "Haemophilus_A sputorum",
+        "Haemophilus_D pittmaniae",
+        "Holdemania massiliensis",
+        "Hungatella effluvii",
+        "Lactobacillus crispatus",
+        "Lactococcus petauri",
+        "Limosilactobacillus fermentum",
+        "Limosilactobacillus gastricus",
+        "Limosilactobacillus mucosae",
+        "Limosilactobacillus oris",
+        "Longibaculum muris",
+        "Longicatena caecimuris",
+        "Mediterraneibacter faecis",
+        "Mediterraneibacter massiliensis",
+        "Mediterraneibacter torques",
+        "Mesosutterella massiliensis",
+        "Mitsuokella jalaludinii",
+        "Muricomes fissicatena_A",
+        "Odoribacter laneus",
+        "Odoribacter massiliensis",
+        "Odoribacter splanchnicus",
+        "Parabacteroides chinchillae",
+        "Parabacteroides goldsteinii",
+        "Parabacteroides johnsonii",
+        "Paraprevotella clara",
+        "Paraprevotella xylaniphila",
+        "Parasutterella excrementihominis",
+        "Parvimonas sp000214475",
+        "Pauljensenia odontolytica_B",
+        "Pauljensenia sp000278725",
+        "Peptostreptococcus anaerobius",
+        "Peptostreptococcus stomatis",
+        "Phascolarctobacterium faecium",
+        "Phocaeicola barnesiae",
+        "Phocaeicola dorei",
+        "Phocaeicola massiliensis",
+        "Phocaeicola salanitronis",
+        "Phocaeicola sartorii",
+        "Porphyromonas asaccharolytica",
+        "Porphyromonas endodontalis",
+        "Porphyromonas uenonis",
+        "Porphyromonas uenonis_A",
+        "Prevotella buccae",
+        "Prevotella histicola",
+        "Prevotella multiformis",
+        "Prevotella nigrescens",
+        "Prevotella oris",
+        "Prevotella shahii",
+        "Prevotella stercorea",
+        "Pyramidobacter piscolens",
+        "Rikenella microfusus",
+        "Roseburia inulinivorans",
+        "Ruminiclostridium_E siraeum",
+        "Ruminococcus_D bicirculans",
+        "Ruthenibacterium lactatiformans",
+        "Schaedlerella glycyrrhizinilytica_A",
+        "Sellimonas intestinalis",
+        "Senegalimassilia anaerobia",
+        "Slackia exigua",
+        "Slackia_A piriformis",
+        "Streptococcus anginosus_C",
+        "Streptococcus australis",
+        "Streptococcus gallolyticus",
+        "Streptococcus infantis_B",
+        "Streptococcus infantis_H",
+        "Streptococcus koreensis",
+        "Streptococcus lutetiensis",
+        "Streptococcus oralis_S",
+        "Streptococcus pasteurianus",
+        "Streptococcus sobrinus",
+        "Streptococcus vestibularis",
+        "Sutterella parvirubra",
+        "Sutterella wadsworthensis",
+        "Sutterella wadsworthensis_A",
+        "Turicibacter sanguinis",
+        "Veillonella atypica",
+        "Veillonella denticariosi",
+        "Veillonella dispar",
+        "Veillonella rogosae",
+        "Veillonella_A seminalis"
+      ],
+      "max_saturating_supply": 0.00604248046875,
+      "median_saturating_supply": 0.000762939453125,
+      "demand_median": 0.0003270354286180121,
+      "demand_max": 0.001568390411703458,
+      "samples_demanding": 277
+    }
+  },
+  "dose_response": {
+    "ptrc": {
+      "Actinomyces graevenitzii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.29645,
+        "0.01": 0.29645,
+        "0.1": 0.29645,
+        "1": 0.29645
+      },
+      "Alistipes timonensis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.149785,
+        "0.01": 0.149785,
+        "0.1": 0.149785,
+        "1": 0.149785
+      },
+      "Alistipes_A ihumii": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.078882,
+        "0.01": 0.078882,
+        "0.1": 0.078882,
+        "1": 0.078882
+      },
+      "Alloprevotella sp000318095": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.059861,
+        "0.01": 0.059861,
+        "0.1": 0.059861,
+        "1": 0.059861
+      },
+      "Alloprevotella tannerae": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.113037,
+        "0.01": 0.113037,
+        "0.1": 0.113037,
+        "1": 0.113037
+      },
+      "Anaerotignum lactatifermentans": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.083578,
+        "0.01": 0.083578,
+        "0.1": 0.083578,
+        "1": 0.083578
+      },
+      "Bacteroides acidifaciens": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.083331,
+        "0.01": 0.083331,
+        "0.1": 0.083331,
+        "1": 0.083331
+      },
+      "Bacteroides caecimuris": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.206342,
+        "0.01": 0.206342,
+        "0.1": 0.206342,
+        "1": 0.206342
+      },
+      "Bacteroides gallinarum": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.247988,
+        "0.01": 0.247988,
+        "0.1": 0.247988,
+        "1": 0.247988
+      },
+      "Bacteroides neonati": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.078806,
+        "0.01": 0.078806,
+        "0.1": 0.078806,
+        "1": 0.078806
+      },
+      "Bacteroides rodentium": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.105921,
+        "0.01": 0.105921,
+        "0.1": 0.105921,
+        "1": 0.105921
+      },
+      "Bacteroides zhangwenhongi": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.092182,
+        "0.01": 0.092182,
+        "0.1": 0.092182,
+        "1": 0.092182
+      },
+      "Brachyspira aalborgi": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.242453,
+        "0.01": 0.242453,
+        "0.1": 0.242453,
+        "1": 0.242453
+      },
+      "Centipeda periodontii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Clostridium_AP scindens": {
+        "0": -0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.134368,
+        "0.01": 0.134368,
+        "0.1": 0.134368,
+        "1": 0.134368
+      },
+      "Coprobacter fastidiosus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.055054,
+        "0.01": 0.055054,
+        "0.1": 0.055054,
+        "1": 0.055054
+      },
+      "Dysosmobacter welbionis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.06675,
+        "0.01": 0.06675,
+        "0.1": 0.06675,
+        "1": 0.06675
+      },
+      "Eisenbergiella porci": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Eisenbergiella tayi": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.286567,
+        "0.01": 0.286567,
+        "0.1": 0.286567,
+        "1": 0.286567
+      },
+      "Enorma massiliensis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Erysipelatoclostridium ramosum": {
+        "0": 0.0,
+        "1e-05": 0.004844,
+        "0.0001": 0.048442,
+        "0.001": 0.339628,
+        "0.01": 0.339628,
+        "0.1": 0.339628,
+        "1": 0.339628
+      },
+      "Eubacterium_B sulci": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.021593,
+        "0.01": 0.021593,
+        "0.1": 0.021593,
+        "1": 0.021593
+      },
+      "Faecalibacillus intestinalis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.08449,
+        "0.01": 0.08449,
+        "0.1": 0.08449,
+        "1": 0.08449
+      },
+      "Faecalimonas sp000209385": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.095217,
+        "0.01": 0.095217,
+        "0.1": 0.095217,
+        "1": 0.095217
+      },
+      "Faecalimonas umbilicata": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.214373,
+        "0.01": 0.214373,
+        "0.1": 0.214373,
+        "1": 0.214373
+      },
+      "Faecalitalea cylindroides": {
+        "0": 0.0,
+        "1e-05": 0.001321,
+        "0.0001": 0.013214,
+        "0.001": 0.132144,
+        "0.01": 0.351596,
+        "0.1": 0.351596,
+        "1": 0.351596
+      },
+      "Fournierella massiliensis": {
+        "0": -0.0,
+        "1e-05": 0.0003,
+        "0.0001": 0.002999,
+        "0.001": 0.029988,
+        "0.01": 0.180121,
+        "0.1": 0.180893,
+        "1": 0.180893
+      },
+      "Fusicatenibacter saccharivorans": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.182083,
+        "0.01": 0.182083,
+        "0.1": 0.182083,
+        "1": 0.182083
+      },
+      "Fusobacterium_A necrogenes": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.024124,
+        "0.001": 0.024124,
+        "0.01": 0.024124,
+        "0.1": 0.024124,
+        "1": 0.024124
+      },
+      "Gemella morbillorum": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.172846,
+        "0.1": 0.172846,
+        "1": 0.172846
+      },
+      "Gemella sanguinis": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.192722,
+        "0.1": 0.192722,
+        "1": 0.192722
+      },
+      "Haemophilus_D pittmaniae": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Holdemania massiliensis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.185601,
+        "0.1": 0.185601,
+        "1": 0.185601
+      },
+      "Lawsonibacter asaccharolyticus": {
+        "0": -0.0,
+        "1e-05": 0.00139,
+        "0.0001": 0.013898,
+        "0.001": 0.105385,
+        "0.01": 0.105385,
+        "0.1": 0.105385,
+        "1": 0.105385
+      },
+      "Limosilactobacillus mucosae": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.061937,
+        "0.01": 0.061937,
+        "0.1": 0.061937,
+        "1": 0.061937
+      },
+      "Longibaculum muris": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.079493,
+        "0.01": 0.079493,
+        "0.1": 0.079493,
+        "1": 0.079493
+      },
+      "Longicatena caecimuris": {
+        "0": 0.0,
+        "1e-05": 0.004844,
+        "0.0001": 0.048442,
+        "0.001": 0.330929,
+        "0.01": 0.330929,
+        "0.1": 0.330929,
+        "1": 0.330929
+      },
+      "Mediterraneibacter massiliensis": {
+        "0": -0.0,
+        "1e-05": 0.00139,
+        "0.0001": 0.013898,
+        "0.001": 0.13898,
+        "0.01": 0.181877,
+        "0.1": 0.181877,
+        "1": 0.181877
+      },
+      "Parabacteroides chinchillae": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.128633,
+        "0.1": 0.128633,
+        "1": 0.128633
+      },
+      "Parvimonas sp000214475": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.047742,
+        "0.01": 0.047742,
+        "0.1": 0.047742,
+        "1": 0.047742
+      },
+      "Pauljensenia odontolytica_B": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.301895,
+        "0.01": 0.301895,
+        "0.1": 0.301895,
+        "1": 0.301895
+      },
+      "Pauljensenia sp000278725": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.304837,
+        "0.01": 0.304837,
+        "0.1": 0.304837,
+        "1": 0.304837
+      },
+      "Peptostreptococcus anaerobius": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.173657,
+        "0.1": 0.173657,
+        "1": 0.173657
+      },
+      "Peptostreptococcus stomatis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.045193,
+        "0.01": 0.045193,
+        "0.1": 0.045193,
+        "1": 0.045193
+      },
+      "Phocaeicola barnesiae": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.128195,
+        "0.01": 0.128195,
+        "0.1": 0.128195,
+        "1": 0.128195
+      },
+      "Phocaeicola sartorii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.136812,
+        "0.01": 0.136812,
+        "0.1": 0.136812,
+        "1": 0.136812
+      },
+      "Porphyromonas asaccharolytica": {
+        "0": 0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.193622,
+        "0.1": 0.193622,
+        "1": 0.193622
+      },
+      "Porphyromonas endodontalis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.051721,
+        "0.01": 0.051721,
+        "0.1": 0.051721,
+        "1": 0.051721
+      },
+      "Porphyromonas uenonis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067133,
+        "0.01": 0.067133,
+        "0.1": 0.067133,
+        "1": 0.067133
+      },
+      "Porphyromonas uenonis_A": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.036491,
+        "0.01": 0.036491,
+        "0.1": 0.036491,
+        "1": 0.036491
+      },
+      "Prevotella histicola": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Prevotella multiformis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.172133,
+        "0.01": 0.172133,
+        "0.1": 0.172133,
+        "1": 0.172133
+      },
+      "Prevotella nigrescens": {
+        "0": 0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.337652,
+        "0.1": 0.337652,
+        "1": 0.337652
+      },
+      "Prevotella oris": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.168046,
+        "0.01": 0.168046,
+        "0.1": 0.168046,
+        "1": 0.168046
+      },
+      "Ruthenibacterium lactatiformans": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.175709,
+        "0.1": 0.175709,
+        "1": 0.175709
+      },
+      "Schaedlerella glycyrrhizinilytica_A": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Sellimonas intestinalis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.154697,
+        "0.1": 0.154697,
+        "1": 0.154697
+      },
+      "Streptococcus infantis_B": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125737,
+        "0.01": 0.125737,
+        "0.1": 0.125737,
+        "1": 0.125737
+      },
+      "Streptococcus infantis_H": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.082457,
+        "0.01": 0.082457,
+        "0.1": 0.082457,
+        "1": 0.082457
+      },
+      "Streptococcus koreensis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.15502,
+        "0.1": 0.15502,
+        "1": 0.15502
+      },
+      "Streptococcus oralis_S": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.246895,
+        "0.1": 0.246895,
+        "1": 0.246895
+      },
+      "Streptococcus pasteurianus": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.28887,
+        "0.1": 0.28887,
+        "1": 0.28887
+      },
+      "Streptococcus sobrinus": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.210911,
+        "0.01": 0.210911,
+        "0.1": 0.210911,
+        "1": 0.210911
+      },
+      "Turicibacter sanguinis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.173012,
+        "0.1": 0.173012,
+        "1": 0.173012
+      }
+    },
+    "spmd": {
+      "Acidaminococcus fermentans": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.112032,
+        "0.01": 0.112032,
+        "0.1": 0.112032,
+        "1": 0.112032
+      },
+      "Acidaminococcus intestini": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 1.107481,
+        "0.1": 1.107481,
+        "1": 1.107481
+      },
+      "Actinomyces graevenitzii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.29645,
+        "0.01": 0.29645,
+        "0.1": 0.29645,
+        "1": 0.29645
+      },
+      "Adlercreutzia equolifaciens": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.023323,
+        "0.001": 0.023323,
+        "0.01": 0.023323,
+        "0.1": 0.023323,
+        "1": 0.023323
+      },
+      "Agathobacter faecis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 0.325681,
+        "0.1": 0.325681,
+        "1": 0.325681
+      },
+      "Aggregatibacter aphrophilus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Akkermansia sp001580195": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.124659,
+        "0.01": 0.124659,
+        "0.1": 0.124659,
+        "1": 0.124659
+      },
+      "Alistipes finegoldii": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Alistipes onderdonkii": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 1.174514,
+        "0.1": 1.174514,
+        "1": 1.174514
+      },
+      "Alistipes putredinis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.062133,
+        "0.01": 0.062133,
+        "0.1": 0.062133,
+        "1": 0.062133
+      },
+      "Alistipes senegalensis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.14607,
+        "0.01": 0.14607,
+        "0.1": 0.14607,
+        "1": 0.14607
+      },
+      "Alistipes shahii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Alistipes timonensis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.149785,
+        "0.01": 0.149785,
+        "0.1": 0.149785,
+        "1": 0.149785
+      },
+      "Alistipes_A ihumii": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.078882,
+        "0.01": 0.078882,
+        "0.1": 0.078882,
+        "1": 0.078882
+      },
+      "Alistipes_A indistinctus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.083465,
+        "0.01": 0.083465,
+        "0.1": 0.083465,
+        "1": 0.083465
+      },
+      "Alloprevotella sp000318095": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.059861,
+        "0.01": 0.059861,
+        "0.1": 0.059861,
+        "1": 0.059861
+      },
+      "Alloprevotella tannerae": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.113037,
+        "0.01": 0.113037,
+        "0.1": 0.113037,
+        "1": 0.113037
+      },
+      "Anaeroglobus micronuciformis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.048453,
+        "0.01": 0.048453,
+        "0.1": 0.048453,
+        "1": 0.048453
+      },
+      "Anaerostipes caccae": {
+        "0": -0.0,
+        "1e-05": 0.004037,
+        "0.0001": 0.040368,
+        "0.001": 0.403682,
+        "0.01": 0.463803,
+        "0.1": 0.463803,
+        "1": 0.463803
+      },
+      "Anaerostipes hadrus": {
+        "0": 0.0,
+        "1e-05": 0.003778,
+        "0.0001": 0.037785,
+        "0.001": 0.207849,
+        "0.01": 0.207849,
+        "0.1": 0.207849,
+        "1": 0.207849
+      },
+      "Anaerotignum lactatifermentans": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.083578,
+        "0.01": 0.083578,
+        "0.1": 0.083578,
+        "1": 0.083578
+      },
+      "Bacteroides acidifaciens": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.083331,
+        "0.01": 0.083331,
+        "0.1": 0.083331,
+        "1": 0.083331
+      },
+      "Bacteroides caecimuris": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.206342,
+        "0.01": 0.206342,
+        "0.1": 0.206342,
+        "1": 0.206342
+      },
+      "Bacteroides cellulosilyticus": {
+        "0": 0.0,
+        "1e-05": 0.001679,
+        "0.0001": 0.016793,
+        "0.001": 0.167932,
+        "0.01": 0.842209,
+        "0.1": 0.842209,
+        "1": 0.842209
+      },
+      "Bacteroides faecis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Bacteroides fluxus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.236844,
+        "0.01": 0.236844,
+        "0.1": 0.236844,
+        "1": 0.236844
+      },
+      "Bacteroides gallinarum": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.247988,
+        "0.01": 0.247988,
+        "0.1": 0.247988,
+        "1": 0.247988
+      },
+      "Bacteroides neonati": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.078806,
+        "0.01": 0.078806,
+        "0.1": 0.078806,
+        "1": 0.078806
+      },
+      "Bacteroides nordii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Bacteroides oleiciplenus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Bacteroides pyogenes": {
+        "0": 0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.407544,
+        "0.1": 0.407544,
+        "1": 0.407544
+      },
+      "Bacteroides rodentium": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.105921,
+        "0.01": 0.105921,
+        "0.1": 0.105921,
+        "1": 0.105921
+      },
+      "Bacteroides salyersiae": {
+        "0": 0.0,
+        "1e-05": 0.001581,
+        "0.0001": 0.01581,
+        "0.001": 0.158095,
+        "0.01": 0.683081,
+        "0.1": 0.683081,
+        "1": 0.683081
+      },
+      "Bacteroides stercoris": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.282844,
+        "0.1": 0.282844,
+        "1": 0.282844
+      },
+      "Bacteroides uniformis": {
+        "0": 0.0,
+        "1e-05": 0.001424,
+        "0.0001": 0.014238,
+        "0.001": 0.142378,
+        "0.01": 0.868149,
+        "0.1": 0.868149,
+        "1": 0.868149
+      },
+      "Bacteroides xylanisolvens": {
+        "0": 0.0,
+        "1e-05": 0.010076,
+        "0.0001": 0.100759,
+        "0.001": 0.351659,
+        "0.01": 0.351659,
+        "0.1": 0.351659,
+        "1": 0.351659
+      },
+      "Bacteroides zhangwenhongi": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.092182,
+        "0.01": 0.092182,
+        "0.1": 0.092182,
+        "1": 0.092182
+      },
+      "Barnesiella intestinihominis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 1.733401,
+        "0.1": 1.733401,
+        "1": 1.733401
+      },
+      "Bilophila wadsworthia": {
+        "0": 0.0,
+        "1e-05": 0.004844,
+        "0.0001": 0.048442,
+        "0.001": 0.214326,
+        "0.01": 0.214326,
+        "0.1": 0.214326,
+        "1": 0.214326
+      },
+      "Blautia coccoides": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.242711,
+        "0.1": 0.242711,
+        "1": 0.242711
+      },
+      "Blautia hansenii": {
+        "0": -0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.310073,
+        "0.01": 0.310073,
+        "0.1": 0.310073,
+        "1": 0.310073
+      },
+      "Blautia_A faecis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Blautia_A hydrogenotrophica": {
+        "0": 0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.645891,
+        "0.01": 0.756937,
+        "0.1": 0.756937,
+        "1": 0.756937
+      },
+      "Blautia_A luti": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.206022,
+        "0.1": 0.206022,
+        "1": 0.206022
+      },
+      "Blautia_A massiliensis": {
+        "0": 0.0,
+        "1e-05": 0.002519,
+        "0.0001": 0.02519,
+        "0.001": 0.251899,
+        "0.01": 0.391137,
+        "0.1": 0.391137,
+        "1": 0.391137
+      },
+      "Blautia_A wexlerae": {
+        "0": 0.0,
+        "1e-05": 0.001889,
+        "0.0001": 0.018892,
+        "0.001": 0.188924,
+        "0.01": 0.373885,
+        "0.1": 0.373885,
+        "1": 0.373885
+      },
+      "Brachyspira aalborgi": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.242453,
+        "0.01": 0.242453,
+        "0.1": 0.242453,
+        "1": 0.242453
+      },
+      "Brachyspira pilosicoli": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 0.608026,
+        "0.1": 0.608026,
+        "1": 0.608026
+      },
+      "Bulleidia moorei": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.153503,
+        "0.1": 0.153503,
+        "1": 0.153503
+      },
+      "Butyricimonas virosa": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 0.325681,
+        "0.1": 0.325681,
+        "1": 0.325681
+      },
+      "Centipeda periodontii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Citrobacter portucalensis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Cloacibacillus evryensis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Clostridium_AP scindens": {
+        "0": -0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.134368,
+        "0.01": 0.134368,
+        "0.1": 0.134368,
+        "1": 0.134368
+      },
+      "Clostridium_AQ innocuum": {
+        "0": -0.0,
+        "1e-05": 0.002562,
+        "0.0001": 0.025617,
+        "0.001": 0.256167,
+        "0.01": 0.936797,
+        "0.1": 0.936797,
+        "1": 0.936797
+      },
+      "Collinsella sp000763055": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.199904,
+        "0.01": 0.199904,
+        "0.1": 0.199904,
+        "1": 0.199904
+      },
+      "Collinsella tanakaei": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.177267,
+        "0.1": 0.177267,
+        "1": 0.177267
+      },
+      "Coprobacter fastidiosus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.055054,
+        "0.01": 0.055054,
+        "0.1": 0.055054,
+        "1": 0.055054
+      },
+      "Coprococcus_A catus": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.091163,
+        "0.01": 0.091163,
+        "0.1": 0.091163,
+        "1": 0.091163
+      },
+      "Desulfovibrio fairfieldensis": {
+        "0": 0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.645891,
+        "0.01": 0.689362,
+        "0.1": 0.689362,
+        "1": 0.689362
+      },
+      "Dialister invisus": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.005899,
+        "0.001": 0.005899,
+        "0.01": 0.005899,
+        "0.1": 0.005899,
+        "1": 0.005899
+      },
+      "Dialister succinatiphilus": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.034543,
+        "0.01": 0.034543,
+        "0.1": 0.034543,
+        "1": 0.034543
+      },
+      "Dysgonomonas gadei": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.285739,
+        "0.01": 0.285739,
+        "0.1": 0.285739,
+        "1": 0.285739
+      },
+      "Dysosmobacter welbionis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.06675,
+        "0.01": 0.06675,
+        "0.1": 0.06675,
+        "1": 0.06675
+      },
+      "Eggerthella lenta": {
+        "0": -0.0,
+        "1e-05": 0.003359,
+        "0.0001": 0.033586,
+        "0.001": 0.25276,
+        "0.01": 0.25276,
+        "0.1": 0.25276,
+        "1": 0.25276
+      },
+      "Eggerthella sinensis": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.06086,
+        "0.01": 0.06086,
+        "0.1": 0.06086,
+        "1": 0.06086
+      },
+      "Eisenbergiella porci": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Eisenbergiella tayi": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.286567,
+        "0.01": 0.286567,
+        "0.1": 0.286567,
+        "1": 0.286567
+      },
+      "Enorma massiliensis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Enterocloster citroniae": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.210524,
+        "0.1": 0.210524,
+        "1": 0.210524
+      },
+      "Enterocloster clostridioformis": {
+        "0": 0.0,
+        "1e-05": 0.002751,
+        "0.0001": 0.027513,
+        "0.001": 0.275131,
+        "0.01": 0.686407,
+        "0.1": 0.686407,
+        "1": 0.686407
+      },
+      "Enterocloster lavalensis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.189425,
+        "0.1": 0.189425,
+        "1": 0.189425
+      },
+      "Enterocloster sp001517625": {
+        "0": -0.0,
+        "1e-05": 0.00139,
+        "0.0001": 0.013898,
+        "0.001": 0.127801,
+        "0.01": 0.127801,
+        "0.1": 0.127801,
+        "1": 0.127801
+      },
+      "Enterococcus_B faecium": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.330396,
+        "0.1": 0.330396,
+        "1": 0.330396
+      },
+      "Enterococcus_B lactis": {
+        "0": 0.0,
+        "1e-05": 0.001319,
+        "0.0001": 0.013195,
+        "0.001": 0.131947,
+        "0.01": 0.304366,
+        "0.1": 0.304366,
+        "1": 0.304366
+      },
+      "Erysipelatoclostridium ramosum": {
+        "0": 0.0,
+        "1e-05": 0.004844,
+        "0.0001": 0.048442,
+        "0.001": 0.339628,
+        "0.01": 0.339628,
+        "0.1": 0.339628,
+        "1": 0.339628
+      },
+      "Escherichia marmotae": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.676434,
+        "0.1": 0.676434,
+        "1": 0.676434
+      },
+      "Eubacterium_B sulci": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.021593,
+        "0.01": 0.021593,
+        "0.1": 0.021593,
+        "1": 0.021593
+      },
+      "Eubacterium_I ramulus": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.195262,
+        "0.1": 0.195262,
+        "1": 0.195262
+      },
+      "Faecalibacillus intestinalis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.08449,
+        "0.01": 0.08449,
+        "0.1": 0.08449,
+        "1": 0.08449
+      },
+      "Faecalicoccus pleomorphus": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.138001,
+        "0.1": 0.138001,
+        "1": 0.138001
+      },
+      "Faecalimonas sp000209385": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.095217,
+        "0.01": 0.095217,
+        "0.1": 0.095217,
+        "1": 0.095217
+      },
+      "Faecalimonas umbilicata": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.214373,
+        "0.01": 0.214373,
+        "0.1": 0.214373,
+        "1": 0.214373
+      },
+      "Faecalitalea cylindroides": {
+        "0": 0.0,
+        "1e-05": 0.001321,
+        "0.0001": 0.013214,
+        "0.001": 0.132144,
+        "0.01": 0.351596,
+        "0.1": 0.351596,
+        "1": 0.351596
+      },
+      "Flavonifractor plautii": {
+        "0": 0.0,
+        "1e-05": 0.002123,
+        "0.0001": 0.021227,
+        "0.001": 0.212274,
+        "0.01": 0.443925,
+        "0.1": 0.443925,
+        "1": 0.443925
+      },
+      "Frisingicoccus caecimuris": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.108138,
+        "0.01": 0.108138,
+        "0.1": 0.108138,
+        "1": 0.108138
+      },
+      "Fusicatenibacter saccharivorans": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.182083,
+        "0.01": 0.182083,
+        "0.1": 0.182083,
+        "1": 0.182083
+      },
+      "Fusobacterium_A necrogenes": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.024124,
+        "0.001": 0.024124,
+        "0.01": 0.024124,
+        "0.1": 0.024124,
+        "1": 0.024124
+      },
+      "Fusobacterium_A ulcerans": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.322945,
+        "0.01": 0.325681,
+        "0.1": 0.325681,
+        "1": 0.325681
+      },
+      "Fusobacterium_C necrophorum": {
+        "0": 0.0,
+        "1e-05": 0.004306,
+        "0.0001": 0.043059,
+        "0.001": 0.329601,
+        "0.01": 0.329601,
+        "0.1": 0.329601,
+        "1": 0.329601
+      },
+      "Gemella morbillorum": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.172846,
+        "0.1": 0.172846,
+        "1": 0.172846
+      },
+      "Gemella sanguinis": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.192722,
+        "0.1": 0.192722,
+        "1": 0.192722
+      },
+      "Haemophilus_A sputorum": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Haemophilus_D pittmaniae": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Holdemania massiliensis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.185601,
+        "0.1": 0.185601,
+        "1": 0.185601
+      },
+      "Hungatella effluvii": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.248219,
+        "0.1": 0.248219,
+        "1": 0.248219
+      },
+      "Lactobacillus crispatus": {
+        "0": 0.0,
+        "1e-05": 0.001417,
+        "0.0001": 0.014169,
+        "0.001": 0.141693,
+        "0.01": 0.194036,
+        "0.1": 0.194036,
+        "1": 0.194036
+      },
+      "Lactococcus petauri": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.308524,
+        "0.01": 0.308524,
+        "0.1": 0.308524,
+        "1": 0.308524
+      },
+      "Limosilactobacillus fermentum": {
+        "0": 0.0,
+        "1e-05": 0.002902,
+        "0.0001": 0.029021,
+        "0.001": 0.290205,
+        "0.01": 0.409735,
+        "0.1": 0.409735,
+        "1": 0.409735
+      },
+      "Limosilactobacillus gastricus": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.065094,
+        "0.01": 0.065094,
+        "0.1": 0.065094,
+        "1": 0.065094
+      },
+      "Limosilactobacillus mucosae": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.061937,
+        "0.01": 0.061937,
+        "0.1": 0.061937,
+        "1": 0.061937
+      },
+      "Limosilactobacillus oris": {
+        "0": 0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.30902,
+        "0.1": 0.30902,
+        "1": 0.30902
+      },
+      "Longibaculum muris": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.079493,
+        "0.01": 0.079493,
+        "0.1": 0.079493,
+        "1": 0.079493
+      },
+      "Longicatena caecimuris": {
+        "0": 0.0,
+        "1e-05": 0.004844,
+        "0.0001": 0.048442,
+        "0.001": 0.330929,
+        "0.01": 0.330929,
+        "0.1": 0.330929,
+        "1": 0.330929
+      },
+      "Mediterraneibacter faecis": {
+        "0": 0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.134368,
+        "0.01": 0.134368,
+        "0.1": 0.134368,
+        "1": 0.134368
+      },
+      "Mediterraneibacter massiliensis": {
+        "0": -0.0,
+        "1e-05": 0.00139,
+        "0.0001": 0.013898,
+        "0.001": 0.13898,
+        "0.01": 0.181877,
+        "0.1": 0.181877,
+        "1": 0.181877
+      },
+      "Mediterraneibacter torques": {
+        "0": 0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.064589,
+        "0.001": 0.645891,
+        "0.01": 0.801842,
+        "0.1": 0.801842,
+        "1": 0.801842
+      },
+      "Mesosutterella massiliensis": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.015658,
+        "0.01": 0.015658,
+        "0.1": 0.015658,
+        "1": 0.015658
+      },
+      "Mitsuokella jalaludinii": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Muricomes fissicatena_A": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.22549,
+        "0.01": 0.22549,
+        "0.1": 0.22549,
+        "1": 0.22549
+      },
+      "Odoribacter laneus": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.131951,
+        "0.01": 0.131951,
+        "0.1": 0.131951,
+        "1": 0.131951
+      },
+      "Odoribacter massiliensis": {
+        "0": -0.0,
+        "1e-05": 0.00139,
+        "0.0001": 0.013898,
+        "0.001": 0.053357,
+        "0.01": 0.053357,
+        "0.1": 0.053357,
+        "1": 0.053357
+      },
+      "Odoribacter splanchnicus": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.159889,
+        "0.01": 0.159889,
+        "0.1": 0.159889,
+        "1": 0.159889
+      },
+      "Parabacteroides chinchillae": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.128633,
+        "0.1": 0.128633,
+        "1": 0.128633
+      },
+      "Parabacteroides goldsteinii": {
+        "0": 0.0,
+        "1e-05": 0.001581,
+        "0.0001": 0.01581,
+        "0.001": 0.158095,
+        "0.01": 0.213238,
+        "0.1": 0.213238,
+        "1": 0.213238
+      },
+      "Parabacteroides johnsonii": {
+        "0": 0.0,
+        "1e-05": 0.002519,
+        "0.0001": 0.02519,
+        "0.001": 0.187572,
+        "0.01": 0.187572,
+        "0.1": 0.187572,
+        "1": 0.187572
+      },
+      "Paraprevotella clara": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.127599,
+        "0.01": 0.127599,
+        "0.1": 0.127599,
+        "1": 0.127599
+      },
+      "Paraprevotella xylaniphila": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.096914,
+        "0.01": 0.096914,
+        "0.1": 0.096914,
+        "1": 0.096914
+      },
+      "Parasutterella excrementihominis": {
+        "0": 0.0,
+        "1e-05": 0.006459,
+        "0.0001": 0.029456,
+        "0.001": 0.029456,
+        "0.01": 0.029456,
+        "0.1": 0.029456,
+        "1": 0.029456
+      },
+      "Parvimonas sp000214475": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.047742,
+        "0.01": 0.047742,
+        "0.1": 0.047742,
+        "1": 0.047742
+      },
+      "Pauljensenia odontolytica_B": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.301895,
+        "0.01": 0.301895,
+        "0.1": 0.301895,
+        "1": 0.301895
+      },
+      "Pauljensenia sp000278725": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.304837,
+        "0.01": 0.304837,
+        "0.1": 0.304837,
+        "1": 0.304837
+      },
+      "Peptostreptococcus anaerobius": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.173657,
+        "0.1": 0.173657,
+        "1": 0.173657
+      },
+      "Peptostreptococcus stomatis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.045193,
+        "0.01": 0.045193,
+        "0.1": 0.045193,
+        "1": 0.045193
+      },
+      "Phascolarctobacterium faecium": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.007865,
+        "0.001": 0.007865,
+        "0.01": 0.007865,
+        "0.1": 0.007865,
+        "1": 0.007865
+      },
+      "Phocaeicola barnesiae": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.128195,
+        "0.01": 0.128195,
+        "0.1": 0.128195,
+        "1": 0.128195
+      },
+      "Phocaeicola dorei": {
+        "0": 0.0,
+        "1e-05": 0.002519,
+        "0.0001": 0.02519,
+        "0.001": 0.2147,
+        "0.01": 0.2147,
+        "0.1": 0.2147,
+        "1": 0.2147
+      },
+      "Phocaeicola massiliensis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.144664,
+        "0.01": 0.144664,
+        "0.1": 0.144664,
+        "1": 0.144664
+      },
+      "Phocaeicola salanitronis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.159688,
+        "0.01": 0.159688,
+        "0.1": 0.159688,
+        "1": 0.159688
+      },
+      "Phocaeicola sartorii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.136812,
+        "0.01": 0.136812,
+        "0.1": 0.136812,
+        "1": 0.136812
+      },
+      "Porphyromonas asaccharolytica": {
+        "0": 0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.193622,
+        "0.1": 0.193622,
+        "1": 0.193622
+      },
+      "Porphyromonas endodontalis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.051721,
+        "0.01": 0.051721,
+        "0.1": 0.051721,
+        "1": 0.051721
+      },
+      "Porphyromonas uenonis": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067133,
+        "0.01": 0.067133,
+        "0.1": 0.067133,
+        "1": 0.067133
+      },
+      "Porphyromonas uenonis_A": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.036491,
+        "0.01": 0.036491,
+        "0.1": 0.036491,
+        "1": 0.036491
+      },
+      "Prevotella buccae": {
+        "0": -0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.420382,
+        "0.1": 0.420382,
+        "1": 0.420382
+      },
+      "Prevotella histicola": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.24949,
+        "0.01": 0.24949,
+        "0.1": 0.24949,
+        "1": 0.24949
+      },
+      "Prevotella multiformis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.172133,
+        "0.01": 0.172133,
+        "0.1": 0.172133,
+        "1": 0.172133
+      },
+      "Prevotella nigrescens": {
+        "0": 0.0,
+        "1e-05": 0.001812,
+        "0.0001": 0.018122,
+        "0.001": 0.181222,
+        "0.01": 0.337652,
+        "0.1": 0.337652,
+        "1": 0.337652
+      },
+      "Prevotella oris": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.168046,
+        "0.01": 0.168046,
+        "0.1": 0.168046,
+        "1": 0.168046
+      },
+      "Prevotella shahii": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.103166,
+        "0.01": 0.103166,
+        "0.1": 0.103166,
+        "1": 0.103166
+      },
+      "Prevotella stercorea": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.120947,
+        "0.01": 0.120947,
+        "0.1": 0.120947,
+        "1": 0.120947
+      },
+      "Pyramidobacter piscolens": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.04156,
+        "0.01": 0.04156,
+        "0.1": 0.04156,
+        "1": 0.04156
+      },
+      "Rikenella microfusus": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.102219,
+        "0.01": 0.102219,
+        "0.1": 0.102219,
+        "1": 0.102219
+      },
+      "Roseburia inulinivorans": {
+        "0": 0.0,
+        "1e-05": 0.004306,
+        "0.0001": 0.043059,
+        "0.001": 0.378927,
+        "0.01": 0.378927,
+        "0.1": 0.378927,
+        "1": 0.378927
+      },
+      "Ruminiclostridium_E siraeum": {
+        "0": 0.0,
+        "1e-05": 0.003778,
+        "0.0001": 0.037785,
+        "0.001": 0.218705,
+        "0.01": 0.218705,
+        "0.1": 0.218705,
+        "1": 0.218705
+      },
+      "Ruminococcus_D bicirculans": {
+        "0": -0.0,
+        "1e-05": 0.002562,
+        "0.0001": 0.025617,
+        "0.001": 0.256167,
+        "0.01": 0.51965,
+        "0.1": 0.51965,
+        "1": 0.51965
+      },
+      "Ruthenibacterium lactatiformans": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.175709,
+        "0.1": 0.175709,
+        "1": 0.175709
+      },
+      "Schaedlerella glycyrrhizinilytica_A": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.067184,
+        "0.01": 0.067184,
+        "0.1": 0.067184,
+        "1": 0.067184
+      },
+      "Sellimonas intestinalis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.154697,
+        "0.1": 0.154697,
+        "1": 0.154697
+      },
+      "Senegalimassilia anaerobia": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.015324,
+        "0.01": 0.015324,
+        "0.1": 0.015324,
+        "1": 0.015324
+      },
+      "Slackia exigua": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.036198,
+        "0.01": 0.036198,
+        "0.1": 0.036198,
+        "1": 0.036198
+      },
+      "Slackia_A piriformis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.022814,
+        "0.001": 0.022814,
+        "0.01": 0.022814,
+        "0.1": 0.022814,
+        "1": 0.022814
+      },
+      "Streptococcus anginosus_C": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.188595,
+        "0.1": 0.188595,
+        "1": 0.188595
+      },
+      "Streptococcus australis": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.155793,
+        "0.1": 0.155793,
+        "1": 0.155793
+      },
+      "Streptococcus gallolyticus": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.265954,
+        "0.1": 0.265954,
+        "1": 0.265954
+      },
+      "Streptococcus infantis_B": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125737,
+        "0.01": 0.125737,
+        "0.1": 0.125737,
+        "1": 0.125737
+      },
+      "Streptococcus infantis_H": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.082457,
+        "0.01": 0.082457,
+        "0.1": 0.082457,
+        "1": 0.082457
+      },
+      "Streptococcus koreensis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.15502,
+        "0.1": 0.15502,
+        "1": 0.15502
+      },
+      "Streptococcus lutetiensis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.152511,
+        "0.1": 0.152511,
+        "1": 0.152511
+      },
+      "Streptococcus oralis_S": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.246895,
+        "0.1": 0.246895,
+        "1": 0.246895
+      },
+      "Streptococcus pasteurianus": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.28887,
+        "0.1": 0.28887,
+        "1": 0.28887
+      },
+      "Streptococcus sobrinus": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.210911,
+        "0.01": 0.210911,
+        "0.1": 0.210911,
+        "1": 0.210911
+      },
+      "Streptococcus vestibularis": {
+        "0": -0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.145382,
+        "0.1": 0.145382,
+        "1": 0.145382
+      },
+      "Sutterella parvirubra": {
+        "0": -0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.020218,
+        "0.001": 0.020218,
+        "0.01": 0.020218,
+        "0.1": 0.020218,
+        "1": 0.020218
+      },
+      "Sutterella wadsworthensis": {
+        "0": 0.0,
+        "1e-05": 0.002519,
+        "0.0001": 0.02519,
+        "0.001": 0.081008,
+        "0.01": 0.081008,
+        "0.1": 0.081008,
+        "1": 0.081008
+      },
+      "Sutterella wadsworthensis_A": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.011161,
+        "0.001": 0.011161,
+        "0.01": 0.011161,
+        "0.1": 0.011161,
+        "1": 0.011161
+      },
+      "Turicibacter sanguinis": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.173012,
+        "0.1": 0.173012,
+        "1": 0.173012
+      },
+      "Veillonella atypica": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.188254,
+        "0.1": 0.188254,
+        "1": 0.188254
+      },
+      "Veillonella denticariosi": {
+        "0": 0.0,
+        "1e-05": 0.001259,
+        "0.0001": 0.012595,
+        "0.001": 0.125949,
+        "0.01": 0.157056,
+        "0.1": 0.157056,
+        "1": 0.157056
+      },
+      "Veillonella dispar": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.223449,
+        "0.01": 0.223449,
+        "0.1": 0.223449,
+        "1": 0.223449
+      },
+      "Veillonella rogosae": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.215593,
+        "0.01": 0.215593,
+        "0.1": 0.215593,
+        "1": 0.215593
+      },
+      "Veillonella_A seminalis": {
+        "0": 0.0,
+        "1e-05": 0.003229,
+        "0.0001": 0.032295,
+        "0.001": 0.119847,
+        "0.01": 0.119847,
+        "0.1": 0.119847,
+        "1": 0.119847
+      }
+    }
+  },
+  "new_supply": {
+    "ptrc": 0.00020103324032122064,
+    "spmd": 0.003136780823406916
+  },
+  "community_check": [
+    {
+      "medium": "western_diet_gut",
+      "samples": 8,
+      "returned_a_solution": 8,
+      "passed_quality_check": 7,
+      "median_community_growth": 2.0515734841509623,
+      "taxa_secreting_ptrc": 16,
+      "taxa_secreting_spmd": 14,
+      "taxa_secreting_agm": 0,
+      "taxa_secreting_15dap": 0,
+      "taxa_secreting_orn": 29,
+      "taxa_secreting_4abut": 6
+    },
+    {
+      "medium": "gut_diet_v2",
+      "samples": 8,
+      "returned_a_solution": 8,
+      "passed_quality_check": 7,
+      "median_community_growth": 2.050241800566604,
+      "taxa_secreting_ptrc": 16,
+      "taxa_secreting_spmd": 23,
+      "taxa_secreting_agm": 0,
+      "taxa_secreting_15dap": 0,
+      "taxa_secreting_orn": 31,
+      "taxa_secreting_4abut": 6
+    }
+  ],
+  "software": {
+    "python": "3.12.10",
+    "pandas": "2.3.0"
+  }
+}

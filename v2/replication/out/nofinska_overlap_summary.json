@@ -1,0 +1,46 @@
+{
+ "script": "v2/replication/nofinska_overlap.py",
+ "run_utc": "2026-11-13T13:15:03+00:00",
+ "sources": {
+  "PRJDB19991_runs.tsv": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJDB19991&result=read_run&fields=run_accession,sample_accession,sample_title,library_strategy,instrument_model,read_count,base_count,fastq_bytes,first_public&format=tsv&limit=0",
+  "PRJDB37508_runs.tsv": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJDB37508&result=read_run&fields=run_accession,sample_accession,sample_title,library_strategy,instrument_model,read_count,base_count,fastq_bytes,first_public&format=tsv&limit=0",
+  "PRJDB4176_runs.tsv": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJDB4176&result=read_run&fields=run_accession,sample_accession,sample_title,library_strategy,instrument_model,read_count,base_count,fastq_bytes,first_public&format=tsv&limit=0",
+  "PRJDB4176_samples.tsv": "https://www.ebi.ac.uk/ena/portal/api/search?result=sample&query=study_accession=PRJDB4176&fields=sample_accession,sample_title,sex,age&format=tsv&limit=0"
+ },
+ "id_check_PRJDB4176_vs_yachida_table": {
+  "subjects_compared": 74,
+  "sex_and_age_agree": 1.0
+ },
+ "nofinska_runs": {
+  "PRJDB19991": 40,
+  "PRJDB37508": 470
+ },
+ "nofinska_subjects": 510,
+ "fastq_gb_total": 2364.1,
+ "subjects_in_PRJDB4176": 292,
+ "subjects_in_our_yachida_table": 148,
+ "our_yachida_overlap_by_group": {
+  "Stage_I_II": 56,
+  "Stage_III_IV": 42,
+  "Healthy": 27,
+  "Stage_0": 23
+ },
+ "subjects_in_our_erawijantari_table": 16,
+ "independent_subjects": 218,
+ "independent_by_project": {
+  "PRJDB37508": 178,
+  "PRJDB19991": 40
+ },
+ "independent_fastq_gb": 1005.0,
+ "non_ncc_subjects": [
+  "KAGAWA-4",
+  "KAGAWA-5"
+ ],
+ "number_range": [
+  1,
+  16121
+ ],
+ "overlap_expected_by_chance": 20.8,
+ "overlap_observed_any": 292,
+ "caveat": "Nofinska BioSamples carry no age or sex, so their overlap rests on the shared patient number. Independence is provisional until the authors' metadata confirms it."
+}

@@ -1,0 +1,22 @@
+{
+  "built_utc": "2026-11-08T05:05:40Z",
+  "map": "C:\\Users\\andna\\AppData\\Local\\Temp\\claude\\581c5e97137d1ae5\\e3187ec4-f22a-42ec-9d89-06928b8faca7\\scratchpad\\mappings\\map_level4ec_uniref90.txt.gz",
+  "ec_source": "v2/reads/build_enzyme_db.py TARGETS (imported, not restated)",
+  "targets": 10,
+  "ecs_found": 10,
+  "ecs_missing": [],
+  "cluster_rows": 24938,
+  "clusters_unique": 17072,
+  "per_ec": {
+    "2.3.1.1": 9888,
+    "2.3.1.35": 7756,
+    "4.1.1.105": 4,
+    "4.1.1.15": 2152,
+    "4.1.1.17": 708,
+    "4.1.1.18": 414,
+    "4.1.1.19": 3448,
+    "4.1.1.22": 180,
+    "4.1.1.25": 221,
+    "4.1.1.28": 167
+  }
+}

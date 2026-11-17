@@ -1,0 +1,18 @@
+uniref90	representative	ec	protein	organism	reviewed	n_samples_nz	max	role
+UniRef90_A0A1B3WEG7	A0A1B3WEG7	4.1.1.17	ornithine decarboxylase (EC 4.1.1.17)	Dialister pneumosintes	unreviewed	105	1.43791e-06	other_decarboxylase
+UniRef90_A0A1G5UUM8	A0A1G5UUM8		Phosphatidylserine decarboxylase	Dialister histaminiformans	unreviewed	88	1.35226e-06	other_decarboxylase
+UniRef90_A0A1G5UVV2	A0A1G5UVV2		Ornithine decarboxylase	Dialister histaminiformans	unreviewed	105	1.64519e-06	other_decarboxylase
+UniRef90_A0A1G5UYC7	A0A1G5UYC7		Uroporphyrinogen decarboxylase (URO-D)	Dialister histaminiformans	unreviewed	94	9.49613e-07	other_decarboxylase
+UniRef90_A0A1G5V2D9	A0A1G5V2D9	6.1.1.21	Histidine--tRNA ligase (EC 6.1.1.21) (Histidyl-tRNA synthetase) (HisRS)	Dialister histaminiformans	unreviewed	27	8.38693e-07	other_decarboxylase
+UniRef90_A0A1G5V3Z9	A0A1G5V3Z9		Oxaloacetate decarboxylase, gamma chain	Dialister histaminiformans	unreviewed	96	1.77789e-06	other_decarboxylase
+UniRef90_A0A1G5V427	A0A1G5V427		Ornithine decarboxylase	Dialister histaminiformans	unreviewed	58	1.048e-06	other_decarboxylase
+UniRef90_A0A1G5V6R2	A0A1G5V6R2	6.1.1.21	Histidine--tRNA ligase (EC 6.1.1.21) (Histidyl-tRNA synthetase) (HisRS)	Dialister histaminiformans	unreviewed	85	1.79114e-06	other_decarboxylase
+UniRef90_A0A1G5V7K0	A0A1G5V7K0		Diaminopimelate decarboxylase	Dialister histaminiformans	unreviewed	96	9.95633e-07	other_decarboxylase
+UniRef90_A0A1G5VDD1	A0A1G5VDD1		S-adenosylmethionine decarboxylase	Dialister histaminiformans	unreviewed	85	2.31704e-06	other_decarboxylase
+UniRef90_A0A1G5VMI8	A0A1G5VMI8	4.1.1.23	Orotidine 5'-phosphate decarboxylase (EC 4.1.1.23) (OMP decarboxylase) (OMPDCase) (OMPdecase)	Dialister histaminiformans	unreviewed	72	1.21688e-06	other_decarboxylase
+UniRef90_A0A1G5VTV8	A0A1G5VTV8	2.7.13.3	histidine kinase (EC 2.7.13.3)	Dialister histaminiformans	unreviewed	100	1.63785e-06	other_decarboxylase
+UniRef90_A0A1G5VWB9	A0A1G5VWB9	2.7.13.3	histidine kinase (EC 2.7.13.3)	Dialister histaminiformans	unreviewed	105	1.44646e-06	other_decarboxylase
+UniRef90_A0A1G5W3H5	A0A1G5W3H5		Histidine triad (HIT) family protein	Dialister histaminiformans	unreviewed	67	2.20637e-06	other_decarboxylase
+UniRef90_A0A1G5WFI9	A0A1G5WFI9	2.7.13.3	histidine kinase (EC 2.7.13.3)	Dialister histaminiformans	unreviewed	79	9.65002e-07	other_decarboxylase
+UniRef90_A0A1G5WQ00	A0A1G5WQ00		Malate dehydrogenase (Oxaloacetate-decarboxylating)	Dialister histaminiformans	unreviewed	100	1.53792e-06	other_decarboxylase
+UniRef90_A0A1G5WQI1	A0A1G5WQI1	4.1.1.50	S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain]	Dialister histaminiformans	unreviewed	100	1.35082e-06	other_decarboxylase

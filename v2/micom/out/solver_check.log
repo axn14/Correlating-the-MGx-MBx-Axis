@@ -1,0 +1,39 @@
+solving 8 samples with OSQP, then exact HiGHS LP repair (v2/micom/highs_qp.py)
+Running ---------------------------------------- 100% 0:14:36
+  10091: 799s  osqp=maximum iterations reached  gap_rel=0.00861
+Running ---------------------------------------- 100% 0:39:25
+  10092: 2170s  osqp=maximum iterations reached  gap_rel=0.0308
+Running ---------------------------------------- 100% 1:01:38
+  10334: 3433s  osqp=maximum iterations reached  gap_rel=0.00654
+Running ---------------------------------------- 100% 0:08:01
+  10335: 371s  osqp=maximum iterations reached  gap_rel=0.00974
+Running ---------------------------------------- 100% 0:04:59
+  10570: 220s  osqp=maximum iterations reached  gap_rel=0.00879
+Running ---------------------------------------- 100% 0:05:55
+  10618: 291s  osqp=maximum iterations reached  gap_rel=0.00415
+Running ---------------------------------------- 100% 0:03:57
+  10659: 193s  osqp=maximum iterations reached  gap_rel=0.00942
+Running ---------------------------------------- 100% 0:01:52
+  10723: 78s  osqp=maximum iterations reached  gap_rel=0.00694
+
+per sample:
+           valid_osqp  valid_new  community_growth_osqp  community_growth_new  max_balance_residual_new                 osqp_status  max_shift  gap_rel  n_growing_osqp  n_growing_new  median_rel_growth_diff    seconds
+sample_id                                                                                                                                                                                                                
+10091           False       True                 0.0000                1.7196                       0.0  maximum iterations reached     0.6734   0.0086               0             45                     NaN   798.9455
+10092            True       True                 2.5278                2.5278                       0.0  maximum iterations reached    11.3188   0.0308              61             61                  0.6888  2170.1541
+10334            True       True                 1.9056                1.9056                       0.0  maximum iterations reached     0.5893   0.0065              60             60                  0.0529  3433.1637
+10335            True       True                 2.0410                2.0410                       0.0  maximum iterations reached     0.0182   0.0097              57             57                  0.0040   370.8467
+10570            True       True                 2.5445                2.5445                       0.0  maximum iterations reached     0.0000   0.0088              32             32                  0.0087   219.6602
+10618            True       True                 2.6165                2.6146                       0.0  maximum iterations reached     0.0000   0.0041              57             57                  0.0061   291.4814
+10659            True       True                 2.0595                2.0595                       0.0  maximum iterations reached     0.0205   0.0094              46             46                  0.0004   193.4978
+10723            True       True                 1.4987                1.4987                       0.0  maximum iterations reached     0.0388   0.0069              20             20                  0.0002    78.2595
+
+criteria: {
+ "P1_all_valid": true,
+ "P2_median_rel_growth_diff": 0.0061457373778828215,
+ "P2_growth_ratio_max_dev": 0.000729566680265914,
+ "P2_secretion_identical_share": 0.7894736842105263,
+ "P3_max_gap_rel": 0.030795376596806208,
+ "P4_median_seconds": 331.1640555858612
+}
+passed: {'P1': True, 'P2': False, 'P3': np.True_, 'P4': False}

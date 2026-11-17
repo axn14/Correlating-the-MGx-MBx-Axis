@@ -1,0 +1,2 @@
+{"sample_id": "10723", "alpha": 0.5, "n_taxa": 20, "peak_gb_after_load": 0.682, "peak_gb_total": 0.844, "seconds": 145.6, "gap_rel": 0.007415844918968279, "n_candidates": 15, "n_lp": 7, "n_forced": 5}
+{"sample_id": "10092", "alpha": 0.5, "n_taxa": 61, "peak_gb_after_load": 1.656, "peak_gb_total": 2.22, "seconds": 2475.0, "gap_rel": 0.04864722899624336, "n_candidates": 27, "n_lp": 5, "n_forced": 3}

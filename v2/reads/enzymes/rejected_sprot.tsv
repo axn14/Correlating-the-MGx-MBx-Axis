@@ -1,0 +1,424 @@
+accession	protein	genes	ec
+A8GYG0	Fatty acid oxidation complex subunit alpha [Includes: Enoyl-CoA hydrat	fadB Spea_0018	1.1.1.35; 4.2.1.17; 5.1.2.3; 5.3.3.8
+O32219	Cadmium, zinc and cobalt-transporting ATPase (EC 7.2.2.12) (EC 7.2.2.2	cadA yvgW BSU33490	7.2.2.12; 7.2.2.21
+Q59465	Cadmium, zinc and cobalt-transporting ATPase (EC 7.2.2.12) (EC 7.2.2.2	cadA HP_0791	7.2.2.12; 7.2.2.21
+A0R3A7	Probable cobalt/nickel-exporting P-type ATPase (EC 7.2.2.-) (Cation-tr	ctpD cadA MSMEG_5403 MSMEI_5256	7.2.2.-
+A8GZ99	Protein nucleotidyltransferase YdiU (EC 2.7.7.-) (Protein adenylyltran	ydiU selO Spea_0308	2.7.7.-; 2.7.7.108
+A8H086	Bifunctional protein HldE [Includes: D-beta-D-heptose 7-phosphate kina	hldE Spea_0646	2.7.1.167; 2.7.7.70
+A8H161	Multifunctional CCA protein [Includes: CCA-adding enzyme (EC 2.7.7.72)	cca Spea_0971	2.7.7.72; 3.1.3.-; 3.1.4.-
+A8H1S4	CTP synthase (EC 6.3.4.2) (Cytidine 5'-triphosphate synthase) (Cytidin	pyrG Spea_1184	6.3.4.2
+A8H242	Dual-specificity RNA methyltransferase RlmN (EC 2.1.1.192) (23S rRNA (	rlmN Spea_1302	2.1.1.192
+A8H6W6	tRNA sulfurtransferase (EC 2.8.1.4) (Sulfur carrier protein ThiS sulfu	thiI Spea_2986	2.8.1.4
+A8H8U2	Pyrimidine/purine nucleoside phosphorylase (EC 2.4.2.1) (EC 2.4.2.2) (	ppnP Spea_3668	2.4.2.1; 2.4.2.2
+A8HAG0	Bifunctional protein GlmU [Includes: UDP-N-acetylglucosamine pyrophosp	glmU Spea_4237	2.3.1.157; 2.7.7.23
+P20021	Cadmium-transporting ATPase (EC 7.2.2.21) (Cadmium-efflux ATPase)	cadA	7.2.2.21
+Q9RQB4	Cadmium, zinc and cobalt-transporting ATPase (EC 7.2.2.12) (EC 7.2.2.2	cadA	7.2.2.12; 7.2.2.21
+Q9ZL53	Cadmium, zinc and cobalt-transporting ATPase (EC 7.2.2.12) (EC 7.2.2.2	cadA jhp_0727	7.2.2.12; 7.2.2.21
+A8GYG1	Xaa-Pro dipeptidase (X-Pro dipeptidase) (EC 3.4.13.9) (Imidodipeptidas	pepQ Spea_0019	3.4.13.9
+A8GYH9	Threonylcarbamoyl-AMP synthase (TC-AMP synthase) (EC 2.7.7.87) (L-thre	tsaC rimN Spea_0037	2.7.7.87
+A8GYI0	Oxygen-dependent coproporphyrinogen-III oxidase (CPO) (Coprogen oxidas	hemF Spea_0038	1.3.3.3
+A8GYI2	Shikimate dehydrogenase (NADP(+)) (SDH) (EC 1.1.1.25)	aroE Spea_0040	1.1.1.25
+A8GYP8	L-threonine 3-dehydrogenase (TDH) (EC 1.1.1.103)	tdh Spea_0106	1.1.1.103
+A8GYS3	3,4-dihydroxy-2-butanone 4-phosphate synthase (DHBP synthase) (EC 4.1.	ribB Spea_0131	4.1.99.12
+A8GYT2	Phosphoenolpyruvate carboxykinase (ATP) (PCK) (PEP carboxykinase) (PEP	pckA Spea_0140	4.1.1.49
+A8GYV2	tRNA 2-selenouridine synthase (EC 2.9.1.3)	selU Spea_0160	2.9.1.3
+A8GYV6	tRNA/tmRNA (uracil-C(5))-methyltransferase (EC 2.1.1.-) (EC 2.1.1.35) 	trmA Spea_0164	2.1.1.-; 2.1.1.35
+A8GYW2	Elongation factor Tu (EF-Tu) (EC 3.6.5.3)	tuf1 Spea_0170; tuf2 Spea_0182	3.6.5.3
+A8GYX0	DNA-directed RNA polymerase subunit beta' (RNAP subunit beta') (EC 2.7	rpoC Spea_0178	2.7.7.6
+A8GZ18	N-acetyl-gamma-glutamyl-phosphate reductase (AGPR) (EC 1.2.1.38) (N-ac	argC Spea_0227	1.2.1.38
+A8GZ19	Acetylglutamate kinase (EC 2.7.2.8) (N-acetyl-L-glutamate 5-phosphotra	argB Spea_0228	2.7.2.8
+A8GZ21	Argininosuccinate synthase (EC 6.3.4.5) (Citrulline--aspartate ligase)	argG Spea_0230	6.3.4.5
+A8GZ29	Shikimate kinase (SK) (EC 2.7.1.71)	aroK Spea_0238	2.7.1.71
+A8GZ30	3-dehydroquinate synthase (DHQS) (EC 4.2.3.4)	aroB Spea_0239	4.2.3.4
+A8GZ41	Phosphoheptose isomerase (EC 5.3.1.28) (Sedoheptulose 7-phosphate isom	gmhA Spea_0250	5.3.1.28
+A8GZD9	Dihydroxy-acid dehydratase (DAD) (EC 4.2.1.9)	ilvD Spea_0348	4.2.1.9
+A8GZG4	Porphobilinogen deaminase (PBG) (EC 2.5.1.61) (Hydroxymethylbilane syn	hemC Spea_0373	2.5.1.61
+A8GZJ0	ATP-dependent RNA helicase RhlB (EC 3.6.4.13)	rhlB Spea_0399	3.6.4.13
+A8GZL8	Uroporphyrinogen decarboxylase (UPD) (URO-D) (EC 4.1.1.37)	hemE Spea_0427	4.1.1.37
+A8GZM3	Bifunctional purine biosynthesis protein PurH [Includes: Phosphoribosy	purH Spea_0432	2.1.2.3; 3.5.4.10
+A8GZV5	D-ribose pyranase (EC 5.4.99.62)	rbsD Spea_0514	5.4.99.62
+A8GZW2	3-octaprenyl-4-hydroxybenzoate carboxy-lyase (EC 4.1.1.98) (Polyprenyl	ubiD Spea_0521	4.1.1.98
+A8H094	Sulfite reductase [NADPH] hemoprotein beta-component (SiR-HP) (SiRHP) 	cysI Spea_0654	1.8.1.2
+A8H0A6	Adenylyl-sulfate kinase (EC 2.7.1.25) (APS kinase) (ATP adenosine-5'-p	cysC Spea_0666	2.7.1.25
+A8H0D3	Pantothenate synthetase (PS) (EC 6.3.2.1) (Pantoate--beta-alanine liga	panC Spea_0693	6.3.2.1
+A8H0D4	3-methyl-2-oxobutanoate hydroxymethyltransferase (EC 2.1.2.11) (Ketopa	panB Spea_0694	2.1.2.11
+A8H0H1	Fructose-1,6-bisphosphatase class 1 (FBPase class 1) (EC 3.1.3.11) (D-	fbp Spea_0731	3.1.3.11
+A8H0J7	Lysine--tRNA ligase (EC 6.1.1.6) (Lysyl-tRNA synthetase) (LysRS)	lysS Spea_0757	6.1.1.6
+A8H0M7	S-adenosylmethionine synthase (AdoMet synthase) (EC 2.5.1.6) (MAT) (Me	metK Spea_0787	2.5.1.6
+A8H0M9	D-erythrose-4-phosphate dehydrogenase (E4PDH) (EC 1.2.1.72)	epd Spea_0789	1.2.1.72
+A8H0N0	Phosphoglycerate kinase (EC 2.7.2.3)	pgk Spea_0790	2.7.2.3
+A8H0Q6	Ribose-5-phosphate isomerase A (EC 5.3.1.6) (Phosphoriboisomerase A) (	rpiA Spea_0816	5.3.1.6
+A8H0U4	GTPase Obg (EC 3.6.5.-) (GTP-binding protein Obg)	obg Spea_0854	3.6.5.-
+A8H0V2	Ribosomal RNA small subunit methyltransferase A (EC 2.1.1.182) (16S rR	rsmA ksgA Spea_0862	2.1.1.182
+A8H152	tRNA N6-adenosine threonylcarbamoyltransferase (EC 2.3.1.234) (N6-L-th	tsaD gcp Spea_0962	2.3.1.234
+A8H164	Glutamate-1-semialdehyde 2,1-aminomutase (GSA) (EC 5.4.3.8) (Glutamate	hemL Spea_0974	5.4.3.8
+A8H183	Anhydro-N-acetylmuramic acid kinase (EC 2.7.1.170) (AnhMurNAc kinase)	anmK Spea_0993	2.7.1.170
+A8H191	5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase (MTA/SAH nu	mtnN Spea_1001	3.2.2.9
+A8H1B4	Thymidylate synthase (TS) (TSase) (EC 2.1.1.45)	thyA Spea_1024	2.1.1.45
+A8H1C5	Elongation factor 4 (EF-4) (EC 3.6.5.n1) (Ribosomal back-translocase L	lepA Spea_1035	3.6.5.n1
+A8H1C7	Ribonuclease 3 (EC 3.1.26.3) (Ribonuclease III) (RNase III)	rnc Spea_1037	3.1.26.3
+A8H1E5	Hydroxylamine reductase (EC 1.7.99.1) (Hybrid-cluster protein) (HCP) (	hcp Spea_1055	1.7.99.1
+A8H1G3	Glucose-6-phosphate isomerase (GPI) (EC 5.3.1.9) (Phosphoglucose isome	pgi Spea_1073	5.3.1.9
+A8H1G4	Transaldolase (EC 2.2.1.2)	tal Spea_1074	2.2.1.2
+A8H1H3	Isoleucine--tRNA ligase (EC 6.1.1.5) (Isoleucyl-tRNA synthetase) (IleR	ileS Spea_1083	6.1.1.5
+A8H1H4	Lipoprotein signal peptidase (EC 3.4.23.36) (Prolipoprotein signal pep	lspA Spea_1084	3.4.23.36
+A8H1H6	4-hydroxy-3-methylbut-2-enyl diphosphate reductase (HMBPP reductase) (	ispH Spea_1086	1.17.7.4
+A8H1Q0	Serine hydroxymethyltransferase (SHMT) (Serine methylase) (EC 2.1.2.1)	glyA Spea_1160	2.1.2.1
+A8H1Q5	6,7-dimethyl-8-ribityllumazine synthase (DMRL synthase) (LS) (Lumazine	ribH Spea_1165	2.5.1.78
+A8H1S1	23S rRNA (uracil(1939)-C(5))-methyltransferase RlmD (EC 2.1.1.190) (23	rlmD rumA Spea_1181	2.1.1.190
+A8H1S5	Enolase (EC 4.2.1.11) (2-phospho-D-glycerate hydro-lyase) (2-phosphogl	eno Spea_1185	4.2.1.11
+A8H1S8	2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase (MECDP-synthase)	ispF Spea_1188	4.6.1.12
+A8H1T6	Alanine--tRNA ligase (EC 6.1.1.7) (Alanyl-tRNA synthetase) (AlaRS)	alaS Spea_1196	6.1.1.7
+A8H245	4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase (flavodoxin) (EC 	ispG Spea_1305	1.17.7.3
+A8H254	GMP synthase [glutamine-hydrolyzing] (EC 6.3.5.2) (GMP synthetase) (Gl	guaA Spea_1314	6.3.5.2
+A8H256	Membrane-bound lytic murein transglycosylase F (EC 4.2.2.n1) (Murein l	mltF Spea_1316	4.2.2.n1
+A8H2J4	Glutamate--tRNA ligase (EC 6.1.1.17) (Glutamyl-tRNA synthetase) (GluRS	gltX Spea_1456	6.1.1.17
+A8H2K8	Queuine tRNA-ribosyltransferase (EC 2.4.2.29) (Guanine insertion enzym	tgt Spea_1470	2.4.2.29
+A8H2M6	Cysteine desulfurase IscS (EC 2.8.1.7)	iscS Spea_1488	2.8.1.7
+A8H2N6	Nucleoside diphosphate kinase (NDK) (NDP kinase) (EC 2.7.4.6) (Nucleos	ndk Spea_1498	2.7.4.6
+A8H2P5	Adenine phosphoribosyltransferase (APRT) (EC 2.4.2.7)	apt Spea_1507	2.4.2.7
+A8H2Z3	tRNA 5-methylaminomethyl-2-thiouridine biosynthesis bifunctional prote	mnmC Spea_1605	1.5.-.-; 2.1.1.61
+A8H305	tRNA pseudouridine synthase A (EC 5.4.99.12) (tRNA pseudouridine(38-40	truA Spea_1617	5.4.99.12
+A8H356	Acetate kinase (EC 2.7.2.1) (Acetokinase)	ackA Spea_1669	2.7.2.1
+A8H376	DNA ligase (EC 6.5.1.2) (Polydeoxyribonucleotide synthase [NAD(+)])	ligA Spea_1689	6.5.1.2
+A8H3E4	NH(3)-dependent NAD(+) synthetase (EC 6.3.1.5)	nadE Spea_1758	6.3.1.5
+A8H3H6	Succinate--CoA ligase [ADP-forming] subunit beta (EC 6.2.1.5) (Succiny	sucC Spea_1790	6.2.1.5
+A8H3I7	Biotin synthase (EC 2.8.1.6)	bioB Spea_1801	2.8.1.6
+A8H3V2	Methionine--tRNA ligase (EC 6.1.1.10) (Methionyl-tRNA synthetase) (Met	metG Spea_1917	6.1.1.10
+A8H3V4	Uridine kinase (EC 2.7.1.48) (Cytidine monophosphokinase) (Uridine mon	udk Spea_1919	2.7.1.48
+A8H3W2	Ribosomal RNA small subunit methyltransferase F (EC 2.1.1.178) (16S rR	rsmF Spea_1927	2.1.1.178
+A8H3X8	Dihydroorotate dehydrogenase (quinone) (EC 1.3.5.2) (DHOdehase) (DHOD)	pyrD Spea_1943	1.3.5.2
+A8H3Y1	Ribosomal RNA large subunit methyltransferase K/L [Includes: 23S rRNA 	rlmL Spea_1946	2.1.1.173; 2.1.1.264
+A8H3Y6	3-hydroxydecanoyl-[acyl-carrier-protein] dehydratase (EC 4.2.1.59) (3-	fabA Spea_1951	4.2.1.59; 5.3.3.14
+A8H415	4-hydroxy-tetrahydrodipicolinate synthase (HTPA synthase) (EC 4.3.3.7)	dapA Spea_1980	4.3.3.7
+A8H424	Succinyl-diaminopimelate desuccinylase (SDAP desuccinylase) (EC 3.5.1.	dapE Spea_1991	3.5.1.18
+A8H499	Ubiquinone biosynthesis O-methyltransferase (2-polyprenyl-6-hydroxyphe	ubiG Spea_2066	2.1.1.222; 2.1.1.64
+A8H4A2	Phosphoserine aminotransferase (EC 2.6.1.52) (Phosphohydroxythreonine 	serC Spea_2069	2.6.1.52
+A8H4A4	3-phosphoshikimate 1-carboxyvinyltransferase (EC 2.5.1.19) (5-enolpyru	aroA Spea_2071	2.5.1.19
+A8H4A5	Cytidylate kinase (CK) (EC 2.7.4.25) (Cytidine monophosphate kinase) (	cmk Spea_2072	2.7.4.25
+A8H4E9	4-hydroxy-2-oxovalerate aldolase (HOA) (EC 4.1.3.39) (4-hydroxy-2-keto	Spea_2116	4.1.3.39
+A8H4Q7	tRNA-cytidine(32) 2-sulfurtransferase (EC 2.8.1.-) (Two-thiocytidine b	ttcA Spea_2224	2.8.1.-
+A8H4R2	Serine--tRNA ligase (EC 6.1.1.11) (Seryl-tRNA synthetase) (SerRS) (Ser	serS Spea_2229	6.1.1.11
+A8H4T0	Succinylglutamate desuccinylase (EC 3.5.1.96)	astE Spea_2247	3.5.1.96
+A8H4U6	Threonine--tRNA ligase (EC 6.1.1.3) (Threonyl-tRNA synthetase) (ThrRS)	thrS Spea_2263	6.1.1.3
+A8H532	7-cyano-7-deazaguanine synthase (EC 6.3.4.20) (7-cyano-7-carbaguanine 	queC Spea_2349	6.3.4.20
+A8H537	Ion-translocating oxidoreductase complex subunit B (EC 7.-.-.-) (Rnf e	rnfB Spea_2354	7.-.-.-
+A8H545	Holliday junction branch migration complex subunit RuvB (EC 3.6.4.-)	ruvB Spea_2362	3.6.4.-
+A8H546	Holliday junction branch migration complex subunit RuvA	ruvA Spea_2363	
+A8H547	Crossover junction endodeoxyribonuclease RuvC (EC 3.1.21.10) (Holliday	ruvC Spea_2364	3.1.21.10
+A8H549	Aspartate--tRNA ligase (EC 6.1.1.12) (Aspartyl-tRNA synthetase) (AspRS	aspS Spea_2366	6.1.1.12
+A8H562	Thiazole synthase (EC 2.8.1.10)	thiG Spea_2379	2.8.1.10
+A8H566	Phosphomethylpyrimidine synthase (EC 4.1.99.17) (Hydroxymethylpyrimidi	thiC Spea_2383	4.1.99.17
+A8H5A5	D-alanine--D-alanine ligase (EC 6.3.2.4) (D-Ala-D-Ala ligase) (D-alany	ddl Spea_2422	6.3.2.4
+A8H5E5	Imidazole glycerol phosphate synthase subunit HisF (EC 4.3.2.10) (IGP 	hisF Spea_2462	4.3.2.10
+A8H5G0	Pyridoxine/pyridoxamine 5'-phosphate oxidase (EC 1.4.3.5) (PNP/PMP oxi	pdxH Spea_2477	1.4.3.5
+A8H5H1	Cytidine deaminase (EC 3.5.4.5) (Cytidine aminohydrolase) (CDA)	cdd Spea_2488	3.5.4.5
+A8H5I0	Phosphate acyltransferase (EC 2.3.1.274) (Acyl-ACP phosphotransacylase	plsX Spea_2497	2.3.1.274
+A8H5L2	Leucyl/phenylalanyl-tRNA--protein transferase (EC 2.3.2.6) (L/F-transf	aat Spea_2529	2.3.2.6
+A8H5M1	tRNA-specific 2-thiouridylase MnmA (EC 2.8.1.13)	mnmA Spea_2538	2.8.1.13
+A8H5P1	Acetyl-coenzyme A synthetase (AcCoA synthetase) (Acs) (EC 6.2.1.1) (Ac	acsA Spea_2558	6.2.1.1
+A8H5Q9	Uracil phosphoribosyltransferase (EC 2.4.2.9) (UMP pyrophosphorylase) 	upp Spea_2576	2.4.2.9
+A8H5T2	3-ketoacyl-CoA thiolase (EC 2.3.1.16) (ACSs) (Acetyl-CoA acyltransfera	fadI Spea_2599	2.3.1.16
+A8H5U9	GTP cyclohydrolase-2 (EC 3.5.4.25) (GTP cyclohydrolase II)	ribA Spea_2616	3.5.4.25
+A8H609	Enoyl-[acyl-carrier-protein] reductase [NADH] (ENR) (EC 1.3.1.9)	fabV Spea_2676	1.3.1.9
+A8H614	ATP-dependent Clp protease proteolytic subunit (EC 3.4.21.92) (Endopep	clpP Spea_2681	3.4.21.92
+A8H615	Trigger factor (TF) (EC 5.2.1.8) (PPIase)	tig Spea_2682	5.2.1.8
+A8H616	Bifunctional protein FolD [Includes: Methylenetetrahydrofolate dehydro	folD Spea_2683	1.5.1.5; 3.5.4.9
+A8H617	Cysteine--tRNA ligase (EC 6.1.1.16) (Cysteinyl-tRNA synthetase) (CysRS	cysS Spea_2684	6.1.1.16
+A8H619	UDP-2,3-diacylglucosamine hydrolase (EC 3.6.1.54) (UDP-2,3-diacylgluco	lpxH Spea_2686	3.6.1.54
+A8H6B7	Homoserine O-succinyltransferase (HST) (EC 2.3.1.46) (Homoserine trans	metAS Spea_2784	2.3.1.46
+A8H6K2	Ribonuclease HII (RNase HII) (EC 3.1.26.4)	rnhB Spea_2871	3.1.26.4
+A8H6K5	3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ (EC 4.2.1.59) ((	fabZ Spea_2874	4.2.1.59
+A8H6L0	1-deoxy-D-xylulose 5-phosphate reductoisomerase (DXP reductoisomerase)	dxr Spea_2879	1.1.1.267
+A8H6S3	Peptidase T (EC 3.4.11.4) (Aminotripeptidase) (Tripeptidase) (Tripepti	pepT Spea_2943	3.4.11.4
+A8H6V6	Flap endonuclease Xni (FEN) (EC 3.1.-.-)	xni ygdG Spea_2976	3.1.-.-
+A8H6W1	Ribosomal RNA large subunit methyltransferase M (EC 2.1.1.186) (23S rR	rlmM Spea_2981	2.1.1.186
+A8H6X1	1-deoxy-D-xylulose-5-phosphate synthase (EC 2.2.1.7) (1-deoxyxylulose-	dxs Spea_2991	2.2.1.7
+A8H726	Phosphopentomutase (EC 5.4.2.7) (Phosphodeoxyribomutase)	deoB Spea_3046	5.4.2.7
+A8H727	Thymidine phosphorylase (EC 2.4.2.4) (TdRPase)	deoA Spea_3047	2.4.2.4
+A8H728	Deoxyribose-phosphate aldolase (DERA) (EC 4.1.2.4) (2-deoxy-D-ribose 5	deoC Spea_3048	4.1.2.4
+A8H735	Polyribonucleotide nucleotidyltransferase (EC 2.7.7.8) (Polynucleotide	pnp Spea_3055	2.7.7.8
+A8H744	Triosephosphate isomerase (TIM) (TPI) (EC 5.3.1.1) (Triose-phosphate i	tpiA Spea_3064	5.3.1.1
+A8H745	Phosphoglucosamine mutase (EC 5.4.2.10)	glmM Spea_3065	5.4.2.10
+A8H748	Ribosomal RNA large subunit methyltransferase E (EC 2.1.1.166) (23S rR	rlmE ftsJ rrmJ Spea_3068	2.1.1.166
+A8H756	4-hydroxy-tetrahydrodipicolinate reductase (HTPA reductase) (EC 1.17.1	dapB Spea_3076	1.17.1.8
+A8H759	Chaperone protein DnaJ	dnaJ Spea_3079	
+A8H765	Glutamate 5-kinase (EC 2.7.2.11) (Gamma-glutamyl kinase) (GK)	proB Spea_3085	2.7.2.11
+A8H771	DNA polymerase IV (Pol IV) (EC 2.7.7.7)	dinB Spea_3092	2.7.7.7
+A8H7A0	2-dehydro-3-deoxyphosphooctonate aldolase (EC 2.5.1.55) (3-deoxy-D-man	kdsA Spea_3121	2.5.1.55
+A8H7A6	Glutamyl-tRNA reductase (GluTR) (EC 1.2.1.70)	hemA Spea_3127	1.2.1.70
+A8H7A8	4-diphosphocytidyl-2-C-methyl-D-erythritol kinase (CMK) (EC 2.7.1.148)	ispE Spea_3129	2.7.1.148
+A8H7B6	tRNA-2-methylthio-N(6)-dimethylallyladenosine synthase (EC 2.8.4.3) ((	miaB Spea_3137	2.8.4.3
+A8H7C7	Ribosomal RNA large subunit methyltransferase H (EC 2.1.1.177) (23S rR	rlmH Spea_3148	2.1.1.177
+A8H7D4	Octanoyltransferase (EC 2.3.1.181) (Lipoate-protein ligase B) (Lipoyl/	lipB Spea_3155	2.3.1.181
+A8H7D5	Lipoyl synthase (EC 2.8.1.8) (Lip-syn) (LS) (Lipoate synthase) (Lipoic	lipA Spea_3156	2.8.1.8
+A8H7G5	NAD-dependent malic enzyme (NAD-ME) (EC 1.1.1.38)	maeA Spea_3186	1.1.1.38
+A8H7J4	Dihydroorotase (DHOase) (EC 3.5.2.3)	pyrC Spea_3215	3.5.2.3
+A8H7S9	Glycine dehydrogenase (decarboxylating) (EC 1.4.4.2) (Glycine cleavage	gcvP Spea_3301	1.4.4.2
+A8H806	Adenosylcobinamide-GDP ribazoletransferase (EC 2.7.8.26) (Cobalamin sy	cobS Spea_3379	2.7.8.26
+A8H819	Adenosine deaminase (EC 3.5.4.4) (Adenosine aminohydrolase)	add Spea_3392	3.5.4.4
+A8H8G7	tRNA dimethylallyltransferase (EC 2.5.1.75) (Dimethylallyl diphosphate	miaA Spea_3541	2.5.1.75
+A8H8H5	Phosphatidylserine decarboxylase proenzyme (EC 4.1.1.65) [Cleaved into	psd Spea_3549	4.1.1.65
+A8H8K6	Alanine racemase (EC 5.1.1.1)	alr Spea_3580	5.1.1.1
+A8H8L8	Adenylosuccinate synthetase (AMPSase) (AdSS) (EC 6.3.4.4) (IMP--aspart	purA Spea_3592	6.3.4.4
+A8H8M9	UDP-N-acetylglucosamine 1-carboxyvinyltransferase (EC 2.5.1.7) (Enoylp	murA Spea_3603	2.5.1.7
+A8H8W3	Chaperonin GroEL (EC 5.6.1.7) (60 kDa chaperonin) (Chaperonin-60) (Cpn	groEL groL Spea_3689	5.6.1.7
+A8H955	ATP-dependent protease subunit HslV (EC 3.4.25.2)	hslV Spea_3781	3.4.25.2
+A8H966	Ubiquinone/menaquinone biosynthesis C-methyltransferase UbiE (EC 2.1.1	ubiE Spea_3792	2.1.1.163; 2.1.1.201
+A8H968	Probable protein kinase UbiB (EC 2.7.-.-) (Ubiquinone biosynthesis pro	ubiB Spea_3794	2.7.-.-
+A8H984	UDP-N-acetylglucosamine--N-acetylmuramyl-(pentapeptide) pyrophosphoryl	murG Spea_3811	2.4.1.227
+A8H987	Phospho-N-acetylmuramoyl-pentapeptide-transferase (EC 2.7.8.13) (UDP-M	mraY Spea_3814	2.7.8.13
+A8H995	Glycerol kinase (EC 2.7.1.30) (ATP:glycerol 3-phosphotransferase) (Gly	glpK Spea_3822	2.7.1.30
+A8H999	3-isopropylmalate dehydratase large subunit (EC 4.2.1.33) (Alpha-IPM i	leuC Spea_3826	4.2.1.33
+A8H9A1	2-isopropylmalate synthase (EC 2.3.3.13) (Alpha-IPM synthase) (Alpha-i	leuA Spea_3828	2.3.3.13
+A8H9B7	Ribonuclease PH (RNase PH) (EC 2.7.7.56) (tRNA nucleotidyltransferase)	rph Spea_3844	2.7.7.56
+A8H9H9	D-aminoacyl-tRNA deacylase (DTD) (EC 3.1.1.96) (Gly-tRNA(Ala) deacylas	dtd Spea_3906	3.1.1.96
+A8H9P4	2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthas	menD Spea_3971	2.2.1.9
+A8H9S0	LexA repressor (EC 3.4.21.88)	lexA Spea_3997	3.4.21.88
+A8H9S9	Protoheme IX farnesyltransferase (EC 2.5.1.141) (Heme B farnesyltransf	cyoE Spea_4006	2.5.1.141
+A8HA20	Molybdenum cofactor guanylyltransferase (MoCo guanylyltransferase) (EC	mobA Spea_4097	2.7.7.77
+A8HA27	Formamidopyrimidine-DNA glycosylase (Fapy-DNA glycosylase) (EC 3.2.2.2	mutM fpg Spea_4104	3.2.2.23; 4.2.99.18
+A8HA30	Phosphopantetheine adenylyltransferase (EC 2.7.7.3) (Dephospho-CoA pyr	coaD Spea_4107	2.7.7.3
+A8HA92	Urocanate hydratase (Urocanase) (EC 4.2.1.49) (Imidazolonepropionate h	hutU Spea_4169	4.2.1.49
+A8HA94	Imidazolonepropionase (EC 3.5.2.7) (Imidazolone-5-propionate hydrolase	hutI Spea_4171	3.5.2.7
+A8HAA3	Enolase-phosphatase E1 (EC 3.1.3.77) (2,3-diketo-5-methylthio-1-phosph	mtnC Spea_4180	3.1.3.77
+A8HAD7	Glycerol-3-phosphate dehydrogenase [NAD(P)+] (EC 1.1.1.94) (NAD(P)(+)-	gpsA Spea_4214	1.1.1.94
+A8HAE0	2,3-bisphosphoglycerate-independent phosphoglycerate mutase (BPG-indep	gpmI Spea_4217	5.4.2.12
+A8HAF6	GMP reductase (EC 1.7.1.7) (Guanosine 5'-monophosphate oxidoreductase)	guaC Spea_4233	1.7.1.7
+A8HAG3	ATP synthase subunit beta (EC 7.1.2.2) (ATP synthase F1 sector subunit	atpD Spea_4240	7.1.2.2
+A8HAG5	ATP synthase subunit alpha (EC 7.1.2.2) (ATP synthase F1 sector subuni	atpA Spea_4242	7.1.2.2
+A8HAG7	ATP synthase subunit b (ATP synthase F(0) sector subunit b) (ATPase su	atpF Spea_4244	
+A8HAG8	ATP synthase subunit c (ATP synthase F(0) sector subunit c) (F-type AT	atpE Spea_4245	
+A8HAH9	tRNA modification GTPase MnmE (EC 3.6.-.-)	mnmE trmE Spea_4256	3.6.-.-
+P0DJY7	Exotoxin type A (Erythrogenic toxin) (SPE A) (Scarlet fever toxin)	speA	
+P30336	Probable cadmium-transporting ATPase (EC 7.2.2.21) (Cadmium-efflux ATP	cadA BpOF4_21834	7.2.2.21
+P37386	Probable cadmium-transporting ATPase (EC 7.2.2.21) (Cadmium-efflux ATP	cadA	7.2.2.21
+P58414	Probable cadmium-transporting ATPase (EC 7.2.2.21) (Cadmium-efflux ATP	cadA lmo1100	7.2.2.21
+Q60048	Probable cadmium-transporting ATPase (EC 7.2.2.21) (Cadmium-efflux ATP	cadA	7.2.2.21
+Q6GIX1	Probable cadmium-transporting ATPase (EC 7.2.2.21) (Cadmium-efflux ATP	cadA SAR0723	7.2.2.21
+Q8NKX2	Exotoxin type C (SPE C)	speC spyM18_0778	
+A8GYE3	Chromosomal replication initiator protein DnaA	dnaA Spea_0001	
+A8GYE5	DNA replication and repair protein RecF	recF Spea_0003	
+A8GYE8	Glycine--tRNA ligase beta subunit (EC 6.1.1.14) (Glycyl-tRNA synthetas	glyS Spea_0006	6.1.1.14
+A8GYF4	Sulfur carrier protein TusA	tusA Spea_0012	
+A8GYH2	Methionyl-tRNA formyltransferase (EC 2.1.2.9)	fmt Spea_0030	2.1.2.9
+A8GYP3	Probable GTP-binding protein EngB	engB Spea_0101	
+A8GYV7	Glutamate racemase (EC 5.1.1.3)	murI Spea_0165	5.1.1.3
+A8GYW1	Pantothenate kinase (EC 2.7.1.33) (Pantothenic acid kinase)	coaA Spea_0169	2.7.1.33
+A8GYW5	Large ribosomal subunit protein uL11 (50S ribosomal protein L11)	rplK Spea_0173	
+A8GYW6	Large ribosomal subunit protein uL1 (50S ribosomal protein L1)	rplA Spea_0174	
+A8GYW7	Large ribosomal subunit protein uL10 (50S ribosomal protein L10)	rplJ Spea_0175	
+A8GYW8	Large ribosomal subunit protein bL12 (50S ribosomal protein L7/L12)	rplL Spea_0176	
+A8GYW9	DNA-directed RNA polymerase subunit beta (RNAP subunit beta) (EC 2.7.7	rpoB Spea_0177	2.7.7.6
+A8GYX1	Small ribosomal subunit protein uS12 (30S ribosomal protein S12)	rpsL Spea_0179	
+A8GYX2	Small ribosomal subunit protein uS7 (30S ribosomal protein S7)	rpsG Spea_0180	
+A8GYX5	Small ribosomal subunit protein uS10 (30S ribosomal protein S10)	rpsJ Spea_0183	
+A8GYX6	Large ribosomal subunit protein uL3 (50S ribosomal protein L3)	rplC Spea_0184	
+A8GYX7	Large ribosomal subunit protein uL4 (50S ribosomal protein L4)	rplD Spea_0185	
+A8GYX8	Large ribosomal subunit protein uL23 (50S ribosomal protein L23)	rplW Spea_0186	
+A8GYX9	Large ribosomal subunit protein uL2 (50S ribosomal protein L2)	rplB Spea_0187	
+A8GYY0	Small ribosomal subunit protein uS19 (30S ribosomal protein S19)	rpsS Spea_0188	
+A8GYY1	Large ribosomal subunit protein uL22 (50S ribosomal protein L22)	rplV Spea_0189	
+A8GYY3	Large ribosomal subunit protein uL16 (50S ribosomal protein L16)	rplP Spea_0191	
+A8GYY4	Large ribosomal subunit protein uL29 (50S ribosomal protein L29)	rpmC Spea_0192	
+A8GYY5	Small ribosomal subunit protein uS17 (30S ribosomal protein S17)	rpsQ Spea_0193	
+A8GYY6	Large ribosomal subunit protein uL14 (50S ribosomal protein L14)	rplN Spea_0194	
+A8GYY7	Large ribosomal subunit protein uL24 (50S ribosomal protein L24)	rplX Spea_0195	
+A8GYY8	Large ribosomal subunit protein uL5 (50S ribosomal protein L5)	rplE Spea_0196	
+A8GYY9	Small ribosomal subunit protein uS14 (30S ribosomal protein S14)	rpsN Spea_0197	
+A8GYZ0	Small ribosomal subunit protein uS8 (30S ribosomal protein S8)	rpsH Spea_0198	
+A8GYZ1	Large ribosomal subunit protein uL6 (50S ribosomal protein L6)	rplF Spea_0199	
+A8GYZ2	Large ribosomal subunit protein uL18 (50S ribosomal protein L18)	rplR Spea_0200	
+A8GYZ4	Large ribosomal subunit protein uL30 (50S ribosomal protein L30)	rpmD Spea_0202	
+A8GYZ5	Large ribosomal subunit protein uL15 (50S ribosomal protein L15)	rplO Spea_0203	
+A8GYZ7	Small ribosomal subunit protein uS13 (30S ribosomal protein S13)	rpsM Spea_0206	
+A8GYZ8	Small ribosomal subunit protein uS11 (30S ribosomal protein S11)	rpsK Spea_0207	
+A8GYZ9	Small ribosomal subunit protein uS4 (30S ribosomal protein S4)	rpsD Spea_0208	
+A8GZ01	Large ribosomal subunit protein bL17 (50S ribosomal protein L17)	rplQ Spea_0210	
+A8GZ02	Cytochrome c-type biogenesis protein CcmE (Cytochrome c maturation pro	ccmE cycJ Spea_0211	
+A8GZ16	Phosphoenolpyruvate carboxylase (PEPC) (PEPCase) (EC 4.1.1.31)	ppc Spea_0225	4.1.1.31
+A8GZ22	Argininosuccinate lyase (ASAL) (EC 4.3.2.1) (Arginosuccinase)	argH Spea_0231	4.3.2.1
+A8GZI0	DNA-binding protein Fis	fis Spea_0389	
+A8GZI2	Ribosomal protein L11 methyltransferase (L11 Mtase) (EC 2.1.1.-)	prmA Spea_0391	2.1.1.-
+A8GZJ9	DNA gyrase inhibitor YacG	yacG Spea_0408	
+A8GZR0	4-hydroxybenzoate octaprenyltransferase (EC 2.5.1.39) (4-HB polyprenyl	ubiA Spea_0469	2.5.1.39
+A8H029	Thiopurine S-methyltransferase (EC 2.1.1.67) (Thiopurine methyltransfe	tpm Spea_0588	2.1.1.67
+A8H038	Ribosomal RNA small subunit methyltransferase C (EC 2.1.1.172) (16S rR	rsmC Spea_0597	2.1.1.172
+A8H0A3	Sulfate adenylyltransferase subunit 2 (EC 2.7.7.4) (ATP-sulfurylase sm	cysD Spea_0663	2.7.7.4
+A8H0P3	tRNA1(Val) (adenine(37)-N6)-methyltransferase (EC 2.1.1.223) (tRNA m6A	Spea_0803	2.1.1.223
+A8H0T9	Arginine repressor	argR Spea_0849	
+A8H0U0	Malate dehydrogenase (EC 1.1.1.37)	mdh Spea_0850	1.1.1.37
+A8H0U2	Large ribosomal subunit protein bL21 (50S ribosomal protein L21)	rplU Spea_0852	
+A8H0U3	Large ribosomal subunit protein bL27 (50S ribosomal protein L27)	rpmA Spea_0853	
+A8H151	Small ribosomal subunit protein bS21 (30S ribosomal protein S21)	rpsU Spea_0961	
+A8H157	Undecaprenyl-diphosphatase (EC 3.6.1.27) (Bacitracin resistance protei	uppP Spea_0967	3.6.1.27
+A8H175	Iron-sulfur cluster insertion protein ErpA	erpA Spea_0985	
+A8H1B1	RNA pyrophosphohydrolase (EC 3.6.1.-) ((Di)nucleoside polyphosphate hy	rppH nudH Spea_1021	3.6.1.-
+A8H1B5	Na(+)/H(+) antiporter NhaA (Sodium/proton antiporter NhaA)	nhaA Spea_1025	
+A8H1D1	Holo-[acyl-carrier-protein] synthase (Holo-ACP synthase) (EC 2.7.8.7) 	acpS Spea_1041	2.7.8.7
+A8H1D9	Small ribosomal subunit protein bS16 (30S ribosomal protein S16)	rpsP Spea_1049	
+A8H1E0	Ribosome maturation factor RimM	rimM Spea_1050	
+A8H1E1	tRNA (guanine-N(1)-)-methyltransferase (EC 2.1.1.228) (M1G-methyltrans	trmD Spea_1051	2.1.1.228
+A8H1E2	Large ribosomal subunit protein bL19 (50S ribosomal protein L19)	rplS Spea_1052	
+A8H1H0	Small ribosomal subunit protein bS20 (30S ribosomal protein S20)	rpsT Spea_1080	
+A8H1J7	Probable Fe(2+)-trafficking protein	Spea_1107	
+A8H1J9	tRNA (guanine-N(7)-)-methyltransferase (EC 2.1.1.33) (tRNA (guanine(46	trmB Spea_1109	2.1.1.33
+A8H1Q1	Transcriptional repressor NrdR	nrdR Spea_1161	
+A8H1Q6	Transcription antitermination protein NusB (Antitermination factor Nus	nusB Spea_1166	
+A8H1S6	Cell division protein FtsB	ftsB Spea_1186	
+A8H1S7	2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase (EC 2.7.7.60)	ispD Spea_1187	2.7.7.60
+A8H1T0	5'-nucleotidase SurE (EC 3.1.3.5) (Nucleoside 5'-monophosphate phospho	surE Spea_1190	3.1.3.5
+A8H1T1	Protein-L-isoaspartate O-methyltransferase (EC 2.1.1.77) (L-isoasparty	pcm Spea_1191	2.1.1.77
+A8H1T4	DNA mismatch repair protein MutS	mutS Spea_1194	
+A8H1T5	Protein RecA (Recombinase A)	recA Spea_1195	
+A8H1T7	Translational regulator CsrA (Carbon storage regulator)	csrA Spea_1197	
+A8H1U8	Glutamate--cysteine ligase (EC 6.3.2.2) (Gamma-ECS) (GCS) (Gamma-gluta	gshA Spea_1208	6.3.2.2
+A8H222	SsrA-binding protein (Small protein B)	smpB Spea_1282	
+A8H246	Histidine--tRNA ligase (EC 6.1.1.21) (Histidyl-tRNA synthetase) (HisRS	hisS Spea_1306	6.1.1.21
+A8H249	GTPase Der (GTP-binding protein EngA)	der engA Spea_1309	
+A8H252	Exodeoxyribonuclease 7 large subunit (EC 3.1.11.6) (Exodeoxyribonuclea	xseA Spea_1312	3.1.11.6
+A8H2H4	Probable phosphatase Spea_1436 (EC 3.1.3.-)	Spea_1436	3.1.3.-
+A8H2I7	Putative pterin-4-alpha-carbinolamine dehydratase (PHS) (EC 4.2.1.96) 	Spea_1449	4.2.1.96
+A8H2K2	Serine/threonine transporter SstT (Na(+)/serine-threonine symporter)	sstT Spea_1464	
+A8H2K3	Glycosyl hydrolase family 109 protein (EC 3.2.1.-)	Spea_1465	3.2.1.-
+A8H2K7	S-adenosylmethionine:tRNA ribosyltransferase-isomerase (EC 2.4.99.17) 	queA Spea_1469	2.4.99.17
+A8H2M9	Co-chaperone protein HscB homolog	hscB Spea_1491	
+A8H2N0	Chaperone protein HscA homolog	hscA Spea_1492	
+A8H2P7	Nucleoid-associated protein Spea_1509	Spea_1509	
+A8H2R3	Recombination protein RecR	recR Spea_1525	
+A8H2R4	Chaperone protein HtpG (Heat shock protein HtpG) (High temperature pro	htpG Spea_1526	
+A8H2S2	N-succinylarginine dihydrolase (EC 3.5.3.23)	astB Spea_1534	3.5.3.23
+A8H2X4	Tryptophan synthase beta chain (EC 4.2.1.20)	trpB Spea_1586	4.2.1.20
+A8H328	Inner membrane-spanning protein YciB	yciB Spea_1640	
+A8H375	Cell division protein ZipA	zipA Spea_1688	
+A8H392	Protein Spea_1705 (EC 4.2.1.77)	Spea_1705	4.2.1.77
+A8H3F7	Tetraacyldisaccharide 4'-kinase (EC 2.7.1.130) (Lipid A 4'-kinase)	lpxK Spea_1771	2.7.1.130
+A8H3J1	Protease HtpX (EC 3.4.24.-) (Heat shock protein HtpX)	htpX Spea_1805	3.4.24.-
+A8H3W9	RNA chaperone ProQ	proQ Spea_1934	
+A8H3Y9	UvrABC system protein C (Protein UvrC) (Excinuclease ABC subunit C)	uvrC Spea_1954	
+A8H3Z4	Large ribosomal subunit protein bL25 (50S ribosomal protein L25)	rplY Spea_1959	
+A8H420	8-amino-3,8-dideoxy-manno-octulosonate cytidylyltransferase (EC 2.7.7.	kdsB Spea_1985	2.7.7.90
+A8H467	Asparagine--tRNA ligase (EC 6.1.1.22) (Asparaginyl-tRNA synthetase) (A	asnS Spea_2034	6.1.1.22
+A8H479	Deoxyguanosinetriphosphate triphosphohydrolase-like protein	Spea_2046	
+A8H482	Elongation factor P (EF-P)	efp Spea_2049	
+A8H4A7	Integration host factor subunit beta (IHF-beta)	ihfB himD Spea_2074	
+A8H4D4	Probable alpha-L-glutamate ligase (EC 6.3.2.-)	rimK Spea_2101	6.3.2.-
+A8H4F0	Acetaldehyde dehydrogenase (EC 1.2.1.10) (Acetaldehyde dehydrogenase [	Spea_2117	1.2.1.10
+A8H4R3	Fluoride-specific ion channel FluC	fluC crcB Spea_2230	
+A8H4R5	Outer-membrane lipoprotein carrier protein	lolA Spea_2232	
+A8H4U3	Large ribosomal subunit protein bL20 (50S ribosomal protein L20)	rplT Spea_2260	
+A8H4U4	Large ribosomal subunit protein bL35 (50S ribosomal protein L35)	rpmI Spea_2261	
+A8H536	Ion-translocating oxidoreductase complex subunit A (EC 7.-.-.-) (Rnf e	rnfA Spea_2353	7.-.-.-
+A8H539	Ion-translocating oxidoreductase complex subunit D (EC 7.-.-.-) (Rnf e	rnfD Spea_2356	7.-.-.-
+A8H541	Ion-translocating oxidoreductase complex subunit E (EC 7.-.-.-) (Rnf e	rnfE Spea_2358	7.-.-.-
+A8H551	Carboxy-S-adenosyl-L-methionine synthase (Cx-SAM synthase) (EC 2.1.3.-	cmoA Spea_2368	2.1.3.-
+A8H552	tRNA U34 carboxymethyltransferase (EC 2.5.1.-)	cmoB Spea_2369	2.5.1.-
+A8H589	Hydroxyacylglutathione hydrolase (EC 3.1.2.6) (Glyoxalase II) (Glx II)	gloB Spea_2406	3.1.2.6
+A8H5C1	Fatty acid metabolism regulator protein	fadR Spea_2438	
+A8H5C2	Na(+)/H(+) antiporter NhaB (Sodium/proton antiporter NhaB)	nhaB Spea_2439	
+A8H5C9	Cell division topological specificity factor	minE Spea_2446	
+A8H5D9	ATP phosphoribosyltransferase (ATP-PRT) (ATP-PRTase) (EC 2.4.2.17)	hisG Spea_2456	2.4.2.17
+A8H5E4	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino] imida	hisA Spea_2461	5.3.1.16
+A8H5E7	Phosphoribosylaminoimidazole-succinocarboxamide synthase (EC 6.3.2.6) 	purC Spea_2464	6.3.2.6
+A8H5F1	Integration host factor subunit alpha (IHF-alpha)	ihfA himA Spea_2468	
+A8H5I1	Large ribosomal subunit protein bL32 (50S ribosomal protein L32)	rpmF Spea_2498	
+A8H5K7	tRNA uridine(34) hydroxylase (EC 1.14.-.-) (tRNA hydroxylation protein	trhO Spea_2524	1.14.-.-
+A8H5L4	Translation initiation factor IF-1	infA Spea_2531	
+A8H5L6	ATP-dependent Clp protease adapter protein ClpS	clpS Spea_2533	
+A8H5M2	High frequency lysogenization protein HflD homolog	hflD Spea_2539	
+A8H5N3	Putative phosphoenolpyruvate synthase regulatory protein (PEP synthase	Spea_2550	2.7.11.33; 2.7.4.28
+A8H5P7	Tol-Pal system protein TolB	tolB Spea_2564	
+A8H5R0	Phosphoribosylformylglycinamidine cyclo-ligase (EC 6.3.3.1) (AIR synth	purM Spea_2577	6.3.3.1
+A8H613	ATP-dependent Clp protease ATP-binding subunit ClpX	clpX Spea_2680	
+A8H6J5	Proline--tRNA ligase (EC 6.1.1.15) (Prolyl-tRNA synthetase) (ProRS)	proS Spea_2864	6.1.1.15
+A8H6K3	Lipid-A-disaccharide synthase (EC 2.4.1.182)	lpxB Spea_2872	2.4.1.182
+A8H6L3	Ribosome-recycling factor (RRF) (Ribosome-releasing factor)	frr Spea_2882	
+A8H6L6	Small ribosomal subunit protein uS2 (30S ribosomal protein S2)	rpsB Spea_2885	
+A8H6L9	2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase (EC	dapD Spea_2888	2.3.1.117
+A8H6V1	Recombination-associated protein RdgC	rdgC Spea_2971	
+A8H6X2	Protein GrpE (HSP-70 cofactor)	grpE Spea_2992	
+A8H733	Peptide chain release factor 3 (RF-3)	prfC Spea_3053	
+A8H737	Small ribosomal subunit protein uS15 (30S ribosomal protein S15)	rpsO Spea_3057	
+A8H738	tRNA pseudouridine synthase B (EC 5.4.99.25) (tRNA pseudouridine(55) s	truB Spea_3058	5.4.99.25
+A8H739	Ribosome-binding factor A	rbfA Spea_3059	
+A8H740	Translation initiation factor IF-2	infB Spea_3060	
+A8H742	Ribosome maturation factor RimP	rimP Spea_3062	
+A8H760	Chaperone protein DnaK (HSP70) (Heat shock 70 kDa protein) (Heat shock	dnaK Spea_3080	
+A8H764	Gamma-glutamyl phosphate reductase (GPR) (EC 1.2.1.41) (Glutamate-5-se	proA Spea_3084	1.2.1.41
+A8H779	Na(+)-translocating NADH-quinone reductase subunit D (Na(+)-NQR subuni	nqrD Spea_3100	7.2.1.1
+A8H783	S-ribosylhomocysteine lyase (EC 4.4.1.21) (AI-2 synthesis protein) (Au	luxS Spea_3104	4.4.1.21
+A8H786	Ribosomal RNA large subunit methyltransferase G (EC 2.1.1.174) (23S rR	rlmG Spea_3107	2.1.1.174
+A8H7A5	Peptide chain release factor 1 (RF-1)	prfA Spea_3126	
+A8H7B8	Endoribonuclease YbeY (EC 3.1.-.-)	ybeY Spea_3139	3.1.-.-
+A8H7C2	Leucine--tRNA ligase (EC 6.1.1.4) (Leucyl-tRNA synthetase) (LeuRS)	leuS Spea_3143	6.1.1.4
+A8H7C5	Probable nicotinate-nucleotide adenylyltransferase (EC 2.7.7.18) (Deam	nadD Spea_3146	2.7.7.18
+A8H7T0	Glycine cleavage system H protein	gcvH Spea_3302	
+A8H7T1	Aminomethyltransferase (EC 2.1.2.10) (Glycine cleavage system T protei	gcvT Spea_3303	2.1.2.10
+A8H7X2	Chaperone protein TorD	torD Spea_3344	
+A8H8E0	N-succinylglutamate 5-semialdehyde dehydrogenase (EC 1.2.1.71) (Succin	astD Spea_3514	1.2.1.71
+A8H8G6	RNA-binding protein Hfq	hfq Spea_3540	
+A8H8G8	DNA mismatch repair protein MutL	mutL Spea_3542	
+A8H8K9	Large ribosomal subunit protein bL9 (50S ribosomal protein L9)	rplI Spea_3583	
+A8H8L0	Small ribosomal subunit protein bS18 (30S ribosomal protein S18)	rpsR Spea_3584	
+A8H8L1	Replication restart protein PriB	priB Spea_3585	
+A8H8L2	Small ribosomal subunit protein bS6 (30S ribosomal protein S6)	rpsF Spea_3586	
+A8H8M0	Small ribosomal subunit protein uS9 (30S ribosomal protein S9)	rpsI Spea_3594	
+A8H8Q9	23S rRNA (uracil(747)-C(5))-methyltransferase RlmC (EC 2.1.1.189) (23S	rlmC Spea_3635	2.1.1.189
+A8H8W4	Co-chaperonin GroES (10 kDa chaperonin) (Chaperonin-10) (Cpn10)	groES groS Spea_3690	
+A8H8X8	RNA polymerase-associated protein RapA (EC 3.6.4.-)	rapA Spea_3704	3.6.4.-
+A8H8Z4	Formate--tetrahydrofolate ligase (EC 6.3.4.3) (Formyltetrahydrofolate 	fhs Spea_3720	6.3.4.3
+A8H950	Large ribosomal subunit protein bL31 (50S ribosomal protein L31)	rpmE Spea_3776	
+A8H953	Arginine--tRNA ligase (EC 6.1.1.19) (Arginyl-tRNA synthetase) (ArgRS)	argS Spea_3779	6.1.1.19
+A8H956	ATP-dependent protease ATPase subunit HslU (Unfoldase HslU)	hslU Spea_3782	
+A8H969	Sec-independent protein translocase protein TatA	tatA Spea_3795	
+A8H970	Sec-independent protein translocase protein TatB	tatB Spea_3796	
+A8H979	UDP-3-O-acyl-N-acetylglucosamine deacetylase (UDP-3-O-acyl-GlcNAc deac	lpxC Spea_3806	3.5.1.108
+A8H983	UDP-N-acetylmuramate--L-alanine ligase (EC 6.3.2.8) (UDP-N-acetylmuram	murC Spea_3810	6.3.2.8
+A8H992	Ribosomal RNA small subunit methyltransferase H (EC 2.1.1.199) (16S rR	rsmH mraW Spea_3819	2.1.1.199
+A8H993	Transcriptional regulator MraZ	mraZ Spea_3820	
+A8H998	3-isopropylmalate dehydratase small subunit (EC 4.2.1.33) (Alpha-IPM i	leuD Spea_3825	4.2.1.33
+A8H9A8	Large ribosomal subunit protein bL33 (50S ribosomal protein L33)	rpmG Spea_3835	
+A8H9A9	Large ribosomal subunit protein bL28 (50S ribosomal protein L28)	rpmB Spea_3836	
+A8H9B2	Deoxyuridine 5'-triphosphate nucleotidohydrolase (dUTPase) (EC 3.6.1.2	dut Spea_3839	3.6.1.23
+A8H9B3	Nucleoid occlusion factor SlmA	slmA Spea_3840	
+A8H9F1	DNA-directed RNA polymerase subunit omega (RNAP omega subunit) (EC 2.7	rpoZ Spea_3878	2.7.7.6
+A8H9I2	UPF0761 membrane protein Spea_3909	Spea_3909	
+A8H9R9	Glycerol-3-phosphate acyltransferase (GPAT) (EC 2.3.1.15)	plsB Spea_3996	2.3.1.15
+A8H9T3	Fe/S biogenesis protein NfuA	nfuA Spea_4010	
+A8H9X0	Ribosomal RNA small subunit methyltransferase J (EC 2.1.1.242) (16S rR	rsmJ Spea_4047	2.1.1.242
+A8HA69	Ribosomal RNA large subunit methyltransferase F (EC 2.1.1.181) (23S rR	rlmF Spea_4146	2.1.1.181
+A8HA91	Histidine ammonia-lyase (Histidase) (EC 4.3.1.3)	hutH Spea_4168	4.3.1.3
+A8HAD8	Protein-export protein SecB	secB Spea_4215	
+A8HAG2	ATP synthase epsilon chain (ATP synthase F1 sector epsilon subunit) (F	atpC Spea_4239	
+A8HAG4	ATP synthase gamma chain (ATP synthase F1 sector gamma subunit) (F-ATP	atpG Spea_4241	
+A8HAG6	ATP synthase subunit delta (ATP synthase F(1) sector subunit delta) (F	atpH Spea_4243	
+A8HAG9	ATP synthase subunit a (ATP synthase F0 sector subunit a) (F-ATPase su	atpB Spea_4246	
+A8HAH3	Ribosomal RNA small subunit methyltransferase G (EC 2.1.1.170) (16S rR	rsmG Spea_4250	2.1.1.170
+A8HAH4	tRNA uridine 5-carboxymethylaminomethyl modification enzyme MnmG (Gluc	mnmG gidA Spea_4251	
+A8HAI0	Membrane protein insertase YidC (Foldase YidC) (Membrane integrase Yid	yidC Spea_4257	
+A8HAI3	Large ribosomal subunit protein bL34 (50S ribosomal protein L34)	rpmH Spea_4260	
+P0C0I5	Exotoxin type C (SPE C)	speC SPy_0711	
+P62561	Exotoxin type A (Erythrogenic toxin) (SPE A) (Scarlet fever toxin)	speA spyM18_0393	
+Q5XB82	Exotoxin type C (SPE C)	speC M6_Spy1196	
+A8GYH6	Protein Smg homolog	smg Spea_0034	
+A8GZ14	CinA-like protein	Spea_0223	
+A8GZ42	UPF0102 protein Spea_0251	Spea_0251	
+A8H0D9	Sugar fermentation stimulation protein homolog	sfsA Spea_0699	
+A8H0P9	UPF0597 protein Spea_0809	Spea_0809	
+A8H0R6	Protein SlyX homolog	slyX Spea_0826	
+A8H0V1	Protein ApaG	apaG Spea_0861	
+A8H1G8	UPF0246 protein Spea_1078	Spea_1078	
+A8H3F0	UPF0352 protein Spea_1764	Spea_1764	
+A8H3F1	Nucleoid-associated protein Spea_1765	Spea_1765	
+A8H3F8	Methyltransferase activator Trm112 homolog	Spea_1772	
+A8H5C4	UPF0260 protein Spea_2441	Spea_2441	
+A8H5C6	YcgL domain-containing protein Spea_2443	Spea_2443	
+A8H5G5	UPF0502 protein Spea_2482	Spea_2482	
+A8H6N2	Protein Syd	syd Spea_2901	
+A8H6T8	UPF0178 protein Spea_2958	Spea_2958	
+A8H793	Nucleotide-binding protein Spea_3114	Spea_3114	
+A8H7D3	UPF0250 protein Spea_3154	Spea_3154	
+A8H8R3	UPF0251 protein Spea_3639	Spea_3639	
+A8H9B0	UPF0758 protein Spea_3837	Spea_3837	
+A8HAI1	Putative membrane protein insertion efficiency factor	Spea_4258	
+P09111	Protein HdcB	hdcB	

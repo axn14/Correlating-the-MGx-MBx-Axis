@@ -1,0 +1,17 @@
+{
+ "script": "v2/calibration/class_null.py",
+ "contract": "CONTRACTS 5d-vi(1)",
+ "run_utc": "2026-11-13T12:20:57+00:00",
+ "results_root": "D:\\KI Research-dardel\\20261112T100147Z_fb7bf68",
+ "target_pairs": 4293,
+ "B": 1000,
+ "seed": 20261113,
+ "permuted_groups": {
+  "R": 19,
+  "G": 28,
+  "M": 19,
+  "X": 40
+ },
+ "identity_check": "passed",
+ "seconds": 17
+}

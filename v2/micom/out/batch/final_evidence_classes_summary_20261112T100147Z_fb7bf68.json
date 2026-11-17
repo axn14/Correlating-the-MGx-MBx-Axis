@@ -1,0 +1,17 @@
+{
+ "pairs": 17251,
+ "target_pairs": 4293,
+ "class_tiers": {
+  "Unsupported": 3280,
+  "Observational only": 756,
+  "Single-class": 175,
+  "Supported": 81,
+  "Conclusive": 1
+ },
+ "inputs": {
+  "registry": "D:\\KI Research\\v2\\targets\\out\\target_registry.tsv",
+  "class_g": "D:\\KI Research\\v2\\genes\\out\\class_g.tsv",
+  "class_x": "D:\\KI Research\\v2\\replication\\out\\erawijantari_species_replication.tsv",
+  "class_m": "D:\\KI Research\\v2\\micom\\out\\batch\\class_m.tsv"
+ }
+}

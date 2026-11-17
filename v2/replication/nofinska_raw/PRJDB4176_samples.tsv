@@ -1,0 +1,646 @@
+sample_accession	sample_title	sex	age
+SAMD00114721	human feces_10231		
+SAMD00114725	human feces_10327		
+SAMD00114744	human feces_10126		
+SAMD00114746	human feces_10134		
+SAMD00114752	human feces_10299		
+SAMD00114754	human feces_10267		
+SAMD00114755	human feces_10191	male	59
+SAMD00114756	human feces_10193		
+SAMD00114763	human feces_10178	female	69
+SAMD00114773	human feces_10215		
+SAMD00114778	human feces_10315	female	59
+SAMD00114779	human feces_10317		
+SAMD00114780	human feces_10301		
+SAMD00114785	human feces_10357		
+SAMD00114789	human feces_10341		
+SAMD00114790	human feces_10345		
+SAMD00114794	human feces_10249		
+SAMD00114796	human feces_10258		
+SAMD00114806	human feces_10462		
+SAMD00114809	human feces_10465		
+SAMD00114816	human feces_10389		
+SAMD00114821	human feces_10471		
+SAMD00114825	human feces_10513	male	70
+SAMD00114844	human feces_10542		
+SAMD00114846	human feces_10545		
+SAMD00114847	human feces_10548		
+SAMD00114850	human feces_10559		
+SAMD00114860	human feces_10593		
+SAMD00114866	human feces_10571		
+SAMD00114870	human feces_10615		
+SAMD00114885	human feces_10835		
+SAMD00114886	human feces_10853		
+SAMD00114887	human feces_10614		
+SAMD00114898	human feces_10684		
+SAMD00114900	human feces_10805		
+SAMD00114901	human feces_10807		
+SAMD00114731	human feces_10322	female	70
+SAMD00114735	human feces_10111		
+SAMD00114770	human feces_10207	male	73
+SAMD00114805	human feces_10461	male	46
+SAMD00114829	human feces_10486	female	65
+SAMD00114849	human feces_10556	female	45
+SAMD00114877	human feces_10671		
+SAMD00114895	human feces_10661	female	49
+SAMD00114912	human feces_10725	male	78
+SAMD00114922	human feces_10722		
+SAMD00114924	human feces_10745		
+SAMD00114975	human feces_10212		
+SAMD00115041	human feces_10241		
+SAMD00115050	human feces_10281		
+SAMD00115080	human feces_10308.1		
+SAMD00164713	human feces_10194		
+SAMD00164755	human feces_10502		
+SAMD00164801	human feces_10780		
+SAMD00164822	human feces_10888		
+SAMD00164858	human feces_11081		
+SAMD00164872	human feces_11168		
+SAMD00164884	human feces_11238		
+SAMD00164887	human feces_11253		
+SAMD00164913	human feces_11445		
+SAMD00164922	human feces_11458		
+SAMD00164934	human feces_11486		
+SAMD00164943	human feces_11508		
+SAMD00164972	human feces_11821		
+SAMD00165010	human feces_11996		
+SAMD00114747	human feces_10135		
+SAMD00114873	human feces_10627		
+SAMD00114950	human feces_10716	female	49
+SAMD00114984	human feces_10235		
+SAMD00114719	human feces_10226		
+SAMD00114726	human feces_10330		
+SAMD00114769	human feces_10206		
+SAMD00114777	human feces_10309		
+SAMD00114787	human feces_10336		
+SAMD00114792	human feces_10350	female	67
+SAMD00114813	human feces_10476	female	70
+SAMD00114819	human feces_10456		
+SAMD00114830	human feces_10487		
+SAMD00114856	human feces_10609		
+SAMD00114869	human feces_10585		
+SAMD00114872	human feces_10622		
+SAMD00114896	human feces_10668		
+SAMD00114903	human feces_10816		
+SAMD00114915	human feces_10761	female	54
+SAMD00114917	human feces_10765		
+SAMD00114921	human feces_10720		
+SAMD00114923	human feces_10728		
+SAMD00114936	human feces_10695		
+SAMD00114943	human feces_10697		
+SAMD00114944	human feces_10700		
+SAMD00114973	human feces_10052		
+SAMD00114982	human feces_10246	female	64
+SAMD00115002	human feces_10335	male	75
+SAMD00115010	human feces_10385		
+SAMD00115022	human feces_10060	female	73
+SAMD00115035	human feces_10099	male	51
+SAMD00115053	human feces_10285		
+SAMD00115061	human feces_10077		
+SAMD00115078	human feces_10267.1		
+SAMD00115081	human feces_10505.1		
+SAMD00136648	human feces_10562		
+SAMD00136653	human feces_10197		
+SAMD00164695	human feces_10030		
+SAMD00164708	human feces_10170		
+SAMD00164734	human feces_10316		
+SAMD00164746	human feces_10376		
+SAMD00164750	human feces_10466		
+SAMD00164791	human feces_10681		
+SAMD00164841	human feces_10992		
+SAMD00164856	human feces_11062		
+SAMD00164862	human feces_11106		
+SAMD00164874	human feces_11171		
+SAMD00164892	human feces_11311		
+SAMD00164899	human feces_11389		
+SAMD00164900	human feces_11407		
+SAMD00164909	human feces_11432		
+SAMD00164914	human feces_11448		
+SAMD00164932	human feces_11478		
+SAMD00164946	human feces_11512		
+SAMD00164952	human feces_11527		
+SAMD00164956	human feces_11626		
+SAMD00164985	human feces_11881		
+SAMD00164990	human feces_11899		
+SAMD00165013	human feces_12011		
+SAMD00165014	human feces_12014		
+SAMD00165015	human feces_12016		
+SAMD00114723	human feces_10236		
+SAMD00114767	human feces_10201	male	38
+SAMD00114791	human feces_10349		
+SAMD00114893	human feces_10646	female	67
+SAMD00114962	human feces_10811		
+SAMD00114963	human feces_10817		
+SAMD00114988	human feces_10261		
+SAMD00164829	human feces_10931		
+SAMD00164840	human feces_10990		
+SAMD00164868	human feces_11141		
+SAMD00164881	human feces_11226		
+SAMD00164890	human feces_11294		
+SAMD00164910	human feces_11433		
+SAMD00164927	human feces_11467		
+SAMD00164928	human feces_11472		
+SAMD00164950	human feces_11524		
+SAMD00164983	human feces_11873		
+SAMD00164989	human feces_11893		
+SAMD00114718	human feces_10219		
+SAMD00114720	human feces_10229		
+SAMD00114732	human feces_10323		
+SAMD00114734	human feces_10325	male	72
+SAMD00114737	human feces_10118	female	62
+SAMD00114738	human feces_10119		
+SAMD00114740	human feces_10147		
+SAMD00114743	human feces_10154		
+SAMD00114749	human feces_10277		
+SAMD00114750	human feces_10284		
+SAMD00114751	human feces_10294		
+SAMD00114757	human feces_10158		
+SAMD00114761	human feces_10171	male	30
+SAMD00114765	human feces_10195	female	57
+SAMD00114772	human feces_10213		
+SAMD00114774	human feces_10306		
+SAMD00114784	human feces_10354		
+SAMD00114786	human feces_10358		
+SAMD00114795	human feces_10250		
+SAMD00114797	human feces_10260		
+SAMD00114798	human feces_10262	male	45
+SAMD00114807	human feces_10463		
+SAMD00114823	human feces_10503		
+SAMD00114824	human feces_10510		
+SAMD00114826	human feces_10483	female	63
+SAMD00114827	human feces_10484		
+SAMD00114831	human feces_10138		
+SAMD00114832	human feces_10144		
+SAMD00114834	human feces_10169	male	76
+SAMD00114841	human feces_10532		
+SAMD00114852	human feces_10576		
+SAMD00114863	human feces_10566	female	59
+SAMD00114868	human feces_10584		
+SAMD00114876	human feces_10663		
+SAMD00114878	human feces_10674		
+SAMD00114890	human feces_10634		
+SAMD00114904	human feces_10825		
+SAMD00114905	human feces_10827		
+SAMD00114907	human feces_10839		
+SAMD00114911	human feces_10718		
+SAMD00114926	human feces_10618		
+SAMD00114929	human feces_10639	male	40
+SAMD00114938	human feces_10632	male	76
+SAMD00114940	human feces_10659		
+SAMD00114942	human feces_10678		
+SAMD00114947	human feces_10766		
+SAMD00114948	human feces_10767		
+SAMD00114949	human feces_10715		
+SAMD00114951	human feces_10723		
+SAMD00114953	human feces_10733	male	63
+SAMD00114959	human feces_10784	male	49
+SAMD00114968	human feces_10036		
+SAMD00114972	human feces_10033		
+SAMD00114976	human feces_10221		
+SAMD00114977	human feces_10223	male	66
+SAMD00114987	human feces_10259		
+SAMD00114989	human feces_10269		
+SAMD00114990	human feces_10271		
+SAMD00114995	human feces_10105		
+SAMD00114997	human feces_10080	male	74
+SAMD00114999	human feces_10089		
+SAMD00115011	human feces_10377		
+SAMD00115015	human feces_10023		
+SAMD00115020	human feces_10059	female	69
+SAMD00115030	human feces_10081		
+SAMD00115040	human feces_10220		
+SAMD00115043	human feces_10233		
+SAMD00115062	human feces_10078		
+SAMD00115063	human feces_10084		
+SAMD00115067	human feces_10147.1		
+SAMD00115073	human feces_10097.1		
+SAMD00164723	human feces_10239		
+SAMD00164727	human feces_10272		
+SAMD00164728	human feces_10296		
+SAMD00164745	human feces_10367		
+SAMD00164760	human feces_10517		
+SAMD00164773	human feces_10583		
+SAMD00164778	human feces_10596		
+SAMD00164804	human feces_10793		
+SAMD00164805	human feces_10797		
+SAMD00164806	human feces_10802		
+SAMD00164812	human feces_10819		
+SAMD00164817	human feces_10860		
+SAMD00164819	human feces_10869		
+SAMD00164820	human feces_10880		
+SAMD00164831	human feces_10935		
+SAMD00164837	human feces_10976		
+SAMD00164838	human feces_10980		
+SAMD00164845	human feces_11011		
+SAMD00164853	human feces_11049		
+SAMD00164859	human feces_11085		
+SAMD00164860	human feces_11097		
+SAMD00164861	human feces_11103		
+SAMD00164863	human feces_11110		
+SAMD00164864	human feces_11121		
+SAMD00164866	human feces_11128		
+SAMD00164867	human feces_11132		
+SAMD00164873	human feces_11170		
+SAMD00164875	human feces_11203		
+SAMD00164876	human feces_11209		
+SAMD00164879	human feces_11223		
+SAMD00164897	human feces_11369		
+SAMD00164902	human feces_11413		
+SAMD00164904	human feces_11419		
+SAMD00164912	human feces_11438		
+SAMD00164915	human feces_11449		
+SAMD00114909	human feces_10709		
+SAMD00164916	human feces_11450		
+SAMD00164917	human feces_11451		
+SAMD00164921	human feces_11457		
+SAMD00164926	human feces_11464		
+SAMD00164935	human feces_11487		
+SAMD00114914	human feces_10749		
+SAMD00164937	human feces_11490		
+SAMD00164942	human feces_11502		
+SAMD00164945	human feces_11511		
+SAMD00114928	human feces_10630		
+SAMD00164951	human feces_11526		
+SAMD00164953	human feces_11528		
+SAMD00164954	human feces_11580		
+SAMD00114955	human feces_10759		
+SAMD00164966	human feces_11788		
+SAMD00164974	human feces_11823		
+SAMD00164982	human feces_11859		
+SAMD00164984	human feces_11879		
+SAMD00164992	human feces_11918		
+SAMD00164994	human feces_11921		
+SAMD00114965	human feces_10829		
+SAMD00164995	human feces_11922		
+SAMD00164996	human feces_11927		
+SAMD00165002	human feces_11956		
+SAMD00114979	human feces_10200		
+SAMD00165005	human feces_11973		
+SAMD00114983	human feces_10234	female	77
+SAMD00165006	human feces_11974		
+SAMD00115000	human feces_10103	male	55
+SAMD00115023	human feces_10048	female	77
+SAMD00165012	human feces_12005		
+SAMD00165017	human feces_12022		
+SAMD00165021	human feces_12082		
+SAMD00165024	human feces_12165		
+SAMD00115027	human feces_10029		
+SAMD00114857	human feces_10505		
+SAMD00114902	human feces_10814		
+SAMD00114954	human feces_10747	male	62
+SAMD00114998	human feces_10100	male	70
+SAMD00115013	human feces_10380	male	28
+SAMD00115051	human feces_10282		
+SAMD00115039	human feces_10034		
+SAMD00164803	human feces_10788		
+SAMD00164814	human feces_10832		
+SAMD00115054	human feces_10286		
+SAMD00164903	human feces_11417		
+SAMD00164975	human feces_11826		
+SAMD00165016	human feces_12020		
+SAMD00165018	human feces_12024		
+SAMD00115056	human feces_10312		
+SAMD00115057	human feces_10329		
+SAMD00115065	human feces_10096		
+SAMD00115066	human feces_10236.1		
+SAMD00115068	human feces_10126.1		
+SAMD00115079	human feces_10185.1		
+SAMD00115084	human feces_10307.1		
+SAMD00115085	human feces_10303.1		
+SAMD00115087	human feces_10532.1		
+SAMD00115088	human feces_10103.1		
+SAMD00115089	human feces_10099.1		
+SAMD00154993	human feces_10544	male	48
+SAMD00164764	human feces_10549		
+SAMD00164767	human feces_10565		
+SAMD00164769	human feces_10568		
+SAMD00164772	human feces_10580		
+SAMD00164777	human feces_10595.1		
+SAMD00164781	human feces_10603.1		
+SAMD00164807	human feces_10803		
+SAMD00164818	human feces_10866		
+SAMD00164821	human feces_10887		
+SAMD00164828	human feces_10924		
+SAMD00164833	human feces_10947		
+SAMD00164846	human feces_11029		
+SAMD00164852	human feces_11048		
+SAMD00164865	human feces_11124		
+SAMD00164869	human feces_11151		
+SAMD00164882	human feces_11227		
+SAMD00164886	human feces_11243		
+SAMD00164895	human feces_11343		
+SAMD00164896	human feces_11354		
+SAMD00164901	human feces_11409		
+SAMD00164911	human feces_11434		
+SAMD00164918	human feces_11452		
+SAMD00164924	human feces_11461		
+SAMD00164933	human feces_11480		
+SAMD00164936	human feces_11489		
+SAMD00164939	human feces_11495		
+SAMD00164944	human feces_11510		
+SAMD00164947	human feces_11513		
+SAMD00164948	human feces_11518		
+SAMD00164959	human feces_11667		
+SAMD00164965	human feces_11754		
+SAMD00164968	human feces_11817		
+SAMD00164969	human feces_11818		
+SAMD00164970	human feces_11819		
+SAMD00164978	human feces_11835		
+SAMD00164979	human feces_11836		
+SAMD00164980	human feces_11838		
+SAMD00164987	human feces_11888		
+SAMD00164993	human feces_11920		
+SAMD00164997	human feces_11929		
+SAMD00165000	human feces_11951		
+SAMD00165004	human feces_11965		
+SAMD00165009	human feces_11993		
+SAMD00165022	human feces_12101		
+SAMD00165027	human feces_12242		
+SAMD00165029	human feces_12276		
+SAMD00165030	human feces_12340		
+SAMD00165033	human feces_12396		
+SAMD00114842	human feces_10537	female	76
+SAMD00114871	human feces_10616	male	64
+SAMD00115024	human feces_10061		
+SAMD00115069	human feces_10199.1		
+SAMD00114722	human feces_10232	male	64
+SAMD00114724	human feces_10238	female	66
+SAMD00114727	human feces_10332	male	61
+SAMD00114728	human feces_10333		
+SAMD00114730	human feces_10318		
+SAMD00114733	human feces_10324		
+SAMD00114736	human feces_10114		
+SAMD00114758	human feces_10161		
+SAMD00114759	human feces_10165		
+SAMD00114760	human feces_10168	male	78
+SAMD00114771	human feces_10208		
+SAMD00114781	human feces_10302	male	64
+SAMD00114782	human feces_10303	female	44
+SAMD00114783	human feces_10353	female	50
+SAMD00114788	human feces_10338		
+SAMD00114799	human feces_10265		
+SAMD00114801	human feces_10109		
+SAMD00114803	human feces_10527	male	62
+SAMD00114811	human feces_10469		
+SAMD00114814	human feces_10480		
+SAMD00114817	human feces_10514		
+SAMD00114833	human feces_10151		
+SAMD00114836	human feces_10525		
+SAMD00114837	human feces_10591		
+SAMD00114839	human feces_10598		
+SAMD00114840	human feces_10604	male	69
+SAMD00114843	human feces_10541	female	53
+SAMD00114845	human feces_10543		
+SAMD00114848	human feces_10550		
+SAMD00114854	human feces_10586		
+SAMD00114858	human feces_10508		
+SAMD00114859	human feces_10589	female	75
+SAMD00114861	human feces_10610		
+SAMD00114862	human feces_10489	male	78
+SAMD00114865	human feces_10570	male	45
+SAMD00114867	human feces_10577		
+SAMD00114879	human feces_10775		
+SAMD00114880	human feces_10776	female	42
+SAMD00114881	human feces_10801		
+SAMD00114883	human feces_10812		
+SAMD00114884	human feces_10813	female	32
+SAMD00114888	human feces_10620		
+SAMD00114894	human feces_10660		
+SAMD00114899	human feces_10794		
+SAMD00114908	human feces_10698		
+SAMD00114910	human feces_10717		
+SAMD00114919	human feces_10713		
+SAMD00114920	human feces_10714	female	59
+SAMD00114930	human feces_10642		
+SAMD00114932	human feces_10657		
+SAMD00114935	human feces_10694		
+SAMD00114937	human feces_10619		
+SAMD00114941	human feces_10667		
+SAMD00114945	human feces_10741		
+SAMD00114946	human feces_10754	female	46
+SAMD00114952	human feces_10731		
+SAMD00114961	human feces_10809		
+SAMD00114966	human feces_10847	female	73
+SAMD00114967	human feces_10850	male	51
+SAMD00114969	human feces_10055		
+SAMD00114974	human feces_10188	female	71
+SAMD00114978	human feces_10198		
+SAMD00114981	human feces_10242		
+SAMD00114985	human feces_10251		
+SAMD00114991	human feces_10273		
+SAMD00114993	human feces_10288		
+SAMD00115003	human feces_10339		
+SAMD00115004	human feces_10340		
+SAMD00115007	human feces_10371		
+SAMD00115008	human feces_10356	male	76
+SAMD00115012	human feces_10378		
+SAMD00115014	human feces_10021		
+SAMD00115017	human feces_10040		
+SAMD00115018	human feces_10058		
+SAMD00115019	human feces_10046		
+SAMD00115031	human feces_10091		
+SAMD00115032	human feces_10092		
+SAMD00115037	human feces_10120		
+SAMD00115042	human feces_10230		
+SAMD00115046	human feces_10255		
+SAMD00115049	human feces_10280		
+SAMD00115052	human feces_10283		
+SAMD00115059	human feces_10374		
+SAMD00115060	human feces_10076		
+SAMD00115064	human feces_10066		
+SAMD00115071	human feces_10480.1		
+SAMD00115072	human feces_10067.1		
+SAMD00115074	human feces_10717.1		
+SAMD00115075	human feces_10745.1		
+SAMD00115082	human feces_10091.1		
+SAMD00154991	human feces_10497	male	65
+SAMD00154992	human feces_10515	female	66
+SAMD00154995	human feces_10582	male	70
+SAMD00164721	human feces_10237		
+SAMD00164729	human feces_10298		
+SAMD00164748	human feces_10390		
+SAMD00164756	human feces_10504		
+SAMD00164765	human feces_10555		
+SAMD00164771	human feces_10579		
+SAMD00164774	human feces_10587		
+SAMD00164780	human feces_10603		
+SAMD00164823	human feces_10889		
+SAMD00164825	human feces_10907		
+SAMD00164826	human feces_10911		
+SAMD00164830	human feces_10934		
+SAMD00164832	human feces_10938		
+SAMD00164839	human feces_10989		
+SAMD00164842	human feces_11006		
+SAMD00164843	human feces_11008		
+SAMD00164844	human feces_11010		
+SAMD00164848	human feces_11031		
+SAMD00164850	human feces_11036		
+SAMD00164855	human feces_11057		
+SAMD00164857	human feces_11074		
+SAMD00164871	human feces_11162		
+SAMD00164880	human feces_11224		
+SAMD00164894	human feces_11336		
+SAMD00164905	human feces_11423		
+SAMD00164906	human feces_11424		
+SAMD00164908	human feces_11431		
+SAMD00164919	human feces_11453		
+SAMD00164929	human feces_11473		
+SAMD00164930	human feces_11475		
+SAMD00164931	human feces_11477		
+SAMD00164938	human feces_11492		
+SAMD00164949	human feces_11521		
+SAMD00164964	human feces_11720		
+SAMD00164967	human feces_11796		
+SAMD00164976	human feces_11829		
+SAMD00164981	human feces_11851		
+SAMD00164986	human feces_11885		
+SAMD00164988	human feces_11891		
+SAMD00164991	human feces_11900		
+SAMD00165003	human feces_11957		
+SAMD00165008	human feces_11984		
+SAMD00165019	human feces_12025		
+SAMD00165020	human feces_12070		
+SAMD00165023	human feces_12106		
+SAMD00165031	human feces_12370		
+SAMD00164809	human feces_10808		
+SAMD00164870	human feces_11159		
+SAMD00164999	human feces_11942		
+SAMD00114729	human feces_10334		
+SAMD00114742	human feces_10152		
+SAMD00114764	human feces_10185		
+SAMD00114897	human feces_10670		
+SAMD00114913	human feces_10726		
+SAMD00114931	human feces_10656	male	70
+SAMD00114980	human feces_10209		
+SAMD00115045	human feces_10252		
+SAMD00164813	human feces_10831		
+SAMD00164847	human feces_11030		
+SAMD00164854	human feces_11054		
+SAMD00164973	human feces_11822		
+SAMD00165028	human feces_12243		
+SAMD00114739	human feces_10124		
+SAMD00114741	human feces_10150		
+SAMD00114745	human feces_10132		
+SAMD00114748	human feces_10140		
+SAMD00114753	human feces_10266	male	65
+SAMD00114762	human feces_10177		
+SAMD00114766	human feces_10199		
+SAMD00114768	human feces_10203		
+SAMD00114775	human feces_10307		
+SAMD00114776	human feces_10308		
+SAMD00114793	human feces_10248		
+SAMD00114800	human feces_10244		
+SAMD00114802	human feces_10182		
+SAMD00114804	human feces_10459		
+SAMD00114808	human feces_10464		
+SAMD00114810	human feces_10468		
+SAMD00114812	human feces_10473		
+SAMD00114815	human feces_10183		
+SAMD00114818	human feces_10519		
+SAMD00114820	human feces_10470		
+SAMD00114822	human feces_10492		
+SAMD00114828	human feces_10485		
+SAMD00114835	human feces_10523		
+SAMD00114838	human feces_10592		
+SAMD00114851	human feces_10572		
+SAMD00114853	human feces_10581		
+SAMD00114855	human feces_10608		
+SAMD00114864	human feces_10569		
+SAMD00114874	human feces_10647	male	76
+SAMD00114875	human feces_10648		
+SAMD00114882	human feces_10804		
+SAMD00114889	human feces_10621		
+SAMD00114891	human feces_10635		
+SAMD00114892	human feces_10645	female	49
+SAMD00114906	human feces_10838		
+SAMD00114916	human feces_10762		
+SAMD00114918	human feces_10701	male	42
+SAMD00114925	human feces_10756		
+SAMD00114927	human feces_10628		
+SAMD00114933	human feces_10665		
+SAMD00114934	human feces_10675		
+SAMD00114939	human feces_10644		
+SAMD00114956	human feces_10760		
+SAMD00114957	human feces_10772		
+SAMD00114958	human feces_10774		
+SAMD00114960	human feces_10785		
+SAMD00114964	human feces_10818	female	75
+SAMD00114970	human feces_10037	female	66
+SAMD00114971	human feces_10031		
+SAMD00114986	human feces_10254		
+SAMD00114992	human feces_10274		
+SAMD00114994	human feces_10304	male	44
+SAMD00114996	human feces_10106		
+SAMD00115001	human feces_10320	male	70
+SAMD00115005	human feces_10364		
+SAMD00115006	human feces_10366		
+SAMD00115009	human feces_10362	male	76
+SAMD00115016	human feces_10038		
+SAMD00115021	human feces_10047		
+SAMD00115025	human feces_10025		
+SAMD00115026	human feces_10073		
+SAMD00115028	human feces_10074		
+SAMD00115029	human feces_10067		
+SAMD00115033	human feces_10107		
+SAMD00115034	human feces_10097		
+SAMD00115036	human feces_10115		
+SAMD00115038	human feces_10368		
+SAMD00115044	human feces_10268		
+SAMD00115047	human feces_10256		
+SAMD00115048	human feces_10275		
+SAMD00115055	human feces_10290		
+SAMD00115058	human feces_10313		
+SAMD00115070	human feces_10462.1		
+SAMD00115076	human feces_10333.1		
+SAMD00115077	human feces_10323.1		
+SAMD00115083	human feces_10118.1		
+SAMD00115086	human feces_10260.1		
+SAMD00115090	human feces_10646.1		
+SAMD00154994	human feces_10578	male	65
+SAMD00164694	human feces_00001		
+SAMD00164696	human feces_10030.1		
+SAMD00164717	human feces_10210		
+SAMD00164744	human feces_10365		
+SAMD00164757	human feces_10511		
+SAMD00164758	human feces_10512		
+SAMD00164776	human feces_10595		
+SAMD00164779	human feces_10601		
+SAMD00164808	human feces_10806		
+SAMD00164824	human feces_10890		
+SAMD00164827	human feces_10913		
+SAMD00164834	human feces_10967		
+SAMD00164835	human feces_10968		
+SAMD00164836	human feces_10975		
+SAMD00164849	human feces_11035		
+SAMD00164851	human feces_11045		
+SAMD00164877	human feces_11210		
+SAMD00164878	human feces_11213		
+SAMD00164883	human feces_11237		
+SAMD00164885	human feces_11241		
+SAMD00164888	human feces_11255		
+SAMD00164889	human feces_11281		
+SAMD00164891	human feces_11299		
+SAMD00164893	human feces_11315		
+SAMD00164898	human feces_11379		
+SAMD00164907	human feces_11428		
+SAMD00164920	human feces_11454		
+SAMD00164923	human feces_11459		
+SAMD00164925	human feces_11462		
+SAMD00164940	human feces_11498		
+SAMD00164941	human feces_11501		
+SAMD00164955	human feces_11607		
+SAMD00164957	human feces_11638		
+SAMD00164958	human feces_11641		
+SAMD00164960	human feces_11675		
+SAMD00164961	human feces_11682		
+SAMD00164962	human feces_11694		
+SAMD00164963	human feces_11710		
+SAMD00164971	human feces_11820		
+SAMD00164977	human feces_11831		
+SAMD00164998	human feces_11940		
+SAMD00165001	human feces_11955		
+SAMD00165007	human feces_11982		
+SAMD00165011	human feces_12002		
+SAMD00165025	human feces_12197		
+SAMD00165026	human feces_12204		
+SAMD00165032	human feces_12389		

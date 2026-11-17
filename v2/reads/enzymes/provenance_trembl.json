@@ -1,0 +1,68 @@
+{
+  "built_utc": "2026-11-08T02:33:47Z",
+  "api": "https://rest.uniprot.org/uniprotkb/stream",
+  "query": "(((ec:4.1.1.105) OR (ec:4.1.1.28) OR (ec:4.1.1.25) OR (ec:4.1.1.18) OR (ec:4.1.1.22) OR (ec:4.1.1.15) OR (ec:2.3.1.1) OR (ec:2.3.1.35) OR (ec:4.1.1.17) OR (ec:4.1.1.19)) OR ((gene:ldcC) OR (gene:cadA) OR (gene:hdcA) OR (gene:hdcB) OR (gene:tyrDC) OR (gene:gadA) OR (gene:gadB) OR (gene:argA) OR (gene:argJ) OR (gene:speA) OR (gene:speC) OR (gene:speF))) AND (taxonomy_id:2)",
+  "reviewed_only": false,
+  "returned": 43557,
+  "admitted": 32348,
+  "rejected": 11209,
+  "written": 32348,
+  "per_ec": {
+    "2.3.1.1": 18810,
+    "2.3.1.35": 12808,
+    "4.1.1.105": 30,
+    "4.1.1.15": 3368,
+    "4.1.1.17": 2576,
+    "4.1.1.18": 1007,
+    "4.1.1.19": 5678,
+    "4.1.1.22": 424,
+    "4.1.1.25": 414,
+    "4.1.1.28": 163
+  },
+  "named_loci": {
+    "RUMGNA_01526": "A7B1V0",
+    "CLOSPO_02083": "J7SZ64"
+  },
+  "targets": {
+    "4.1.1.105": [
+      "tryptophan/aromatic decarboxylase",
+      "tryptamine, phenethylamine"
+    ],
+    "4.1.1.28": [
+      "aromatic-L-amino-acid decarboxylase",
+      "tyramine, phenethylamine"
+    ],
+    "4.1.1.25": [
+      "tyrosine decarboxylase",
+      "tyramine, phenethylamine"
+    ],
+    "4.1.1.18": [
+      "lysine decarboxylase",
+      "cadaverine -- the Allisonella question"
+    ],
+    "4.1.1.22": [
+      "histidine decarboxylase",
+      "histamine"
+    ],
+    "4.1.1.15": [
+      "glutamate decarboxylase",
+      "GABA"
+    ],
+    "2.3.1.1": [
+      "N-acetylglutamate synthase, de novo (ArgA)",
+      "N-acetylglutamate"
+    ],
+    "2.3.1.35": [
+      "N-acetylglutamate synthase, recycling (ArgJ)",
+      "N-acetylglutamate"
+    ],
+    "4.1.1.17": [
+      "ornithine decarboxylase",
+      "putrescine"
+    ],
+    "4.1.1.19": [
+      "arginine decarboxylase",
+      "agmatine"
+    ]
+  }
+}

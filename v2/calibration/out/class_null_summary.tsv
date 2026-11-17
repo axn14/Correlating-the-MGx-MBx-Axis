@@ -1,0 +1,7 @@
+statistic	observed	null_mean	null_lo95	null_hi95	p_empirical	expected_false_share
+supported_plus_all	82	45.05	36.0	54.0	0.001	0.549
+conclusive_all	1	0.28	0.0	1.0	0.2637	0.282
+supported_plus_a_priori_class	75	40.98	33.0	50.0	0.001	0.546
+conclusive_a_priori_class	1	0.26	0.0	1.0	0.2468	0.261
+supported_plus_stage_associated	7	4.07	1.0	7.0	0.0669	0.582
+conclusive_stage_associated	0	0.02	0.0	0.0	1.0	

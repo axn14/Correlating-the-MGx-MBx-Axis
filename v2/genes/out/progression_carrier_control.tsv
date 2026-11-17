@@ -1,0 +1,13 @@
+feature	carrier_species	carrier_available	reason	n	rho_carrier_adj	p_carrier_adj	carrier_rho_vs_stage	carrier_p_vs_stage	q_carrier_adj
+UniRef90_A0A0M6WRA6	g__Roseburia.s__Roseburia_faecis	False	carrier has no GTDB counterpart in the cohort species table						
+UniRef90_A0A173T3V0	g__Roseburia.s__Roseburia_faecis	False	carrier has no GTDB counterpart in the cohort species table						
+UniRef90_A0A174GRE2	g__Lachnospira.s__Lachnospira_pectinoschiza	True		277.0	-0.1371562655471875	0.02393803057957892	-0.26562033242213223	7.409369317881682e-06	0.04787606115915784
+UniRef90_A0A174M373	g__Lachnospira.s__Lachnospira_pectinoschiza	True		277.0	-0.15692731346917396	0.009668665772336583	-0.26562033242213223	7.409369317881682e-06	0.038674663089346334
+UniRef90_A0A174QH87		False	no species-stratified row for this cluster						
+UniRef90_A8SL35	g__Parvimonas.s__Parvimonas_micra	True		277.0	0.10722960310547941	0.07804453443933403	0.386757028661375	2.573190834510328e-11	0.12487125510293444
+UniRef90_D4L1D2	g__Roseburia.s__Roseburia_intestinalis	True		277.0	-0.09779351144095978	0.10820903420981637	-0.2027694710271244	0.0006867136816178271	0.14427871227975517
+UniRef90_E5Y860	g__Bilophila.s__Bilophila_wadsworthia	True		277.0	0.09232951065292073	0.1294813926197504	0.16219987464884178	0.0068248164206329755	0.14797873442257187
+UniRef90_Q8RG18	g__Fusobacterium.s__Fusobacterium_nucleatum	True		277.0	0.07681028797011338	0.20749803685915919	0.3665645896422081	3.1000754788053625e-10	0.20749803685915919
+UniRef90_R5HT10		False	no species-stratified row for this cluster						
+UniRef90_R5P0Y5	g__Butyricimonas.s__Butyricimonas_virosa	True		277.0	0.2152679579894564	0.000357916909855535	0.061532872698255435	0.30751635829730284	0.00286333527884428
+UniRef90_R6K290	g__Lachnospira.s__Lachnospira_pectinoschiza	True		277.0	-0.14282652347847893	0.018651398272405667	-0.26562033242213223	7.409369317881682e-06	0.04787606115915784

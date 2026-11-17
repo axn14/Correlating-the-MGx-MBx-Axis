@@ -1,0 +1,9 @@
+# NB10 (MICOM) only -- installed on top of requirements.txt; not part of the pinned
+# pipeline environment (run_pipeline.py never executes NB10). Versions are the ones
+# NB10 was debugged and run with (2026-10-23).
+#   pip install -r requirements-micom.txt
+micom==0.39.1
+cobra==0.32.1
+optlang==1.9.1
+osqp==1.1.3
+highspy==1.15.1

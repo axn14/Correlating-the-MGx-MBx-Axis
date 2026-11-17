@@ -1,0 +1,11 @@
+{
+  "built_utc": "2026-11-08T11:32:21Z",
+  "seed": 20261108,
+  "background_mult": 5,
+  "community_rows": 3579611,
+  "target_ids": 17100,
+  "observed_target_community_rows": 1267,
+  "eligible_pool": 3578344,
+  "background_clusters": 6335,
+  "nonzero_triples": 442566
+}
